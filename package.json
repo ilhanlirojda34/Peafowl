@@ -7,8 +7,8 @@
     "node": ">=22"
   },
   "scripts": {
-    "generate": "tsx --env-file=.env src/cli.ts",
-    "eval": "tsx --env-file=.env evals/run.ts",
+    "generate": "tsx --env-file-if-exists=.env src/cli.ts",
+    "eval": "tsx --env-file-if-exists=.env evals/run.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "format": "prettier --write .",
