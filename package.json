@@ -1,0 +1,33 @@
+{
+  "name": "peafowl",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "generate": "tsx --env-file=.env src/cli.ts",
+    "eval": "tsx --env-file=.env evals/run.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "tsx --test \"src/**/*.test.ts\" \"evals/**/*.test.ts\""
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^4.0.93",
+    "ai": "^7.0.136",
+    "pino": "^10.4.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^26.6.4",
+    "eslint": "^10.12.0",
+    "pino-pretty": "^13.2.0",
+    "prettier": "^3.9.9",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.71.1"
+  }
+}
