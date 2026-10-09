@@ -1,0 +1,50 @@
+[
+  {
+    "id": "coffee-roaster-tr",
+    "brief": "İstanbul Kadıköy'de küçük bir üçüncü nesil kahve kavurma dükkanı için tanıtım sitesi. Çekirdek çeşitleri ve abonelik seçeneği olsun."
+  },
+  {
+    "id": "freelance-designer-portfolio",
+    "brief": "Portfolio for a freelance brand designer based in Lisbon. Show three case studies and a contact section."
+  },
+  {
+    "id": "saas-landing-invoicing",
+    "brief": "Landing page for a SaaS that automates invoicing for small agencies. Include pricing with three tiers and an FAQ."
+  },
+  {
+    "id": "dental-clinic-tr",
+    "brief": "Ankara'da bir diş kliniği için randevu odaklı kurumsal site. Hizmetler, ekip ve çalışma saatleri bölümleri olsun."
+  },
+  {
+    "id": "yoga-studio",
+    "brief": "Website for a calm neighborhood yoga studio with a weekly class schedule and a first-class-free offer."
+  },
+  {
+    "id": "indie-game-launch",
+    "brief": "Launch page for an indie pixel-art puzzle game. Dark theme, trailer section, feature list and a wishlist call to action."
+  },
+  {
+    "id": "law-firm-tr",
+    "brief": "İzmir'de aile hukuku ve ticaret hukuku alanında çalışan bir hukuk bürosu için güven veren, sade bir site."
+  },
+  {
+    "id": "restaurant-menu",
+    "brief": "One-page site for a family-run Anatolian restaurant: story, menu highlights, opening hours and a reservation section."
+  },
+  {
+    "id": "nonprofit-donation",
+    "brief": "Donation page for a nonprofit that plants trees in burned forests. Show impact numbers and a donation call to action."
+  },
+  {
+    "id": "fitness-coach-tr",
+    "brief": "Online fitness koçu için kişisel marka sitesi. Dönüşüm hikayeleri, paketler ve ücretsiz görüşme çağrısı olsun."
+  },
+  {
+    "id": "architecture-studio",
+    "brief": "Minimal site for a small architecture studio. Large typography, selected projects, studio philosophy and contact."
+  },
+  {
+    "id": "event-conference",
+    "brief": "Landing page for a one-day developer conference: speakers, schedule, venue and ticket tiers."
+  }
+]
