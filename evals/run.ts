@@ -14,6 +14,11 @@ const evalCaseSchema = z.object({
 });
 type EvalCase = z.infer<typeof evalCaseSchema>;
 
+// Eval-only setting, kept out of the application config. Low by default to stay under free-tier rate limits.
+const evalEnvSchema = z.object({
+  EVAL_CONCURRENCY: z.coerce.number().int().min(1).max(10).default(2),
+});
+
 interface CaseResult {
   readonly id: string;
   readonly generated: boolean;
@@ -27,6 +32,7 @@ const EVAL_CASES_PATH = join(import.meta.dirname, 'prompts.json');
 
 async function main(): Promise<void> {
   const config = loadConfig();
+  const { EVAL_CONCURRENCY: concurrency } = evalEnvSchema.parse(process.env);
   const prompt = await loadSystemPrompt();
   const generateSite = createSiteGenerator({
     model: createGeminiModel(config),
@@ -65,7 +71,7 @@ async function main(): Promise<void> {
     }
   }
 
-  const results = await mapWithConcurrency(cases, config.evalConcurrency, runCase);
+  const results = await mapWithConcurrency(cases, concurrency, runCase);
 
   const report = { runId, model: config.model, promptVersion: prompt.version, results };
   await writeFile(join(outputDir, 'report.json'), JSON.stringify(report, null, 2), 'utf8');

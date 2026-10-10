@@ -15,18 +15,17 @@ describe('loadConfig', () => {
     assert.equal(config.llmIdleTimeoutMs, 60_000);
     assert.equal(config.llmMaxRetries, 2);
     assert.equal(config.logLevel, 'info');
-    assert.equal(config.evalConcurrency, 2);
   });
 
   it('coerces numeric variables from strings', () => {
     const config = loadConfig({
       GOOGLE_GENERATIVE_AI_API_KEY: TEST_API_KEY,
       LLM_TIMEOUT_MS: '5000',
-      EVAL_CONCURRENCY: '4',
+      LLM_MAX_RETRIES: '4',
     });
 
     assert.equal(config.llmTimeoutMs, 5000);
-    assert.equal(config.evalConcurrency, 4);
+    assert.equal(config.llmMaxRetries, 4);
   });
 
   it('rejects a missing API key and names the variable', () => {

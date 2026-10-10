@@ -7,7 +7,6 @@ const envSchema = z.object({
   LLM_IDLE_TIMEOUT_MS: z.coerce.number().int().positive().default(60_000),
   LLM_MAX_RETRIES: z.coerce.number().int().min(0).max(5).default(2),
   LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace']).default('info'),
-  EVAL_CONCURRENCY: z.coerce.number().int().min(1).max(10).default(2),
 });
 
 export interface Config {
@@ -18,7 +17,6 @@ export interface Config {
   readonly llmIdleTimeoutMs: number;
   readonly llmMaxRetries: number;
   readonly logLevel: z.infer<typeof envSchema>['LOG_LEVEL'];
-  readonly evalConcurrency: number;
 }
 
 export class ConfigError extends Error {}
@@ -41,6 +39,5 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): Config {
     llmIdleTimeoutMs: values.LLM_IDLE_TIMEOUT_MS,
     llmMaxRetries: values.LLM_MAX_RETRIES,
     logLevel: values.LOG_LEVEL,
-    evalConcurrency: values.EVAL_CONCURRENCY,
   };
 }
