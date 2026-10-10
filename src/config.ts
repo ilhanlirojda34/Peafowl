@@ -3,7 +3,7 @@ import { z } from 'zod';
 const envSchema = z.object({
   GOOGLE_GENERATIVE_AI_API_KEY: z.string().min(1),
   GEMINI_MODEL: z.string().min(1).default('gemini-3.8-flash'),
-  LLM_TIMEOUT_MS: z.coerce.number().int().positive().default(120_000),
+  LLM_TIMEOUT_MS: z.coerce.number().int().positive().default(300_000),
   LLM_MAX_RETRIES: z.coerce.number().int().min(0).max(5).default(2),
   LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace']).default('info'),
   EVAL_CONCURRENCY: z.coerce.number().int().min(1).max(10).default(2),

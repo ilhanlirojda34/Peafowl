@@ -8,7 +8,7 @@ describe('loadConfig', () => {
 
     assert.equal(config.googleApiKey, 'test-key');
     assert.equal(config.model, 'gemini-3.8-flash');
-    assert.equal(config.llmTimeoutMs, 120_000);
+    assert.equal(config.llmTimeoutMs, 300_000);
     assert.equal(config.llmMaxRetries, 2);
     assert.equal(config.logLevel, 'info');
     assert.equal(config.evalConcurrency, 2);
