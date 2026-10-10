@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diyar Anatolian Kitchen | Family-Run Wood-Fired Heritage Dining</title>
+  <meta name="description" content="Experience ancestral wood-fired recipes, hand-stretched pides, and slow-braised clay pot specialties from the Anatolian heartland. Family-owned in London since 1998.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clay: {
+              50: '#FDF9F5',
+              100: '#F7EFE8',
+              200: '#EEDDD0',
+              300: '#DEC2AB',
+              400: '#C79A78',
+              600: '#A05C38',
+              700: '#844426',
+              800: '#6C361F',
+              900: '#4D2515',
+            },
+            sumac: {
+              600: '#8A2B2B',
+              700: '#722020',
+              800: '#5A1717',
+            },
+            saffron: {
+              400: '#EAB308',
+              500: '#CA8A04',
+              600: '#A16207',
+            },
+            olive: {
+              700: '#3D4D36',
+              800: '#2F3C2A',
+            },
+            hearth: {
+              900: '#1A1412',
+              950: '#110D0B',
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Subtle decorative motifs */
+    .pattern-kilim {
+      background-color: #FDF9F5;
+      background-image: radial-gradient(#C79A78 0.6px, transparent 0.6px), radial-gradient(#844426 0.6px, #FDF9F5 0.6px);
+      background-size: 24px 24px;
+      background-position: 0 0, 12px 12px;
+      background-opacity: 0.15;
+    }
+    .pattern-dark {
+      background-color: #1A1412;
+      background-image: radial-gradient(rgba(199, 154, 120, 0.15) 0.75px, transparent 0.75px);
+      background-size: 20px 20px;
+    }
+    /* Smooth focus rings */
+    *:focus-visible {
+      outline: 2px solid #A05C38;
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body class="bg-clay-50 text-stone-800 font-sans antialiased selection:bg-clay-200 selection:text-clay-900">
+
+  <!-- TOP BANNER / HOSPITALITY NOTE -->
+  <div class="bg-hearth-900 text-clay-200 text-xs py-2 px-4 border-b border-stone-800 tracking-wide">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-1.5 text-center sm:text-left">
+      <span class="flex items-center gap-2">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-saffron-400"></span>
+        Traditional Wood-Fired Hearth Dining &bull; Established 1998 in Newington Green
+      </span>
+      <div class="flex items-center gap-4 text-stone-300">
+        <a href="tel:+442072264891" class="hover:text-white transition-colors duration-200 flex items-center gap-1">
+          <svg aria-hidden="true" class="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 4V3z"/></svg>
+          020 7226 4891
+        </a>
+        <span class="text-stone-600 hidden sm:inline">|</span>
+        <span class="hidden sm:inline">Walk-ins always welcome for counter seats</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-clay-50/95 backdrop-blur-md border-b border-clay-200 transition-all duration-300" id="site-header">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-20">
+      
+      <!-- Logo -->
+      <a href="#" class="group flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-clay-700 text-clay-50 flex items-center justify-center shadow-inner group-hover:bg-clay-800 transition-colors">
+          <!-- Stylized Hearth / Anatolian Sun emblem -->
+          <svg aria-hidden="true" class="w-6 h-6 text-saffron-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="12" r="5" />
+            <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1l2.1-2.1M17 7l2.1-2.1"/>
+          </svg>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-serif text-2xl font-bold tracking-tight text-stone-900 group-hover:text-clay-700 transition-colors">Diyar</span>
+          <span class="text-[11px] uppercase tracking-[0.2em] text-clay-600 -mt-1 font-semibold">Anatolian Kitchen</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav aria-label="Primary" class="hidden md:flex items-center gap-8">
+        <a href="#story" class="text-stone-700 hover:text-clay-700 font-medium text-sm tracking-wide transition-colors">Our Story</a>
+        <a href="#menu" class="text-stone-700 hover:text-clay-700 font-medium text-sm tracking-wide transition-colors">Menu Highlights</a>
+        <a href="#tradition" class="text-stone-700 hover:text-clay-700 font-medium text-sm tracking-wide transition-colors">The Hearth</a>
+        <a href="#hours" class="text-stone-700 hover:text-clay-700 font-medium text-sm tracking-wide transition-colors">Hours &amp; Location</a>
+        <a href="#reserve" class="inline-flex items-center gap-2 bg-clay-700 hover:bg-clay-800 text-white px-5 py-2.5 rounded-full text-sm font-medium transition duration-200 shadow-sm shadow-clay-800/20 active:scale-95">
+          <span>Book a Table</span>
+          <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button type="button" id="mobile-toggle" aria-expanded="false" aria-controls="mobile-nav" class="md:hidden p-2 text-stone-700 hover:text-clay-800 hover:bg-clay-100 rounded-lg focus:ring-2 focus:ring-clay-700">
+        <span class="sr-only">Open navigation menu</span>
+        <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-nav" class="hidden md:hidden border-t border-clay-200 bg-clay-50 px-6 py-6 space-y-4">
+      <a href="#story" class="mobile-link block text-lg font-serif text-stone-800 hover:text-clay-700 py-1">Our Story</a>
+      <a href="#menu" class="mobile-link block text-lg font-serif text-stone-800 hover:text-clay-700 py-1">Menu Highlights</a>
+      <a href="#tradition" class="mobile-link block text-lg font-serif text-stone-800 hover:text-clay-700 py-1">The Hearth &amp; Craft</a>
+      <a href="#hours" class="mobile-link block text-lg font-serif text-stone-800 hover:text-clay-700 py-1">Hours &amp; Location</a>
+      <div class="pt-2">
+        <a href="#reserve" class="mobile-link block w-full text-center bg-clay-700 text-white font-medium py-3 rounded-lg hover:bg-clay-800">Book a Table</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="relative overflow-hidden pt-12 pb-20 md:py-24 border-b border-clay-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <!-- Text column -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-clay-100 border border-clay-300 text-clay-800 text-xs font-semibold tracking-wide uppercase">
+              <svg aria-hidden="true" class="w-3.5 h-3.5 text-sumac-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.316.492-.55 1.05-.727 1.625A17.92 17.92 0 008.5 8.006a14.73 14.73 0 00-1.258 3.513c-.156.63-.242 1.282-.242 1.981 0 3.314 2.686 6 6 6s6-2.686 6-6c0-1.745-.63-3.35-1.718-4.593a12.8 12.8 0 00-2.316-2.091c-.428-.31-.875-.595-1.332-.843-.4-.216-.859-.444-1.239-.42zM12 6.5a1.5 1.5 0 011.5 1.5c0 1.25-.8 2.25-1.5 3-.7-.75-1.5-1.75-1.5-3A1.5 1.5 0 0112 6.5z" clip-rule="evenodd"/>
+              </svg>
+              <span>Three Generations &bull; Kayseri &amp; Gaziantep Heritage</span>
+            </div>
+
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal tracking-tight text-stone-900 leading-[1.12]">
+              Ancestral recipes, baked over <span class="italic font-semibold text-clay-700">oak embers</span> and shared with open hands.
+            </h1>
+
+            <p class="text-stone-600 text-lg sm:text-xl font-normal leading-relaxed max-w-2xl">
+              At Diyar, hospitality begins with our brick <span class="text-stone-800 font-medium">taş fırın</span> oven. Every morning, the Kaya family rolls fresh dough for sesame pides, simmers lamb in earthen clay güveç, and mortar-pounds sun-dried peppers shipped from Maraş.
+            </p>
+
+            <!-- Quick highlights ribbon -->
+            <div class="pt-2 pb-2 grid grid-cols-3 gap-3 border-y border-clay-200 text-stone-700 max-w-lg">
+              <div class="pr-2">
+                <span class="block font-serif text-2xl font-bold text-clay-800">48h</span>
+                <span class="text-xs text-stone-500 uppercase tracking-wider">Slow Sourdough</span>
+              </div>
+              <div class="border-l border-clay-200 pl-3 pr-2">
+                <span class="block font-serif text-2xl font-bold text-clay-800">450°C</span>
+                <span class="text-xs text-stone-500 uppercase tracking-wider">Wood-Fired Hearth</span>
+              </div>
+              <div class="border-l border-clay-200 pl-3">
+                <span class="block font-serif text-2xl font-bold text-clay-800">100%</span>
+                <span class="text-xs text-stone-500 uppercase tracking-wider">Family Owned</span>
+              </div>
+            </div>
+
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row gap-4 pt-2">
+              <a href="#reserve" class="inline-flex justify-center items-center gap-2 bg-clay-700 hover:bg-clay-800 text-white font-medium px-7 py-3.5 rounded-xl shadow-md transition duration-200">
+                <span>Reserve an Evening Table</span>
+                <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+              </a>
+              <a href="#menu" class="inline-flex justify-center items-center gap-2 bg-white hover:bg-clay-100 text-stone-800 border border-clay-300 font-medium px-6 py-3.5 rounded-xl transition duration-200">
+                <span>View Tonight's Menu</span>
+              </a>
+            </div>
+
+            <p class="text-xs text-stone-500 italic">
+              * Tables held for 15 minutes. Counter seating available for walk-in solo diners and duos.
+            </p>
+          </div>
+
+          <!-- Hero Graphic Composition -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              
+              <!-- Decorative border backdrop -->
+              <div class="absolute -inset-3 rounded-3xl bg-gradient-to-tr from-clay-300 to-clay-100 transform -rotate-1 opacity-70"></div>
+
+              <!-- Main Visual Card: Stylized Anatolian Culinary Scene -->
+              <div class="relative rounded-2xl bg-gradient-to-b from-stone-900 to-hearth-950 text-white p-7 shadow-2xl border border-stone-800 overflow-hidden">
+                
+                <!-- Background Pattern -->
+                <div class="absolute inset-0 pattern-dark opacity-40"></div>
+
+                <div class="relative z-10 flex justify-between items-start mb-6">
+                  <div>
+                    <span class="text-xs font-semibold uppercase tracking-widest text-saffron-400">The Evening Hearth</span>
+                    <h3 class="font-serif text-2xl text-clay-100 mt-0.5">Tonight at 8:00 PM</h3>
+                  </div>
+                  <span class="px-2.5 py-1 rounded bg-sumac-700/60 text-clay-200 text-xs border border-sumac-600/40 font-mono">Slow Ember Roast</span>
+                </div>
+
+                <!-- SVG Plate Art: Traditional Ceramic Motif & Lamb Dish Illustration -->
+                <div class="relative h-64 w-full rounded-xl bg-stone-900 flex items-center justify-center p-4 border border-stone-800 overflow-hidden" role="img" aria-label="Illustration of handmade Turkish ceramic plate with lamb shank and wood-fired flatbread">
+                  <!-- Radial ambient glow -->
+                  <div class="absolute w-44 h-44 rounded-full bg-clay-700/30 blur-2xl"></div>
+
+                  <svg class="w-full h-full max-w-[260px] max-h-[260px] drop-shadow-xl" viewBox="0 0 200 200" fill="none">
+                    <!-- Outer Plate (Copper / Glazed Terracotta) -->
+                    <circle cx="100" cy="100" r="92" fill="#2C221D" stroke="#C79A78" stroke-width="2.5"/>
+                    <circle cx="100" cy="100" r="84" fill="#201814" stroke="#722020" stroke-width="1.5" stroke-dasharray="4 3"/>
+                    <!-- Iznik / Anatolian floral rim pattern -->
+                    <circle cx="100" cy="100" r="76" stroke="#CA8A04" stroke-width="1" opacity="0.6"/>
+                    <g opacity="0.75" stroke="#DEC2AB" stroke-width="1">
+                      <path d="M100 8 L100 24 M100 176 L100 192 M8 100 L24 100 M176 100 L192 100"/>
+                      <path d="M35 35 L46 46 M154 154 L165 165 M35 165 L46 154 M165 35 L154 46"/>
+                    </g>
+                    <!-- Inner Well of Plate -->
+                    <circle cx="100" cy="100" r="66" fill="#181310"/>
+                    <!-- Rich Braised Broth / Saffron Puree base -->
+                    <ellipse cx="100" cy="104" rx="52" ry="46" fill="#6A2E17" opacity="0.9"/>
+                    <ellipse cx="98" cy="102" rx="42" ry="36" fill="#844426" opacity="0.8"/>
+                    <!-- Wood-fired Flatbread Wedge -->
+                    <path d="M56 128 C50 110, 62 82, 88 74 C100 70, 115 75, 110 92 C105 108, 80 135, 56 128 Z" fill="#D9A371" stroke="#8E5429" stroke-width="1.5"/>
+                    <!-- Char spots on bread -->
+                    <circle cx="80" cy="92" r="3" fill="#422212"/>
+                    <circle cx="94" cy="85" r="2.5" fill="#422212"/>
+                    <circle cx="70" cy="108" r="3.5" fill="#422212"/>
+                    <circle cx="64" cy="98" r="2" fill="#422212"/>
+                    <!-- Braised Lamb Incik / Shank Bone & Rich Meat -->
+                    <ellipse cx="112" cy="108" rx="26" ry="18" fill="#471B10" transform="rotate(-15 112 108)"/>
+                    <path d="M125 100 C138 90, 150 78, 158 65 C162 60, 158 55, 152 58 C140 65, 130 82, 122 92 Z" fill="#F1ECE4" stroke="#D1C3B2" stroke-width="1"/>
+                    <!-- Pistachio & Pomegranate Garnish Sprinkles -->
+                    <circle cx="105" cy="118" r="2" fill="#65A30D"/>
+                    <circle cx="118" cy="112" r="1.8" fill="#65A30D"/>
+                    <circle cx="96" cy="114" r="2" fill="#8A2B2B"/>
+                    <circle cx="110" cy="102" r="2.2" fill="#8A2B2B"/>
+                    <circle cx="126" cy="116" r="1.8" fill="#8A2B2B"/>
+                    <circle cx="88" cy="102" r="1.5" fill="#65A30D"/>
+                    <!-- Fresh Mint/Thyme Sprig -->
+                    <path d="M92 118 Q100 112 108 122" stroke="#4D7C0F" stroke-width="2.5" stroke-linecap="round"/>
+                  </svg>
+
+                  <div class="absolute bottom-3 left-4 bg-stone-900/90 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-stone-700/60 text-xs">
+                    <span class="text-clay-300 font-serif italic text-sm">Signature:</span> 
+                    <span class="text-stone-100 font-medium ml-1">Kuzu Tandır (12h Slow Oak Roast)</span>
+                  </div>
+                </div>
+
+                <!-- Family Quote Snippet -->
+                <div class="mt-5 pt-4 border-t border-stone-800 flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full bg-clay-800 text-saffron-400 flex items-center justify-center font-serif font-bold text-sm shrink-0">
+                    ZK
+                  </div>
+                  <p class="text-xs text-stone-300 italic leading-snug">
+                    &ldquo;In Kayseri, food is never made for one. If the pot is on the fire, the door stays unlatched.&rdquo;
+                    <span class="block not-italic text-stone-400 font-sans text-[11px] mt-0.5">&mdash; Chef Zehra Kaya, Founder &amp; Mother</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR STORY SECTION -->
+    <section id="story" class="py-20 bg-clay-100/60 border-b border-clay-200 pattern-kilim">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-clay-700 text-xs font-bold uppercase tracking-widest">Our Heritage</span>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-stone-900 mt-2 font-normal">
+            Rooted in Kayseri, cooked with patience in London.
+          </h2>
+          <div class="w-16 h-0.5 bg-clay-600 mx-auto mt-4"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Story Block 1 -->
+          <div class="bg-white p-8 rounded-2xl border border-clay-200/80 shadow-sm flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-clay-100 text-clay-700 flex items-center justify-center">
+                <!-- Wheat / Flour Icon -->
+                <svg aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v18m0-18l3 3m-3-3L9 6m3 6l4-2m-4 2l-4-2m4 6l4-2m-4 2l-4-2"/></svg>
+              </div>
+              <h3 class="font-serif text-2xl text-stone-900">The 26-Year-Old Starter</h3>
+              <p class="text-stone-600 text-sm leading-relaxed">
+                When Mehmet and Zehra Kaya left Central Anatolia in the late nineties, they carried a small crock of fermented dough starter wrapped in wool. That same sourdough culture gives our <span class="font-medium text-stone-900">Tırnak Pidesi</span> its smoky blisters and airy crumb today.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-stone-100 mt-6 text-xs text-clay-600 font-semibold tracking-wider uppercase">
+              Flour &bull; Water &bull; Sea Salt &bull; Time
+            </div>
+          </div>
+
+          <!-- Story Block 2 -->
+          <div class="bg-white p-8 rounded-2xl border border-clay-200/80 shadow-sm flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-clay-100 text-sumac-700 flex items-center justify-center">
+                <!-- Fire / Kiln Icon -->
+                <svg aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c-.004.793.308 1.57.879 2.121z"/></svg>
+              </div>
+              <h3 class="font-serif text-2xl text-stone-900">The Hand-Built Stone Oven</h3>
+              <p class="text-stone-600 text-sm leading-relaxed">
+                Our dining room is anchored by a custom firebrick oven fueled exclusively by seasoned English oak. Baking at 450°C sears meats in seconds to lock in natural juices while imparting the unmistakable scent of the steppe.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-stone-100 mt-6 text-xs text-sumac-600 font-semibold tracking-wider uppercase">
+              Seasoned British Oak &bull; 450°C
+            </div>
+          </div>
+
+          <!-- Story Block 3 -->
+          <div class="bg-white p-8 rounded-2xl border border-clay-200/80 shadow-sm flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="w-12 h-12 rounded-xl bg-clay-100 text-olive-700 flex items-center justify-center">
+                <!-- Spice Mortar Icon -->
+                <svg aria-hidden="true" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 11H5m14 0a7 7 0 01-14 0m14 0v1a6 6 0 01-6 6H9a6 6 0 01-6-6v-1m12-6L9 9"/></svg>
+              </div>
+              <h3 class="font-serif text-2xl text-stone-900">Spices with Lineage</h3>
+              <p class="text-stone-600 text-sm leading-relaxed">
+                We work directly with cousin growers in Gaziantep, Maraş, and Urfa. Sun-dried isot pepper cured in olive oil, wild mountain thyme (<span class="font-medium text-stone-900">kekik</span>), and hand-picked sumac berries arrive seasonally without industrial additives.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-stone-100 mt-6 text-xs text-olive-700 font-semibold tracking-wider uppercase">
+              Urfa Isot &bull; Antep Pistachios &bull; Wild Thyme
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Family signature banner -->
+        <div class="mt-12 bg-white/70 border border-clay-200 rounded-xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-stone-700">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-clay-700 text-white flex items-center justify-center font-serif text-xl font-bold">
+              K
+            </div>
+            <div>
+              <p class="font-serif text-lg font-bold text-stone-900">A Message from the Kaya Family</p>
+              <p class="text-xs text-stone-600">Mehmet (Charcoal Grill), Zehra (Breads &amp; Pastry), and son Baran (Front of House)</p>
+            </div>
+          </div>
+          <p class="text-stone-600 text-sm italic max-w-md text-center sm:text-right">
+            &ldquo;When you sit at our tables, you are not customers; you are guests in our home. Afiyet olsun!&rdquo;
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MENU HIGHLIGHTS SECTION -->
+    <section id="menu" class="py-20 bg-clay-50 border-b border-clay-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+            <span class="text-clay-700 text-xs font-bold uppercase tracking-widest">Seasonal Specialties</span>
+            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl text-stone-900 mt-2 font-normal">
+              From Our Hearth &amp; Clay Pots
+            </h2>
+            <p class="text-stone-600 text-sm sm:text-base mt-2 max-w-xl">
+              All pides are shaped by hand to order. Mezes are prepared fresh twice daily. Meats are sourced from traditional halal-certified British pasture farms.
+            </p>
+          </div>
+
+          <!-- Category filter buttons -->
+          <div class="mt-6 md:mt-0 flex flex-wrap gap-2" role="tablist" aria-label="Menu categories">
+            <button type="button" role="tab" aria-selected="true" data-tab="all" class="menu-tab px-4 py-2 rounded-full text-xs font-semibold bg-clay-700 text-white transition-all shadow-sm">
+              All Highlights
+            </button>
+            <button type="button" role="tab" aria-selected="false" data-tab="breads" class="menu-tab px-4 py-2 rounded-full text-xs font-semibold bg-white text-stone-700 border border-clay-300 hover:border-clay-500 transition-all">
+              Breads &amp; Meze
+            </button>
+            <button type="button" role="tab" aria-selected="false" data-tab="hearth" class="menu-tab px-4 py-2 rounded-full text-xs font-semibold bg-white text-stone-700 border border-clay-300 hover:border-clay-500 transition-all">
+              Wood-Fired &amp; Grills
+            </button>
+            <button type="button" role="tab" aria-selected="false" data-tab="sweets" class="menu-tab px-4 py-2 rounded-full text-xs font-semibold bg-white text-stone-700 border border-clay-300 hover:border-clay-500 transition-all">
+              Desserts &amp; Cay
+            </button>
+          </div>
+        </div>
+
+        <!-- Menu Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="menu-grid">
+          
+          <!-- Dish 1 -->
+          <article data-category="breads" class="menu-item bg-white p-6 rounded-2xl border border-clay-200 hover:border-clay-400 transition-all duration-200 flex flex-col justify-between group shadow-sm hover:shadow-md">
+            <div>
+              <div class="flex justify-between items-baseline gap-4">
+                <h3 class="font-serif text-2xl text-stone-900 group-hover:text-clay-700 transition-colors">
+                  Kayseri Yağlaması
+                </h3>
+                <span class="font-serif text-xl font-bold text-clay-800">&pound;13.50</span>
+              </div>
+              <p class="text-xs uppercase font-medium text-clay-600 tracking-wide mt-1">Twelve-Layer Hand-Rolled Flatbread</p>
+              <p class="text-stone-600 text-sm mt-3 leading-relaxed">
+                Thin hand-rolled yufka layers stacked with minced spiced lamb, grated tomato, garlic butter, and Turkish green peppers. Served with cold garlic yogurt.
+              </p>
+            </div>
+            <div class="flex items-center gap-2 mt-4 pt-4 border-t border-stone-100 text-[11px] font-semibold text-stone-500">
+              <span class="px-2 py-0.5 rounded bg-clay-100 text-clay-800">Chef's Heritage Recipe</span>
+              <span>&bull; Contains Dairy, Gluten</span>
+            </div>
+          </article>
+
+          <!-- Dish 2 -->
+          <article data-category="hearth" class="menu-item bg-white p-6 rounded-2xl border border-clay-200 hover:border-clay-400 transition-all duration-200 flex flex-col justify-between group shadow-sm hover:shadow-md">
+            <div>
+              <div class="flex justify-between items-baseline gap-4">
+                <h3 class="font-serif text-2xl text-stone-900 group-hover:text-clay-700 transition-colors">
+                  Kuzu Tandır Çömlek
+                </h3>
+                <span class="font-serif text-xl font-bold text-clay-800">&pound;24.00</span>
+              </div>
+              <p class="text-xs uppercase font-medium text-clay-600 tracking-wide mt-1">12-Hour Oak Ember Braised Lamb</p>
+              <p class="text-stone-600 text-sm mt-3 leading-relaxed">
+                Suffolk grass-fed lamb shoulder sealed in a clay amphora with shallots, bay leaf, and Maraş butter. Cooked overnight in low coals until meltingly tender.
+              </p>
+            </div>
+            <div class="flex items-center gap-2 mt-4 pt-4 border-t border-stone-100 text-[11px] font-semibold text-stone-500">
+              <span class="px-2 py-0.5 rounded bg-clay-100 text-clay-800">Slow Cooked 12h</span>
+              <span class="px-2 py-0.5 rounded bg-stone-100 text-stone-700">Halal Certified</span>
+            </div>
+          </article>
+
+          <!-- Dish 3 -->
+          <article data-category="hearth" class="menu-item bg-white p-6 rounded-2xl border border-clay-200 hover:border-clay-400 transition-all duration-200 flex flex-col justify-between group shadow-sm hover:shadow-md">
+            <div>
+              <div class="flex justify-between items-baseline gap-4">
+                <h3 class="font-serif text-2xl text-stone-900 group-hover:text-clay-700 transition-colors">
+                  Kuşbaşılı Kaşarlı Pide
+                </h3>
+                <span class="font-serif text-xl font-bold text-clay-800">&pound;16.50</span>
+              </div>
+              <p class="text-xs uppercase font-medium text-clay-600 tracking-wide mt-1">Boat-Shaped Sourdough Hearth Bread</p>
+              <p class="text-stone-600 text-sm mt-3 leading-relaxed">
+                Hand-stretched 48-hour sourdough boat stuffed with diced marinated beef skirt, roasted kapya peppers, and mature aged Kaşar cheese from Thrace.
+              </p>
+            </div>
+            <div class="flex items-center gap-2 mt-4 pt-4 border-t border-stone-100 text-[11px] font-semibold text-stone-500">
+              <span class="px-2 py-0.5 rounded bg-clay-100 text-clay-800">Baked to Order</span>
+              <span>&bull; Vegetarian option available</span>
+            </div>
+          </article>
+
+          <!-- Dish 4 -->
+          <article data-category="breads" class="menu-item bg-white p-6 rounded-2xl border border-clay-200 hover:border-clay-400 transition-all duration-200 flex flex-col justify-between group shadow-sm hover:shadow-md">
+            <div>
+              <div class="flex justify-between items-baseline gap-4">
+                <h3 class="font-serif text-2xl text-stone-900 group-hover:text-clay-700 transition-colors">
+                  Atom &amp; Babaganuş Trio
+                </h3>
+                <span class="font-serif text-xl font-bold text-clay-800">&pound;12.00</span>
+              </div>
+              <p class="text-xs uppercase font-medium text-clay-600 tracking-wide mt-1">Ember-Roasted Meze Platter</p>
+              <p class="text-stone-600 text-sm mt-3 leading-relaxed">
+                Strained sheep yogurt with hot dried Arnavut chili butter, paired with fire-roasted aubergine mash, cold-pressed Aegean olive oil, and hot puff lavash bread.
+              </p>
+            </div>
+            <div class="flex items-center gap-2 mt-4 pt-4 border-t border-stone-100 text-[11px] font-semibold text-stone-500">
+              <span class="px-2 py-0.5 rounded bg-olive-700/10 text-olive-800">Vegetarian</span>
+              <span>&bull; Gluten-free bread on request</span>
+            </div>
+          </article>
+
+          <!-- Dish 5 -->
+          <article data-category="hearth" class="menu-item bg-white p-6 rounded-2xl border border-clay-200 hover:border-clay-400 transition-all duration-200 flex flex-col justify-between group shadow-sm hover:shadow-md">
+            <div>
+              <div class="flex justify-between items-baseline gap-4">
+                <h3 class="font-serif text-2xl text-stone-900 group-hover:text-clay-700 transition-colors">
+                  İskenderun Deniz Güveci
+                </h3>
+                <span class="font-serif text-xl font-bold text-clay-800">&pound;22.50</span>
+              </div>
+              <p class="text-xs uppercase font-medium text-clay-600 tracking-wide mt-1">Mediterranean Claypot Seafood Stew</p>
+              <p class="text-stone-600 text-sm mt-3 leading-relaxed">
+                Cornish monkfish cheek, king prawns, and Kalamata squid simmered with charred tomatoes, sweet garlic, oregano, and melted sheep halloumi crust.
+              </p>
+            </div>
+            <div class="flex items-center gap-2 mt-4 pt-4 border-t border-stone-100 text-[11px] font-semibold text-stone-500">
+              <span class="px-2 py-0.5 rounded bg-clay-100 text-clay-800">Wild Caught</span>
+              <span>&bull; Served with warm sesame loaf</span>
+            </div>
+          </article>
+
+          <!-- Dish 6 -->
+          <article data-category="sweets" class="menu-item bg-white p-6 rounded-2xl border border-clay-200 hover:border-clay-400 transition-all duration-200 flex flex-col justify-between group shadow-sm hover:shadow-md">
+            <div>
+              <div class="flex justify-between items-baseline gap-4">
+                <h3 class="font-serif text-2xl text-stone-900 group-hover:text-clay-700 transition-colors">
+                  Antep Fıstıklı Künefe
+                </h3>
+                <span class="font-serif text-xl font-bold text-clay-800">&pound;9.50</span>
+              </div>
+              <p class="text-xs uppercase font-medium text-clay-600 tracking-wide mt-1">Crisp Kadayıf &bull; Unsalted Hatay Cheese</p>
+              <p class="text-stone-600 text-sm mt-3 leading-relaxed">
+                Freshly shredded pastry baked golden over charcoal, oozing warm Hatay cheese, soaked in light orange-blossom syrup, crowned with ground emerald Antep pistachios.
+              </p>
+            </div>
+            <div class="flex items-center gap-2 mt-4 pt-4 border-t border-stone-100 text-[11px] font-semibold text-stone-500">
+              <span class="px-2 py-0.5 rounded bg-clay-100 text-clay-800">Baked to Order (15 mins)</span>
+              <span>&bull; Includes Rize Black Tea</span>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Wine & Raki Note -->
+        <div class="mt-10 p-5 rounded-xl bg-clay-100/90 border border-clay-200 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-600 gap-3">
+          <div class="flex items-center gap-3">
+            <svg aria-hidden="true" class="w-5 h-5 text-clay-700 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1z"/></svg>
+            <span>Full wine list features indigenous Anatolian grapes: Öküzgözü, Boğazkere, Narince &amp; traditional aniseed Yeni Rakı.</span>
+          </div>
+          <span class="font-medium text-stone-800 underline decoration-clay-400">Dietary requirements &amp; allergens accommodated gladly</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CRAFT & TRADITION CALLOUT -->
+    <section id="tradition" class="py-20 bg-hearth-900 text-clay-100 relative overflow-hidden">
+      <!-- Decorative background glow -->
+      <div class="absolute -top-40 -right-40 w-96 h-96 bg-clay-700/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-6 space-y-6">
+            <span class="text-saffron-400 text-xs font-bold uppercase tracking-widest">Misafirperverlik &bull; Sacred Hospitality</span>
+            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal text-white leading-tight">
+              In Anatolia, no traveler leaves a table hungry.
+            </h2>
+            <p class="text-stone-300 leading-relaxed text-base">
+              The Turkish word <em class="text-clay-300 font-serif text-lg">Diyar</em> translates to &ldquo;homeland&rdquo; or &ldquo;realm&rdquo;. When we built our oven on Albion Parade twenty-six years ago, we brought more than recipes: we brought the courtyard ritual of long, unhurried dinners where platters are passed continuously and fresh tea arrives unprompted.
+            </p>
+
+            <ul class="space-y-3.5 pt-2 text-stone-200 text-sm">
+              <li class="flex items-start gap-3">
+                <svg aria-hidden="true" class="w-5 h-5 text-saffron-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>Complimentary Warm Lavash &amp; Za'atar Dip</strong> on arrival for every table</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg aria-hidden="true" class="w-5 h-5 text-saffron-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>Pure Wood Charcoal:</strong> Zero gas grills or electric ovens touch our kebabs</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg aria-hidden="true" class="w-5 h-5 text-saffron-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                <span><strong>Always Finished with Çay:</strong> Fresh-brewed black tea from Rize on the house</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Feature cards grid -->
+          <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <div class="bg-stone-800/70 border border-stone-700/60 p-6 rounded-2xl backdrop-blur-sm">
+              <span class="text-2xl block mb-2 font-serif text-saffron-400 font-bold">450&deg;</span>
+              <h3 class="font-serif text-xl text-white mb-1">Brick Taş Fırın</h3>
+              <p class="text-xs text-stone-300 leading-relaxed">
+                Handcrafted stone masonry retains intense radiant heat for crisp, blistered flatbreads.
+              </p>
+            </div>
+
+            <div class="bg-stone-800/70 border border-stone-700/60 p-6 rounded-2xl backdrop-blur-sm">
+              <span class="text-2xl block mb-2 font-serif text-saffron-400 font-bold">100%</span>
+              <h3 class="font-serif text-xl text-white mb-1">Single Estate Olives</h3>
+              <p class="text-xs text-stone-300 leading-relaxed">
+                Early-harvest cold pressed oils pressed by our relatives in the foothills of Mount Ida.
+              </p>
+            </div>
+
+            <div class="bg-stone-800/70 border border-stone-700/60 p-6 rounded-2xl backdrop-blur-sm">
+              <span class="text-2xl block mb-2 font-serif text-saffron-400 font-bold">Copper</span>
+              <h3 class="font-serif text-xl text-white mb-1">Bakır Pots &amp; Sahan</h3>
+              <p class="text-xs text-stone-300 leading-relaxed">
+                Tinned hand-hammered copper vessels distribute heat evenly for slow breakfast menemen and stews.
+              </p>
+            </div>
+
+            <div class="bg-stone-800/70 border border-stone-700/60 p-6 rounded-2xl backdrop-blur-sm">
+              <span class="text-2xl block mb-2 font-serif text-saffron-400 font-bold">No Rush</span>
+              <h3 class="font-serif text-xl text-white mb-1">Two-Hour Sittings</h3>
+              <p class="text-xs text-stone-300 leading-relaxed">
+                We never turn tables aggressively. Dinner is an evening meant to be savored with friends.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HOURS & LOCATION SECTION -->
+    <section id="hours" class="py-20 bg-white border-b border-clay-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- Hours Column -->
+          <div class="lg:col-span-5 space-y-6">
+            <div>
+              <span class="text-clay-700 text-xs font-bold uppercase tracking-widest">When We Cook</span>
+              <h2 class="font-serif text-3xl sm:text-4xl text-stone-900 mt-2 font-normal">
+                Opening Hours
+              </h2>
+              <p class="text-stone-600 text-sm mt-1">
+                The bakery oven fires at 9:00 AM; dinner seating begins promptly at 5:00 PM.
+              </p>
+            </div>
+
+            <!-- Schedule List -->
+            <div class="border border-clay-200 rounded-2xl divide-y divide-clay-100 bg-clay-50/50 p-2">
+              
+              <div class="flex justify-between items-center py-3 px-4 text-sm">
+                <span class="font-medium text-stone-900">Monday</span>
+                <span class="text-stone-500 italic text-xs">Closed for market sourcing</span>
+              </div>
+
+              <div class="flex justify-between items-center py-3 px-4 text-sm">
+                <span class="font-medium text-stone-900">Tuesday &ndash; Thursday</span>
+                <div class="text-right">
+                  <span class="text-stone-800 font-medium">12:00 &ndash; 15:00</span>
+                  <span class="text-stone-400 mx-1">|</span>
+                  <span class="text-stone-800 font-medium">17:00 &ndash; 22:30</span>
+                </div>
+              </div>
+
+              <div class="flex justify-between items-center py-3 px-4 text-sm bg-clay-100/70 rounded-lg">
+                <div>
+                  <span class="font-medium text-stone-900">Friday &ndash; Saturday</span>
+                  <span class="block text-[11px] text-clay-700 font-semibold">Late hearth roasting</span>
+                </div>
+                <div class="text-right">
+                  <span class="text-stone-900 font-semibold">12:00 &ndash; 23:30</span>
+                  <span class="block text-[11px] text-stone-500">Continuous service</span>
+                </div>
+              </div>
+
+              <div class="flex justify-between items-center py-3 px-4 text-sm">
+                <div>
+                  <span class="font-medium text-stone-900">Sunday Family Feast</span>
+                  <span class="block text-[11px] text-stone-500">Traditional Serpme Breakfast from 10:00</span>
+                </div>
+                <div class="text-right">
+                  <span class="text-stone-800 font-medium">10:00 &ndash; 21:30</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Walk-in Policy Note -->
+            <div class="bg-clay-100 p-4 rounded-xl text-xs text-stone-700 flex items-start gap-3 border border-clay-200">
+              <svg aria-hidden="true" class="w-4 h-4 text-clay-700 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+              <span>We keep <strong>12 seats reserved exclusively for walk-ins</strong> at our oak copper counter every evening.</span>
+            </div>
+          </div>
+
+          <!-- Location & Transit Column -->
+          <div class="lg:col-span-7 flex flex-col justify-between space-y-6">
+            <div>
+              <span class="text-clay-700 text-xs font-bold uppercase tracking-widest">Find Us</span>
+              <h2 class="font-serif text-3xl sm:text-4xl text-stone-900 mt-2 font-normal">
+                In Newington Green
+              </h2>
+              <p class="text-stone-600 text-sm mt-1">
+                Nestled on Albion Parade along the leafier edge of Islington and Hackney.
+              </p>
+            </div>
+
+            <!-- Stylized Map Placeholder Visual -->
+            <div class="relative w-full h-64 rounded-2xl bg-stone-100 border border-clay-300 overflow-hidden shadow-inner flex items-center justify-center p-6 text-center" role="img" aria-label="Stylized neighborhood street layout map for Newington Green">
+              <!-- SVG Map schematic lines -->
+              <svg class="absolute inset-0 w-full h-full opacity-35" viewBox="0 0 400 200" fill="none" preserveAspectRatio="xMidYMid slice">
+                <path d="M-20 60 Q 150 70 420 50" stroke="#C79A78" stroke-width="12"/>
+                <path d="M180 -20 L 210 220" stroke="#DEC2AB" stroke-width="16"/>
+                <path d="M60 -20 L 90 220" stroke="#DEC2AB" stroke-width="8"/>
+                <path d="M300 -20 L 330 220" stroke="#DEC2AB" stroke-width="10"/>
+                <path d="M0 140 L 420 140" stroke="#DEC2AB" stroke-width="8"/>
+                <!-- Park shape -->
+                <circle cx="210" cy="90" r="38" fill="#E2EBE0" stroke="#BDD4BA" stroke-width="2"/>
+              </svg>
+
+              <!-- Map Pin overlay -->
+              <div class="relative z-10 bg-white/95 backdrop-blur-md p-4 rounded-xl border border-clay-300 shadow-md max-w-sm">
+                <div class="flex items-center justify-center gap-2 text-clay-800 font-serif font-bold text-lg mb-0.5">
+                  <svg class="w-5 h-5 text-clay-700" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                  <span>34 Albion Parade, London N16 9LD</span>
+                </div>
+                <p class="text-xs text-stone-600">Newington Green Roundabout &bull; Across from the green</p>
+                <div class="mt-3 flex justify-center gap-2">
+                  <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-clay-700 hover:text-clay-800 underline">Get Directions &rarr;</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Transit directions breakdown -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-stone-700">
+              <div class="bg-clay-50 p-3.5 rounded-xl border border-clay-200">
+                <span class="font-bold text-stone-900 block mb-1">Overground</span>
+                <span>Canonbury (8 min walk)<br>Dalston Kingsland (12 min)</span>
+              </div>
+              <div class="bg-clay-50 p-3.5 rounded-xl border border-clay-200">
+                <span class="font-bold text-stone-900 block mb-1">Buses</span>
+                <span>Lines 73, 141, 341 &amp; 476 stop right at Newington Green</span>
+              </div>
+              <div class="bg-clay-50 p-3.5 rounded-xl border border-clay-200">
+                <span class="font-bold text-stone-900 block mb-1">Accessibility</span>
+                <span>Step-free dining room &amp; accessible restroom facilities</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RESERVATION SECTION -->
+    <section id="reserve" class="py-20 bg-clay-100 border-b border-clay-200 pattern-kilim">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        
+        <div class="bg-white rounded-3xl border border-clay-300/80 shadow-xl overflow-hidden">
+          
+          <!-- Card Header Banner -->
+          <div class="bg-clay-800 text-white p-8 sm:p-10 text-center relative">
+            <span class="text-saffron-400 text-xs font-bold uppercase tracking-widest block mb-1">Save Your Seat</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-normal">Reserve Your Table at Diyar</h2>
+            <p class="text-clay-200 text-sm max-w-lg mx-auto mt-2">
+              For parties of up to 8 guests. For larger private gatherings in our Ottoman Divan room, please give us a direct call.
+            </p>
+          </div>
+
+          <!-- Reservation Form -->
+          <form id="booking-form" class="p-6 sm:p-10 space-y-6" onsubmit="event.preventDefault();">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+              
+              <!-- Guest count -->
+              <div>
+                <label for="guests" class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">Number of Guests</label>
+                <div class="relative">
+                  <select id="guests" name="guests" class="w-full bg-clay-50 border border-clay-300 rounded-xl px-4 py-3 text-stone-800 text-sm focus:bg-white focus:border-clay-700 transition">
+                    <option value="1">1 Person (Counter or Table)</option>
+                    <option value="2" selected>2 Guests</option>
+                    <option value="3">3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5">5 Guests</option>
+                    <option value="6">6 Guests</option>
+                    <option value="7">7 Guests</option>
+                    <option value="8">8 Guests (Large table)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Date -->
+              <div>
+                <label for="booking-date" class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">Date</label>
+                <input type="date" id="booking-date" name="date" class="w-full bg-clay-50 border border-clay-300 rounded-xl px-4 py-2.5 text-stone-800 text-sm focus:bg-white focus:border-clay-700 transition" required>
+              </div>
+
+              <!-- Time Sitting -->
+              <div>
+                <label for="booking-time" class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">Time Sitting</label>
+                <select id="booking-time" name="time" class="w-full bg-clay-50 border border-clay-300 rounded-xl px-4 py-3 text-stone-800 text-sm focus:bg-white focus:border-clay-700 transition">
+                  <optgroup label="Lunch">
+                    <option value="12:00">12:00 PM</option>
+                    <option value="12:30">12:30 PM</option>
+                    <option value="13:30">1:30 PM</option>
+                    <option value="14:15">2:15 PM</option>
+                  </optgroup>
+                  <optgroup label="Dinner">
+                    <option value="17:30">5:30 PM (Early Dinner)</option>
+                    <option value="18:15">6:15 PM</option>
+                    <option value="19:00" selected>7:00 PM (Prime)</option>
+                    <option value="19:45">7:45 PM</option>
+                    <option value="20:30">8:30 PM</option>
+                    <option value="21:15">9:15 PM</option>
+                  </optgroup>
+                </select>
+              </div>
+
+            </div>
+
+            <!-- Seating Preference Radio Group -->
+            <div>
+              <span class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-2">Seating Preference</span>
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <label class="cursor-pointer border border-clay-300 rounded-xl p-3.5 flex items-center gap-3 hover:bg-clay-50 transition has-[:checked]:border-clay-700 has-[:checked]:bg-clay-100">
+                  <input type="radio" name="seating" value="hearth" checked class="text-clay-700 focus:ring-clay-700">
+                  <div class="text-xs">
+                    <span class="font-bold text-stone-900 block">Hearth View</span>
+                    <span class="text-stone-500">Close to the stone oven</span>
+                  </div>
+                </label>
+
+                <label class="cursor-pointer border border-clay-300 rounded-xl p-3.5 flex items-center gap-3 hover:bg-clay-50 transition has-[:checked]:border-clay-700 has-[:checked]:bg-clay-100">
+                  <input type="radio" name="seating" value="divan" class="text-clay-700 focus:ring-clay-700">
+                  <div class="text-xs">
+                    <span class="font-bold text-stone-900 block">Family Divan</span>
+                    <span class="text-stone-500">Cushioned banquet seating</span>
+                  </div>
+                </label>
+
+                <label class="cursor-pointer border border-clay-300 rounded-xl p-3.5 flex items-center gap-3 hover:bg-clay-50 transition has-[:checked]:border-clay-700 has-[:checked]:bg-clay-100">
+                  <input type="radio" name="seating" value="counter" class="text-clay-700 focus:ring-clay-700">
+                  <div class="text-xs">
+                    <span class="font-bold text-stone-900 block">Chef's Bar</span>
+                    <span class="text-stone-500">Watch the flatbread bakers</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Contact details -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-1">
+              <div>
+                <label for="full-name" class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1.5">Full Name</label>
+                <input type="text" id="full-name" name="name" placeholder="e.g. Leyla Demir" class="w-full bg-clay-50 border border-clay-300 rounded-xl px-4 py-2.5 text-stone-800 text-sm focus:bg-white focus:border-clay-700 transition" required>
+              </div>
+
+              <div>
+                <label for="phone" class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1.5">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="07700 900123" class="w-full bg-clay-50 border border-clay-300 rounded-xl px-4 py-2.5 text-stone-800 text-sm focus:bg-white focus:border-clay-700 transition" required>
+              </div>
+            </div>
+
+            <!-- Dietary & Special notes -->
+            <div>
+              <label for="special-requests" class="block text-xs font-bold uppercase tracking-wider text-stone-700 mb-1.5">Allergies or Celebration Notes (Optional)</label>
+              <textarea id="special-requests" name="notes" rows="2" placeholder="Let us know if you require vegetarian/vegan options, highchairs, or are celebrating an anniversary..." class="w-full bg-clay-50 border border-clay-300 rounded-xl px-4 py-2.5 text-stone-800 text-sm focus:bg-white focus:border-clay-700 transition"></textarea>
+            </div>
+
+            <!-- Submit Action -->
+            <div class="pt-2">
+              <button type="submit" class="w-full bg-clay-700 hover:bg-clay-800 text-white font-medium py-4 px-6 rounded-xl shadow-md transition duration-200 text-base flex items-center justify-center gap-2">
+                <span>Request Reservation</span>
+                <svg aria-hidden="true" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+              <p class="text-center text-xs text-stone-500 mt-3">
+                Reservations are reviewed and confirmed via text or phone by Baran Kaya within 2 hours.
+              </p>
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-hearth-950 text-stone-400 border-t border-stone-800 py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-stone-800">
+        
+        <!-- Brand blurb -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-clay-700 text-saffron-400 flex items-center justify-center">
+              <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+            </div>
+            <span class="font-serif text-2xl font-bold tracking-tight text-white">Diyar Anatolian Kitchen</span>
+          </div>
+          <p class="text-xs sm:text-sm text-stone-400 leading-relaxed max-w-md">
+            Dedicated to the slow food culinary traditions of Central and Southeastern Anatolia. Hand-rolled sourdough flatbreads, wood coals, sun-cured spices, and genuine Turkish hospitality in North London since 1998.
+          </p>
+          <div class="text-xs text-stone-500 pt-1">
+            Family owned and independently run by the Kaya family.
+          </div>
+        </div>
+
+        <!-- Quick navigation -->
+        <div>
+          <h4 class="font-serif text-lg text-white font-medium mb-3">Explore</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#story" class="hover:text-clay-300 transition-colors">Our Family Heritage</a></li>
+            <li><a href="#menu" class="hover:text-clay-300 transition-colors">Wood-Fired Menu</a></li>
+            <li><a href="#tradition" class="hover:text-clay-300 transition-colors">The Stone Hearth</a></li>
+            <li><a href="#hours" class="hover:text-clay-300 transition-colors">Opening Hours &amp; Transit</a></li>
+            <li><a href="#reserve" class="hover:text-clay-300 transition-colors">Book a Table</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact & Direct Line -->
+        <div>
+          <h4 class="font-serif text-lg text-white font-medium mb-3">Contact &amp; Visits</h4>
+          <address class="not-italic text-xs space-y-2 text-stone-400">
+            <p>34 Albion Parade, Newington Green<br>London N16 9LD</p>
+            <p class="pt-1"><a href="tel:+442072264891" class="text-clay-300 hover:underline">020 7226 4891</a></p>
+            <p><a href="mailto:merhaba@diyarkitchen.co.uk" class="text-stone-300 hover:underline">merhaba@diyarkitchen.co.uk</a></p>
+          </address>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-400 gap-4">
+        <p>&copy; <span id="current-year"></span> Diyar Anatolian Kitchen Ltd. All rights reserved.</p>
+        <div class="flex items-center gap-4 text-stone-400">
+          <span>Halal Certified Meats</span>
+          <span>&bull;</span>
+          <span>Organic British Oak Fuel</span>
+          <span>&bull;</span>
+          <span>Dog Friendly (Garden Area)</span>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- SCRIPT FOR INTERACTIONS -->
+  <script>
+    // Set dynamic current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Set today's date as min attribute for reservation date picker
+    const dateInput = document.getElementById('booking-date');
+    if (dateInput) {
+      const today = new Date().toISOString().split('T')[0];
+      dateInput.min = today;
+      // Default to today
+      dateInput.value = today;
+    }
+
+    // Mobile Menu Toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    if (mobileToggle && mobileNav) {
+      mobileToggle.addEventListener('click', () => {
+        const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+        mobileToggle.setAttribute('aria-expanded', !isExpanded);
+        mobileNav.classList.toggle('hidden');
+        menuIcon.classList.toggle('hidden');
+        closeIcon.classList.toggle('hidden');
+      });
+
+      // Close mobile drawer when clicking a navigation link
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileNav.classList.add('hidden');
+          mobileToggle.setAttribute('aria-expanded', 'false');
+          menuIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        });
+      });
+    }
+
+    // Menu Category Filtering Tabs
+    const tabs = document.querySelectorAll('.menu-tab');
+    const menuItems = document.querySelectorAll('.menu-item');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        // Reset all tabs active state
+        tabs.forEach(t => {
+          t.setAttribute('aria-selected', 'false');
+          t.className = 'menu-tab px-4 py-2 rounded-full text-xs font-semibold bg-white text-stone-700 border border-clay-300 hover:border-clay-500 transition-all';
+        });
+
+        // Set current active
+        tab.setAttribute('aria-selected', 'true');
+        tab.className = 'menu-tab px-4 py-2 rounded-full text-xs font-semibold bg-clay-700 text-white transition-all shadow-sm';
+
+        const category = tab.getAttribute('data-tab');
+
+        menuItems.forEach(item => {
+          if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.style.display = 'flex';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

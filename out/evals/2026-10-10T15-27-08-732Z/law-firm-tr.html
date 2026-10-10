@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kalyoncu & Aras Hukuk Bürosu | İzmir Aile ve Ticaret Hukuku</title>
+  <meta name="description" content="İzmir Bayraklı merkezli Kalyoncu & Aras Hukuk Bürosu; aile hukuku ve ticaret hukuku alanlarında ilkeli, şeffaf ve çözüm odaklı avukatlık hizmeti sunar.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            law: {
+              navy: '#0C1B2A',
+              slate: '#1E293B',
+              bronze: '#C29B38',
+              'bronze-dark': '#A07E28',
+              'bronze-light': '#F4EFE6',
+              surface: '#F8FAFC',
+              border: '#E2E8F0'
+            }
+          },
+          fontFamily: {
+            serif: ['Cinzel', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+    .custom-gradient-overlay {
+      background: linear-gradient(135deg, rgba(12, 27, 42, 0.96) 0%, rgba(12, 27, 42, 0.88) 100%);
+    }
+    .architectural-pattern {
+      background-image: radial-gradient(#C29B38 0.75px, transparent 0.75px), radial-gradient(#C29B38 0.75px, #0C1B2A 0.75px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+      opacity: 0.08;
+    }
+  </style>
+</head>
+<body class="bg-law-surface text-slate-800 font-sans antialiased selection:bg-law-bronze selection:text-white">
+
+  <!-- Üst Bilgi Şeridi (İzmir Barosu & Doğrudan İletişim) -->
+  <aside class="bg-law-navy border-b border-white/10 text-xs text-slate-300 py-2.5 px-4 hidden sm:block">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-6">
+        <span class="flex items-center gap-1.5 text-slate-300">
+          <svg class="w-3.5 h-3.5 text-law-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          Adalet Mah. Manas Bulvarı No:39, Bayraklı / İzmir
+        </span>
+        <span class="text-slate-500">|</span>
+        <span class="text-slate-300">İzmir Barosu Levhasına Kayıtlı Avukatlık Bürosu</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="tel:+902324560000" class="hover:text-law-bronze transition-colors flex items-center gap-1.5 font-medium">
+          <svg class="w-3.5 h-3.5 text-law-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+          </svg>
+          0 (232) 456 78 90
+        </a>
+        <span class="text-slate-400">Hafta İçi: 09:00 – 18:30</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Ana Navigasyon -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-law-border shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo -->
+        <a href="#" class="flex flex-col group focus:outline-none focus:ring-2 focus:ring-law-bronze p-1 rounded">
+          <span class="font-serif text-xl sm:text-2xl font-bold tracking-wider text-law-navy group-hover:text-law-bronze transition-colors">
+            KALYONCU & ARAS
+          </span>
+          <span class="text-[10px] tracking-[0.22em] text-slate-500 uppercase font-semibold">
+            Hukuk & Danışmanlık Bürosu · İzmir
+          </span>
+        </a>
+
+        <!-- Masaüstü Linkler -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-700" aria-label="Ana Menü">
+          <a href="#hakkimizda" class="hover:text-law-navy transition-colors focus:outline-none focus:text-law-navy">Kurumsal</a>
+          <a href="#aile-hukuku" class="hover:text-law-navy transition-colors focus:outline-none focus:text-law-navy">Aile Hukuku</a>
+          <a href="#ticaret-hukuku" class="hover:text-law-navy transition-colors focus:outline-none focus:text-law-navy">Ticaret Hukuku</a>
+          <a href="#calisma-esaslari" class="hover:text-law-navy transition-colors focus:outline-none focus:text-law-navy">Çalışma İlkeleri</a>
+          <a href="#iletisim" class="px-5 py-2.5 rounded-sm bg-law-navy text-white text-xs tracking-wider uppercase font-semibold hover:bg-slate-800 transition-all shadow-sm focus:ring-2 focus:ring-offset-2 focus:ring-law-navy">
+            Randevu Alın
+          </a>
+        </nav>
+
+        <!-- Mobil Menü Butonu -->
+        <button id="mobileMenuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Menüyü aç veya kapat" class="md:hidden p-2 text-slate-700 hover:text-law-navy focus:outline-none focus:ring-2 focus:ring-law-bronze">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobil Açılır Menü -->
+      <nav id="mobileMenu" class="hidden md:hidden border-t border-slate-100 py-4 flex flex-col gap-3 text-base font-medium text-slate-700" aria-label="Mobil Menü">
+        <a href="#hakkimizda" class="py-2 hover:text-law-navy">Kurumsal</a>
+        <a href="#aile-hukuku" class="py-2 hover:text-law-navy">Aile Hukuku</a>
+        <a href="#ticaret-hukuku" class="py-2 hover:text-law-navy">Ticaret Hukuku</a>
+        <a href="#calisma-esaslari" class="py-2 hover:text-law-navy">Çalışma İlkeleri</a>
+        <a href="#iletisim" class="mt-2 py-3 text-center bg-law-navy text-white text-xs tracking-wider uppercase font-semibold rounded-sm">
+          Randevu & İletişim
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Bölümü -->
+    <section class="relative bg-law-navy text-white overflow-hidden py-20 lg:py-28">
+      <div class="absolute inset-0 architectural-pattern pointer-events-none"></div>
+      
+      <!-- Dekoratif Geometrik Denge Simgesi (SVG) -->
+      <div class="absolute right-0 bottom-0 translate-x-1/4 translate-y-1/4 w-96 h-96 opacity-5 pointer-events-none text-white">
+        <svg viewBox="0 0 200 200" fill="currentColor">
+          <circle cx="100" cy="100" r="90" stroke="currentColor" stroke-width="2" fill="none"/>
+          <path d="M100 20 L100 180 M50 60 L150 60 M30 110 L70 110 M130 110 L170 110"/>
+        </svg>
+      </div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-white/10 border border-white/15 rounded-full text-xs font-medium text-slate-200 mb-6">
+            <span class="w-2 h-2 rounded-full bg-law-bronze"></span>
+            İzmir Bayraklı Adalet Sarayı Bölgesinde
+          </div>
+          
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-serif tracking-tight leading-tight text-white mb-6">
+            Hassas aile meselelerinde sükunet, ticari uyuşmazlıklarda net hukuki strateji.
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 font-light leading-relaxed mb-8">
+            Kalyoncu & Aras Hukuk Bürosu; aile içi hak kayıplarını önleyen özenli bir vekillik anlayışı ile şirketlerin sözleşme, tahsilat ve ortaklık ihtilaflarında öngörülebilir hukuki danışmanlık sağlar.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <a href="#iletisim" class="inline-flex justify-center items-center px-7 py-3.5 bg-law-bronze hover:bg-law-bronze-dark text-slate-950 font-semibold text-xs tracking-wider uppercase transition-colors rounded-sm shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-law-bronze">
+              Hukuki Ön Değerlendirme Alın
+            </a>
+            <a href="#hakkimizda" class="inline-flex justify-center items-center px-7 py-3.5 border border-white/30 hover:border-white text-white font-medium text-xs tracking-wider uppercase transition-colors rounded-sm">
+              Çalışma Şeklimiz
+            </a>
+          </div>
+
+          <!-- Küçük Güven Notu -->
+          <div class="mt-12 pt-8 border-t border-white/10 grid grid-cols-2 sm:grid-cols-3 gap-6 text-xs text-slate-300">
+            <div>
+              <p class="text-law-bronze font-semibold text-base font-serif">15+ Yıl</p>
+              <p class="mt-0.5 text-slate-300">Kıdem ve tecrübe</p>
+            </div>
+            <div>
+              <p class="text-law-bronze font-semibold text-base font-serif">%100</p>
+              <p class="mt-0.5 text-slate-300">Sır saklama & gizlilik ilkesi</p>
+            </div>
+            <div class="col-span-2 sm:col-span-1">
+              <p class="text-law-bronze font-semibold text-base font-serif">Doğrudan İletişim</p>
+              <p class="mt-0.5 text-slate-300">Vekil avukatla birebir takip</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kurumsal Yaklaşım Özeti -->
+    <section id="hakkimizda" class="py-16 sm:py-24 bg-white border-b border-law-border">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-5 space-y-4">
+            <div class="text-law-bronze uppercase tracking-widest text-xs font-bold">Büromuz Hakkında</div>
+            <h2 class="text-2xl sm:text-3xl font-serif text-law-navy">Gerçekçi bilgi, sessiz ve kararlı hukuki temsil.</h2>
+            <div class="w-12 h-0.5 bg-law-bronze"></div>
+            <p class="text-slate-600 leading-relaxed text-sm pt-2">
+              Büromuz, İzmir merkezli olarak bireysel ve kurumsal müvekkillerine hukukun teknik karmaşasından uzak, anlaşılır ve şeffaf bir danışmanlık sunmak amacıyla kurulmuştur.
+            </p>
+            <p class="text-slate-600 leading-relaxed text-sm">
+              İki temel uzmanlık alanımız olan <strong>Aile Hukuku</strong> ve <strong>Ticaret Hukuku</strong> disiplinlerinde, davanın her evresini müvekkile düzenli raporlar ile aktarır; ihtilaf çıkmadan önce riskleri bertaraf eden koruyucu avukatlığı önceleriz.
+            </p>
+          </div>
+
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="p-6 rounded border border-slate-200 bg-law-surface space-y-3">
+              <div class="w-10 h-10 rounded bg-law-bronze/10 text-law-bronze flex items-center justify-center font-serif font-bold text-lg">
+                01
+              </div>
+              <h3 class="font-serif text-lg text-law-navy">Net & Şeffaf İletişim</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Boş vaatler yerine Yargıtay içtihatları ve güncel mevzuat çerçevesinde dosyanızın somut kazanım ve risklerini dürüstçe ortaya koyarız.
+              </p>
+            </div>
+
+            <div class="p-6 rounded border border-slate-200 bg-law-surface space-y-3">
+              <div class="w-10 h-10 rounded bg-law-bronze/10 text-law-bronze flex items-center justify-center font-serif font-bold text-lg">
+                02
+              </div>
+              <h3 class="font-serif text-lg text-law-navy">Müvekkil Mahremiyeti</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Özellikle aile birliği ve ticari sırlar söz konusu olduğunda, dosya kapsamındaki veriler en yüksek etik ve hukuki güvenceyle korunur.
+              </p>
+            </div>
+
+            <div class="p-6 rounded border border-slate-200 bg-law-surface space-y-3">
+              <div class="w-10 h-10 rounded bg-law-bronze/10 text-law-bronze flex items-center justify-center font-serif font-bold text-lg">
+                03
+              </div>
+              <h3 class="font-serif text-lg text-law-navy">Hızlı Reaksiyon</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                İhtiyati tedbir, haciz, şirket içi acil kararlar veya delil tespiti gerektiren kritik anlarda aynı gün içinde harekete geçeriz.
+              </p>
+            </div>
+
+            <div class="p-6 rounded border border-slate-200 bg-law-surface space-y-3">
+              <div class="w-10 h-10 rounded bg-law-bronze/10 text-law-bronze flex items-center justify-center font-serif font-bold text-lg">
+                04
+              </div>
+              <h3 class="font-serif text-lg text-law-navy">Yerel Dava Hakimiyeti</h3>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                İzmir Bölge Adliye Mahkemeleri ve ilk derece mahkemelerinin yerleşik uygulamalarını yakından takip ederek strateji kurarız.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Faaliyet Alanı 1: Aile Hukuku -->
+    <section id="aile-hukuku" class="py-16 sm:py-24 bg-law-surface">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="max-w-3xl mb-12">
+          <div class="flex items-center gap-2 text-law-bronze text-xs uppercase font-bold tracking-wider mb-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+            Faaliyet Alanı 01
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-serif text-law-navy">Aile ve Boşanma Hukuku</h2>
+          <p class="mt-3 text-sm sm:text-base text-slate-600">
+            Duygusal yükü yüksek süreçlerde sağduyulu, hak temelli ve çocuğun üstün yararını gözeten profesyonel temsil.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Kart 1 -->
+          <div class="bg-white p-7 rounded border border-slate-200/80 hover:border-law-bronze transition-all shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 bg-slate-50 text-law-navy border border-slate-200 rounded flex items-center justify-center mb-5">
+                <svg class="w-5 h-5 text-law-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+              </div>
+              <h3 class="font-serif text-lg font-bold text-law-navy mb-2">Anlaşmalı & Çekişmeli Boşanma</h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                Protokol düzenlemeleri, evlilik birliğinin temelinden sarsılması, aldatma, terk ve şiddet temelli davalarda delil tespiti ve dosya inşası.
+              </p>
+            </div>
+            <ul class="text-xs text-slate-500 space-y-1.5 pt-4 border-t border-slate-100">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-law-bronze"></span>
+                Anlaşmalı boşanma protokol metinleri
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-law-bronze"></span>
+                Kusur tespiti ve tazminat talepleri
+              </li>
+            </ul>
+          </div>
+
+          <!-- Kart 2 -->
+          <div class="bg-white p-7 rounded border border-slate-200/80 hover:border-law-bronze transition-all shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 bg-slate-50 text-law-navy border border-slate-200 rounded flex items-center justify-center mb-5">
+                <svg class="w-5 h-5 text-law-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                </svg>
+              </div>
+              <h3 class="font-serif text-lg font-bold text-law-navy mb-2">Mal Paylaşımı ve Rejim Tasfiyesi</h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                Edinilmiş mallara katılma rejimi, artık değer ve değer artış payı hesaplamaları, şirket hisselerinin tespiti ve kaçırılan malların iadesi.
+              </p>
+            </div>
+            <ul class="text-xs text-slate-500 space-y-1.5 pt-4 border-t border-slate-100">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-law-bronze"></span>
+                Taşınmaz ve şirket ortaklık payı analizi
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-law-bronze"></span>
+                İhtiyati tedbir kararlarının temini
+              </li>
+            </ul>
+          </div>
+
+          <!-- Kart 3 -->
+          <div class="bg-white p-7 rounded border border-slate-200/80 hover:border-law-bronze transition-all shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 bg-slate-50 text-law-navy border border-slate-200 rounded flex items-center justify-center mb-5">
+                <svg class="w-5 h-5 text-law-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h3 class="font-serif text-lg font-bold text-law-navy mb-2">Velayet, Nafaka ve Koruma</h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                Müşterek çocuğun velayet düzenlemeleri, iştirak/yoksulluk nafakası artırımı ve 6284 Sayılı Kanun kapsamında ivedi koruma kararları.
+              </p>
+            </div>
+            <ul class="text-xs text-slate-500 space-y-1.5 pt-4 border-t border-slate-100">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-law-bronze"></span>
+                Velayetin değiştirilmesi davaları
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-law-bronze"></span>
+                Uzaklaştırma ve koruma tedbirleri
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Faaliyet Alanı 2: Ticaret Hukuku -->
+    <section id="ticaret-hukuku" class="py-16 sm:py-24 bg-white">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="max-w-3xl mb-12">
+          <div class="flex items-center gap-2 text-law-bronze text-xs uppercase font-bold tracking-wider mb-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            Faaliyet Alanı 02
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-serif text-law-navy">Ticaret ve Şirketler Hukuku</h2>
+          <p class="mt-3 text-sm sm:text-base text-slate-600">
+            Ege Bölgesi'ndeki KOBİ'ler, aile şirketleri ve girişimler için sözleşme güvenliği, alacak yönetimi ve şirketler hukuku danışmanlığı.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Kart 1 -->
+          <div class="bg-law-surface p-7 rounded border border-slate-200 hover:border-law-bronze transition-all shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 bg-white text-law-navy border border-slate-200 rounded flex items-center justify-center mb-5">
+                <svg class="w-5 h-5 text-law-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+              </div>
+              <h3 class="font-serif text-lg font-bold text-law-navy mb-2">Ticari Sözleşmeler & Risk Denetimi</h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                Bayilik, distribütörlük, gizlilik (NDA), hizmet ve mal alım sözleşmelerinin hazırlanması; cezai şart ve fesih mekanizmalarının güvenceye alınması.
+              </p>
+            </div>
+            <ul class="text-xs text-slate-500 space-y-1.5 pt-4 border-t border-slate-200">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-law-bronze"></span>
+                Uyuşmazlık önleyici sözleşme maddeleri
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-law-bronze"></span>
+                Sözleşmeden dönme ve fesih süreçleri
+              </li>
+            </ul>
+          </div>
+
+          <!-- Kart 2 -->
+          <div class="bg-law-surface p-7 rounded border border-slate-200 hover:border-law-bronze transition-all shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 bg-white text-law-navy border border-slate-200 rounded flex items-center justify-center mb-5">
+                <svg class="w-5 h-5 text-law-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+              </div>
+              <h3 class="font-serif text-lg font-bold text-law-navy mb-2">Ortaklar Arası İhtilaflar & Genel Kurul</h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                Anonim ve limited şirketlerde genel kurul kararlarının iptali, azınlık haklarının korunması, şirketten çıkma/çıkarılma davaları ve yönetim kurulu sorumluluğu.
+              </p>
+            </div>
+            <ul class="text-xs text-slate-500 space-y-1.5 pt-4 border-t border-slate-200">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-law-bronze"></span>
+                Hissedarlar sözleşmesi (SHA) hazırlanması
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-law-bronze"></span>
+                Yolsuz tescil ve butlan davaları
+              </li>
+            </ul>
+          </div>
+
+          <!-- Kart 3 -->
+          <div class="bg-law-surface p-7 rounded border border-slate-200 hover:border-law-bronze transition-all shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 bg-white text-law-navy border border-slate-200 rounded flex items-center justify-center mb-5">
+                <svg class="w-5 h-5 text-law-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <h3 class="font-serif text-lg font-bold text-law-navy mb-2">Kurumsal Alacak Takibi & İcra</h3>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                Fatura, çek ve senet kaynaklı ticari alacakların tahsili, itirazın iptali davaları, konkordato süreçlerinde alacaklı vekilliği ve ihtiyati haciz uygulamaları.
+              </p>
+            </div>
+            <ul class="text-xs text-slate-500 space-y-1.5 pt-4 border-t border-slate-200">
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-law-bronze"></span>
+                Hızlı ihtiyati haciz kararları
+              </li>
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-law-bronze"></span>
+                Ticari arabuluculuk müzakereleri
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-10 p-6 bg-slate-50 border border-slate-200 rounded flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p class="text-xs sm:text-sm text-slate-700">
+            <strong>Sürekli Şirket Danışmanlığı:</strong> Aylık periyotlarla sözleşmelerinizin ön denetimini ve hukuki risk yönetimini üstleniyoruz.
+          </p>
+          <a href="#iletisim" class="shrink-0 text-xs font-semibold text-law-navy underline hover:text-law-bronze">
+            Şirket Danışmanlığı Şartları →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Avukatlar / Ekip -->
+    <section class="py-16 sm:py-24 bg-law-surface border-t border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-law-bronze uppercase tracking-widest text-xs font-bold">Kurucu Avukatlar</span>
+          <h2 class="text-2xl sm:text-3xl font-serif text-law-navy mt-1">Yetkin ve Sorumlu Temsil</h2>
+          <p class="mt-3 text-sm text-slate-600">
+            Her dosya bizzat alanında odaklanmış kurucu avukatlarımız tarafından incelenir ve yürütülür.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <!-- Avukat 1 -->
+          <div class="bg-white p-8 rounded border border-slate-200 flex flex-col sm:flex-row gap-6 items-start">
+            <div class="w-24 h-24 rounded bg-gradient-to-tr from-slate-800 to-slate-600 text-white flex items-center justify-center font-serif text-2xl font-bold shrink-0 shadow-inner" aria-label="Av. Selin Kalyoncu Portresi">
+              SK
+            </div>
+            <div>
+              <div class="text-xs font-semibold text-law-bronze tracking-wide uppercase">Kurucu Ortak</div>
+              <h3 class="font-serif text-xl font-bold text-law-navy">Av. Selin Kalyoncu</h3>
+              <p class="text-xs text-slate-500 mb-3">İzmir Barosu · Sicil No: 12480</p>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                Dokuz Eylül Üniversitesi Hukuk Fakültesi mezunudur. 14 yılı aşkın süredir Aile Hukuku, mal rejimi davaları, velayet uyuşmazlıkları ve miras planlaması alanlarında çalışmaktadır.
+              </p>
+              <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500">
+                Uzmanlık: Boşanma, Aile Konutu Şerhi, Mal Paylaşımı
+              </div>
+            </div>
+          </div>
+
+          <!-- Avukat 2 -->
+          <div class="bg-white p-8 rounded border border-slate-200 flex flex-col sm:flex-row gap-6 items-start">
+            <div class="w-24 h-24 rounded bg-gradient-to-tr from-slate-900 to-slate-700 text-white flex items-center justify-center font-serif text-2xl font-bold shrink-0 shadow-inner" aria-label="Av. Murat Aras Portresi">
+              MA
+            </div>
+            <div>
+              <div class="text-xs font-semibold text-law-bronze tracking-wide uppercase">Kurucu Ortak</div>
+              <h3 class="font-serif text-xl font-bold text-law-navy">Av. Murat Aras</h3>
+              <p class="text-xs text-slate-500 mb-3">İzmir Barosu · Sicil No: 11920</p>
+              <p class="text-xs text-slate-600 leading-relaxed">
+                İstanbul Üniversitesi Hukuk Fakültesi mezunu olup, yüksek lisansını Özel Hukuk dalında tamamlamıştır. Ege Bölgesi'ndeki şirketlere ticari sözleşmeler, ortaklık anlaşmazlıkları ve alacak takibinde vekillik eder.
+              </p>
+              <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] text-slate-500">
+                Uzmanlık: Şirketler Hukuku, Ticari Sözleşmeler, Arabuluculuk
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Çalışma Esasları & Süreç -->
+    <section id="calisma-esaslari" class="py-16 sm:py-24 bg-white border-t border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="max-w-2xl mb-12">
+          <span class="text-law-bronze uppercase tracking-widest text-xs font-bold">Çalışma Metodolojisi</span>
+          <h2 class="text-2xl sm:text-3xl font-serif text-law-navy mt-1">Büromuzla Çalışırken Ne Beklemelisiniz?</h2>
+          <p class="mt-3 text-sm text-slate-600">
+            Hukuki süreçlerin doğurduğu belirsizlikleri adım adım kurguladığımız şeffaf iletişim düzeni ile asgariye indiriyoruz.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="p-6 bg-slate-50 rounded border border-slate-200/80">
+            <span class="text-xs font-bold text-law-bronze font-serif">ADIM 01</span>
+            <h3 class="font-serif text-base font-bold text-law-navy mt-2 mb-2">Ön İnceleme ve Belge Tetkiki</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Mevcut belgeler, sözleşmeler ya da vakıalar incelenir. Dava açmadan önce uzlaşma veya ihtar imkanları tartılır.
+            </p>
+          </div>
+
+          <div class="p-6 bg-slate-50 rounded border border-slate-200/80">
+            <span class="text-xs font-bold text-law-bronze font-serif">ADIM 02</span>
+            <h3 class="font-serif text-base font-bold text-law-navy mt-2 mb-2">Açık Masraf & Ücretlendirme</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Türkiye Barolar Birliği tarifesi ve İzmir Barosu tavsiye ücretleri gözetilerek yazılı vekalet sözleşmesiyle maliyetler netleştirilir.
+            </p>
+          </div>
+
+          <div class="p-6 bg-slate-50 rounded border border-slate-200/80">
+            <span class="text-xs font-bold text-law-bronze font-serif">ADIM 03</span>
+            <h3 class="font-serif text-base font-bold text-law-navy mt-2 mb-2">Strateji & Dava Takibi</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              İlk derece mahkemeleri, arabuluculuk oturumları veya istinaf/temyiz safhaları planlı bir takvim dahilinde yürütülür.
+            </p>
+          </div>
+
+          <div class="p-6 bg-slate-50 rounded border border-slate-200/80">
+            <span class="text-xs font-bold text-law-bronze font-serif">ADIM 04</span>
+            <h3 class="font-serif text-base font-bold text-law-navy mt-2 mb-2">Duruşma Sonrası Bilgilendirme</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Her duruşma ve ara karar sonrasında müvekkile yazılı özet rapor gönderilir; müvekkil süreci dosya bazında takip eder.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sıkça Sorulan Sorular (Akordeon) -->
+    <section class="py-16 sm:py-24 bg-law-surface border-t border-slate-200">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12">
+          <span class="text-law-bronze uppercase tracking-widest text-xs font-bold">Merak Edilenler</span>
+          <h2 class="text-2xl sm:text-3xl font-serif text-law-navy mt-1">Sıkça Sorulan Sorular</h2>
+          <p class="mt-2 text-xs sm:text-sm text-slate-600">
+            Aile ve ticaret hukuku süreçlerinde müvekkillerimizin en sık karşılaştığı durumlar.
+          </p>
+        </div>
+
+        <div class="space-y-3" id="faqAccordion">
+          <!-- Soru 1 -->
+          <div class="border border-slate-200 rounded bg-white overflow-hidden">
+            <button type="button" class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center text-sm font-semibold text-law-navy hover:text-law-bronze focus:outline-none" aria-expanded="false">
+              <span>Anlaşmalı boşanma davası ne kadar sürede sonuçlanır?</span>
+              <svg class="w-4 h-4 transform transition-transform text-slate-400 shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content hidden px-6 pb-4 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-50">
+              Tarafların velayet, nafaka ve mal tasfiyesi gibi tüm konularda tam mutabakata vardığı ve protokolün eksiksiz hazırlandığı durumlarda, İzmir Aile Mahkemelerinin iş yoğunluğuna bağlı olarak duruşma günü genelde 2 ila 5 hafta içinde verilmekte ve tek celsede sonuçlanmaktadır.
+            </div>
+          </div>
+
+          <!-- Soru 2 -->
+          <div class="border border-slate-200 rounded bg-white overflow-hidden">
+            <button type="button" class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center text-sm font-semibold text-law-navy hover:text-law-bronze focus:outline-none" aria-expanded="false">
+              <span>Şirketlerde ticari dava açılmadan önce arabuluculuk zorunlu mudur?</span>
+              <svg class="w-4 h-4 transform transition-transform text-slate-400 shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content hidden px-6 pb-4 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-50">
+              Evet. Türk Ticaret Kanunu madde 5/A uyarınca, konusu bir miktar paranın ödenmesi olan alacak ve tazminat talepli ticari uyuşmazlıklarda dava açılmadan önce arabulucuya başvurulmuş olması dava şartıdır. Arabuluculuk safhasında vekil ile temsil edilmek olası hak kayıplarını önler.
+            </div>
+          </div>
+
+          <!-- Soru 3 -->
+          <div class="border border-slate-200 rounded bg-white overflow-hidden">
+            <button type="button" class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center text-sm font-semibold text-law-navy hover:text-law-bronze focus:outline-none" aria-expanded="false">
+              <span>Evlilik birliği süresince kurulan şirketin hisseleri boşanmada nasıl paylaşılır?</span>
+              <svg class="w-4 h-4 transform transition-transform text-slate-400 shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content hidden px-6 pb-4 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-50">
+              Eşlerden birine ait şirket payları edinilmiş mallara katılma rejimi kapsamında mali analize tabi tutulur. Kural olarak diğer eş doğrudan şirket ortağı yapılmaz; ancak şirketin evlilik süresindeki artık değeri hesaplanarak bu değerin yarısı nakdi katılma alacağı olarak talep edilir.
+            </div>
+          </div>
+
+          <!-- Soru 4 -->
+          <div class="border border-slate-200 rounded bg-white overflow-hidden">
+            <button type="button" class="faq-btn w-full px-6 py-4 text-left flex justify-between items-center text-sm font-semibold text-law-navy hover:text-law-bronze focus:outline-none" aria-expanded="false">
+              <span>Hukuki ön görüşme randevusu nasıl planlanır?</span>
+              <svg class="w-4 h-4 transform transition-transform text-slate-400 shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content hidden px-6 pb-4 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-50">
+              Aşağıdaki formu doldurarak veya büro santralimizi arayarak Bayraklı ofisimizde yüz yüze randevu alabilirsiniz. İl dışı veya yurt dışı müvekkillerimiz için güvenli çevrimiçi görüşme imkanı da sunulmaktadır.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- İletişim ve Randevu Bölümü -->
+    <section id="iletisim" class="py-16 sm:py-24 bg-white border-t border-slate-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- Sol Kolon: Bilgiler & Harita/Ulaşım -->
+          <div class="lg:col-span-5 space-y-6">
+            <div>
+              <span class="text-law-bronze uppercase tracking-widest text-xs font-bold">İletişim & Konum</span>
+              <h2 class="text-2xl sm:text-3xl font-serif text-law-navy mt-1">Ofisimizde Görüşelim</h2>
+              <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                Hukuki durumunuzu değerlendirmek için ön görüşme randevusu oluşturabilirsiniz. Gizlilik gereği tüm görüşmeler randevu ile gerçekleştirilir.
+              </p>
+            </div>
+
+            <div class="space-y-4 pt-2">
+              <div class="flex items-start gap-3.5">
+                <div class="w-8 h-8 rounded bg-slate-100 text-law-navy flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-law-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase text-slate-500 tracking-wider">Adres</h3>
+                  <p class="text-sm text-slate-800 mt-0.5">
+                    Adalet Mahallesi, Manas Bulvarı, No: 39<br>
+                    Bayraklı Tower Kat: 14 D: 142<br>
+                    35530 Bayraklı / İzmir
+                  </p>
+                  <p class="text-[11px] text-slate-500 mt-1">İzmir Adliyesi'ne 400 metre mesafede.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5">
+                <div class="w-8 h-8 rounded bg-slate-100 text-law-navy flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-law-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase text-slate-500 tracking-wider">Telefon & Faks</h3>
+                  <p class="text-sm text-slate-800 mt-0.5">
+                    <a href="tel:+902324567890" class="hover:text-law-bronze transition-colors">0 (232) 456 78 90</a>
+                  </p>
+                  <p class="text-xs text-slate-600 mt-0.5">0 (232) 456 78 91 (Faks)</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-3.5">
+                <div class="w-8 h-8 rounded bg-slate-100 text-law-navy flex items-center justify-center shrink-0 mt-0.5">
+                  <svg class="w-4 h-4 text-law-bronze" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xs font-bold uppercase text-slate-500 tracking-wider">E-Posta</h3>
+                  <p class="text-sm text-slate-800 mt-0.5">
+                    <a href="mailto:bilgi@kalyoncuaras.av.tr" class="hover:text-law-bronze transition-colors">bilgi@kalyoncuaras.av.tr</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Lokasyon Görsel Temsili -->
+            <div class="mt-6 p-4 rounded bg-slate-50 border border-slate-200">
+              <div class="flex items-center gap-2 text-xs font-medium text-slate-700">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                Ulaşım Kolaylığı: Salhane İZBAN İstasyonu ve Adliye Tramvay durağına yürüme mesafesinde. Otopark mevcuttur.
+              </div>
+            </div>
+          </div>
+
+          <!-- Sağ Kolon: Randevu Formu (Presentational) -->
+          <div class="lg:col-span-7">
+            <div class="bg-law-surface p-8 sm:p-10 rounded border border-slate-200 shadow-sm">
+              <h3 class="font-serif text-xl font-bold text-law-navy mb-1">Ön Görüşme Talep Formu</h3>
+              <p class="text-xs text-slate-500 mb-6">
+                Lütfen meselenizi özetleyiniz. Talebiniz en geç 24 saat içinde gizlilik ilkelerine bağlı kalınarak yanıtlanacaktır.
+              </p>
+
+              <form id="contactForm" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="fullName" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Adınız Soyadınız *</label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="Örn. Selim Yılmaz" class="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-300 rounded focus:outline-none focus:border-law-bronze focus:ring-1 focus:ring-law-bronze">
+                  </div>
+                  <div>
+                    <label for="phone" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Telefon Numaranız *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="0 (5XX) XXX XX XX" class="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-300 rounded focus:outline-none focus:border-law-bronze focus:ring-1 focus:ring-law-bronze">
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="email" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">E-posta Adresiniz</label>
+                    <input type="email" id="email" name="email" placeholder="ornek@alanadi.com" class="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-300 rounded focus:outline-none focus:border-law-bronze focus:ring-1 focus:ring-law-bronze">
+                  </div>
+                  <div>
+                    <label for="topic" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Hukuki Konu *</label>
+                    <select id="topic" name="topic" required class="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-300 rounded focus:outline-none focus:border-law-bronze focus:ring-1 focus:ring-law-bronze text-slate-700">
+                      <option value="">Lütfen seçiniz</option>
+                      <option value="aile-bosanma">Aile Hukuku - Anlaşmalı / Çekişmeli Boşanma</option>
+                      <option value="aile-mal">Aile Hukuku - Mal Rejimi ve Tasfiye</option>
+                      <option value="aile-velayet">Aile Hukuku - Velayet & Nafaka</option>
+                      <option value="ticaret-sozlesme">Ticaret Hukuku - Sözleşmeler & Uyuşmazlık</option>
+                      <option value="ticaret-ortaklik">Ticaret Hukuku - Ortaklık ve Genel Kurul</option>
+                      <option value="ticaret-icra">Ticaret Hukuku - Şirket Alacak Takibi</option>
+                      <option value="diger">Diğer Hukuki Danışmanlık</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="message" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Mesele Özeti *</label>
+                  <textarea id="message" name="message" rows="4" required placeholder="Hukuki uyuşmazlığınızın ana hatlarını ve sormak istediklerinizi kısaca belirtiniz..." class="w-full px-3.5 py-2.5 text-sm bg-white border border-slate-300 rounded focus:outline-none focus:border-law-bronze focus:ring-1 focus:ring-law-bronze"></textarea>
+                </div>
+
+                <div class="flex items-start gap-2.5 pt-1">
+                  <input type="checkbox" id="kvkk" name="kvkk" required class="mt-1 h-4 w-4 rounded border-slate-300 text-law-bronze focus:ring-law-bronze">
+                  <label for="kvkk" class="text-xs text-slate-600 leading-snug">
+                    Paylaştığım iletişim bilgilerimin tarafıma dönüş sağlanması amacıyla Avukatlık Kanunu ve KVKK uyarınca işlenmesini kabul ediyorum.
+                  </label>
+                </div>
+
+                <div class="pt-3">
+                  <button type="submit" class="w-full sm:w-auto px-8 py-3.5 bg-law-navy hover:bg-slate-800 text-white font-medium text-xs tracking-wider uppercase transition-colors rounded-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-law-navy">
+                    Talebi İletin
+                  </button>
+                  <p class="text-[11px] text-slate-500 mt-2">
+                    * Bilgileriniz üçüncü şahıslarla paylaşılmaz; avukatlık meslek sırrı kapsamında tutulur.
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Alt Bilgi (Footer) -->
+  <footer class="bg-law-navy text-slate-400 text-xs border-t border-white/10 pt-16 pb-12">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+        
+        <!-- Şirket Künyesi -->
+        <div class="md:col-span-5 space-y-4">
+          <span class="font-serif text-xl tracking-wider text-white block">
+            KALYONCU & ARAS
+          </span>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+            İzmir Bayraklı bölgesinde faaliyet gösteren büromuz; Aile Hukuku ve Ticaret Hukuku alanlarında mesleki bağımsızlık ve sır saklama yükümlülüklerine sıkı sıkıya bağlı kalarak avukatlık hizmeti vermektedir.
+          </p>
+          <div class="text-[11px] text-slate-500">
+            Kayıtlı Baro: İzmir Barosu Başkanlığı
+          </div>
+        </div>
+
+        <!-- Hızlı Erişim -->
+        <div class="md:col-span-3 space-y-3">
+          <h4 class="text-white font-semibold text-xs uppercase tracking-wider">Çalışma Alanları</h4>
+          <ul class="space-y-2 text-slate-400 text-xs">
+            <li><a href="#aile-hukuku" class="hover:text-white transition-colors">Boşanma & Ayrılık Süreçleri</a></li>
+            <li><a href="#aile-hukuku" class="hover:text-white transition-colors">Evlilik Mallarının Tasfiyesi</a></li>
+            <li><a href="#aile-hukuku" class="hover:text-white transition-colors">Velayet ve İştirak Nafakası</a></li>
+            <li><a href="#ticaret-hukuku" class="hover:text-white transition-colors">Ticari Sözleşmeler Hukuku</a></li>
+            <li><a href="#ticaret-hukuku" class="hover:text-white transition-colors">Şirketler & Ortaklar Hukuku</a></li>
+            <li><a href="#ticaret-hukuku" class="hover:text-white transition-colors">Ticari Alacak & İcra Takibi</a></li>
+          </ul>
+        </div>
+
+        <!-- Yasal Uyarı -->
+        <div class="md:col-span-4 space-y-3">
+          <h4 class="text-white font-semibold text-xs uppercase tracking-wider">Yasal Bilgilendirme</h4>
+          <p class="text-[11px] text-slate-400 leading-relaxed">
+            Bu internet sitesinde yer alan tüm bilgiler, yazılar ve içerikler yalnızca bilgilendirme amaçlı olup Türkiye Barolar Birliği'nin ilgili Reklam Yasağı Yönetmeliği'ne ve meslek kurallarına uygun olarak hazırlanmıştır. Hukuki mütalaa veya teklif niteliği taşımaz.
+          </p>
+          <p class="text-[11px] text-slate-500">
+            Sitede yer alan hiçbir bilgi vekil-müvekkil ilişkisi kurmaz.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div>
+          © 2025 Kalyoncu & Aras Hukuk Bürosu. Tüm hakları saklıdır.
+        </div>
+        <div class="flex gap-6">
+          <span>İzmir / Türkiye</span>
+          <a href="#" class="hover:text-slate-400">Gizlilik Bildirimi</a>
+          <a href="#" class="hover:text-slate-400">Mesleki İlkeler</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Etkileşim Kodları (Menü ve Akordeon) -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Mobil Menü Aç/Kapat
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', function () {
+          const isExpanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+          mobileBtn.setAttribute('aria-expanded', !isExpanded);
+          mobileMenu.classList.toggle('hidden');
+        });
+
+        // Mobil menü linkine tıklandığında menüyü kapat
+        mobileMenu.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            mobileMenu.classList.add('hidden');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // SSS Akordeon
+      const faqButtons = document.querySelectorAll('.faq-btn');
+
+      faqButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          const isExpanded = button.getAttribute('aria-expanded') === 'true';
+          const content = button.nextElementSibling;
+          const icon = button.querySelector('svg');
+
+          // Diğerlerini kapat
+          faqButtons.forEach(function (otherBtn) {
+            if (otherBtn !== button) {
+              otherBtn.setAttribute('aria-expanded', 'false');
+              if (otherBtn.nextElementSibling) {
+                otherBtn.nextElementSibling.classList.add('hidden');
+              }
+              const otherIcon = otherBtn.querySelector('svg');
+              if (otherIcon) {
+                otherIcon.classList.remove('rotate-180');
+              }
+            }
+          });
+
+          // Tıklananı aç / kapa
+          if (isExpanded) {
+            button.setAttribute('aria-expanded', 'false');
+            content.classList.add('hidden');
+            if (icon) icon.classList.remove('rotate-180');
+          } else {
+            button.setAttribute('aria-expanded', 'true');
+            content.classList.remove('hidden');
+            if (icon) icon.classList.add('rotate-180');
+          }
+        });
+      });
+
+      // İletişim Formu (Sadece presentational önleme ve uyarı)
+      const contactForm = document.getElementById('contactForm');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          alert('Talebiniz alınmıştır. Büromuz en kısa sürede sizinle irtibata geçecektir.');
+          contactForm.reset();
+        });
+      }
+    });
+  </script>
+</body>
+</html>

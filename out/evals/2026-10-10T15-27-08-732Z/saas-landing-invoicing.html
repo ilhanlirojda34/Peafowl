@@ -1,0 +1,1011 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ledgerloop — Automated Invoicing for Boutique Agencies</title>
+  <meta name="description" content="Turn project milestones, tracked hours, and recurring retainers into paid invoices without manual export spreadsheets. Built specifically for creative and technical agencies.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              900: '#064e3b',
+            },
+            slate: {
+              850: '#151e2e',
+              900: '#0f172a',
+              950: '#080d1a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+    .grid-pattern {
+      background-image: radial-gradient(rgba(16, 185, 129, 0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- Announcement Bar -->
+  <div class="bg-slate-900 border-b border-slate-800 text-xs text-slate-300 py-2.5 px-4 text-center">
+    <span class="inline-flex items-center gap-2">
+      <span class="px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-400 font-medium border border-brand-500/20">v2.4 Live</span>
+      Native sync for ClickUp, Harvest, Toggl &amp; Stripe Connect is now available.
+      <a href="#features" class="underline hover:text-white transition-colors ml-1 font-semibold">Explore integrations &rarr;</a>
+    </span>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 bg-slate-950/85 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-400 flex items-center justify-center shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
+          <svg class="w-5 h-5 text-slate-950" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+          </svg>
+        </div>
+        <span class="text-xl font-bold tracking-tight text-white">Ledger<span class="text-brand-400">loop</span></span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300" aria-label="Main Navigation">
+        <a href="#how-it-works" class="hover:text-white transition-colors">How it works</a>
+        <a href="#features" class="hover:text-white transition-colors">Agency Features</a>
+        <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+        <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+      </nav>
+
+      <!-- Desktop Actions -->
+      <div class="hidden md:flex items-center gap-4">
+        <a href="#pricing" class="text-sm font-medium text-slate-300 hover:text-white transition-colors px-3 py-2">Sign in</a>
+        <a href="#pricing" class="text-sm font-semibold text-slate-950 bg-brand-400 hover:bg-brand-300 active:bg-brand-500 px-4 py-2.5 rounded-lg shadow-sm shadow-brand-400/20 transition-all focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2 focus:ring-offset-slate-950">
+          Start 14-day trial
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" type="button" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-slate-900 px-4 pt-3 pb-6 space-y-3">
+      <a href="#how-it-works" class="block py-2 text-base font-medium text-slate-200 hover:text-brand-400">How it works</a>
+      <a href="#features" class="block py-2 text-base font-medium text-slate-200 hover:text-brand-400">Agency Features</a>
+      <a href="#pricing" class="block py-2 text-base font-medium text-slate-200 hover:text-brand-400">Pricing</a>
+      <a href="#faq" class="block py-2 text-base font-medium text-slate-200 hover:text-brand-400">FAQ</a>
+      <div class="pt-3 border-t border-slate-800 flex flex-col gap-2">
+        <a href="#pricing" class="w-full text-center py-2.5 text-sm font-medium text-slate-300 rounded-lg bg-slate-800">Sign in</a>
+        <a href="#pricing" class="w-full text-center py-2.5 text-sm font-semibold text-slate-950 bg-brand-400 hover:bg-brand-300 rounded-lg">Start 14-day trial</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="relative pt-16 pb-20 md:pt-28 md:pb-32 overflow-hidden grid-pattern">
+      <!-- Glow ambient background -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 md:w-[680px] h-96 bg-brand-500/15 rounded-full blur-3xl pointer-events-none -z-10" aria-hidden="true"></div>
+      
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto">
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-medium text-slate-300 mb-6">
+            <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+            Zero time lost to billing spreadsheets on Friday afternoons
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
+            Invoicing on autopilot for <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-300 via-brand-400 to-emerald-200">small agencies</span>
+          </h1>
+          <p class="mt-6 text-lg sm:text-xl text-slate-300 font-normal leading-relaxed">
+            Stop stitching Toggl logs, milestone signoffs, and retainer balances into manual PDFs. Ledgerloop reconciles agency billables and sends branded invoices clients pay on time.
+          </p>
+
+          <!-- Primary Actions -->
+          <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#pricing" class="w-full sm:w-auto px-7 py-3.5 rounded-xl font-semibold text-base text-slate-950 bg-brand-400 hover:bg-brand-300 active:bg-brand-500 shadow-lg shadow-brand-500/25 transition-all text-center focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2 focus:ring-offset-slate-950">
+              Start your 14-day free trial
+            </a>
+            <a href="#how-it-works" class="w-full sm:w-auto px-7 py-3.5 rounded-xl font-medium text-base text-slate-200 bg-slate-900 border border-slate-700/80 hover:bg-slate-850 hover:text-white transition-all text-center">
+              See sample workflow
+            </a>
+          </div>
+          <p class="mt-3 text-xs text-slate-400 font-normal">No credit card required &bull; 2-minute setup with Stripe &bull; Cancel anytime</p>
+        </div>
+
+        <!-- HERO APP INTERACTIVE VISUAL -->
+        <div class="mt-14 max-w-5xl mx-auto">
+          <div class="relative rounded-2xl bg-slate-900 border border-slate-800 shadow-2xl p-4 sm:p-6 lg:p-8 overflow-hidden">
+            <!-- Terminal/App Bar -->
+            <div class="flex items-center justify-between pb-6 border-b border-slate-800/80">
+              <div class="flex items-center gap-3">
+                <div class="flex gap-1.5" aria-hidden="true">
+                  <div class="w-3 h-3 rounded-full bg-slate-700"></div>
+                  <div class="w-3 h-3 rounded-full bg-slate-700"></div>
+                  <div class="w-3 h-3 rounded-full bg-slate-700"></div>
+                </div>
+                <span class="text-xs font-mono text-slate-400 ml-2">ledgerloop.app/agency/invoicing-pipeline</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-brand-500/10 text-brand-400 border border-brand-500/20">
+                  Cycle closing: Oct 31 &bull; 6 Invoices queued
+                </span>
+              </div>
+            </div>
+
+            <!-- Dashboard Mockup Content -->
+            <div class="pt-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+              <!-- Left stats: Agency pulse -->
+              <div class="lg:col-span-4 space-y-4">
+                <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+                  <span class="text-xs uppercase tracking-wider font-semibold text-slate-400">Scheduled for Auto-Dispatch</span>
+                  <div class="mt-2 flex items-baseline justify-between">
+                    <span class="text-2xl font-mono font-bold text-white">$43,850.00</span>
+                    <span class="text-xs font-medium text-brand-400 bg-brand-500/10 px-2 py-0.5 rounded">100% verified</span>
+                  </div>
+                  <p class="text-xs text-slate-400 mt-1">4 retainers &bull; 2 milestone deliverables</p>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+                  <span class="text-xs uppercase tracking-wider font-semibold text-slate-400">Time-Log Drift Prevention</span>
+                  <div class="mt-2 text-sm text-slate-300">
+                    <div class="flex justify-between py-1 border-b border-slate-800/60 text-xs">
+                      <span class="text-slate-400">Brand overhaul (NorthStar)</span>
+                      <span class="font-mono text-slate-200">38.5 hrs synced</span>
+                    </div>
+                    <div class="flex justify-between py-1 border-b border-slate-800/60 text-xs">
+                      <span class="text-slate-400">Retainer (Apex FinTech)</span>
+                      <span class="font-mono text-slate-200">Fixed $6,500/mo</span>
+                    </div>
+                    <div class="flex justify-between py-1 text-xs">
+                      <span class="text-slate-400">Mobile QA (Kestrel Labs)</span>
+                      <span class="font-mono text-amber-400">4.5 rollover hrs</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-brand-500/5 border border-brand-500/20 text-xs text-slate-300 flex items-start gap-3">
+                  <svg class="w-5 h-5 text-brand-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>Auto-reminders armed. Escalates from gentle preview to CFO text prompt only if 5 days past due.</span>
+                </div>
+              </div>
+
+              <!-- Right: Detailed Active Auto-Invoice Preview -->
+              <div class="lg:col-span-8 bg-slate-950/90 rounded-xl border border-slate-800 p-5 font-mono">
+                <div class="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-slate-800 text-xs">
+                  <div>
+                    <span class="text-slate-400">INVOICE: </span>
+                    <span class="text-white font-semibold">INV-2024-089</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="text-slate-400">Status:</span>
+                    <span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 text-[11px] font-sans font-medium">Ready to auto-bill</span>
+                  </div>
+                </div>
+
+                <div class="py-4 grid grid-cols-2 gap-4 text-xs">
+                  <div>
+                    <span class="text-slate-400 block text-[11px]">BILLED TO</span>
+                    <p class="font-sans font-semibold text-white mt-1">Acme Mobility Inc.</p>
+                    <p class="text-slate-400 font-sans text-[11px]">ap@acmemobility.io &bull; Net 15</p>
+                  </div>
+                  <div class="text-right">
+                    <span class="text-slate-400 block text-[11px]">COLLECTION METHOD</span>
+                    <p class="text-slate-200 mt-1">Stripe ACH (Auto-Debit)</p>
+                    <p class="text-slate-400 text-[11px]">Execution: Nov 1, 08:00 UTC</p>
+                  </div>
+                </div>
+
+                <!-- Line items table mockup -->
+                <div class="mt-2 border-t border-slate-800 text-xs">
+                  <div class="grid grid-cols-12 text-slate-400 py-2 border-b border-slate-800 text-[11px]">
+                    <span class="col-span-6">DESCRIPTION</span>
+                    <span class="col-span-2 text-right">HOURS</span>
+                    <span class="col-span-2 text-right">RATE</span>
+                    <span class="col-span-2 text-right">AMOUNT</span>
+                  </div>
+                  <div class="grid grid-cols-12 py-2.5 border-b border-slate-850 text-slate-300 text-[12px]">
+                    <span class="col-span-6 font-sans">Sprint 14: Mobile Design System</span>
+                    <span class="col-span-2 text-right">32.0</span>
+                    <span class="col-span-2 text-right">$165</span>
+                    <span class="col-span-2 text-right text-white">$5,280.00</span>
+                  </div>
+                  <div class="grid grid-cols-12 py-2.5 border-b border-slate-850 text-slate-300 text-[12px]">
+                    <span class="col-span-6 font-sans">Retainer base fee (November)</span>
+                    <span class="col-span-2 text-right">—</span>
+                    <span class="col-span-2 text-right">—</span>
+                    <span class="col-span-2 text-right text-white">$4,000.00</span>
+                  </div>
+                  <div class="grid grid-cols-12 py-2.5 text-slate-300 text-[12px]">
+                    <span class="col-span-6 font-sans">Figma Org license pass-through</span>
+                    <span class="col-span-2 text-right">1</span>
+                    <span class="col-span-2 text-right">$75</span>
+                    <span class="col-span-2 text-right text-white">$75.00</span>
+                  </div>
+                </div>
+
+                <div class="mt-4 pt-3 border-t border-slate-800 flex justify-between items-center text-xs">
+                  <span class="text-slate-400 font-sans">Synced automatically from Toggl workspace &amp; Base Agreement #402</span>
+                  <div class="text-right">
+                    <span class="text-slate-400 text-[11px] block">TOTAL DUE</span>
+                    <span class="text-lg font-bold text-brand-300 font-mono">$9,355.00</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Proof / Client Agency Profiles -->
+        <div class="mt-14 text-center">
+          <p class="text-xs uppercase tracking-widest text-slate-400 font-medium">Reconciling $6.2M+ in agency billables each month for shops like</p>
+          <div class="mt-6 flex flex-wrap items-center justify-center gap-8 sm:gap-12 text-slate-400 text-sm font-semibold opacity-85">
+            <span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded bg-brand-500"></span> StudioMonolith</span>
+            <span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded bg-sky-500"></span> Tandem Creative</span>
+            <span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded bg-indigo-500"></span> Forma Labs</span>
+            <span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded bg-amber-500"></span> Pillar Strategy</span>
+            <span class="flex items-center gap-2"><span class="w-2.5 h-2.5 rounded bg-emerald-500"></span> Branch &amp; Leaf</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAIN POINT VS SOLUTION (AGENCY SPECIFIC) -->
+    <section class="py-20 bg-slate-900 border-y border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="text-xs uppercase font-bold tracking-widest text-brand-400 mb-3">Agency Realities</h2>
+          <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Standard accounting tools were made for retail, not billable services.</p>
+          <p class="mt-4 text-slate-300 text-base">When you balance variable scopes, retainer caps, and sub-contractor hours, basic software forces you to copy-paste between 4 tabs.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- The Old Way -->
+          <div class="rounded-2xl p-6 sm:p-8 bg-slate-950/70 border border-red-500/20 relative">
+            <div class="inline-flex items-center gap-2 text-red-400 text-xs font-bold uppercase tracking-wider mb-4">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              The Manual Friday Ritual
+            </div>
+            <ul class="space-y-4 text-slate-300 text-sm">
+              <li class="flex items-start gap-3">
+                <span class="text-red-400 mt-0.5">&times;</span>
+                <span>Manually checking whether Client X exceeded their 20-hour monthly retainer limit.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-red-400 mt-0.5">&times;</span>
+                <span>Exporting raw CSVs from Harvest or Toggl, re-formatting line items into QuickBooks.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-red-400 mt-0.5">&times;</span>
+                <span>Awkward email follow-ups when an enterprise client's AP department quietly lets an invoice go 30 days overdue.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-red-400 mt-0.5">&times;</span>
+                <span>Missed out-of-pocket expenses (custom fonts, cloud test pods, contractors) that never make the bill.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- The Ledgerloop Way -->
+          <div class="rounded-2xl p-6 sm:p-8 bg-slate-950/70 border border-brand-500/30 relative">
+            <div class="inline-flex items-center gap-2 text-brand-400 text-xs font-bold uppercase tracking-wider mb-4">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              The Ledgerloop Automation
+            </div>
+            <ul class="space-y-4 text-slate-300 text-sm">
+              <li class="flex items-start gap-3">
+                <span class="text-brand-400 mt-0.5">&#10003;</span>
+                <span><strong>Retainer guardrails:</strong> Auto-split overage hours at your negotiated surge rate or roll them forward.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand-400 mt-0.5">&#10003;</span>
+                <span><strong>Real-time ledger pulls:</strong> Timesheets and approved Trello/ClickUp milestones instantly compile into PDFs.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand-400 mt-0.5">&#10003;</span>
+                <span><strong>Polite, tiered dunning:</strong> Automated branded reminders with 1-click credit card or ACH payment links.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand-400 mt-0.5">&#10003;</span>
+                <span><strong>Two-way sync:</strong> Reconciles directly to Xero or QuickBooks once paid, with zero dual entry.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="py-20 lg:py-28 bg-slate-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-xs uppercase font-bold tracking-widest text-brand-400 mb-2">Workflow</h2>
+          <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">How your agency gets from work completed to cash collected</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          <!-- Step 1 -->
+          <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-lg bg-slate-800 text-brand-400 flex items-center justify-center font-mono font-bold text-lg mb-6 border border-slate-700">
+                01
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Connect your work hubs</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Plug in your existing project trackers (Harvest, Toggl, ClickUp, Linear) and client agreements. Ledgerloop reads billable rates and recurring retainer agreements without asking your team to change tools.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800 text-xs font-mono text-slate-400">
+              Setup time: ~3 mins
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-lg bg-slate-800 text-brand-400 flex items-center justify-center font-mono font-bold text-lg mb-6 border border-slate-700">
+                02
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Automated drafting &amp; review</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                At the end of your billing cycle, Ledgerloop compiles draft invoices, validates retainer ceilings, and presents you with a single 60-second review screen. Approve one-by-one or let them auto-send.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800 text-xs font-mono text-slate-400">
+              Review time: Under 2 mins
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between">
+            <div>
+              <div class="w-10 h-10 rounded-lg bg-slate-800 text-brand-400 flex items-center justify-center font-mono font-bold text-lg mb-6 border border-slate-700">
+                03
+              </div>
+              <h3 class="text-lg font-bold text-white mb-2">Direct pay &amp; ledger sync</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Clients receive beautiful, responsive pay portals supporting credit cards, ACH, and SEPA. Once cleared, payments auto-reconcile in Xero or QuickBooks without touching bookkeeping files.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800 text-xs font-mono text-slate-400">
+              Average payout: 2.1 days faster
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE FEATURES SECTION -->
+    <section id="features" class="py-20 bg-slate-900 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto text-center mb-16">
+          <h2 class="text-xs uppercase font-bold tracking-widest text-brand-400 mb-2">Engineered For Service Businesses</h2>
+          <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Everything agency operations leads have been asking for</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          
+          <!-- Feature 1 -->
+          <div class="p-6 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-700 transition-colors">
+            <div class="w-10 h-10 rounded-lg bg-brand-500/10 text-brand-400 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Smart Retainer Rollovers</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Configure precise client contracts: burn-it-or-lose-it monthly terms, 60-day hour banks, or automatic overtime rate escalations once thresholds are passed.</p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="p-6 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-700 transition-colors">
+            <div class="w-10 h-10 rounded-lg bg-brand-500/10 text-brand-400 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Low-Fee ACH &amp; Wire Hooks</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Stop losing 3% on high-ticket $20,000 agency retainers. Ledgerloop highlights low-fee bank debit routing (0.8% capped at $5) to corporate clients automatically.</p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="p-6 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-700 transition-colors">
+            <div class="w-10 h-10 rounded-lg bg-brand-500/10 text-brand-400 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Tactful Dunning Workflows</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Customize reminder tones per client tier. Send quiet Slack alerts to project managers before formal reminder notices go to client accounts payable teams.</p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="p-6 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-700 transition-colors">
+            <div class="w-10 h-10 rounded-lg bg-brand-500/10 text-brand-400 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Milestone Signoff Gate</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Trigger balance and deposit invoices the moment a design deliverable or staging environment is stamped approved in Jira, ClickUp, or GitHub.</p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="p-6 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-700 transition-colors">
+            <div class="w-10 h-10 rounded-lg bg-brand-500/10 text-brand-400 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">White-Label Client Portals</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Present clients with your agency brand on billing.yourdomain.com. Your typography, your favicon, and your customized invoice receipts.</p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="p-6 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-700 transition-colors">
+            <div class="w-10 h-10 rounded-lg bg-brand-500/10 text-brand-400 flex items-center justify-center mb-4">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+            </div>
+            <h3 class="text-lg font-bold text-white mb-2">Multi-Currency &amp; Sub-Entities</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">Working with international clients? Bill in USD, GBP, or EUR with automated live conversion tables and VAT / tax code assignments ready for your accountant.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="pricing" class="py-20 lg:py-28 bg-slate-950">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+          <h2 class="text-xs uppercase font-bold tracking-widest text-brand-400 mb-2">Predictable Pricing</h2>
+          <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Priced for small agencies, not massive enterprise budgets</p>
+          <p class="mt-4 text-slate-300 text-base">One recovered unbilled hour pays for your entire year of Ledgerloop.</p>
+
+          <!-- Annual / Monthly Toggle -->
+          <div class="mt-8 flex items-center justify-center gap-3">
+            <span id="monthly-label" class="text-sm font-medium text-slate-400 cursor-pointer">Monthly billing</span>
+            <button 
+              id="billing-toggle" 
+              type="button" 
+              role="switch" 
+              aria-checked="true" 
+              class="relative inline-flex h-7 w-12 shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-brand-500 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2 focus:ring-offset-slate-950"
+            >
+              <span class="sr-only">Toggle annual billing</span>
+              <span id="toggle-circle" class="translate-x-5 pointer-events-none inline-block h-6 w-6 transform rounded-full bg-slate-950 shadow ring-0 transition duration-200 ease-in-out"></span>
+            </button>
+            <span id="annual-label" class="text-sm font-medium text-white flex items-center gap-1.5 cursor-pointer">
+              Annual billing 
+              <span class="bg-brand-500/20 text-brand-300 border border-brand-500/30 text-[11px] font-semibold px-2 py-0.5 rounded-full">Save 20%</span>
+            </span>
+          </div>
+        </div>
+
+        <!-- 3 Tier Pricing Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+          
+          <!-- TIER 1: BOUTIQUE -->
+          <div class="flex flex-col justify-between rounded-2xl bg-slate-900/80 border border-slate-800 p-8 transition-all hover:border-slate-700">
+            <div>
+              <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-bold text-white">Boutique</h3>
+                <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300">1–5 team members</span>
+              </div>
+              <p class="text-sm text-slate-400 mb-6 min-h-[40px]">For solo founders and micro-studios managing up to 8 continuous client accounts.</p>
+              
+              <div class="flex items-baseline gap-1 mb-6">
+                <span class="text-4xl font-extrabold text-white price-amount" data-monthly="39" data-annual="31">$31</span>
+                <span class="text-slate-400 text-sm">/ month</span>
+              </div>
+              <p class="text-xs text-slate-500 -mt-4 mb-6 billing-cadence-note">Billed annually ($372/yr)</p>
+
+              <div class="space-y-3 border-t border-slate-800 pt-6 text-sm text-slate-300">
+                <p class="font-medium text-white text-xs uppercase tracking-wider mb-2">Included:</p>
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>Up to <strong>8 active clients</strong></span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>2 team seats</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>Toggl &amp; Harvest hours sync</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>Stripe &amp; ACH direct pay</span>
+                </div>
+                <div class="flex items-center gap-2.5 text-slate-400">
+                  <svg class="w-4 h-4 text-slate-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                  <span>No custom domain portal</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-slate-800">
+              <a href="#trial" class="block w-full py-3 px-4 rounded-xl text-center text-sm font-semibold text-white bg-slate-850 hover:bg-slate-800 border border-slate-700 transition-colors">
+                Start 14-day free trial
+              </a>
+            </div>
+          </div>
+
+          <!-- TIER 2: STUDIO (POPULAR) -->
+          <div class="flex flex-col justify-between rounded-2xl bg-slate-900 border-2 border-brand-500 p-8 relative shadow-xl shadow-brand-500/10">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-500 text-slate-950 font-bold text-xs uppercase tracking-wider py-1 px-3.5 rounded-full shadow-md">
+              Most Popular For Agencies
+            </div>
+
+            <div>
+              <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-bold text-white">Studio</h3>
+                <span class="text-xs px-2.5 py-1 rounded bg-brand-500/10 text-brand-300 border border-brand-500/30">5–18 team members</span>
+              </div>
+              <p class="text-sm text-slate-300 mb-6 min-h-[40px]">The core system for full-service creative, dev, and performance agencies.</p>
+              
+              <div class="flex items-baseline gap-1 mb-6">
+                <span class="text-4xl font-extrabold text-white price-amount" data-monthly="89" data-annual="71">$71</span>
+                <span class="text-slate-400 text-sm">/ month</span>
+              </div>
+              <p class="text-xs text-brand-300/80 -mt-4 mb-6 billing-cadence-note">Billed annually ($852/yr)</p>
+
+              <div class="space-y-3 border-t border-slate-800 pt-6 text-sm text-slate-300">
+                <p class="font-medium text-white text-xs uppercase tracking-wider mb-2">Everything in Boutique, plus:</p>
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>Up to <strong>25 active clients</strong></span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span><strong>8 team seats</strong> with role permissions</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>Smart Retainer Rollovers &amp; caps</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>White-label domain portal</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>2-way sync to Xero &amp; QuickBooks</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-slate-800">
+              <a href="#trial" class="block w-full py-3.5 px-4 rounded-xl text-center text-sm font-semibold text-slate-950 bg-brand-400 hover:bg-brand-300 active:bg-brand-500 shadow-md shadow-brand-400/20 transition-all">
+                Start 14-day free trial
+              </a>
+            </div>
+          </div>
+
+          <!-- TIER 3: SCALE / AGENCY -->
+          <div class="flex flex-col justify-between rounded-2xl bg-slate-900/80 border border-slate-800 p-8 transition-all hover:border-slate-700">
+            <div>
+              <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-bold text-white">Scale</h3>
+                <span class="text-xs px-2.5 py-1 rounded bg-slate-800 text-slate-300">18–50+ members</span>
+              </div>
+              <p class="text-sm text-slate-400 mb-6 min-h-[40px]">For established practices running multiple pods, subsidiaries, or high volumes.</p>
+              
+              <div class="flex items-baseline gap-1 mb-6">
+                <span class="text-4xl font-extrabold text-white price-amount" data-monthly="189" data-annual="151">$151</span>
+                <span class="text-slate-400 text-sm">/ month</span>
+              </div>
+              <p class="text-xs text-slate-500 -mt-4 mb-6 billing-cadence-note">Billed annually ($1,812/yr)</p>
+
+              <div class="space-y-3 border-t border-slate-800 pt-6 text-sm text-slate-300">
+                <p class="font-medium text-white text-xs uppercase tracking-wider mb-2">Everything in Studio, plus:</p>
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span><strong>Unlimited active clients</strong></span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span><strong>Unlimited seats</strong> for staff &amp; contractors</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>Multi-entity billing (up to 3 brands)</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>Dedicated Slack support channel</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>Custom invoice contract clause templates</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-slate-800">
+              <a href="#trial" class="block w-full py-3 px-4 rounded-xl text-center text-sm font-semibold text-white bg-slate-850 hover:bg-slate-800 border border-slate-700 transition-colors">
+                Start 14-day free trial
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-12 text-center">
+          <p class="text-sm text-slate-400">
+            Have custom payment compliance requirements or over 70 staff? 
+            <a href="#faq" class="text-brand-400 underline font-medium ml-1">Contact our operations specialist</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="py-20 bg-slate-900 border-t border-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-xs uppercase font-bold tracking-widest text-brand-400 mb-2">Got Questions?</h2>
+          <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Frequently asked agency questions</p>
+          <p class="mt-3 text-slate-400 text-sm">Clear details on how Ledgerloop integrates into your existing billing stack.</p>
+        </div>
+
+        <!-- Accordion Container -->
+        <div class="space-y-4" id="faq-accordion">
+          
+          <!-- Item 1 -->
+          <div class="border border-slate-800 rounded-xl bg-slate-950 overflow-hidden">
+            <button 
+              type="button" 
+              class="w-full text-left px-6 py-5 flex items-center justify-between text-base font-semibold text-white hover:text-brand-400 transition-colors focus:outline-none focus:ring-1 focus:ring-brand-500" 
+              aria-expanded="false" 
+              aria-controls="faq-ans-1"
+            >
+              <span>Does Ledgerloop replace QuickBooks or Xero?</span>
+              <svg class="w-5 h-5 text-slate-400 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="faq-ans-1" class="hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-850 pt-3">
+              No, and it intentionally shouldn't. Ledgerloop handles the messy agency layer: interpreting hourly caps, pulling project tracking tickets, tracking retainers, and dispatching invoices. Once an invoice is marked paid, we sync the reconciliation record directly into Xero or QuickBooks so your certified accountant remains completely happy.
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="border border-slate-800 rounded-xl bg-slate-950 overflow-hidden">
+            <button 
+              type="button" 
+              class="w-full text-left px-6 py-5 flex items-center justify-between text-base font-semibold text-white hover:text-brand-400 transition-colors focus:outline-none focus:ring-1 focus:ring-brand-500" 
+              aria-expanded="false" 
+              aria-controls="faq-ans-2"
+            >
+              <span>How does it handle retainer hours that roll over?</span>
+              <svg class="w-5 h-5 text-slate-400 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="faq-ans-2" class="hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-850 pt-3">
+              In your client settings, you choose your agreement rules: "Hard expiration on the last calendar day", "Roll forward up to 10 hours for 60 days", or "Bill overage at $175/hr immediately". Ledgerloop applies the rule mathematically to time logs before the invoice is created, with clear line-item breakdowns for client transparency.
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="border border-slate-800 rounded-xl bg-slate-950 overflow-hidden">
+            <button 
+              type="button" 
+              class="w-full text-left px-6 py-5 flex items-center justify-between text-base font-semibold text-white hover:text-brand-400 transition-colors focus:outline-none focus:ring-1 focus:ring-brand-500" 
+              aria-expanded="false" 
+              aria-controls="faq-ans-3"
+            >
+              <span>Can we preview and edit invoices before they go out?</span>
+              <svg class="w-5 h-5 text-slate-400 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="faq-ans-3" class="hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-850 pt-3">
+              Yes, absolutely. By default, Ledgerloop places monthly batches into a "Pending Review" queue 48 hours prior to your configured send date. You can override descriptions, remove specific task entries, add manual goodwill credits, or click "Dispatch Now" early.
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="border border-slate-800 rounded-xl bg-slate-950 overflow-hidden">
+            <button 
+              type="button" 
+              class="w-full text-left px-6 py-5 flex items-center justify-between text-base font-semibold text-white hover:text-brand-400 transition-colors focus:outline-none focus:ring-1 focus:ring-brand-500" 
+              aria-expanded="false" 
+              aria-controls="faq-ans-4"
+            >
+              <span>What payment processors are supported?</span>
+              <svg class="w-5 h-5 text-slate-400 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="faq-ans-4" class="hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-850 pt-3">
+              We connect natively to your own Stripe Connect account. This allows you to accept credit cards, debit cards, US ACH Direct Debit, European SEPA, and UK Bacs payments straight into your bank. Ledgerloop never holds your money in escrow—funds land directly in your merchant account.
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="border border-slate-800 rounded-xl bg-slate-950 overflow-hidden">
+            <button 
+              type="button" 
+              class="w-full text-left px-6 py-5 flex items-center justify-between text-base font-semibold text-white hover:text-brand-400 transition-colors focus:outline-none focus:ring-1 focus:ring-brand-500" 
+              aria-expanded="false" 
+              aria-controls="faq-ans-5"
+            >
+              <span>Can we import our existing agency data easily?</span>
+              <svg class="w-5 h-5 text-slate-400 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div id="faq-ans-5" class="hidden px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-slate-850 pt-3">
+              Yes. You can import client lists and existing open balances via CSV, or authorize your current Harvest or QuickBooks setup to pull contacts, tax IDs, and standard hourly rates in under 90 seconds.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CALL TO ACTION -->
+    <section id="trial" class="py-20 lg:py-24 bg-gradient-to-b from-slate-900 to-slate-950 border-t border-slate-800 text-center relative overflow-hidden">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="w-12 h-12 rounded-2xl bg-brand-500/20 text-brand-400 border border-brand-500/30 flex items-center justify-center mx-auto mb-6">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          Never build an agency invoice by hand again
+        </h2>
+        <p class="mt-5 text-slate-300 text-lg max-w-2xl mx-auto leading-relaxed">
+          Reclaim hours this week. Start your 14-day trial today, connect your time tracking tool in two clicks, and have your next billing cycle queued before lunch.
+        </p>
+
+        <!-- Fast Signup Form / CTA trigger -->
+        <div class="mt-8 max-w-md mx-auto">
+          <form class="flex flex-col sm:flex-row gap-2.5" onsubmit="event.preventDefault();">
+            <label for="work-email" class="sr-only">Work email address</label>
+            <input 
+              id="work-email" 
+              type="email" 
+              placeholder="you@youragency.com" 
+              required
+              class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"
+            >
+            <button 
+              type="submit" 
+              class="w-full sm:w-auto shrink-0 px-6 py-3.5 rounded-xl font-semibold text-sm text-slate-950 bg-brand-400 hover:bg-brand-300 transition-colors shadow-lg shadow-brand-500/20 whitespace-nowrap"
+            >
+              Get Started Free
+            </button>
+          </form>
+          <div class="mt-4 flex items-center justify-center gap-6 text-xs text-slate-400">
+            <span>&bull; Full 14-day access</span>
+            <span>&bull; No credit card required</span>
+            <span>&bull; 1-click import</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 border-t border-slate-850 py-12 text-sm text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-8 pb-12 border-b border-slate-800">
+        <!-- Col 1: Brand -->
+        <div class="col-span-2">
+          <a href="#" class="flex items-center gap-2 mb-3">
+            <div class="w-7 h-7 rounded-lg bg-brand-500 flex items-center justify-center text-slate-950 font-bold text-sm">
+              L
+            </div>
+            <span class="text-lg font-bold text-white tracking-tight">Ledger<span class="text-brand-400">loop</span></span>
+          </a>
+          <p class="text-xs text-slate-400 max-w-sm leading-relaxed mb-4">
+            Automated billing engine purposely built for digital design studios, engineering consultancies, and retainer agencies.
+          </p>
+          <p class="text-xs text-slate-400">&copy; 2025 Ledgerloop Technologies Inc. All rights reserved.</p>
+        </div>
+
+        <!-- Col 2: Product -->
+        <div>
+          <h3 class="text-xs font-semibold text-slate-200 uppercase tracking-wider mb-3">Product</h3>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#features" class="hover:text-white transition-colors">Retainer Engine</a></li>
+            <li><a href="#features" class="hover:text-white transition-colors">Time Tracker Sync</a></li>
+            <li><a href="#features" class="hover:text-white transition-colors">Client Portals</a></li>
+            <li><a href="#pricing" class="hover:text-white transition-colors">Pricing Tiers</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Integrations -->
+        <div>
+          <h3 class="text-xs font-semibold text-slate-200 uppercase tracking-wider mb-3">Integrations</h3>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#" class="hover:text-white transition-colors">Harvest</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Toggl Track</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Xero &amp; QuickBooks</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Stripe Connect</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Legal & Security -->
+        <div>
+          <h3 class="text-xs font-semibold text-slate-200 uppercase tracking-wider mb-3">Trust</h3>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#" class="hover:text-white transition-colors">Security Overview</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-white transition-colors">SOC2 Compliance</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-4">
+        <p>Built for agencies who take pride in their craft and their cash flow.</p>
+        <div class="flex items-center gap-4">
+          <span class="inline-flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-brand-400"></span>
+            All Core Systems Operational
+          </span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- INTERACTIONS JAVASCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Mobile Menu Toggle
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+          const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+          menuBtn.setAttribute('aria-expanded', !isExpanded);
+          mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            menuBtn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // 2. Pricing Billing Toggle (Annual / Monthly)
+      const billingToggle = document.getElementById('billing-toggle');
+      const toggleCircle = document.getElementById('toggle-circle');
+      const priceAmounts = document.querySelectorAll('.price-amount');
+      const cadenceNotes = document.querySelectorAll('.billing-cadence-note');
+      const monthlyLabel = document.getElementById('monthly-label');
+      const annualLabel = document.getElementById('annual-label');
+
+      let isAnnual = true; // default annual
+
+      function updatePricing() {
+        if (isAnnual) {
+          billingToggle.setAttribute('aria-checked', 'true');
+          billingToggle.classList.remove('bg-slate-700');
+          billingToggle.classList.add('bg-brand-500');
+          toggleCircle.classList.remove('translate-x-1');
+          toggleCircle.classList.add('translate-x-5');
+          monthlyLabel.classList.remove('text-white');
+          monthlyLabel.classList.add('text-slate-400');
+          annualLabel.classList.remove('text-slate-400');
+          annualLabel.classList.add('text-white');
+
+          priceAmounts.forEach(el => {
+            const annualPrice = el.getAttribute('data-annual');
+            el.textContent = '$' + annualPrice;
+          });
+
+          cadenceNotes.forEach(el => {
+            el.style.visibility = 'visible';
+          });
+        } else {
+          billingToggle.setAttribute('aria-checked', 'false');
+          billingToggle.classList.remove('bg-brand-500');
+          billingToggle.classList.add('bg-slate-700');
+          toggleCircle.classList.remove('translate-x-5');
+          toggleCircle.classList.add('translate-x-1');
+          monthlyLabel.classList.remove('text-slate-400');
+          monthlyLabel.classList.add('text-white');
+          annualLabel.classList.remove('text-white');
+          annualLabel.classList.add('text-slate-400');
+
+          priceAmounts.forEach(el => {
+            const monthlyPrice = el.getAttribute('data-monthly');
+            el.textContent = '$' + monthlyPrice;
+          });
+
+          cadenceNotes.forEach(el => {
+            el.style.visibility = 'hidden';
+          });
+        }
+      }
+
+      if (billingToggle) {
+        billingToggle.addEventListener('click', () => {
+          isAnnual = !isAnnual;
+          updatePricing();
+        });
+
+        if (monthlyLabel) {
+          monthlyLabel.addEventListener('click', () => {
+            isAnnual = false;
+            updatePricing();
+          });
+        }
+
+        if (annualLabel) {
+          annualLabel.addEventListener('click', () => {
+            isAnnual = true;
+            updatePricing();
+          });
+        }
+      }
+
+      // 3. FAQ Accordion Interaction
+      const accordion = document.getElementById('faq-accordion');
+      if (accordion) {
+        const buttons = accordion.querySelectorAll('button[aria-expanded]');
+
+        buttons.forEach(button => {
+          button.addEventListener('click', () => {
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            const panelId = button.getAttribute('aria-controls');
+            const panel = document.getElementById(panelId);
+            const icon = button.querySelector('svg');
+
+            // Close all items
+            buttons.forEach(otherBtn => {
+              otherBtn.setAttribute('aria-expanded', 'false');
+              const otherPanel = document.getElementById(otherBtn.getAttribute('aria-controls'));
+              if (otherPanel) otherPanel.classList.add('hidden');
+              const otherIcon = otherBtn.querySelector('svg');
+              if (otherIcon) otherIcon.classList.remove('rotate-180');
+            });
+
+            // Toggle current if it was closed
+            if (!isExpanded && panel) {
+              button.setAttribute('aria-expanded', 'true');
+              panel.classList.remove('hidden');
+              if (icon) icon.classList.add('rotate-180');
+            }
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,949 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ash & Sprout Alliance | Restoring Life to Burned Forests</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              950: '#0c1610',
+              900: '#14261c',
+              850: '#1a3325',
+              800: '#234432',
+              700: '#2e5942',
+              600: '#3d7255',
+              500: '#4f916d',
+              100: '#e5efe9',
+              50: '#f3f8f5'
+            },
+            ember: {
+              700: '#9d381e',
+              600: '#be4625',
+              500: '#dc5832',
+              100: '#fbece7',
+              50: '#fdf6f3'
+            },
+            earth: {
+              900: '#1f1d1a',
+              800: '#332f2b',
+              600: '#6d655c',
+              200: '#e5e1db',
+              100: '#f2efe9',
+              50: '#faf8f5'
+            }
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom focus indicators for accessibility */
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid #dc5832;
+      outline-offset: 3px;
+    }
+    .topo-pattern {
+      background-image: radial-gradient(rgba(46, 89, 66, 0.12) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+  </style>
+</head>
+<body class="bg-earth-50 text-earth-800 font-sans antialiased selection:bg-forest-100 selection:text-forest-900">
+
+  <!-- Accessible Skip Link -->
+  <a href="#donate-section" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-ember-600 text-white px-4 py-2 rounded-md font-medium text-sm shadow-lg">
+    Skip directly to donation form
+  </a>
+
+  <!-- Top Announcement Bar -->
+  <aside class="bg-forest-950 text-earth-100 text-xs sm:text-sm py-2 px-4 border-b border-forest-850">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true"></span>
+        <p>Spring 2025 Planting Window Open: Actively restoring the <strong>Creek &amp; Dixie Fire scar corridors</strong></p>
+      </div>
+      <a href="#projects" class="hidden sm:inline-flex items-center text-emerald-300 hover:text-emerald-200 underline font-medium">
+        View Active Acreage &rarr;
+      </a>
+    </div>
+  </aside>
+
+  <!-- Navigation -->
+  <header class="sticky top-0 z-40 bg-earth-50/90 backdrop-blur-md border-b border-earth-200 transition-colors">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group">
+        <span class="w-10 h-10 rounded-xl bg-forest-900 text-emerald-400 flex items-center justify-center shadow-inner group-hover:bg-forest-800 transition" aria-hidden="true">
+          <!-- Tree sprouting from log SVG icon -->
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22v-9"/>
+            <path d="M9 13a3 3 0 0 1 6 0"/>
+            <path d="M8 10a4 4 0 0 1 8 0"/>
+            <path d="M7 7a5 5 0 0 1 10 0"/>
+            <path d="M3 21h18"/>
+            <path d="M4 18c2-1 4-1 6 0 2 1 4 1 6 0 2-1 3 0 4 .5"/>
+          </svg>
+        </span>
+        <div class="flex flex-col">
+          <span class="font-serif text-lg font-bold tracking-tight text-forest-950 leading-none">Ash &amp; Sprout</span>
+          <span class="text-[11px] uppercase tracking-wider text-earth-600 font-semibold mt-1">Wildfire Canopy Restoration</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-earth-800" aria-label="Main Navigation">
+        <a href="#impact" class="hover:text-forest-700 transition">Our Impact</a>
+        <a href="#method" class="hover:text-forest-700 transition">Restoration Method</a>
+        <a href="#projects" class="hover:text-forest-700 transition">Field Sites</a>
+        <a href="#transparency" class="hover:text-forest-700 transition">Financials</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="#donate-section" class="bg-forest-900 hover:bg-forest-800 text-white px-5 py-2.5 rounded-lg text-sm font-semibold shadow-sm hover:shadow transition flex items-center gap-2">
+          <span>Plant Trees</span>
+          <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+          </svg>
+        </a>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-lg text-earth-800 hover:bg-earth-200 transition" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Nav dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-earth-200 bg-earth-50 px-4 pt-3 pb-6 space-y-3">
+      <a href="#impact" class="block py-2 text-base font-semibold text-earth-800 hover:text-forest-800">Our Impact</a>
+      <a href="#method" class="block py-2 text-base font-semibold text-earth-800 hover:text-forest-800">Restoration Method</a>
+      <a href="#projects" class="block py-2 text-base font-semibold text-earth-800 hover:text-forest-800">Field Sites</a>
+      <a href="#transparency" class="block py-2 text-base font-semibold text-earth-800 hover:text-forest-800">Financials</a>
+      <a href="#donate-section" class="block text-center mt-2 w-full bg-forest-900 text-white font-semibold py-2.5 rounded-lg">Donate Now</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-gradient-to-b from-earth-50 via-forest-50/40 to-earth-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <!-- Hero Copy -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-forest-100/80 border border-forest-600/20 text-forest-800 text-xs sm:text-sm font-semibold">
+              <svg class="w-4 h-4 text-forest-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+              <span>501(c)(3) Public Wildland Restoration Fund</span>
+            </div>
+
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-forest-950 leading-[1.12]">
+              From Charred Earth <br>
+              <span class="text-forest-700 italic font-normal">to Living Canopy.</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-earth-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              High-intensity wildfires wipe out natural seed banks across millions of acres. We collect locally native seeds, nurture climate-adapted saplings, and hand-plant them directly into catastrophic burn scars.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+              <a href="#donate-section" class="w-full sm:w-auto text-center bg-ember-600 hover:bg-ember-700 text-white px-8 py-3.5 rounded-xl text-base font-semibold shadow-md shadow-ember-600/20 hover:shadow-lg transition">
+                Fund Seedlings Today
+              </a>
+              <a href="#method" class="w-full sm:w-auto text-center border border-earth-300 hover:border-earth-800 text-earth-800 px-6 py-3.5 rounded-xl text-base font-semibold transition hover:bg-earth-100">
+                Explore the Science
+              </a>
+            </div>
+
+            <!-- Trust badge notes -->
+            <div class="pt-6 border-t border-earth-200/80 grid grid-cols-3 gap-4 text-left">
+              <div>
+                <p class="text-xs text-earth-600 uppercase font-bold tracking-wider">Seed Stock</p>
+                <p class="text-sm font-semibold text-forest-950 mt-0.5">100% Native Genotypes</p>
+              </div>
+              <div>
+                <p class="text-xs text-earth-600 uppercase font-bold tracking-wider">Monitoring</p>
+                <p class="text-sm font-semibold text-forest-950 mt-0.5">3-Year GPS Survival Track</p>
+              </div>
+              <div>
+                <p class="text-xs text-earth-600 uppercase font-bold tracking-wider">Public Access</p>
+                <p class="text-sm font-semibold text-forest-950 mt-0.5">Protected Public Lands</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual: Burn-to-Rebirth Graphic -->
+          <div class="lg:col-span-5">
+            <div class="relative mx-auto max-w-md lg:max-w-none bg-forest-950 text-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-forest-850 overflow-hidden">
+              
+              <!-- Ambient background glow inside card -->
+              <div class="absolute -top-24 -right-24 w-60 h-60 bg-forest-600/30 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+              <div class="absolute -bottom-24 -left-24 w-60 h-60 bg-ember-600/20 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+              <div class="relative z-10">
+                <div class="flex items-center justify-between pb-6 border-b border-forest-800">
+                  <div>
+                    <span class="text-xs font-semibold tracking-wider text-emerald-400 uppercase">Field Reality</span>
+                    <h2 class="text-xl font-serif font-bold text-earth-100">Why Natural Recovery Stalls</h2>
+                  </div>
+                  <span class="text-xs bg-forest-850 px-3 py-1 rounded-full text-earth-200 border border-forest-700">Ecological Alert</span>
+                </div>
+
+                <!-- Visual contrast diagram -->
+                <div class="py-6 space-y-5" aria-hidden="true">
+                  <!-- State 1: Severe Burn -->
+                  <div class="p-3.5 rounded-xl bg-forest-900/90 border border-forest-800 flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-stone-900 flex-shrink-0 flex items-center justify-center text-amber-500 border border-stone-700">
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3.5z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="text-sm font-semibold text-earth-100">High-Severity Burn Scars</h3>
+                      <p class="text-xs text-earth-200 mt-1">Cones incinerated above 800°C. Zero natural seed trees remain within 1,500 meters.</p>
+                    </div>
+                  </div>
+
+                  <!-- State 2: Our Intervention -->
+                  <div class="p-3.5 rounded-xl bg-forest-850 border border-forest-700 flex items-start gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-emerald-950 flex-shrink-0 flex items-center justify-center text-emerald-400 border border-emerald-800">
+                      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22v-7"/>
+                        <path d="M17 8a5 5 0 0 0-10 0c0 4 5 7 5 7s5-3 5-7z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="text-sm font-semibold text-emerald-300">Cluster Hand-Planting</h3>
+                      <p class="text-xs text-earth-200 mt-1">Micro-topography sheltered seedlings mimicking natural wildfire mosaic regeneration.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Live progress badge on card -->
+                <div class="p-4 rounded-xl bg-forest-900/60 border border-forest-800">
+                  <div class="flex justify-between items-center text-xs font-semibold mb-2">
+                    <span class="text-earth-200">2025 Goal: 250,000 Saplings</span>
+                    <span class="text-emerald-400">142,800 Planted (57%)</span>
+                  </div>
+                  <div class="w-full bg-forest-950 h-2.5 rounded-full overflow-hidden" role="progressbar" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100" aria-label="2025 Planting Progress">
+                    <div class="bg-gradient-to-r from-emerald-500 to-emerald-400 h-full rounded-full" style="width: 57.1%;"></div>
+                  </div>
+                  <p class="text-[11px] text-earth-200 mt-2 text-right">Updated 3 days ago from Klamath field base</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT NUMBERS SECTION -->
+    <section id="impact" class="py-16 bg-forest-900 text-white relative topo-pattern">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="max-w-2xl mx-auto text-center mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-emerald-400">Verifiable Field Metrics</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-2 text-earth-100">Every Seedling Accounted For</h2>
+          <p class="text-earth-200 text-sm sm:text-base mt-3">
+            Reforestation isn't just about dropping seeds. We track survivability through severe summer heatwaves and winter freezes.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          
+          <!-- Metric 1 -->
+          <div class="bg-forest-950/70 border border-forest-800 p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="text-emerald-400 mb-2" aria-hidden="true">
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22V12M12 12C9 12 6 9 6 6a6 6 0 0 1 12 0c0 3-3 6-6 6z"/>
+                </svg>
+              </div>
+              <p class="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-white">482,410</p>
+              <h3 class="text-sm font-semibold text-emerald-300 mt-1">Native Trees In Ground</h3>
+            </div>
+            <p class="text-xs text-earth-200 mt-4 pt-4 border-t border-forest-850">
+              Ponderosa, Sugar Pine, Douglas Fir, Incense Cedar, and Western Larch.
+            </p>
+          </div>
+
+          <!-- Metric 2 -->
+          <div class="bg-forest-950/70 border border-forest-800 p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="text-emerald-400 mb-2" aria-hidden="true">
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 21h18M5 21V7l8-4v18M13 21V11l6 3v7"/>
+                </svg>
+              </div>
+              <p class="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-white">3,140</p>
+              <h3 class="text-sm font-semibold text-emerald-300 mt-1">Acres Stabilized</h3>
+            </div>
+            <p class="text-xs text-earth-200 mt-4 pt-4 border-t border-forest-850">
+              Mitigating mudslides, erosion, and river silting across critical municipal watersheds.
+            </p>
+          </div>
+
+          <!-- Metric 3 -->
+          <div class="bg-forest-950/70 border border-forest-800 p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="text-emerald-400 mb-2" aria-hidden="true">
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                </svg>
+              </div>
+              <p class="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-white">84.2%</p>
+              <h3 class="text-sm font-semibold text-emerald-300 mt-1">3-Year Survival Rate</h3>
+            </div>
+            <p class="text-xs text-earth-200 mt-4 pt-4 border-t border-forest-850">
+              Industry average is ~50%. Cluster planting in sheltered micro-zones drives our success.
+            </p>
+          </div>
+
+          <!-- Metric 4 -->
+          <div class="bg-forest-950/70 border border-forest-800 p-6 rounded-2xl flex flex-col justify-between">
+            <div>
+              <div class="text-emerald-400 mb-2" aria-hidden="true">
+                <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+              </div>
+              <p class="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-white">$3.20</p>
+              <h3 class="text-sm font-semibold text-emerald-300 mt-1">Cost Per Tree Planted</h3>
+            </div>
+            <p class="text-xs text-earth-200 mt-4 pt-4 border-t border-forest-850">
+              Includes certified seed collection, nursery rearing, manual planting &amp; multi-year GIS auditing.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DONATION CALL TO ACTION SECTION (CORE CONVERSION) -->
+    <section id="donate-section" class="py-16 md:py-24 bg-earth-100 relative">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center mb-10">
+          <span class="text-xs font-bold uppercase tracking-widest text-ember-600">Direct Restoration Pledge</span>
+          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-forest-950 mt-1">Plant Your Roots in the Ash</h2>
+          <p class="text-earth-600 max-w-xl mx-auto mt-3 text-base">
+            Every donation directly funds hardy, locally adapted saplings planted by professional wildland crews.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-3xl shadow-xl border border-earth-200 overflow-hidden">
+          
+          <!-- Frequency Toggle -->
+          <div class="bg-earth-50 p-3 sm:p-4 border-b border-earth-200 flex justify-center">
+            <div class="inline-flex p-1 bg-earth-200/80 rounded-xl" role="tablist" aria-label="Donation Frequency">
+              <button type="button" id="tab-monthly" role="tab" aria-selected="true" class="px-5 py-2 rounded-lg text-sm font-bold bg-white text-forest-950 shadow-sm transition">
+                Monthly Forest Guardian
+              </button>
+              <button type="button" id="tab-once" role="tab" aria-selected="false" class="px-5 py-2 rounded-lg text-sm font-semibold text-earth-600 hover:text-earth-900 transition">
+                One-Time Gift
+              </button>
+            </div>
+          </div>
+
+          <form id="donation-form" class="p-6 sm:p-10 space-y-8" onsubmit="event.preventDefault();">
+            
+            <!-- Amount Selectors -->
+            <div>
+              <label class="block text-sm font-bold text-earth-800 mb-3">
+                1. Select an investment level:
+              </label>
+              
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <button type="button" data-amount="25" class="amount-btn active border-2 border-forest-700 bg-forest-50/50 text-forest-950 p-4 rounded-xl text-left transition hover:border-forest-600 focus:outline-none">
+                  <span class="block text-2xl font-serif font-bold">$25</span>
+                  <span class="block text-xs font-semibold text-forest-700 mt-1 tier-badge">8 Saplings</span>
+                </button>
+
+                <button type="button" data-amount="50" class="amount-btn border-2 border-earth-200 text-earth-800 p-4 rounded-xl text-left transition hover:border-forest-600 focus:outline-none">
+                  <span class="block text-2xl font-serif font-bold">$50</span>
+                  <span class="block text-xs font-semibold text-earth-600 mt-1 tier-badge">16 Saplings</span>
+                </button>
+
+                <button type="button" data-amount="100" class="amount-btn border-2 border-earth-200 text-earth-800 p-4 rounded-xl text-left transition hover:border-forest-600 focus:outline-none">
+                  <span class="block text-2xl font-serif font-bold">$100</span>
+                  <span class="block text-xs font-semibold text-earth-600 mt-1 tier-badge">32 Saplings</span>
+                </button>
+
+                <button type="button" data-amount="250" class="amount-btn border-2 border-earth-200 text-earth-800 p-4 rounded-xl text-left transition hover:border-forest-600 focus:outline-none">
+                  <span class="block text-2xl font-serif font-bold">$250</span>
+                  <span class="block text-xs font-semibold text-earth-600 mt-1 tier-badge">80 Saplings</span>
+                </button>
+              </div>
+
+              <!-- Custom Amount Input -->
+              <div class="mt-4 flex items-center">
+                <label for="custom-amount" class="text-xs font-bold text-earth-600 uppercase tracking-wide mr-3">Or Custom Amount ($)</label>
+                <div class="relative flex-1 max-w-xs">
+                  <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-earth-600 font-semibold">$</span>
+                  <input type="number" id="custom-amount" min="5" placeholder="Enter amount" class="w-full pl-8 pr-4 py-2.5 rounded-lg border border-earth-300 text-sm font-semibold text-earth-900 focus:border-forest-700">
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic Impact Feedback Box -->
+            <div id="impact-callout" class="p-5 rounded-2xl bg-forest-50 border border-forest-100 flex items-start gap-4">
+              <div class="p-2.5 bg-forest-700 text-white rounded-xl flex-shrink-0" aria-hidden="true">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+              <div>
+                <h4 id="impact-headline" class="text-sm font-bold text-forest-950">Your $25 monthly pledge establishes 8 native conifers each month</h4>
+                <p id="impact-description" class="text-xs sm:text-sm text-forest-800 mt-1 leading-relaxed">
+                  Focuses on high-altitude Ponderosa and White Pine planted on north-facing micro-slopes where soil moisture retention is highest following extreme burn severity.
+                </p>
+              </div>
+            </div>
+
+            <!-- Donor Contact Info -->
+            <div class="space-y-4">
+              <label class="block text-sm font-bold text-earth-800">2. Your Details</label>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="donor-first-name" class="block text-xs font-semibold text-earth-600 mb-1">First Name *</label>
+                  <input type="text" id="donor-first-name" required placeholder="Elena" class="w-full px-3.5 py-2.5 rounded-lg border border-earth-300 text-sm focus:border-forest-700">
+                </div>
+                <div>
+                  <label for="donor-last-name" class="block text-xs font-semibold text-earth-600 mb-1">Last Name *</label>
+                  <input type="text" id="donor-last-name" required placeholder="Rostova" class="w-full px-3.5 py-2.5 rounded-lg border border-earth-300 text-sm focus:border-forest-700">
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="donor-email" class="block text-xs font-semibold text-earth-600 mb-1">Email (for GPS plot coordinates &amp; tax receipt) *</label>
+                  <input type="email" id="donor-email" required placeholder="elena@example.com" class="w-full px-3.5 py-2.5 rounded-lg border border-earth-300 text-sm focus:border-forest-700">
+                </div>
+              </div>
+            </div>
+
+            <!-- Dedicated in Honor of (Optional) -->
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <input type="checkbox" id="dedication-toggle" class="rounded text-forest-700 focus:ring-forest-600 h-4 w-4 border-earth-300">
+                <label for="dedication-toggle" class="text-xs sm:text-sm font-medium text-earth-800 cursor-pointer">
+                  Dedicate this grove in memory or honor of someone
+                </label>
+              </div>
+              <div id="dedication-field" class="hidden mt-2">
+                <input type="text" placeholder="Honoree's Name (optional)" class="w-full px-3.5 py-2.5 rounded-lg border border-earth-300 text-sm focus:border-forest-700">
+              </div>
+            </div>
+
+            <!-- Payment Simulation -->
+            <div class="space-y-3 pt-2">
+              <label class="block text-sm font-bold text-earth-800">3. Select Payment Method</label>
+              <div class="grid grid-cols-3 gap-3">
+                <label class="border border-earth-300 hover:border-forest-700 p-3 rounded-xl flex items-center justify-center gap-2 cursor-pointer transition has-[:checked]:border-forest-700 has-[:checked]:bg-forest-50/50">
+                  <input type="radio" name="payment" value="card" checked class="text-forest-700 focus:ring-forest-600">
+                  <span class="text-xs sm:text-sm font-semibold text-earth-900">Card</span>
+                </label>
+                <label class="border border-earth-300 hover:border-forest-700 p-3 rounded-xl flex items-center justify-center gap-2 cursor-pointer transition has-[:checked]:border-forest-700 has-[:checked]:bg-forest-50/50">
+                  <input type="radio" name="payment" value="bank" class="text-forest-700 focus:ring-forest-600">
+                  <span class="text-xs sm:text-sm font-semibold text-earth-900">Bank (ACH)</span>
+                </label>
+                <label class="border border-earth-300 hover:border-forest-700 p-3 rounded-xl flex items-center justify-center gap-2 cursor-pointer transition has-[:checked]:border-forest-700 has-[:checked]:bg-forest-50/50">
+                  <input type="radio" name="payment" value="paypal" class="text-forest-700 focus:ring-forest-600">
+                  <span class="text-xs sm:text-sm font-semibold text-earth-900">Digital Pay</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-4 border-t border-earth-200">
+              <button type="submit" id="submit-btn" class="w-full bg-ember-600 hover:bg-ember-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-base">
+                <svg class="w-5 h-5 text-ember-100" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                </svg>
+                <span>Authorize Monthly Gift of $25</span>
+              </button>
+              
+              <div class="mt-4 flex flex-wrap items-center justify-center gap-y-2 gap-x-6 text-xs text-earth-600">
+                <span class="flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-forest-700" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                  </svg>
+                  256-bit Encrypted SSL
+                </span>
+                <span>501(c)(3) Tax-Deductible</span>
+                <span>Cancel Anytime via Donor Portal</span>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- OUR 4-STAGE RESTORATION METHOD -->
+    <section id="method" class="py-20 bg-earth-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        
+        <div class="max-w-2xl mb-14">
+          <span class="text-xs font-bold uppercase tracking-widest text-forest-700">Scientific Framework</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-950 mt-1">
+            Planting Resilient Forests, Not Fuel For The Next Fire
+          </h2>
+          <p class="text-earth-600 mt-3 text-base">
+            Historic post-fire replanting packed monoculture trees too close together, creating dense brush fires decades later. We use climate-smart silviculture.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Step 1 -->
+          <div class="bg-white p-6 rounded-2xl border border-earth-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-forest-700 tracking-wider">PHASE 01</span>
+              <h3 class="font-serif text-xl font-bold text-earth-900 mt-2">Soil &amp; Ash Chemistry</h3>
+              <p class="text-xs sm:text-sm text-earth-600 mt-3 leading-relaxed">
+                Before planting, we test hydrophobicity (water-repelling glass crusts formed by fierce heat) and inoculate soils with native mycorrhizal fungi.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-earth-100 flex items-center text-xs text-forest-800 font-semibold">
+              <span>Timeline: Months 1–4 Post-Fire</span>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="bg-white p-6 rounded-2xl border border-earth-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-forest-700 tracking-wider">PHASE 02</span>
+              <h3 class="font-serif text-xl font-bold text-earth-900 mt-2">Zone-Matched Seed Banking</h3>
+              <p class="text-xs sm:text-sm text-earth-600 mt-3 leading-relaxed">
+                We pull seeds from our partner conservancy vaults, matching elevation zones to 50-year forward climate projections rather than past averages.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-earth-100 flex items-center text-xs text-forest-800 font-semibold">
+              <span>Elevation: 3,200 – 7,800 ft</span>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="bg-white p-6 rounded-2xl border border-earth-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-forest-700 tracking-wider">PHASE 03</span>
+              <h3 class="font-serif text-xl font-bold text-earth-900 mt-2">Cluster-Mosaic Planting</h3>
+              <p class="text-xs sm:text-sm text-earth-600 mt-3 leading-relaxed">
+                Hand-planting in irregular clumps with varied spacing mimicking old-growth fire-resilient patterns, leaving strategic bare fuel breaks.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-earth-100 flex items-center text-xs text-forest-800 font-semibold">
+              <span>Technique: Variable Density</span>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="bg-white p-6 rounded-2xl border border-earth-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold text-forest-700 tracking-wider">PHASE 04</span>
+              <h3 class="font-serif text-xl font-bold text-earth-900 mt-2">Datalogging &amp; Survivorship</h3>
+              <p class="text-xs sm:text-sm text-earth-600 mt-3 leading-relaxed">
+                Each planting plot receives sub-meter GPS tagging. Technicians revisit at 12, 24, and 36 months to replace drought-stressed losses.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-earth-100 flex items-center text-xs text-forest-800 font-semibold">
+              <span>Assurance: 36 Months Active Guard</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ACTIVE RESTORATION SITES -->
+    <section id="projects" class="py-20 bg-earth-100/60 border-t border-earth-200">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-widest text-forest-700">Spring 2025 Deployments</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-950 mt-1">Active Burn Scar Sectors</h2>
+          </div>
+          <p class="text-earth-600 text-sm max-w-md mt-2 md:mt-0">
+            All planting crews operate with written agreements on State, National Forest, and Watershed Conservation Lands.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6">
+          
+          <!-- Site 1 -->
+          <div class="bg-white rounded-2xl p-6 border border-earth-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold mb-3">
+                <span class="px-2.5 py-1 bg-amber-100 text-amber-900 rounded-md">Severe Burn Scar</span>
+                <span class="text-forest-700">Plumas County, CA</span>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-earth-950">Dixie Fire Ridge Recovery</h3>
+              <p class="text-xs sm:text-sm text-earth-600 mt-2 leading-relaxed">
+                Restoring high-intensity crown fire areas along Indian Creek watershed. Priority on Sugar Pine and Douglas Fir to prevent river sedimentation.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-earth-100 space-y-2">
+              <div class="flex justify-between text-xs">
+                <span class="text-earth-600">Acreage Target:</span>
+                <span class="font-semibold text-earth-900">1,400 Acres</span>
+              </div>
+              <div class="flex justify-between text-xs">
+                <span class="text-earth-600">Seedlings Planted:</span>
+                <span class="font-semibold text-forest-700">112,000 / 175,000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Site 2 -->
+          <div class="bg-white rounded-2xl p-6 border border-earth-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold mb-3">
+                <span class="px-2.5 py-1 bg-emerald-100 text-forest-900 rounded-md">Headwaters Habitat</span>
+                <span class="text-forest-700">McKenzie River, OR</span>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-earth-950">Holiday Farm Fire Basin</h3>
+              <p class="text-xs sm:text-sm text-earth-600 mt-2 leading-relaxed">
+                Rebuilding steep canyon slopes to protect drinking water quality for downstream valley communities while establishing shade for spawning trout.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-earth-100 space-y-2">
+              <div class="flex justify-between text-xs">
+                <span class="text-earth-600">Acreage Target:</span>
+                <span class="font-semibold text-earth-900">920 Acres</span>
+              </div>
+              <div class="flex justify-between text-xs">
+                <span class="text-earth-600">Seedlings Planted:</span>
+                <span class="font-semibold text-forest-700">89,400 / 115,000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Site 3 -->
+          <div class="bg-white rounded-2xl p-6 border border-earth-200 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between text-xs font-bold mb-3">
+                <span class="px-2.5 py-1 bg-amber-100 text-amber-900 rounded-md">Severe Burn Scar</span>
+                <span class="text-forest-700">Klamath Basin, OR</span>
+              </div>
+              <h3 class="font-serif text-xl font-bold text-earth-950">Bootleg Fire Wildlife Corridor</h3>
+              <p class="text-xs sm:text-sm text-earth-600 mt-2 leading-relaxed">
+                Connecting isolated forest fragments for mule deer and elk transit. Establishing drought-tolerant Ponderosa pines with wide gap patterns.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-earth-100 space-y-2">
+              <div class="flex justify-between text-xs">
+                <span class="text-earth-600">Acreage Target:</span>
+                <span class="font-semibold text-earth-900">820 Acres</span>
+              </div>
+              <div class="flex justify-between text-xs">
+                <span class="text-earth-600">Seedlings Planted:</span>
+                <span class="font-semibold text-forest-700">64,000 / 100,000</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FINANCIAL TRANSPARENCY -->
+    <section id="transparency" class="py-16 bg-white border-t border-earth-200">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center max-w-xl mx-auto mb-12">
+          <span class="text-xs font-bold uppercase tracking-widest text-forest-700">Accountability</span>
+          <h2 class="font-serif text-3xl font-bold text-forest-950 mt-1">Where Your Contribution Goes</h2>
+          <p class="text-earth-600 text-sm mt-2">
+            Every dollar is audited independently under our 501(c)(3) charter. We maintain low administrative overhead so boots stay on the ground.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl bg-earth-50 border border-earth-200 text-center">
+            <span class="font-serif text-4xl font-bold text-forest-800">82%</span>
+            <h3 class="text-sm font-bold text-earth-900 mt-2">Direct Field Restoration</h3>
+            <p class="text-xs text-earth-600 mt-2">Seed cone harvesting, local nursery contracts, equipment, planting team wages, site preparation.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-earth-50 border border-earth-200 text-center">
+            <span class="font-serif text-4xl font-bold text-forest-800">11%</span>
+            <h3 class="text-sm font-bold text-earth-900 mt-2">Science &amp; Survivorship Audits</h3>
+            <p class="text-xs text-earth-600 mt-2">GPS tagging, GIS soil mapping, 36-month mortality surveys, ecological university partnerships.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-earth-50 border border-earth-200 text-center">
+            <span class="font-serif text-4xl font-bold text-forest-800">7%</span>
+            <h3 class="text-sm font-bold text-earth-900 mt-2">Administration &amp; Oversight</h3>
+            <p class="text-xs text-earth-600 mt-2">Annual third-party financial audits, donor reporting systems, compliance and legal filings.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FINAL CALL TO ACTION -->
+    <section class="py-20 bg-forest-950 text-white relative overflow-hidden">
+      <!-- Background SVG Tree Rings Pattern -->
+      <div class="absolute inset-0 opacity-5 pointer-events-none flex items-center justify-center">
+        <svg class="w-[800px] h-[800px]" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.5">
+          <circle cx="50" cy="50" r="10" />
+          <circle cx="50" cy="50" r="20" />
+          <circle cx="50" cy="50" r="30" />
+          <circle cx="50" cy="50" r="40" />
+          <circle cx="50" cy="50" r="48" />
+        </svg>
+      </div>
+
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10 space-y-6">
+        <h2 class="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-earth-100">
+          A forest doesn't rebuild in seasons. <br class="hidden sm:inline">
+          It heals across generations.
+        </h2>
+        <p class="text-earth-200 max-w-xl mx-auto text-base sm:text-lg">
+          The saplings placed into the ash this month will shade streams and shelter wildlife in 2125. Join us in putting life back where wildfire took it.
+        </p>
+        <div class="pt-4">
+          <a href="#donate-section" class="inline-block bg-ember-600 hover:bg-ember-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition text-base">
+            Restore a Burn Scar Today
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-earth-900 text-earth-200 text-xs py-12 border-t border-earth-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10 pb-10 border-b border-earth-800">
+        
+        <div class="md:col-span-2 space-y-3">
+          <div class="flex items-center gap-2">
+            <span class="w-7 h-7 rounded-lg bg-forest-800 text-emerald-400 flex items-center justify-center">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22v-9M9 13a3 3 0 0 1 6 0M8 10a4 4 0 0 1 8 0M3 21h18"/>
+              </svg>
+            </span>
+            <span class="font-serif text-base font-bold text-white">Ash &amp; Sprout Alliance</span>
+          </div>
+          <p class="text-earth-200 max-w-sm leading-relaxed">
+            Registered 501(c)(3) non-profit environmental organization dedicated to post-wildfire ecological rehabilitation on protected public lands throughout the American West.
+          </p>
+          <p class="text-earth-200">EIN: 84-2918402 &bull; Tax Exempt Federal Status</p>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider mb-3">Field Operations</h4>
+          <ul class="space-y-2">
+            <li><a href="#projects" class="hover:text-white transition">Klamath Basin Base</a></li>
+            <li><a href="#projects" class="hover:text-white transition">Plumas County Nursery</a></li>
+            <li><a href="#method" class="hover:text-white transition">Seed Collection Protocol</a></li>
+            <li><a href="#method" class="hover:text-white transition">Survival Verification Reports</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-white uppercase tracking-wider mb-3">Transparency</h4>
+          <ul class="space-y-2">
+            <li><a href="#transparency" class="hover:text-white transition">2024 Form 990 Public Filing</a></li>
+            <li><a href="#transparency" class="hover:text-white transition">Independent Auditor Review</a></li>
+            <li><a href="#transparency" class="hover:text-white transition">Donor Privacy Policy</a></li>
+            <li><a href="#donate-section" class="hover:text-white transition">Gift In Honor Certificates</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between text-earth-200 gap-4">
+        <p>&copy; 2025 Ash &amp; Sprout Alliance. All donations are tax-deductible to the full extent allowable by law.</p>
+        <p class="text-[11px]">Planting on ancestral lands with tribal and public agency stewardship cooperation.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- INTERACTIVITY SCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Mobile Menu Toggle
+      const mobileBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      if (mobileBtn && mobileMenu) {
+        mobileBtn.addEventListener('click', () => {
+          const isOpen = mobileMenu.classList.toggle('hidden');
+          mobileBtn.setAttribute('aria-expanded', !isOpen);
+        });
+
+        // Close on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileBtn.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      // 2. Donation Frequency Tabs
+      const tabMonthly = document.getElementById('tab-monthly');
+      const tabOnce = document.getElementById('tab-once');
+      const submitBtn = document.getElementById('submit-btn');
+      let isMonthly = true;
+      let currentAmount = 25;
+
+      const impactCopy = {
+        25: {
+          monthly: {
+            title: "Your $25 monthly pledge establishes 8 native conifers each month",
+            desc: "Focuses on high-altitude Ponderosa and White Pine planted on sheltered micro-slopes with maximum soil moisture retention."
+          },
+          once: {
+            title: "Your $25 gift plants 8 native conifers into burned soil",
+            desc: "Provides seedlings grown from localized elevation seeds, planted directly into priority burn corridors."
+          }
+        },
+        50: {
+          monthly: {
+            title: "Your $50 monthly pledge restores roughly 1,000 sq ft of burn scar monthly",
+            desc: "Plants 16 diverse seedlings (mix of conifer nurse trees and soil-stabilizing species) preventing severe erosion."
+          },
+          once: {
+            title: "Your $50 gift plants 16 climate-resilient seedlings",
+            desc: "Restores critical cover on steep, ash-covered slopes vulnerable to spring runoff mudslides."
+          }
+        },
+        100: {
+          monthly: {
+            title: "Your $100 monthly pledge funds a micro-grove and 3 years of GPS tracking",
+            desc: "Enables 32 trees per month plus dedicated field technician survivorship audits during harsh summer droughts."
+          },
+          once: {
+            title: "Your $100 gift plants 32 native trees with full tracking",
+            desc: "Restores a quarter-acre cluster to kickstart natural canopy regeneration in crown-burned timber stands."
+          }
+        },
+        250: {
+          monthly: {
+            title: "Your $250 monthly pledge sponsors a complete habitat corridor sector",
+            desc: "Funds 80 trees monthly plus seed-zone scientific collection and soil mycorrhizal reinoculation treatments."
+          },
+          once: {
+            title: "Your $250 gift establishes an entire 80-tree restoration cluster",
+            desc: "Includes certified cold-frame nursery rearing, manual wilderness team transport, and long-term GIS monitoring."
+          }
+        }
+      };
+
+      function updateImpactDisplay() {
+        const headlineEl = document.getElementById('impact-headline');
+        const descEl = document.getElementById('impact-description');
+        const submitTextEl = submitBtn.querySelector('span');
+
+        const freqWord = isMonthly ? 'Monthly Gift' : 'One-Time Gift';
+        submitTextEl.textContent = `Authorize ${freqWord} of $${currentAmount}`;
+
+        if (impactCopy[currentAmount]) {
+          const data = isMonthly ? impactCopy[currentAmount].monthly : impactCopy[currentAmount].once;
+          headlineEl.textContent = data.title;
+          descEl.textContent = data.desc;
+        } else {
+          // Custom amount calculation: approx $3.20 per sapling
+          const treeCount = Math.max(1, Math.round(currentAmount / 3.20));
+          const freqSuffix = isMonthly ? 'each month' : 'today';
+          headlineEl.textContent = `Your $${currentAmount} ${isMonthly ? 'monthly pledge' : 'contribution'} funds approximately ${treeCount} native trees ${freqSuffix}`;
+          descEl.textContent = `Every $3.20 covers seed vault testing, climate-smart nursery rearing, manual trail planting, and post-fire ground survivorship tracking.`;
+        }
+      }
+
+      function setFrequency(monthly) {
+        isMonthly = monthly;
+        if (monthly) {
+          tabMonthly.classList.add('bg-white', 'text-forest-950', 'shadow-sm');
+          tabMonthly.classList.remove('text-earth-600');
+          tabMonthly.setAttribute('aria-selected', 'true');
+
+          tabOnce.classList.remove('bg-white', 'text-forest-950', 'shadow-sm');
+          tabOnce.classList.add('text-earth-600');
+          tabOnce.setAttribute('aria-selected', 'false');
+        } else {
+          tabOnce.classList.add('bg-white', 'text-forest-950', 'shadow-sm');
+          tabOnce.classList.remove('text-earth-600');
+          tabOnce.setAttribute('aria-selected', 'true');
+
+          tabMonthly.classList.remove('bg-white', 'text-forest-950', 'shadow-sm');
+          tabMonthly.classList.add('text-earth-600');
+          tabMonthly.setAttribute('aria-selected', 'false');
+        }
+        updateImpactDisplay();
+      }
+
+      tabMonthly.addEventListener('click', () => setFrequency(true));
+      tabOnce.addEventListener('click', () => setFrequency(false));
+
+      // 3. Amount Buttons
+      const amountBtns = document.querySelectorAll('.amount-btn');
+      const customInput = document.getElementById('custom-amount');
+
+      amountBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          amountBtns.forEach(b => {
+            b.classList.remove('border-forest-700', 'bg-forest-50/50', 'text-forest-950');
+            b.classList.add('border-earth-200', 'text-earth-800');
+          });
+          btn.classList.add('border-forest-700', 'bg-forest-50/50', 'text-forest-950');
+          btn.classList.remove('border-earth-200');
+
+          customInput.value = '';
+          currentAmount = parseInt(btn.dataset.amount, 10);
+          updateImpactDisplay();
+        });
+      });
+
+      customInput.addEventListener('input', (e) => {
+        const val = parseInt(e.target.value, 10);
+        if (val && val > 0) {
+          amountBtns.forEach(b => {
+            b.classList.remove('border-forest-700', 'bg-forest-50/50', 'text-forest-950');
+            b.classList.add('border-earth-200', 'text-earth-800');
+          });
+          currentAmount = val;
+          updateImpactDisplay();
+        }
+      });
+
+      // 4. Dedication Checkbox toggle
+      const dedToggle = document.getElementById('dedication-toggle');
+      const dedField = document.getElementById('dedication-field');
+      if (dedToggle && dedField) {
+        dedToggle.addEventListener('change', () => {
+          if (dedToggle.checked) {
+            dedField.classList.remove('hidden');
+          } else {
+            dedField.classList.add('hidden');
+          }
+        });
+      }
+
+      // Initial state render
+      updateImpactDisplay();
+    });
+  </script>
+</body>
+</html>

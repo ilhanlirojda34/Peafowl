@@ -1,0 +1,535 @@
+{
+  "runId": "2026-10-10T15-27-08-732Z",
+  "model": "gemini-3.8-flash",
+  "promptVersion": "52f6f286",
+  "results": [
+    {
+      "id": "coffee-roaster-tr",
+      "generated": true,
+      "checks": [
+        {
+          "name": "has-viewport-meta",
+          "passed": true
+        },
+        {
+          "name": "has-title",
+          "passed": true
+        },
+        {
+          "name": "has-lang",
+          "passed": true
+        },
+        {
+          "name": "single-h1",
+          "passed": true
+        },
+        {
+          "name": "has-main-landmark",
+          "passed": true
+        },
+        {
+          "name": "no-placeholder-copy",
+          "passed": true
+        },
+        {
+          "name": "no-external-images",
+          "passed": true
+        },
+        {
+          "name": "images-have-alt",
+          "passed": true
+        },
+        {
+          "name": "substantial-content",
+          "passed": true
+        }
+      ],
+      "durationMs": 93328,
+      "outputTokens": 20833
+    },
+    {
+      "id": "freelance-designer-portfolio",
+      "generated": true,
+      "checks": [
+        {
+          "name": "has-viewport-meta",
+          "passed": true
+        },
+        {
+          "name": "has-title",
+          "passed": true
+        },
+        {
+          "name": "has-lang",
+          "passed": true
+        },
+        {
+          "name": "single-h1",
+          "passed": true
+        },
+        {
+          "name": "has-main-landmark",
+          "passed": true
+        },
+        {
+          "name": "no-placeholder-copy",
+          "passed": true
+        },
+        {
+          "name": "no-external-images",
+          "passed": true
+        },
+        {
+          "name": "images-have-alt",
+          "passed": true
+        },
+        {
+          "name": "substantial-content",
+          "passed": true
+        }
+      ],
+      "durationMs": 54281,
+      "outputTokens": 12429
+    },
+    {
+      "id": "saas-landing-invoicing",
+      "generated": true,
+      "checks": [
+        {
+          "name": "has-viewport-meta",
+          "passed": true
+        },
+        {
+          "name": "has-title",
+          "passed": true
+        },
+        {
+          "name": "has-lang",
+          "passed": true
+        },
+        {
+          "name": "single-h1",
+          "passed": true
+        },
+        {
+          "name": "has-main-landmark",
+          "passed": true
+        },
+        {
+          "name": "no-placeholder-copy",
+          "passed": false
+        },
+        {
+          "name": "no-external-images",
+          "passed": true
+        },
+        {
+          "name": "images-have-alt",
+          "passed": true
+        },
+        {
+          "name": "substantial-content",
+          "passed": true
+        }
+      ],
+      "durationMs": 86262,
+      "outputTokens": 20261
+    },
+    {
+      "id": "dental-clinic-tr",
+      "generated": true,
+      "checks": [
+        {
+          "name": "has-viewport-meta",
+          "passed": true
+        },
+        {
+          "name": "has-title",
+          "passed": true
+        },
+        {
+          "name": "has-lang",
+          "passed": true
+        },
+        {
+          "name": "single-h1",
+          "passed": true
+        },
+        {
+          "name": "has-main-landmark",
+          "passed": true
+        },
+        {
+          "name": "no-placeholder-copy",
+          "passed": true
+        },
+        {
+          "name": "no-external-images",
+          "passed": true
+        },
+        {
+          "name": "images-have-alt",
+          "passed": true
+        },
+        {
+          "name": "substantial-content",
+          "passed": true
+        }
+      ],
+      "durationMs": 90061,
+      "outputTokens": 23071
+    },
+    {
+      "id": "yoga-studio",
+      "generated": true,
+      "checks": [
+        {
+          "name": "has-viewport-meta",
+          "passed": true
+        },
+        {
+          "name": "has-title",
+          "passed": true
+        },
+        {
+          "name": "has-lang",
+          "passed": true
+        },
+        {
+          "name": "single-h1",
+          "passed": true
+        },
+        {
+          "name": "has-main-landmark",
+          "passed": true
+        },
+        {
+          "name": "no-placeholder-copy",
+          "passed": true
+        },
+        {
+          "name": "no-external-images",
+          "passed": true
+        },
+        {
+          "name": "images-have-alt",
+          "passed": true
+        },
+        {
+          "name": "substantial-content",
+          "passed": true
+        }
+      ],
+      "durationMs": 84350,
+      "outputTokens": 20054
+    },
+    {
+      "id": "indie-game-launch",
+      "generated": true,
+      "checks": [
+        {
+          "name": "has-viewport-meta",
+          "passed": true
+        },
+        {
+          "name": "has-title",
+          "passed": true
+        },
+        {
+          "name": "has-lang",
+          "passed": true
+        },
+        {
+          "name": "single-h1",
+          "passed": true
+        },
+        {
+          "name": "has-main-landmark",
+          "passed": true
+        },
+        {
+          "name": "no-placeholder-copy",
+          "passed": false
+        },
+        {
+          "name": "no-external-images",
+          "passed": true
+        },
+        {
+          "name": "images-have-alt",
+          "passed": true
+        },
+        {
+          "name": "substantial-content",
+          "passed": true
+        }
+      ],
+      "durationMs": 94297,
+      "outputTokens": 20883
+    },
+    {
+      "id": "law-firm-tr",
+      "generated": true,
+      "checks": [
+        {
+          "name": "has-viewport-meta",
+          "passed": true
+        },
+        {
+          "name": "has-title",
+          "passed": true
+        },
+        {
+          "name": "has-lang",
+          "passed": true
+        },
+        {
+          "name": "single-h1",
+          "passed": true
+        },
+        {
+          "name": "has-main-landmark",
+          "passed": true
+        },
+        {
+          "name": "no-placeholder-copy",
+          "passed": true
+        },
+        {
+          "name": "no-external-images",
+          "passed": true
+        },
+        {
+          "name": "images-have-alt",
+          "passed": true
+        },
+        {
+          "name": "substantial-content",
+          "passed": true
+        }
+      ],
+      "durationMs": 147967,
+      "outputTokens": 18182
+    },
+    {
+      "id": "restaurant-menu",
+      "generated": true,
+      "checks": [
+        {
+          "name": "has-viewport-meta",
+          "passed": true
+        },
+        {
+          "name": "has-title",
+          "passed": true
+        },
+        {
+          "name": "has-lang",
+          "passed": true
+        },
+        {
+          "name": "single-h1",
+          "passed": true
+        },
+        {
+          "name": "has-main-landmark",
+          "passed": true
+        },
+        {
+          "name": "no-placeholder-copy",
+          "passed": true
+        },
+        {
+          "name": "no-external-images",
+          "passed": true
+        },
+        {
+          "name": "images-have-alt",
+          "passed": true
+        },
+        {
+          "name": "substantial-content",
+          "passed": true
+        }
+      ],
+      "durationMs": 109954,
+      "outputTokens": 20604
+    },
+    {
+      "id": "nonprofit-donation",
+      "generated": true,
+      "checks": [
+        {
+          "name": "has-viewport-meta",
+          "passed": true
+        },
+        {
+          "name": "has-title",
+          "passed": true
+        },
+        {
+          "name": "has-lang",
+          "passed": true
+        },
+        {
+          "name": "single-h1",
+          "passed": true
+        },
+        {
+          "name": "has-main-landmark",
+          "passed": true
+        },
+        {
+          "name": "no-placeholder-copy",
+          "passed": true
+        },
+        {
+          "name": "no-external-images",
+          "passed": true
+        },
+        {
+          "name": "images-have-alt",
+          "passed": true
+        },
+        {
+          "name": "substantial-content",
+          "passed": true
+        }
+      ],
+      "durationMs": 74433,
+      "outputTokens": 17016
+    },
+    {
+      "id": "fitness-coach-tr",
+      "generated": true,
+      "checks": [
+        {
+          "name": "has-viewport-meta",
+          "passed": true
+        },
+        {
+          "name": "has-title",
+          "passed": true
+        },
+        {
+          "name": "has-lang",
+          "passed": true
+        },
+        {
+          "name": "single-h1",
+          "passed": true
+        },
+        {
+          "name": "has-main-landmark",
+          "passed": true
+        },
+        {
+          "name": "no-placeholder-copy",
+          "passed": true
+        },
+        {
+          "name": "no-external-images",
+          "passed": true
+        },
+        {
+          "name": "images-have-alt",
+          "passed": true
+        },
+        {
+          "name": "substantial-content",
+          "passed": true
+        }
+      ],
+      "durationMs": 72251,
+      "outputTokens": 15982
+    },
+    {
+      "id": "architecture-studio",
+      "generated": true,
+      "checks": [
+        {
+          "name": "has-viewport-meta",
+          "passed": true
+        },
+        {
+          "name": "has-title",
+          "passed": true
+        },
+        {
+          "name": "has-lang",
+          "passed": true
+        },
+        {
+          "name": "single-h1",
+          "passed": true
+        },
+        {
+          "name": "has-main-landmark",
+          "passed": true
+        },
+        {
+          "name": "no-placeholder-copy",
+          "passed": true
+        },
+        {
+          "name": "no-external-images",
+          "passed": true
+        },
+        {
+          "name": "images-have-alt",
+          "passed": true
+        },
+        {
+          "name": "substantial-content",
+          "passed": true
+        }
+      ],
+      "durationMs": 76509,
+      "outputTokens": 17433
+    },
+    {
+      "id": "event-conference",
+      "generated": true,
+      "checks": [
+        {
+          "name": "has-viewport-meta",
+          "passed": true
+        },
+        {
+          "name": "has-title",
+          "passed": true
+        },
+        {
+          "name": "has-lang",
+          "passed": true
+        },
+        {
+          "name": "single-h1",
+          "passed": true
+        },
+        {
+          "name": "has-main-landmark",
+          "passed": true
+        },
+        {
+          "name": "no-placeholder-copy",
+          "passed": true
+        },
+        {
+          "name": "no-external-images",
+          "passed": true
+        },
+        {
+          "name": "images-have-alt",
+          "passed": true
+        },
+        {
+          "name": "substantial-content",
+          "passed": true
+        }
+      ],
+      "durationMs": 70585,
+      "outputTokens": 16683
+    }
+  ]
+}
