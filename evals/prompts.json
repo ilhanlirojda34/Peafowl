@@ -1,50 +1,106 @@
 [
   {
     "id": "coffee-roaster-tr",
-    "brief": "İstanbul Kadıköy'de küçük bir üçüncü nesil kahve kavurma dükkanı için tanıtım sitesi. Çekirdek çeşitleri ve abonelik seçeneği olsun."
+    "brief": "İstanbul Kadıköy'de küçük bir üçüncü nesil kahve kavurma dükkanı için tanıtım sitesi. Çekirdek çeşitleri ve abonelik seçeneği olsun.",
+    "answers": {
+      "name": "Kadıköy Kavurma Evi",
+      "phone": "0216 555 01 01",
+      "address": "Caferağa Mah. Moda Cd. No:10, Kadıköy/İstanbul"
+    }
   },
   {
     "id": "freelance-designer-portfolio",
-    "brief": "Portfolio for a freelance brand designer based in Lisbon. Show three case studies and a contact section."
+    "brief": "Portfolio for a freelance brand designer based in Lisbon. Show three case studies and a contact section.",
+    "answers": {
+      "name": "Inês Duarte",
+      "email": "hello@inesduarte.example"
+    }
   },
   {
     "id": "saas-landing-invoicing",
-    "brief": "Landing page for a SaaS that automates invoicing for small agencies. Include pricing with three tiers and an FAQ."
+    "brief": "Landing page for a SaaS that automates invoicing for small agencies. Include pricing with three tiers and an FAQ.",
+    "answers": {
+      "name": "Billflow",
+      "url": "https://billflow.example",
+      "email": "hello@billflow.example"
+    }
   },
   {
     "id": "dental-clinic-tr",
-    "brief": "Ankara'da bir diş kliniği için randevu odaklı kurumsal site. Hizmetler, ekip ve çalışma saatleri bölümleri olsun."
+    "brief": "Ankara'da bir diş kliniği için randevu odaklı kurumsal site. Hizmetler, ekip ve çalışma saatleri bölümleri olsun.",
+    "answers": {
+      "name": "Çankaya Diş Kliniği",
+      "phone": "0312 555 02 02",
+      "address": "Kızılay Mah. Atatürk Blv. No:120, Çankaya/Ankara"
+    }
   },
   {
     "id": "yoga-studio",
-    "brief": "Website for a calm neighborhood yoga studio with a weekly class schedule and a first-class-free offer."
+    "brief": "Website for a calm neighborhood yoga studio with a weekly class schedule and a first-class-free offer.",
+    "answers": {
+      "name": "Still Point Yoga",
+      "email": "hello@stillpoint.example",
+      "address": "14 Elm Street, Bristol"
+    }
   },
   {
     "id": "indie-game-launch",
-    "brief": "Launch page for an indie pixel-art puzzle game. Dark theme, trailer section, feature list and a wishlist call to action."
+    "brief": "Launch page for an indie pixel-art puzzle game. Dark theme, trailer section, feature list and a wishlist call to action.",
+    "answers": {
+      "name": "Tilt Tiles",
+      "url": "https://store.example/tilt-tiles"
+    }
   },
   {
     "id": "law-firm-tr",
-    "brief": "İzmir'de aile hukuku ve ticaret hukuku alanında çalışan bir hukuk bürosu için güven veren, sade bir site."
+    "brief": "İzmir'de aile hukuku ve ticaret hukuku alanında çalışan bir hukuk bürosu için güven veren, sade bir site.",
+    "answers": {
+      "name": "Aydın & Demir Hukuk Bürosu",
+      "phone": "0232 555 03 03",
+      "email": "iletisim@aydindemir.example",
+      "address": "Alsancak Mah. Kıbrıs Şehitleri Cd. No:45, Konak/İzmir"
+    }
   },
   {
     "id": "restaurant-menu",
-    "brief": "One-page site for a family-run Anatolian restaurant: story, menu highlights, opening hours and a reservation section."
+    "brief": "One-page site for a family-run Anatolian restaurant: story, menu highlights, opening hours and a reservation section.",
+    "answers": {
+      "name": "Anatolian Table",
+      "phone": "+44 20 7946 0123",
+      "address": "22 Green Lanes, London"
+    }
   },
   {
     "id": "nonprofit-donation",
-    "brief": "Donation page for a nonprofit that plants trees in burned forests. Show impact numbers and a donation call to action."
+    "brief": "Donation page for a nonprofit that plants trees in burned forests. Show impact numbers and a donation call to action.",
+    "answers": {
+      "name": "Second Forest",
+      "url": "https://secondforest.example/donate"
+    }
   },
   {
     "id": "fitness-coach-tr",
-    "brief": "Online fitness koçu için kişisel marka sitesi. Dönüşüm hikayeleri, paketler ve ücretsiz görüşme çağrısı olsun."
+    "brief": "Online fitness koçu için kişisel marka sitesi. Dönüşüm hikayeleri, paketler ve ücretsiz görüşme çağrısı olsun.",
+    "answers": {
+      "name": "Elif Kaya",
+      "email": "elif@elifkaya.example",
+      "phone": "0532 555 04 04"
+    }
   },
   {
     "id": "architecture-studio",
-    "brief": "Minimal site for a small architecture studio. Large typography, selected projects, studio philosophy and contact."
+    "brief": "Minimal site for a small architecture studio. Large typography, selected projects, studio philosophy and contact.",
+    "answers": {
+      "name": "Atelier Nord",
+      "email": "studio@ateliernord.example"
+    }
   },
   {
     "id": "event-conference",
-    "brief": "Landing page for a one-day developer conference: speakers, schedule, venue and ticket tiers."
+    "brief": "Landing page for a one-day developer conference: speakers, schedule, venue and ticket tiers.",
+    "answers": {
+      "name": "DevDay Lisbon",
+      "url": "https://devday.example/tickets"
+    }
   }
 ]

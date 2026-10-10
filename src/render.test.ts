@@ -3,12 +3,31 @@ import { describe, it } from 'node:test';
 import { APICallError, simulateReadableStream } from 'ai';
 import { MockLanguageModelV4 } from 'ai/test';
 import pino from 'pino';
-import { createSiteGenerator, describeProviderError, SiteGenerationError } from './generate.ts';
+import { SiteGenerationError } from './errors.ts';
+import { createSiteRenderer, renderInputFor } from './render.ts';
+import type { SiteSpec } from './spec.ts';
 
 type StreamPart =
   Awaited<ReturnType<MockLanguageModelV4['doStream']>>['stream'] extends ReadableStream<infer P>
     ? P
     : never;
+
+const SPEC: SiteSpec = {
+  schemaVersion: 1,
+  kind: 'business',
+  language: 'tr',
+  subject: {
+    name: 'Moda Kahve',
+    category: 'kahve dükkanı',
+    location: null,
+    summary: null,
+    schedule: 'Her gün 08.00–20.00',
+  },
+  items: [{ name: 'Filtre kahve', description: null, price: '90 TL' }],
+  contact: { phone: '0216 555 12 34', email: null, address: null, url: null },
+  primaryAction: 'call',
+  tone: 'friendly',
+};
 
 const DOCUMENT = '<!doctype html><html lang="tr"><body><h1>Kahve</h1></body></html>';
 
@@ -40,7 +59,7 @@ function generatorFor(chunks: StreamPart[], options: { initialDelayInMs?: number
       }),
     }),
   });
-  return createSiteGenerator({
+  return createSiteRenderer({
     model,
     config: { model: 'mock', llmTimeoutMs: 5_000, llmIdleTimeoutMs: 100, llmMaxRetries: 0 },
     logger: pino({ level: 'silent' }),
@@ -58,14 +77,14 @@ async function assertGenerationFails(
   );
 }
 
-describe('createSiteGenerator', () => {
+describe('createSiteRenderer', () => {
   it('assembles streamed text into a clean document with token usage', async () => {
     const generate = generatorFor([
       ...textParts('```html\n', DOCUMENT.slice(0, 30), DOCUMENT.slice(30), '\n```'),
       FINISH,
     ]);
 
-    const site = await generate('kahve dükkanı');
+    const site = await generate(SPEC);
 
     assert.equal(site.html, DOCUMENT);
     assert.equal(site.inputTokens, 120);
@@ -87,48 +106,34 @@ describe('createSiteGenerator', () => {
       },
     ]);
 
-    await assertGenerationFails(generate('brief'), 'request-failed');
+    await assertGenerationFails(generate(SPEC), 'request-failed');
   });
 
   it('fails with request-failed when the model stays silent past the idle timeout', async () => {
     const generate = generatorFor([...textParts(DOCUMENT), FINISH], { initialDelayInMs: 1_000 });
 
-    await assertGenerationFails(generate('brief'), 'request-failed');
+    await assertGenerationFails(generate(SPEC), 'request-failed');
   });
 
   it('reports a cut-off document as invalid-output', async () => {
     const generate = generatorFor([...textParts('<!doctype html><html><body>'), FINISH]);
 
-    await assertGenerationFails(generate('brief'), 'invalid-output');
+    await assertGenerationFails(generate(SPEC), 'invalid-output');
   });
 });
 
-describe('describeProviderError', () => {
-  it('keeps status and message but drops the request body', () => {
-    const error = new APICallError({
-      message: 'Request had invalid authentication credentials.',
-      url: 'https://generativelanguage.googleapis.com/v1beta/models/x:generateContent',
-      requestBodyValues: { contents: 'private user brief' },
-      statusCode: 401,
-      responseBody: '{"error":{}}',
-      isRetryable: false,
-    });
+describe('renderInputFor', () => {
+  it('sends only known facts plus the sections and button link decided by code', () => {
+    const input = JSON.parse(renderInputFor(SPEC));
 
-    const described = describeProviderError(error);
-
-    assert.deepEqual(described, {
-      errorMessage: 'Request had invalid authentication credentials.',
-      statusCode: 401,
-      retryable: false,
+    assert.deepEqual(input.subject, {
+      name: 'Moda Kahve',
+      category: 'kahve dükkanı',
+      schedule: 'Her gün 08.00–20.00',
     });
-    assert.ok(!JSON.stringify(described).includes('private user brief'));
-  });
-
-  it('handles non-provider errors', () => {
-    assert.deepEqual(describeProviderError(new Error('timeout')), {
-      errorMessage: 'timeout',
-      statusCode: undefined,
-      retryable: undefined,
-    });
+    assert.deepEqual(input.items, [{ name: 'Filtre kahve', price: '90 TL' }]);
+    assert.deepEqual(input.contact, { phone: '0216 555 12 34' });
+    assert.deepEqual(input.sections, ['hero', 'items', 'contact']);
+    assert.deepEqual(input.primaryAction, { type: 'call', href: 'tel:02165551234' });
   });
 });

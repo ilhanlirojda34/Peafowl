@@ -21,7 +21,13 @@ cp .env.example .env   # then set GOOGLE_GENERATIVE_AI_API_KEY
 
 ## Layout
 
-- `prompts/site-generator.md` – system prompt (edit this most; eval results are tagged with its hash)
-- `src/generate.ts` – the only module that calls the LLM
+Pipeline: brief → analyse → SiteSpec (ask for missing fields) → render → verify.
+
+- `prompts/brief-analyzer.md`, `prompts/site-generator.md` – system prompts (eval results are tagged with their hashes)
+- `src/spec.ts` – SiteSpec model: completing a draft, sections, the primary button link
+- `src/questions.ts` – questions for missing fields and validation of answers
+- `src/analyze.ts` – step 1: brief → SiteSpec draft (LLM, structured output)
+- `src/render.ts` – step 3: SiteSpec → HTML (LLM, streamed)
+- `src/verify.ts` – step 4: rejects pages with facts that are not in the spec
 - `src/sanitize.ts` – extracts the HTML document from raw model output
-- `evals/` – structural checks and the eval runner
+- `evals/` – eval cases (with the answers a user would give), structural checks and the runner

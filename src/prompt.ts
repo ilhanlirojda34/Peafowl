@@ -8,10 +8,12 @@ export interface SystemPrompt {
   readonly version: string;
 }
 
-const PROMPT_PATH = join(import.meta.dirname, '..', 'prompts', 'site-generator.md');
+export type PromptName = 'brief-analyzer' | 'site-generator';
 
-export async function loadSystemPrompt(): Promise<SystemPrompt> {
-  const text = await readFile(PROMPT_PATH, 'utf8');
+const PROMPTS_DIR = join(import.meta.dirname, '..', 'prompts');
+
+export async function loadSystemPrompt(name: PromptName): Promise<SystemPrompt> {
+  const text = await readFile(join(PROMPTS_DIR, `${name}.md`), 'utf8');
   const version = createHash('sha256').update(text).digest('hex').slice(0, 8);
   return { text, version };
 }

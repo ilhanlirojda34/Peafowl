@@ -1,72 +1,74 @@
-import { createGoogleGenerativeAI } from '@ai-sdk/google';
-import {
-  APICallError,
-  streamText,
-  type FinishReason,
-  type LanguageModel,
-  type LanguageModelUsage,
-} from 'ai';
+import { streamText, type FinishReason, type LanguageModel, type LanguageModelUsage } from 'ai';
 import type { Config } from './config.ts';
+import { describeProviderError, requestFailed, SiteGenerationError } from './errors.ts';
 import type { Logger } from './logger.ts';
 import type { SystemPrompt } from './prompt.ts';
 import { extractHtmlDocument, InvalidHtmlError } from './sanitize.ts';
+import { primaryActionHref, sectionsFor, type SiteSpec } from './spec.ts';
+import { elapsedSince } from './timing.ts';
 
-export interface GeneratedSite {
+export interface RenderedSite {
   readonly html: string;
   readonly durationMs: number;
   readonly inputTokens: number | undefined;
   readonly outputTokens: number | undefined;
 }
 
-export type SiteGenerationFailure = 'request-failed' | 'invalid-output';
+export type RenderSite = (spec: SiteSpec, abortSignal?: AbortSignal) => Promise<RenderedSite>;
 
-export class SiteGenerationError extends Error {
-  readonly kind: SiteGenerationFailure;
+type RendererConfig = Pick<Config, 'model' | 'llmTimeoutMs' | 'llmIdleTimeoutMs' | 'llmMaxRetries'>;
 
-  constructor(kind: SiteGenerationFailure, message: string, options?: ErrorOptions) {
-    super(message, options);
-    this.kind = kind;
-  }
-}
-
-export type GenerateSite = (brief: string, abortSignal?: AbortSignal) => Promise<GeneratedSite>;
-
-type GeneratorConfig = Pick<
-  Config,
-  'model' | 'llmTimeoutMs' | 'llmIdleTimeoutMs' | 'llmMaxRetries'
->;
-
-interface SiteGeneratorDependencies {
+interface SiteRendererDependencies {
   readonly model: LanguageModel;
-  readonly config: GeneratorConfig;
+  readonly config: RendererConfig;
   readonly logger: Logger;
   readonly prompt: SystemPrompt;
 }
 
-export function createGeminiModel(config: Pick<Config, 'googleApiKey' | 'model'>): LanguageModel {
-  return createGoogleGenerativeAI({ apiKey: config.googleApiKey })(config.model);
+/**
+ * What the model receives: only the facts that exist (null fields are left out, so there is
+ * nothing to fill in), plus decisions code has already made — the sections and the button link.
+ */
+export function renderInputFor(spec: SiteSpec): string {
+  const known = <T extends object>(record: T) =>
+    Object.fromEntries(Object.entries(record).filter(([, value]) => value !== null));
+
+  return JSON.stringify(
+    {
+      language: spec.language,
+      kind: spec.kind,
+      tone: spec.tone,
+      subject: known(spec.subject),
+      items: spec.items.map(known),
+      contact: known(spec.contact),
+      sections: sectionsFor(spec),
+      primaryAction: { type: spec.primaryAction, href: primaryActionHref(spec) },
+    },
+    null,
+    2,
+  );
 }
 
 /**
- * The only place that talks to the LLM. The response is streamed so that a stalled model is cut
- * off by the idle timeout while a slow but progressing one is allowed to finish. Failures are
- * translated into SiteGenerationError and logged once. The brief itself is never logged.
+ * Step 3 of the pipeline: turns a complete SiteSpec into an HTML document. The response is
+ * streamed so a stalled model is cut off by the idle timeout while a slow but progressing one
+ * can finish. Failures become SiteGenerationError and are logged once; spec content is not logged.
  */
-export function createSiteGenerator({
+export function createSiteRenderer({
   model,
   config,
   logger,
   prompt,
-}: SiteGeneratorDependencies): GenerateSite {
-  const log = logger.child({ model: config.model, promptVersion: prompt.version });
+}: SiteRendererDependencies): RenderSite {
+  const log = logger.child({ step: 'render', model: config.model, promptVersion: prompt.version });
 
-  return async (brief, abortSignal) => {
+  return async (spec, abortSignal) => {
     const startedAt = performance.now();
 
     const result = streamText({
       model,
       system: prompt.text,
-      prompt: brief,
+      prompt: renderInputFor(spec),
       maxRetries: config.llmMaxRetries,
       abortSignal,
       timeout: {
@@ -91,14 +93,8 @@ export function createSiteGenerator({
     };
 
     if (outcome.error !== undefined) {
-      const failure = describeProviderError(outcome.error);
-      log.error({ ...failure, ...progress, briefLength: brief.length }, 'Model request failed');
-      const status = failure.statusCode === undefined ? '' : ` (HTTP ${failure.statusCode})`;
-      throw new SiteGenerationError(
-        'request-failed',
-        `The model request failed${status}: ${failure.errorMessage}`,
-        { cause: outcome.error },
-      );
+      log.error({ ...describeProviderError(outcome.error), ...progress }, 'Render request failed');
+      throw requestFailed(outcome.error);
     }
 
     const inputTokens = outcome.usage?.inputTokens;
@@ -118,7 +114,7 @@ export function createSiteGenerator({
 
     log.info(
       { ...progress, inputTokens, outputTokens, finishReason: outcome.finishReason },
-      'Site generated',
+      'Site rendered',
     );
     return { html, durationMs: progress.durationMs, inputTokens, outputTokens };
   };
@@ -183,31 +179,4 @@ async function consumeStream(
   }
 
   return { text, reasoningChars, firstOutputMs, finishReason, usage, error };
-}
-
-/**
- * Keeps only diagnostic fields. The raw provider error also carries the request body
- * (system prompt and the user's brief), which must not end up in logs.
- */
-export function describeProviderError(error: unknown): {
-  errorMessage: string;
-  statusCode: number | undefined;
-  retryable: boolean | undefined;
-} {
-  if (APICallError.isInstance(error)) {
-    return {
-      errorMessage: error.message,
-      statusCode: error.statusCode,
-      retryable: error.isRetryable,
-    };
-  }
-  return {
-    errorMessage: error instanceof Error ? error.message : String(error),
-    statusCode: undefined,
-    retryable: undefined,
-  };
-}
-
-function elapsedSince(startedAt: number): number {
-  return Math.round(performance.now() - startedAt);
 }
