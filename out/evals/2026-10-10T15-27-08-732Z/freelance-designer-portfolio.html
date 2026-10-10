@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sofia Alvalade — Independent Brand Designer, Lisbon</title>
+  <meta name="description" content="Portfolio of Sofia Alvalade, an independent brand identity designer and art director based in Lisbon, Portugal. Crafting enduring visual systems for hospitality, architecture, and craft.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Newsreader -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Newsreader', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          },
+          colors: {
+            sand: {
+              50: '#FAF8F5',
+              100: '#F4EFEA',
+              200: '#E8DFD5',
+              300: '#D9CCC0',
+              600: '#8A7D70',
+              900: '#2C2723',
+            },
+            terracotta: {
+              DEFAULT: '#C15C3D',
+              dark: '#9E4429',
+              light: '#F4ECE8',
+            },
+            charcoal: {
+              DEFAULT: '#191816',
+              soft: '#2A2825',
+              muted: '#63605A',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Subtle paper texture grain effect */
+    .bg-grain {
+      background-image: radial-gradient(rgba(44, 39, 35, 0.04) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+    
+    /* Precision focus ring */
+    :focus-visible {
+      outline: 2px solid #C15C3D;
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-sand-50 text-charcoal font-sans antialiased selection:bg-terracotta selection:text-white bg-grain min-h-screen flex flex-col">
+
+  <!-- TOP STATUS BAR & ACCENT -->
+  <div class="bg-sand-100 border-b border-sand-200 text-xs text-charcoal-muted px-6 py-2">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-600 animate-pulse" aria-hidden="true"></span>
+        <span class="font-medium text-charcoal">Available for Q3 &amp; Q4 2025</span>
+        <span class="text-sand-300">/</span>
+        <span>Identity, Packaging &amp; Art Direction</span>
+      </div>
+      <div class="flex items-center gap-4 text-[11px] uppercase tracking-widest font-mono">
+        <span>Lisbon, PT</span>
+        <span class="text-sand-300">•</span>
+        <span id="lisbon-clock">14:32 WET</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-sand-50/90 backdrop-blur-md border-b border-sand-200/80 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+      <a href="#top" class="group flex flex-col focus:outline-none" aria-label="Sofia Alvalade Brand Design Homepage">
+        <span class="font-serif text-2xl font-normal tracking-tight text-charcoal group-hover:text-terracotta transition-colors">Sofia Alvalade</span>
+        <span class="text-[10px] tracking-[0.2em] uppercase font-sans text-charcoal-muted">Studio de Marca — Lisboa</span>
+      </a>
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex items-center gap-10 text-sm font-medium tracking-wide" aria-label="Primary Navigation">
+        <a href="#work" class="text-charcoal hover:text-terracotta transition-colors py-2">Selected Work</a>
+        <a href="#practice" class="text-charcoal hover:text-terracotta transition-colors py-2">Studio &amp; Practice</a>
+        <a href="#process" class="text-charcoal hover:text-terracotta transition-colors py-2">Method</a>
+        <a href="#contact" class="px-5 py-2.5 bg-charcoal text-sand-50 rounded-full hover:bg-terracotta transition-colors duration-200 shadow-sm">
+          Initiate Project
+        </a>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button 
+        id="menu-toggle"
+        type="button" 
+        class="md:hidden p-2 text-charcoal hover:text-terracotta focus:outline-none" 
+        aria-expanded="false" 
+        aria-controls="mobile-menu"
+        aria-label="Toggle navigation menu">
+        <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+        </svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-sand-200 bg-sand-50 px-6 py-6 transition-all duration-200">
+      <nav class="flex flex-col gap-4 text-base font-medium">
+        <a href="#work" class="mobile-nav-link text-charcoal hover:text-terracotta py-2">Selected Work</a>
+        <a href="#practice" class="mobile-nav-link text-charcoal hover:text-terracotta py-2">Studio &amp; Practice</a>
+        <a href="#process" class="mobile-nav-link text-charcoal hover:text-terracotta py-2">Method</a>
+        <a href="#contact" class="mobile-nav-link text-center px-5 py-3 mt-2 bg-charcoal text-sand-50 rounded-full hover:bg-terracotta transition-colors">Initiate Project</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="flex-grow">
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-16 md:pt-24 pb-20 md:pb-32 px-6 lg:px-12 border-b border-sand-200 overflow-hidden">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-end">
+          
+          <div class="lg:col-span-8">
+            <span class="inline-block text-xs uppercase tracking-[0.25em] text-terracotta font-semibold mb-6">
+              Independent Brand Identity Atelier
+            </span>
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-normal leading-[1.08] text-charcoal tracking-tight">
+              Shaping identities with tactile presence, restraint, and Lisbon light.
+            </h1>
+          </div>
+
+          <div class="lg:col-span-4 flex flex-col justify-between">
+            <p class="text-charcoal-muted text-lg font-normal leading-relaxed mb-8">
+              I collaborate directly with founders in wine, architecture, hospitality, and independent craft to create timeless typographic systems, bespoke packaging, and cohesive brand worlds.
+            </p>
+            <div class="flex flex-wrap items-center gap-4">
+              <a href="#work" class="inline-flex items-center gap-3 px-6 py-3.5 bg-charcoal text-sand-50 text-sm font-medium rounded-full hover:bg-terracotta transition-all group">
+                <span>Explore Case Studies</span>
+                <svg class="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+              </a>
+              <a href="#practice" class="inline-flex items-center gap-2 px-5 py-3.5 text-sm font-medium text-charcoal hover:text-terracotta transition-colors">
+                Studio Philosophy
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Metric / Context Stripe -->
+        <div class="mt-20 pt-10 border-t border-sand-200/80 grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+          <div>
+            <div class="font-mono text-xs uppercase text-charcoal-muted mb-1">Location</div>
+            <div class="font-medium text-charcoal">Graça, Lisboa &amp; Remote</div>
+          </div>
+          <div>
+            <div class="font-mono text-xs uppercase text-charcoal-muted mb-1">Focus</div>
+            <div class="font-medium text-charcoal">Naming, Identity, Packaging</div>
+          </div>
+          <div>
+            <div class="font-mono text-xs uppercase text-charcoal-muted mb-1">Experience</div>
+            <div class="font-medium text-charcoal">9+ Years in Brand Systems</div>
+          </div>
+          <div>
+            <div class="font-mono text-xs uppercase text-charcoal-muted mb-1">Current Status</div>
+            <div class="font-medium text-terracotta">1 Brand Commission Slot Open</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELECTED CASE STUDIES (3 PROJECTS) -->
+    <section id="work" class="py-24 md:py-36 px-6 lg:px-12 bg-sand-50">
+      <div class="max-w-7xl mx-auto">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 pb-8 border-b border-sand-200">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-terracotta">Curated Works / 2023–2025</span>
+            <h2 class="font-serif text-3xl sm:text-5xl font-normal text-charcoal mt-2">Selected Case Studies</h2>
+          </div>
+          <p class="text-charcoal-muted text-sm max-w-sm mt-4 md:mt-0">
+            Each project is approached without presets: starting from heritage, raw materials, typography, and purposeful physical presence.
+          </p>
+        </div>
+
+        <div class="space-y-32">
+          
+          <!-- CASE STUDY 1: Olaria Mar -->
+          <article class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <!-- Visual Showcase (CSS / SVG Graphic Composition) -->
+            <div class="lg:col-span-7 order-1">
+              <div class="aspect-[4/3] rounded-2xl bg-gradient-to-tr from-stone-900 via-stone-800 to-stone-700 text-sand-50 p-8 sm:p-12 relative overflow-hidden shadow-xl flex flex-col justify-between border border-stone-800"
+                   role="img" aria-label="Visual identity presentation for Olaria Mar ceramics atelier featuring ceramic stamp monogram and clay color palette">
+                <!-- Decorative Graphic Elements representing terracotta clay and pottery stamp -->
+                <div class="absolute -right-16 -top-16 w-72 h-72 rounded-full bg-terracotta/20 blur-3xl pointer-events-none"></div>
+                <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: repeating-linear-gradient(45deg, #FAF8F5 0, #FAF8F5 1px, transparent 0, transparent 50%); background-size: 16px 16px;"></div>
+
+                <div class="flex justify-between items-start z-10">
+                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sand-100/10 text-sand-100 text-xs backdrop-blur-sm border border-sand-100/10">
+                    <span>Identity &amp; Blind Deboss Packaging</span>
+                  </div>
+                  <span class="font-mono text-xs text-sand-300">01 / 03</span>
+                </div>
+
+                <!-- Custom Graphic Centerpiece -->
+                <div class="my-auto py-8 z-10 text-center">
+                  <div class="inline-block p-6 rounded-2xl border border-sand-100/20 bg-sand-50/5 backdrop-blur-sm mb-4">
+                    <!-- SVG Ceramic Maker's Mark -->
+                    <svg class="w-20 h-20 text-terracotta mx-auto" viewBox="0 0 100 100" fill="none" stroke="currentColor">
+                      <circle cx="50" cy="50" r="44" stroke-width="2" stroke-dasharray="4 2"/>
+                      <path d="M50 20 C35 35, 35 65, 50 80 C65 65, 65 35, 50 20 Z" stroke-width="2" fill="currentColor" fill-opacity="0.15"/>
+                      <circle cx="50" cy="50" r="10" stroke-width="2"/>
+                      <line x1="30" y1="50" x2="70" y2="50" stroke-width="1.5"/>
+                    </svg>
+                  </div>
+                  <h3 class="font-serif text-3xl sm:text-4xl tracking-wider uppercase text-sand-100">Olaria Mar</h3>
+                  <p class="font-sans text-xs tracking-[0.3em] uppercase text-sand-300 mt-1">Comporta • Lisboa</p>
+                </div>
+
+                <!-- Specimen Footnote -->
+                <div class="flex justify-between items-end text-xs font-mono text-sand-300 z-10 pt-4 border-t border-sand-50/10">
+                  <span>Paper: Fedrigoni Materica Terra Rossa</span>
+                  <span>Typography: Custom Serif Cut</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Case Study Content -->
+            <div class="lg:col-span-5 order-2">
+              <div class="space-y-5">
+                <div class="flex items-center gap-3 text-xs uppercase font-mono tracking-wider text-terracotta font-semibold">
+                  <span>Ceramics &amp; Homeware</span>
+                  <span class="text-sand-300">•</span>
+                  <span>2024</span>
+                </div>
+                <h3 class="font-serif text-3xl sm:text-4xl text-charcoal">
+                  Olaria Mar: Honoring slow pottery through tactile marks
+                </h3>
+                <p class="text-charcoal-muted text-base leading-relaxed">
+                  Olaria Mar crafts architectural ceramic objects along Portugal’s southern coast. The assignment called for a total rebrand that translated the grain of clay, salinity of the Atlantic, and artisanal kiln stamps into an elevated retail presence.
+                </p>
+
+                <!-- Project Deliverables Pill List -->
+                <div class="py-3">
+                  <h4 class="text-xs font-mono uppercase tracking-wider text-charcoal font-semibold mb-3">Interventions</h4>
+                  <ul class="flex flex-wrap gap-2 text-xs">
+                    <li class="px-3 py-1.5 bg-sand-200/60 rounded-md text-charcoal-soft font-medium">Custom Wordmark</li>
+                    <li class="px-3 py-1.5 bg-sand-200/60 rounded-md text-charcoal-soft font-medium">Ceramic Stamping Seal</li>
+                    <li class="px-3 py-1.5 bg-sand-200/60 rounded-md text-charcoal-soft font-medium">Uncoated Packaging System</li>
+                    <li class="px-3 py-1.5 bg-sand-200/60 rounded-md text-charcoal-soft font-medium">Digital Lookbook</li>
+                  </ul>
+                </div>
+
+                <!-- Quote / Impact -->
+                <div class="border-l-2 border-terracotta pl-4 py-1 text-sm italic text-charcoal-soft">
+                  "Sofia shaped our vessels into an international presence without losing the honest mud on our hands."
+                  <span class="block not-italic text-xs font-mono text-charcoal-muted mt-1">— Mateus &amp; Clara, Founders</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- CASE STUDY 2: Miradouro Vinho -->
+          <article class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <!-- Visual Showcase (Miradouro Vinho) -->
+            <div class="lg:col-span-7 order-1 lg:order-2">
+              <div class="aspect-[4/3] rounded-2xl bg-gradient-to-br from-amber-50 via-orange-50 to-stone-100 text-charcoal p-8 sm:p-12 relative overflow-hidden shadow-xl flex flex-col justify-between border border-sand-300"
+                   role="img" aria-label="Label architecture and typographic system for Miradouro Vinho biodynamic natural wine">
+                <div class="absolute -left-12 -bottom-12 w-64 h-64 rounded-full bg-amber-200/40 blur-3xl pointer-events-none"></div>
+
+                <div class="flex justify-between items-start z-10">
+                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-charcoal/5 text-charcoal text-xs border border-charcoal/10 font-mono">
+                    <span>Douro Superior • Biodynamic</span>
+                  </div>
+                  <span class="font-mono text-xs text-charcoal-muted">02 / 03</span>
+                </div>
+
+                <!-- Custom Wine Label Simulation in Center -->
+                <div class="my-auto py-6 z-10 flex justify-center">
+                  <div class="w-64 sm:w-72 bg-sand-50 p-6 shadow-2xl rounded-sm border border-sand-300 text-center flex flex-col justify-between">
+                    <div class="text-[9px] font-mono tracking-[0.25em] uppercase text-charcoal-muted border-b border-sand-200 pb-2">
+                      Vinho Tinto Natural — Safra 2023
+                    </div>
+                    <div class="py-6">
+                      <!-- Geometric Sun / Terroir SVG -->
+                      <svg class="w-12 h-12 mx-auto text-terracotta mb-3" viewBox="0 0 48 48" fill="none" stroke="currentColor">
+                        <circle cx="24" cy="24" r="18" stroke-width="1.5"/>
+                        <circle cx="24" cy="24" r="6" stroke-width="1.5" fill="currentColor"/>
+                        <path d="M24 2v4M24 42v4M2 24h4M42 24h4" stroke-width="1.5"/>
+                      </svg>
+                      <span class="font-serif text-2xl font-normal text-charcoal tracking-wide block">MIRADOURO</span>
+                      <span class="font-serif italic text-sm text-charcoal-muted block">Vinha Velha</span>
+                    </div>
+                    <div class="text-[9px] font-mono text-charcoal-muted pt-2 border-t border-sand-200 flex justify-between">
+                      <span>750 ML</span>
+                      <span>12.5% VOL.</span>
+                      <span>1,200 GFS</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex justify-between items-end text-xs font-mono text-charcoal-muted z-10 pt-4 border-t border-sand-200">
+                  <span>Substrate: Cotone Bianco 140g</span>
+                  <span>Foil: Tinted Matte Copper</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Case Study Content -->
+            <div class="lg:col-span-5 order-2 lg:order-1">
+              <div class="space-y-5">
+                <div class="flex items-center gap-3 text-xs uppercase font-mono tracking-wider text-terracotta font-semibold">
+                  <span>Natural Wine &amp; Viticulture</span>
+                  <span class="text-sand-300">•</span>
+                  <span>2023–2024</span>
+                </div>
+                <h3 class="font-serif text-3xl sm:text-4xl text-charcoal">
+                  Miradouro: Stripping wine packaging down to soil and sunlight
+                </h3>
+                <p class="text-charcoal-muted text-base leading-relaxed">
+                  A high-altitude vineyard in the rugged Douro Valley releasing low-intervention field blends. Moving away from heavy heraldic clich&eacute;s, we devised a clean, highly structured typographic grid system that communicates vintage, terroir, and altitude with immediate clarity.
+                </p>
+
+                <!-- Project Deliverables -->
+                <div class="py-3">
+                  <h4 class="text-xs font-mono uppercase tracking-wider text-charcoal font-semibold mb-3">Interventions</h4>
+                  <ul class="flex flex-wrap gap-2 text-xs">
+                    <li class="px-3 py-1.5 bg-sand-200/60 rounded-md text-charcoal-soft font-medium">Wine Label Hierarchy</li>
+                    <li class="px-3 py-1.5 bg-sand-200/60 rounded-md text-charcoal-soft font-medium">Modular Vintage System</li>
+                    <li class="px-3 py-1.5 bg-sand-200/60 rounded-md text-charcoal-soft font-medium">Wooden Export Crates</li>
+                    <li class="px-3 py-1.5 bg-sand-200/60 rounded-md text-charcoal-soft font-medium">Editorial Tasting Sheet</li>
+                  </ul>
+                </div>
+
+                <div class="border-l-2 border-terracotta pl-4 py-1 text-sm italic text-charcoal-soft">
+                  "In export markets like Copenhagen and London, distributors pick up our bottle first purely on the confidence of the label design."
+                  <span class="block not-italic text-xs font-mono text-charcoal-muted mt-1">— Jo&atilde;o P., Master Winemaker</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+
+          <!-- CASE STUDY 3: Lume Arquitectura -->
+          <article class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            <!-- Visual Showcase (Lume Arquitectura) -->
+            <div class="lg:col-span-7 order-1">
+              <div class="aspect-[4/3] rounded-2xl bg-gradient-to-bl from-sand-200 via-sand-100 to-sand-300 text-charcoal p-8 sm:p-12 relative overflow-hidden shadow-xl flex flex-col justify-between border border-sand-300"
+                   role="img" aria-label="Visual identity monograph and signage system for Lume Arquitectura studio in Lisbon">
+                <div class="flex justify-between items-start z-10">
+                  <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-charcoal text-sand-50 text-xs font-mono">
+                    <span>Spatial &amp; Architecture Studio</span>
+                  </div>
+                  <span class="font-mono text-xs text-charcoal-muted">03 / 03</span>
+                </div>
+
+                <!-- Monograph Book Layout Graphic -->
+                <div class="my-auto py-6 z-10 flex justify-center items-center">
+                  <div class="relative w-64 sm:w-80 h-44 sm:h-52 bg-sand-50 rounded-sm shadow-2xl p-6 border border-sand-200 flex flex-col justify-between">
+                    <div class="flex justify-between items-start">
+                      <span class="font-mono text-[9px] uppercase tracking-widest text-charcoal-muted">MONOGRAPH NO. 04</span>
+                      <span class="text-xs font-serif font-light text-terracotta">L • A</span>
+                    </div>
+                    <div class="space-y-1">
+                      <h4 class="font-serif text-2xl font-light text-charcoal">LUME</h4>
+                      <p class="font-mono text-[9px] uppercase tracking-wider text-charcoal-muted">Spatial Practices / Lisbon &amp; Alentejo</p>
+                    </div>
+                    <div class="w-full h-1 bg-charcoal"></div>
+                  </div>
+                </div>
+
+                <div class="flex justify-between items-end text-xs font-mono text-charcoal-muted z-10 pt-4 border-t border-sand-300">
+                  <span>Signage: Cast Bronze &amp; Lioz Limestone</span>
+                  <span>Grid: 12-Column Editorial Standard</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Case Study Content -->
+            <div class="lg:col-span-5 order-2">
+              <div class="space-y-5">
+                <div class="flex items-center gap-3 text-xs uppercase font-mono tracking-wider text-terracotta font-semibold">
+                  <span>Architecture &amp; Urbanism</span>
+                  <span class="text-sand-300">•</span>
+                  <span>2024</span>
+                </div>
+                <h3 class="font-serif text-3xl sm:text-4xl text-charcoal">
+                  Lume Arquitectura: Spatial proportion as graphic discipline
+                </h3>
+                <p class="text-charcoal-muted text-base leading-relaxed">
+                  Lume reinterprets traditional Portuguese stone construction with radical contemporary restraint. We built an identity rooted in architectural drawing grids, rigorous typographic proportions, and physical project monographs bound in unbleached linen.
+                </p>
+
+                <!-- Project Deliverables -->
+                <div class="py-3">
+                  <h4 class="text-xs font-mono uppercase tracking-wider text-charcoal font-semibold mb-3">Interventions</h4>
+                  <ul class="flex flex-wrap gap-2 text-xs">
+                    <li class="px-3 py-1.5 bg-sand-200/60 rounded-md text-charcoal-soft font-medium">Bilingual Monograph Book</li>
+                    <li class="px-3 py-1.5 bg-sand-200/60 rounded-md text-charcoal-soft font-medium">Limestone Studio Signage</li>
+                    <li class="px-3 py-1.5 bg-sand-200/60 rounded-md text-charcoal-soft font-medium">Minimal Web Portfolio</li>
+                    <li class="px-3 py-1.5 bg-sand-200/60 rounded-md text-charcoal-soft font-medium">Tender Document Templates</li>
+                  </ul>
+                </div>
+
+                <div class="border-l-2 border-terracotta pl-4 py-1 text-sm italic text-charcoal-soft">
+                  "Our identity now speaks the exact same language of honesty and scale as the homes we construct."
+                  <span class="block not-italic text-xs font-mono text-charcoal-muted mt-1">— In&ecirc;s &amp; Pedro, Lead Architects</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- STUDIO & PRACTICE (ABOUT) -->
+    <section id="practice" class="py-24 md:py-32 px-6 lg:px-12 bg-sand-100 border-y border-sand-200">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <div class="lg:col-span-5">
+            <!-- Studio Portrait Graphic Placeholder -->
+            <div class="aspect-[4/5] rounded-2xl bg-gradient-to-tr from-sand-300 via-sand-200 to-terracotta/20 p-8 flex flex-col justify-between border border-sand-300 relative shadow-md"
+                 role="img" aria-label="Portrait illustration of Sofia Alvalade in her studio located in Lisbon's Graça neighborhood">
+              
+              <!-- Subtle decorative Lisbon azulejo silhouette geometry -->
+              <div class="absolute top-8 right-8 w-24 h-24 border border-charcoal/20 rounded-full flex items-center justify-center opacity-40">
+                <div class="w-12 h-12 border border-charcoal/30 rotate-45"></div>
+              </div>
+
+              <div class="z-10">
+                <span class="text-[10px] font-mono uppercase tracking-[0.2em] text-charcoal-muted">Studio Gra&ccedil;a</span>
+              </div>
+
+              <div class="z-10 bg-sand-50/90 backdrop-blur-sm p-6 rounded-xl border border-sand-200">
+                <div class="font-serif text-xl text-charcoal">Sofia Alvalade</div>
+                <div class="text-xs text-charcoal-muted mt-0.5">Brand Designer &amp; Design Director</div>
+                <p class="text-xs text-charcoal mt-3 leading-relaxed border-t border-sand-200 pt-3">
+                  Educated in Lisbon at FBAUL and Basel School of Design. Dedicated to crafting identities with tactile conviction.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7">
+            <span class="text-xs font-mono uppercase tracking-widest text-terracotta font-semibold">Studio Philosophy</span>
+            <h2 class="font-serif text-3xl sm:text-5xl font-normal text-charcoal mt-2 mb-6">
+              Design grounded in physical truth, not fleeting design trends.
+            </h2>
+            <div class="space-y-4 text-charcoal-muted text-base sm:text-lg leading-relaxed">
+              <p>
+                Working out of a quiet studio overlooking the Tagus estuary in Gra&ccedil;a, I run an intentional, boutique studio practice. Rather than juggling dozens of simultaneous commissions, I partner with a select group of clients each year.
+              </p>
+              <p>
+                I believe that brands in the modern era crave weight, texture, and silence. Great branding doesn't need to shout over the noise; it speaks through deliberate typographic choice, authentic substrates, tactile embossing, and coherent storytelling across both physical and digital realms.
+              </p>
+            </div>
+
+            <!-- Specific Capabilities Matrix -->
+            <div class="mt-10 pt-8 border-t border-sand-200 grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+              <div>
+                <h3 class="font-mono text-xs uppercase tracking-wider text-charcoal font-semibold mb-2">Core Services</h3>
+                <ul class="space-y-1.5 text-charcoal-muted">
+                  <li>• Brand Strategy &amp; Narrative</li>
+                  <li>• Visual Identity &amp; Logo Systems</li>
+                  <li>• Packaging &amp; Label Design</li>
+                  <li>• Editorial Design &amp; Publications</li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="font-mono text-xs uppercase tracking-wider text-charcoal font-semibold mb-2">Technical Delivery</h3>
+                <ul class="space-y-1.5 text-charcoal-muted">
+                  <li>• Production &amp; Print Procurement</li>
+                  <li>• Responsive Web Design &amp; Direction</li>
+                  <li>• Custom Typographic Logotypes</li>
+                  <li>• Complete Brand Guidelines Manuals</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- METHODOLOGY / PROCESS -->
+    <section id="process" class="py-24 md:py-32 px-6 lg:px-12 bg-sand-50">
+      <div class="max-w-7xl mx-auto">
+        <div class="max-w-2xl mb-16">
+          <span class="text-xs font-mono uppercase tracking-widest text-terracotta font-semibold">The Method</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-normal text-charcoal mt-2">
+            A straightforward, four-stage engagement.
+          </h2>
+          <p class="text-charcoal-muted text-base mt-3">
+            Every collaboration follows a structured path with direct communication at every touchpoint. No account managers, no layers.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+          <div class="p-6 rounded-xl bg-sand-100/70 border border-sand-200 flex flex-col justify-between">
+            <div>
+              <span class="font-mono text-xs text-terracotta font-semibold">Phase 01</span>
+              <h3 class="font-serif text-xl text-charcoal mt-2 mb-3">Discovery &amp; Grounding</h3>
+              <p class="text-sm text-charcoal-muted leading-relaxed">
+                In-depth immersion into your story, audience, competitors, and physical reality. We establish tone, parameters, and design pillars.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-sand-200 font-mono text-[11px] text-charcoal-muted">
+              Timeline: 2 Weeks
+            </div>
+          </div>
+
+          <div class="p-6 rounded-xl bg-sand-100/70 border border-sand-200 flex flex-col justify-between">
+            <div>
+              <span class="font-mono text-xs text-terracotta font-semibold">Phase 02</span>
+              <h3 class="font-serif text-xl text-charcoal mt-2 mb-3">Creative Directions</h3>
+              <p class="text-sm text-charcoal-muted leading-relaxed">
+                Presentation of two rigorously distinct conceptual territories with real-world applications across packaging, type, and digital mockups.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-sand-200 font-mono text-[11px] text-charcoal-muted">
+              Timeline: 3 Weeks
+            </div>
+          </div>
+
+          <div class="p-6 rounded-xl bg-sand-100/70 border border-sand-200 flex flex-col justify-between">
+            <div>
+              <span class="font-mono text-xs text-terracotta font-semibold">Phase 03</span>
+              <h3 class="font-serif text-xl text-charcoal mt-2 mb-3">Refinement &amp; Craft</h3>
+              <p class="text-sm text-charcoal-muted leading-relaxed">
+                Selecting the chosen route and perfecting every millimeter: vector point refinement, color calibrations, and paper sample testing.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-sand-200 font-mono text-[11px] text-charcoal-muted">
+              Timeline: 2–3 Weeks
+            </div>
+          </div>
+
+          <div class="p-6 rounded-xl bg-sand-100/70 border border-sand-200 flex flex-col justify-between">
+            <div>
+              <span class="font-mono text-xs text-terracotta font-semibold">Phase 04</span>
+              <h3 class="font-serif text-xl text-charcoal mt-2 mb-3">Handoff &amp; Production</h3>
+              <p class="text-sm text-charcoal-muted leading-relaxed">
+                Delivering master production-ready assets, comprehensive brand guidelines, printer liaisons, and digital guidelines.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-sand-200 font-mono text-[11px] text-charcoal-muted">
+              Timeline: 1–2 Weeks
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-24 md:py-36 px-6 lg:px-12 bg-charcoal text-sand-50 relative overflow-hidden">
+      <!-- Decorative ambient warm glow -->
+      <div class="absolute -right-32 -bottom-32 w-96 h-96 rounded-full bg-terracotta/20 blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          
+          <!-- Contact Narrative & Studio Info -->
+          <div class="lg:col-span-5 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-mono uppercase tracking-widest text-terracotta font-semibold">Get in Touch</span>
+              <h2 class="font-serif text-4xl sm:text-5xl font-normal text-sand-50 mt-3 mb-6">
+                Let's discuss your next brand chapter.
+              </h2>
+              <p class="text-sand-300 text-base leading-relaxed mb-8">
+                Whether launching an independent venture or revitalizing an established practice, write to share your project scope, target launch date, and aesthetic vision.
+              </p>
+
+              <!-- Studio Direct Contact Details -->
+              <div class="space-y-4 text-sm font-sans border-t border-charcoal-soft pt-8">
+                <div>
+                  <div class="text-xs font-mono text-sand-300 uppercase tracking-wider mb-1">Direct Inquiries</div>
+                  <a href="mailto:ola@sofiaalvalade.pt" class="text-sand-100 hover:text-terracotta transition-colors font-medium text-lg">
+                    ola@sofiaalvalade.pt
+                  </a>
+                </div>
+                <div>
+                  <div class="text-xs font-mono text-sand-300 uppercase tracking-wider mb-1">Studio Address</div>
+                  <address class="not-italic text-sand-300 text-sm">
+                    Rua Senhora da Gl&oacute;ria 82<br>
+                    1170-363 Lisboa, Portugal
+                  </address>
+                </div>
+                <div>
+                  <div class="text-xs font-mono text-sand-300 uppercase tracking-wider mb-1">Usual Response Window</div>
+                  <div class="text-sand-300">Within 2 business days</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-charcoal-soft text-xs text-sand-300">
+              Visiting Lisbon? Studio visits welcome by prior appointment.
+            </div>
+          </div>
+
+          <!-- Presentational Contact Form -->
+          <div class="lg:col-span-7">
+            <div class="bg-charcoal-soft p-8 sm:p-10 rounded-2xl border border-charcoal-muted/30 shadow-2xl">
+              <form id="project-form" class="space-y-6" onsubmit="event.preventDefault();">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label for="name" class="block text-xs font-mono uppercase tracking-wider text-sand-200 mb-2">Your Name *</label>
+                    <input 
+                      type="text" 
+                      id="name" 
+                      name="name" 
+                      required 
+                      placeholder="e.g. Miguel Santos" 
+                      class="w-full bg-charcoal border border-charcoal-muted/50 rounded-lg px-4 py-3 text-sand-50 placeholder-sand-600 focus:border-terracotta text-sm focus:outline-none transition-colors">
+                  </div>
+                  <div>
+                    <label for="email" class="block text-xs font-mono uppercase tracking-wider text-sand-200 mb-2">Email Address *</label>
+                    <input 
+                      type="email" 
+                      id="email" 
+                      name="email" 
+                      required 
+                      placeholder="miguel@studio.pt" 
+                      class="w-full bg-charcoal border border-charcoal-muted/50 rounded-lg px-4 py-3 text-sand-50 placeholder-sand-600 focus:border-terracotta text-sm focus:outline-none transition-colors">
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label for="project-type" class="block text-xs font-mono uppercase tracking-wider text-sand-200 mb-2">Project Scope</label>
+                    <select 
+                      id="project-type" 
+                      name="project-type" 
+                      class="w-full bg-charcoal border border-charcoal-muted/50 rounded-lg px-4 py-3 text-sand-50 focus:border-terracotta text-sm focus:outline-none transition-colors">
+                      <option value="complete-identity">Complete Brand Identity</option>
+                      <option value="packaging">Packaging &amp; Label System</option>
+                      <option value="rebrand">Brand Evolution &amp; Guidelines</option>
+                      <option value="editorial">Monograph &amp; Editorial Print</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="timeline" class="block text-xs font-mono uppercase tracking-wider text-sand-200 mb-2">Target Timeline</label>
+                    <select 
+                      id="timeline" 
+                      name="timeline" 
+                      class="w-full bg-charcoal border border-charcoal-muted/50 rounded-lg px-4 py-3 text-sand-50 focus:border-terracotta text-sm focus:outline-none transition-colors">
+                      <option value="q3">Q3 2025 (Jul–Sep)</option>
+                      <option value="q4">Q4 2025 (Oct–Dec)</option>
+                      <option value="2026">Early 2026</option>
+                      <option value="flexible">Flexible / Planning phase</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="message" class="block text-xs font-mono uppercase tracking-wider text-sand-200 mb-2">About the Project *</label>
+                  <textarea 
+                    id="message" 
+                    name="message" 
+                    rows="4" 
+                    required 
+                    placeholder="Tell me about your business, current status, goals, and any relevant references..." 
+                    class="w-full bg-charcoal border border-charcoal-muted/50 rounded-lg px-4 py-3 text-sand-50 placeholder-sand-600 focus:border-terracotta text-sm focus:outline-none transition-colors"></textarea>
+                </div>
+
+                <div class="flex items-center justify-between pt-2">
+                  <p class="text-xs text-sand-300">
+                    Direct reply directly from Sofia.
+                  </p>
+                  <button 
+                    type="submit" 
+                    class="px-8 py-3.5 bg-terracotta hover:bg-terracotta-dark text-sand-50 font-medium text-sm rounded-full transition-colors duration-200 shadow-md">
+                    Send Project Inquiry
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-charcoal-soft text-sand-300 py-12 px-6 lg:px-12 border-t border-charcoal text-xs">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      
+      <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+        <span class="font-serif text-sand-100 text-sm">Sofia Alvalade Studio</span>
+        <span class="hidden sm:inline text-sand-600">•</span>
+        <span>Independent Brand Identity &amp; Direction</span>
+        <span class="hidden sm:inline text-sand-600">•</span>
+        <span>Lisbon, Portugal</span>
+      </div>
+
+      <div class="flex items-center gap-6 text-sand-300">
+        <a href="#top" class="hover:text-sand-100 transition-colors">Back to top &uarr;</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- MINIMAL JAVASCRIPT: Mobile Menu & Lisbon Clock -->
+  <script>
+    // 1. Mobile Menu Toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIconOpen = document.getElementById('menu-icon-open');
+    const menuIconClose = document.getElementById('menu-icon-close');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function toggleMenu() {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('hidden');
+      menuIconOpen.classList.toggle('hidden');
+      menuIconClose.classList.toggle('hidden');
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (!mobileMenu.classList.contains('hidden')) {
+          toggleMenu();
+        }
+      });
+    });
+
+    // 2. Real-time Lisbon Local Time Clock (WET / WEST)
+    function updateLisbonTime() {
+      const clockElement = document.getElementById('lisbon-clock');
+      if (!clockElement) return;
+      try {
+        const now = new Date();
+        const options = {
+          timeZone: 'Europe/Lisbon',
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false
+        };
+        const lisbonTime = new Intl.DateTimeFormat('en-GB', options).format(now);
+        clockElement.textContent = lisbonTime + ' WET';
+      } catch (e) {
+        // Fallback gracefully if timezone not supported
+      }
+    }
+    updateLisbonTime();
+    setInterval(updateLisbonTime, 30000);
+  </script>
+</body>
+</html>

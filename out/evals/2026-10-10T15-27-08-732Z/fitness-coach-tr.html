@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kaan Demirtaş | Online Fitness & Performans Koçluğu</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              lime: '#bef264',
+              limeHover: '#a3e635',
+              dark: '#0a0d12',
+              card: '#121721',
+              cardBorder: '#1e2636',
+              muted: '#94a3b8'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0a0d12;
+      color: #f1f5f9;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .mesh-radial {
+      background: radial-gradient(circle at 50% 20%, rgba(190, 242, 100, 0.08) 0%, transparent 60%);
+    }
+    .custom-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #1e2636;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="selection:bg-brand-lime selection:text-black">
+
+  <!-- ================= NAVIGATION ================= -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-[#0a0d12]/85 border-b border-brand-cardBorder">
+    <div class="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5 group">
+        <div class="w-10 h-10 rounded-xl bg-brand-lime flex items-center justify-center text-black font-extrabold text-xl shadow-lg shadow-brand-lime/20 group-hover:scale-105 transition-transform">
+          KD
+        </div>
+        <div class="flex flex-col">
+          <span class="text-base font-bold tracking-tight text-white leading-none">KAAN DEMİRTAŞ</span>
+          <span class="text-xs text-brand-lime tracking-widest font-semibold mt-1">ONLINE KOÇLUK</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#metot" class="hover:text-brand-lime transition-colors">Sistem</a>
+        <a href="#donusumler" class="hover:text-brand-lime transition-colors">Dönüşümler</a>
+        <a href="#paketler" class="hover:text-brand-lime transition-colors">Paketler</a>
+        <a href="#sss" class="hover:text-brand-lime transition-colors">S.S.S.</a>
+      </nav>
+
+      <!-- Desktop CTA -->
+      <div class="hidden md:flex items-center">
+        <a href="#gorusme" class="px-5 py-2.5 rounded-full bg-brand-lime text-black font-bold text-sm hover:bg-brand-limeHover transition-all hover:shadow-lg hover:shadow-brand-lime/25 flex items-center gap-2">
+          <span>Ücretsiz Görüşme</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobileMenuBtn" aria-label="Menüyü aç" class="md:hidden p-2 text-slate-300 hover:text-white focus:outline-none">
+        <svg id="menuIcon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden border-b border-brand-cardBorder bg-[#0f131a] px-5 py-6">
+      <nav class="flex flex-col gap-4 text-base font-medium text-slate-200">
+        <a href="#metot" class="mobile-link py-2 hover:text-brand-lime">Sistem & Metot</a>
+        <a href="#donusumler" class="mobile-link py-2 hover:text-brand-lime">Dönüşüm Hikayeleri</a>
+        <a href="#paketler" class="mobile-link py-2 hover:text-brand-lime">Koçluk Paketleri</a>
+        <a href="#sss" class="mobile-link py-2 hover:text-brand-lime">Sıkça Sorulan Sorular</a>
+        <a href="#gorusme" class="mobile-link mt-2 text-center py-3 rounded-xl bg-brand-lime text-black font-bold">Ücretsiz Ön Görüşme Planla</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= HERO SECTION ================= -->
+    <section class="relative pt-12 md:pt-20 pb-20 md:pb-28 overflow-hidden mesh-radial">
+      <div class="max-w-6xl mx-auto px-5">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-7 flex flex-col items-start">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-card border border-brand-cardBorder text-brand-lime text-xs font-semibold uppercase tracking-wider mb-6">
+              <span class="w-2 h-2 rounded-full bg-brand-lime animate-pulse"></span>
+              Kontenjan Sınırlı: 2025 Koçluk Başvuruları
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-6">
+              Sürdürülebilir güç, <br>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-lime via-white to-slate-200">
+                ölçülebilir dönüşüm.
+              </span>
+            </h1>
+
+            <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl mb-8">
+              Kalıpsız diyetler veya ezbere spor programları yok. Yoğun iş ve yaşam temponuza entegre edilen, kanıta dayalı beslenme ve kişisel kuvvet antrenmanı sistemiyle hedefinize ulaşın.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-10">
+              <a href="#gorusme" class="px-7 py-3.5 rounded-xl bg-brand-lime text-black font-bold text-center hover:bg-brand-limeHover transition-all shadow-lg shadow-brand-lime/20 flex items-center justify-center gap-2 text-base">
+                15 Dk Ücretsiz Strateji Görüşmesi
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              </a>
+              <a href="#donusumler" class="px-6 py-3.5 rounded-xl bg-brand-card hover:bg-[#1a2130] border border-brand-cardBorder text-slate-200 font-semibold text-center transition-colors text-base">
+                Sonuçları İnceleyin
+              </a>
+            </div>
+
+            <!-- Mini Proof Badges -->
+            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-brand-cardBorder/80 w-full max-w-lg">
+              <div>
+                <p class="text-2xl font-extrabold text-white">100%</p>
+                <p class="text-xs text-brand-muted mt-0.5">Kişiye Özel Planlama</p>
+              </div>
+              <div>
+                <p class="text-2xl font-extrabold text-white">7/24</p>
+                <p class="text-xs text-brand-muted mt-0.5">WhatsApp / Video Destek</p>
+              </div>
+              <div>
+                <p class="text-2xl font-extrabold text-white">Haftalık</p>
+                <p class="text-xs text-brand-muted mt-0.5">Birebir Analiz & Check-in</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Coach Profile Visual Card -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative mx-auto max-w-md bg-gradient-to-b from-brand-cardBorder to-brand-card p-1 rounded-3xl shadow-2xl">
+              <div class="bg-brand-card rounded-[22px] overflow-hidden p-6 relative">
+                
+                <!-- Stylized Trainer Graphic -->
+                <div class="h-80 w-full rounded-2xl bg-gradient-to-tr from-[#0a0d12] via-[#161f2e] to-[#222e42] flex flex-col justify-between p-6 relative overflow-hidden border border-brand-cardBorder" aria-label="Koç Kaan Demirtaş görsel temsili">
+                  <div class="absolute -right-8 -top-8 w-44 h-44 bg-brand-lime/10 rounded-full blur-2xl"></div>
+                  
+                  <div class="flex justify-between items-start z-10">
+                    <span class="px-3 py-1 rounded-full bg-black/60 border border-white/10 text-[11px] font-semibold text-brand-lime tracking-wide">
+                      BAŞ ANTRENÖR
+                    </span>
+                    <span class="text-xs font-mono text-slate-400">CSCS & EREPS L4</span>
+                  </div>
+
+                  <!-- Graphic Athlete Silhouette -->
+                  <div class="flex items-center justify-center my-auto z-10">
+                    <div class="w-32 h-32 rounded-full border border-brand-lime/30 bg-gradient-to-b from-brand-lime/20 to-transparent flex items-center justify-center p-2">
+                      <svg class="w-20 h-20 text-brand-lime" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div class="z-10 bg-black/60 backdrop-blur-md p-3.5 rounded-xl border border-white/10">
+                    <p class="text-xs text-brand-muted uppercase font-semibold">Yaklaşım</p>
+                    <p class="text-sm font-bold text-white mt-0.5">"Aç kalarak değil, metabolizmanı güçlendirerek şekillen."</p>
+                  </div>
+                </div>
+
+                <!-- Floating Spec Pills -->
+                <div class="mt-5 space-y-3">
+                  <div class="flex items-center justify-between text-xs p-3 rounded-xl bg-[#0c1017] border border-brand-cardBorder">
+                    <span class="text-slate-300 font-medium">Antrenman Metodu</span>
+                    <span class="text-brand-lime font-bold">Hipertrofi & Mobilite</span>
+                  </div>
+                  <div class="flex items-center justify-between text-xs p-3 rounded-xl bg-[#0c1017] border border-brand-cardBorder">
+                    <span class="text-slate-300 font-medium">Beslenme Sistemi</span>
+                    <span class="text-brand-lime font-bold">Makro Odaklı Esnek Plan</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= METHODOLOGY ================= -->
+    <section id="metot" class="py-20 bg-[#0d121a] border-y border-brand-cardBorder">
+      <div class="max-w-6xl mx-auto px-5">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-xs uppercase font-extrabold tracking-widest text-brand-lime mb-3">ÇALIŞMA DİSİPLİNİ</h2>
+          <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Tesadüflere değil, verilere dayalı 4 adımlı sistem.</p>
+          <p class="text-brand-muted text-base mt-3">Her aşaması şeffaf, ölçülebilir ve tamamen sizin takviminize uygun olarak dizayn edilir.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="p-6 rounded-2xl bg-brand-card border border-brand-cardBorder flex flex-col justify-between hover:border-brand-lime/40 transition-colors">
+            <div>
+              <span class="text-3xl font-black text-brand-lime/30">01</span>
+              <h3 class="text-lg font-bold text-white mt-3 mb-2">Biyomekanik & Rutin Analizi</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Geçmiş sakatlıklarınız, hareket kısıtlılıklarınız, mesai saatleriniz ve yemek alışkanlıklarınız detaylı formla haritalandırılır.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-brand-cardBorder text-xs text-brand-lime font-semibold">
+              Kişisel Başlangıç Raporu
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-brand-card border border-brand-cardBorder flex flex-col justify-between hover:border-brand-lime/40 transition-colors">
+            <div>
+              <span class="text-3xl font-black text-brand-lime/30">02</span>
+              <h3 class="text-lg font-bold text-white mt-3 mb-2">Esnek & Gerçekçi Beslenme</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Sosyal hayatınızı bitirmeyen, sevdiğiniz yiyecekleri dışlamayan ve günlük protein/kalori ihtiyacınızı karşılayan sürdürülebilir makro planı.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-brand-cardBorder text-xs text-brand-lime font-semibold">
+              Yasak Diyet Yok, Denge Var
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-brand-card border border-brand-cardBorder flex flex-col justify-between hover:border-brand-lime/40 transition-colors">
+            <div>
+              <span class="text-3xl font-black text-brand-lime/30">03</span>
+              <h3 class="text-lg font-bold text-white mt-3 mb-2">Aşamalı Yüklenme Programı</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Evde veya spor salonunda; video gösterimli egzersiz rehberliği ve hareket formlarının video analiziyle sakatlıksız güçlenme.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-brand-cardBorder text-xs text-brand-lime font-semibold">
+              Video Form Düzeltmeleri
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-brand-card border border-brand-cardBorder flex flex-col justify-between hover:border-brand-lime/40 transition-colors">
+            <div>
+              <span class="text-3xl font-black text-brand-lime/30">04</span>
+              <h3 class="text-lg font-bold text-white mt-3 mb-2">Haftalık Pazar Check-in'i</h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Tartı, çevre ölçüleri ve antrenman ağırlık verileri incelenir; plato dönemlerine girmeden program haftalık olarak güncellenir.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-brand-cardBorder text-xs text-brand-lime font-semibold">
+              Sürekli Takip & Hesap Verebilirlik
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TRANSFORMATIONS ================= -->
+    <section id="donusumler" class="py-20 md:py-28">
+      <div class="max-w-6xl mx-auto px-5">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
+          <div>
+            <h2 class="text-xs uppercase font-extrabold tracking-widest text-brand-lime mb-2">BAŞARI HİKAYELERİ</h2>
+            <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Gerçek Süreçler, Kalıcı Sonuçlar.</p>
+          </div>
+          <p class="text-brand-muted text-sm max-w-md">
+            Aşağıdaki örnekler, farklı yaşam tarzlarına sahip danışanlarımın birebir koçluk sürecindeki somut gelişim kayıtlarıdır.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Case 1 -->
+          <div class="bg-brand-card rounded-2xl border border-brand-cardBorder overflow-hidden flex flex-col">
+            <div class="p-6 bg-gradient-to-b from-[#182130] to-transparent border-b border-brand-cardBorder/60">
+              <div class="flex justify-between items-center mb-4">
+                <span class="text-xs font-bold px-2.5 py-1 rounded bg-brand-lime/10 text-brand-lime border border-brand-lime/20">12 Haftalık Protokol</span>
+                <span class="text-xs text-slate-400 font-mono">Yazılım Mühendisi, 32</span>
+              </div>
+              <h3 class="text-xl font-bold text-white">Mert K.</h3>
+              <p class="text-xs text-slate-400 mt-1">Masa başı çalışma & Düşük enerji şikayeti</p>
+            </div>
+
+            <!-- Stylized Progression Chart Visualization -->
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div class="space-y-4 mb-6">
+                <div>
+                  <div class="flex justify-between text-xs mb-1">
+                    <span class="text-slate-400">Vücut Ağırlığı</span>
+                    <span class="font-bold text-white">88 kg &rarr; <span class="text-brand-lime">78.5 kg</span> (-9.5 kg)</span>
+                  </div>
+                  <div class="w-full bg-[#0a0d12] h-2 rounded-full overflow-hidden">
+                    <div class="bg-brand-lime h-full rounded-full" style="width: 78%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs mb-1">
+                    <span class="text-slate-400">Tahmini Yağ Oranı</span>
+                    <span class="font-bold text-white">%26 &rarr; <span class="text-brand-lime">%16.5</span></span>
+                  </div>
+                  <div class="w-full bg-[#0a0d12] h-2 rounded-full overflow-hidden">
+                    <div class="bg-brand-lime h-full rounded-full" style="width: 65%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs mb-1">
+                    <span class="text-slate-400">Deadlift / Squat Gücü</span>
+                    <span class="font-bold text-white">+%35 Kuvvet Artışı</span>
+                  </div>
+                  <div class="w-full bg-[#0a0d12] h-2 rounded-full overflow-hidden">
+                    <div class="bg-brand-lime h-full rounded-full" style="width: 90%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-[#0b0f16] p-4 rounded-xl border border-brand-cardBorder/70 text-xs text-slate-300 leading-relaxed italic">
+                "Haftada 3 gün, 50'şer dakikalık antrenmanlarla hem kronik bel ağrım bitti hem de ofiste öğleden sonra çöken yorgunluk hissi tamamen kayboldu."
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 2 -->
+          <div class="bg-brand-card rounded-2xl border border-brand-cardBorder overflow-hidden flex flex-col">
+            <div class="p-6 bg-gradient-to-b from-[#182130] to-transparent border-b border-brand-cardBorder/60">
+              <div class="flex justify-between items-center mb-4">
+                <span class="text-xs font-bold px-2.5 py-1 rounded bg-brand-lime/10 text-brand-lime border border-brand-lime/20">16 Haftalık Protokol</span>
+                <span class="text-xs text-slate-400 font-mono">Pazarlama Müdürü, 29</span>
+              </div>
+              <h3 class="text-xl font-bold text-white">Selin A.</h3>
+              <p class="text-xs text-slate-400 mt-1">Sıkılaşma & Kas kütlesi artışı (Lean Bulk)</p>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div class="space-y-4 mb-6">
+                <div>
+                  <div class="flex justify-between text-xs mb-1">
+                    <span class="text-slate-400">Bel / Kalça Oranı</span>
+                    <span class="font-bold text-white">-8 cm Bel / +3 cm Glute</span>
+                  </div>
+                  <div class="w-full bg-[#0a0d12] h-2 rounded-full overflow-hidden">
+                    <div class="bg-brand-lime h-full rounded-full" style="width: 82%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs mb-1">
+                    <span class="text-slate-400">Günlük Kalori Alımı</span>
+                    <span class="font-bold text-white">1400 kcal &rarr; <span class="text-brand-lime">2050 kcal</span></span>
+                  </div>
+                  <div class="w-full bg-[#0a0d12] h-2 rounded-full overflow-hidden">
+                    <div class="bg-brand-lime h-full rounded-full" style="width: 88%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs mb-1">
+                    <span class="text-slate-400">Postür & Duruş</span>
+                    <span class="font-bold text-white">Lordoz Dengeleme Başarılı</span>
+                  </div>
+                  <div class="w-full bg-[#0a0d12] h-2 rounded-full overflow-hidden">
+                    <div class="bg-brand-lime h-full rounded-full" style="width: 95%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-[#0b0f16] p-4 rounded-xl border border-brand-cardBorder/70 text-xs text-slate-300 leading-relaxed italic">
+                "Kilo almaktan korkuyordum fakat kalori artışıyla birlikte yağ kaybettim ve hayatımda ilk kez fit ve güçlü hissettiğim bir vücuda ulaştım."
+              </div>
+            </div>
+          </div>
+
+          <!-- Case 3 -->
+          <div class="bg-brand-card rounded-2xl border border-brand-cardBorder overflow-hidden flex flex-col">
+            <div class="p-6 bg-gradient-to-b from-[#182130] to-transparent border-b border-brand-cardBorder/60">
+              <div class="flex justify-between items-center mb-4">
+                <span class="text-xs font-bold px-2.5 py-1 rounded bg-brand-lime/10 text-brand-lime border border-brand-lime/20">24 Haftalık Protokol</span>
+                <span class="text-xs text-slate-400 font-mono">İş İnsanı, 41</span>
+              </div>
+              <h3 class="text-xl font-bold text-white">Emrah Y.</h3>
+              <p class="text-xs text-slate-400 mt-1">Sık seyahat & Düzensiz beslenme rutini</p>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div class="space-y-4 mb-6">
+                <div>
+                  <div class="flex justify-between text-xs mb-1">
+                    <span class="text-slate-400">Vücut Ağırlığı</span>
+                    <span class="font-bold text-white">96 kg &rarr; <span class="text-brand-lime">82 kg</span> (-14 kg)</span>
+                  </div>
+                  <div class="w-full bg-[#0a0d12] h-2 rounded-full overflow-hidden">
+                    <div class="bg-brand-lime h-full rounded-full" style="width: 85%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs mb-1">
+                    <span class="text-slate-400">İç Organ Yağlanması</span>
+                    <span class="font-bold text-white">Seviye 12 &rarr; Seviye 6</span>
+                  </div>
+                  <div class="w-full bg-[#0a0d12] h-2 rounded-full overflow-hidden">
+                    <div class="bg-brand-lime h-full rounded-full" style="width: 70%"></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="flex justify-between text-xs mb-1">
+                    <span class="text-slate-400">Otel Odası Uyumluluğu</span>
+                    <span class="font-bold text-white">%92 Antrenman Tamamlama</span>
+                  </div>
+                  <div class="w-full bg-[#0a0d12] h-2 rounded-full overflow-hidden">
+                    <div class="bg-brand-lime h-full rounded-full" style="width: 92%"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-[#0b0f16] p-4 rounded-xl border border-brand-cardBorder/70 text-xs text-slate-300 leading-relaxed italic">
+                "Uçak seyahatlerinde ve otellerde dahi uygulayabildiğim bant ve dambıl programı sayesinde disiplini hiç bozmadım."
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PACKAGES / PRICING ================= -->
+    <section id="paketler" class="py-20 md:py-28 bg-[#0d121a] border-t border-brand-cardBorder">
+      <div class="max-w-6xl mx-auto px-5">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <h2 class="text-xs uppercase font-extrabold tracking-widest text-brand-lime mb-2">KOÇLUK PROGRAMLARI</h2>
+          <p class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">İhtiyacınıza ve Hedefinize Uygun Paketler</p>
+          <p class="text-brand-muted text-base mt-3">Her paket birebir analiz ve doğrudan benimle iletişim garantisi içerir.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+          
+          <!-- Package 1 -->
+          <div class="bg-brand-card rounded-3xl p-8 border border-brand-cardBorder flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Temel Seviye</span>
+              <h3 class="text-2xl font-bold text-white mt-1">8 Hafta Hızlandırılmış</h3>
+              <p class="text-sm text-slate-400 mt-2">Temel alışkanlıkları oturtmak ve hızlı bir yağ yakımı başlangıcı için idealdir.</p>
+              
+              <div class="mt-6 pb-6 border-b border-brand-cardBorder">
+                <span class="text-3xl font-extrabold text-white">4.800 ₺</span>
+                <span class="text-xs text-brand-muted"> / toplam (tek ödeme)</span>
+              </div>
+
+              <ul class="mt-6 space-y-3.5 text-sm text-slate-300">
+                <li class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-lime flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Kişiye özel 8 haftalık antrenman planı
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-lime flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Makro beslenme kılavuzu ve porsiyon rehberi
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-lime flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Haftalık form ve kilo takibi (check-in)
+                </li>
+                <li class="flex items-center gap-2.5 text-slate-400">
+                  <svg class="w-4 h-4 text-brand-lime flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Hafta içi WhatsApp soru & cevap desteği
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-8">
+              <a href="#gorusme" class="block w-full py-3 rounded-xl text-center font-bold text-sm bg-[#1a2230] text-slate-200 hover:bg-[#253043] transition-colors border border-brand-cardBorder">
+                Bu Paketi Seç
+              </a>
+            </div>
+          </div>
+
+          <!-- Package 2 (Featured) -->
+          <div class="relative bg-gradient-to-b from-[#182333] to-brand-card rounded-3xl p-8 border-2 border-brand-lime flex flex-col justify-between shadow-2xl shadow-brand-lime/10">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-brand-lime text-black font-extrabold text-xs px-4 py-1 rounded-full uppercase tracking-wider shadow">
+              En Çok Tercih Edilen
+            </div>
+
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-brand-lime">Tam Dönüşüm</span>
+              <h3 class="text-2xl font-bold text-white mt-1">12 Hafta Birebir Performans</h3>
+              <p class="text-sm text-slate-300 mt-2">Kalıcı vücut kompozisyonu değişimi, kas hipertrofisi ve metabolik hızlanma.</p>
+              
+              <div class="mt-6 pb-6 border-b border-brand-cardBorder">
+                <span class="text-3xl font-extrabold text-white">6.900 ₺</span>
+                <span class="text-xs text-brand-muted"> / toplam (tek ödeme)</span>
+              </div>
+
+              <ul class="mt-6 space-y-3.5 text-sm text-slate-200">
+                <li class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-lime flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Kişiselleştirilmiş antrenman & kardiyo periyodizasyonu
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-lime flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Dinamik makro beslenme planı (Rest / Train günleri)
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-lime flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Sınırsız video hareket formu kontrolü & düzeltme
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-lime flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Haftalık detaylı sesli / video geri bildirim
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-lime flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Takviye (supplement) & uyku optimizasyon kılavuzu
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-8">
+              <a href="#gorusme" class="block w-full py-3.5 rounded-xl text-center font-bold text-sm bg-brand-lime text-black hover:bg-brand-limeHover transition-all shadow-md shadow-brand-lime/30">
+                12 Haftalık Dönüşüme Başla
+              </a>
+            </div>
+          </div>
+
+          <!-- Package 3 -->
+          <div class="bg-brand-card rounded-3xl p-8 border border-brand-cardBorder flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Yaşam Tarzı</span>
+              <h3 class="text-2xl font-bold text-white mt-1">24 Hafta Elit Koçluk</h3>
+              <p class="text-sm text-slate-400 mt-2">Kapsamlı yaşam tarzı reformu, ileri seviye kuvvet kazanımı ve plato kırma.</p>
+              
+              <div class="mt-6 pb-6 border-b border-brand-cardBorder">
+                <span class="text-3xl font-extrabold text-white">11.800 ₺</span>
+                <span class="text-xs text-brand-muted"> / toplam (tek ödeme)</span>
+              </div>
+
+              <ul class="mt-6 space-y-3.5 text-sm text-slate-300">
+                <li class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-lime flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  12 Hafta paketindeki tüm özellikler
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-lime flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Seyahat & tatil durumlarına özel esnek protokoller
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-lime flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Ayda 1 canlı birebir görüntülü strateji görüşmesi
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <svg class="w-4 h-4 text-brand-lime flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Öncelikli WhatsApp direkt yanıt hakkı
+                </li>
+              </ul>
+            </div>
+
+            <div class="mt-8">
+              <a href="#gorusme" class="block w-full py-3 rounded-xl text-center font-bold text-sm bg-[#1a2230] text-slate-200 hover:bg-[#253043] transition-colors border border-brand-cardBorder">
+                Bu Paketi Seç
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ SECTION ================= -->
+    <section id="sss" class="py-20">
+      <div class="max-w-4xl mx-auto px-5">
+        <div class="text-center mb-12">
+          <h2 class="text-xs uppercase font-extrabold tracking-widest text-brand-lime mb-2">AKLINIZDAKİLER</h2>
+          <p class="text-3xl font-extrabold text-white tracking-tight">Sıkça Sorulan Sorular</p>
+        </div>
+
+        <div class="space-y-4">
+          
+          <div class="border border-brand-cardBorder rounded-2xl bg-brand-card overflow-hidden">
+            <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center text-white font-semibold text-base focus:outline-none">
+              <span>Spor salonuna gitmek zorunda mıyım, evde olur mu?</span>
+              <svg class="w-5 h-5 text-brand-lime transform transition-transform duration-200 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-brand-cardBorder/40 pt-4">
+              Hayır, zorunlu değilsiniz. Evde mevcut olan ekipmanlarınıza (direnç bandı, ayarlanabilir dambıl vb.) ya da sadece kendi vücut ağırlığınıza göre bilimsel bir antrenman programı oluşturabiliriz.
+            </div>
+          </div>
+
+          <div class="border border-brand-cardBorder rounded-2xl bg-brand-card overflow-hidden">
+            <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center text-white font-semibold text-base focus:outline-none">
+              <span>Beslenme listesinde sevmediğim yiyecekler olacak mı?</span>
+              <svg class="w-5 h-5 text-brand-lime transform transition-transform duration-200 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-brand-cardBorder/40 pt-4">
+              Kesinlikle hayır. Program katı listeler yerine makro ve esnek beslenme (IIFYM) temeline dayanır. Tüketmekten keyif aldığınız besinler bütçelenir ve günlük hedeflerinize entegre edilir.
+            </div>
+          </div>
+
+          <div class="border border-brand-cardBorder rounded-2xl bg-brand-card overflow-hidden">
+            <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center text-white font-semibold text-base focus:outline-none">
+              <span>Haraketleri doğru yapıp yapmadığımı nasıl denetleyeceksiniz?</span>
+              <svg class="w-5 h-5 text-brand-lime transform transition-transform duration-200 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-brand-cardBorder/40 pt-4">
+              Antrenman sırasında kritik ana hareketlerinizi (Squat, Deadlift, Bench Press vb.) telefondan kısa videolarla kaydedip bana iletiyorsunuz. Biyomekanik açılarınızı inceleyip sesli ve işaretli video analizi ile formunuzu düzeltiyorum.
+            </div>
+          </div>
+
+          <div class="border border-brand-cardBorder rounded-2xl bg-brand-card overflow-hidden">
+            <button class="faq-btn w-full px-6 py-5 text-left flex justify-between items-center text-white font-semibold text-base focus:outline-none">
+              <span>Ücretsiz strateji görüşmesinde ne yapıyoruz?</span>
+              <svg class="w-5 h-5 text-brand-lime transform transition-transform duration-200 faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="faq-content hidden px-6 pb-5 text-slate-300 text-sm leading-relaxed border-t border-brand-cardBorder/40 pt-4">
+              15 dakikalık görüşmede mevcut durumunuzu, geçmiş denemelerinizi ve engellerinizi dinliyorum. Birlikte çalışmaya uygun olup olmadığımızı ve size en uygun yol haritasını netleştiriyoruz. Herhangi bir satın alma zorunluluğu yoktur.
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA & FREE CONSULTATION FORM ================= -->
+    <section id="gorusme" class="py-20 md:py-28 relative bg-[#0b0e14] border-t border-brand-cardBorder">
+      <div class="max-w-4xl mx-auto px-5">
+        
+        <div class="bg-gradient-to-br from-brand-card via-[#111722] to-[#161f2e] border border-brand-cardBorder p-8 sm:p-12 rounded-3xl shadow-2xl relative overflow-hidden">
+          
+          <div class="max-w-2xl">
+            <span class="inline-block text-xs font-bold uppercase tracking-widest text-brand-lime bg-brand-lime/10 px-3 py-1 rounded-md mb-4 border border-brand-lime/20">
+              ADIM AT
+            </span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+              15 Dakikalık Ücretsiz Strateji Görüşmesi Planlayın
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base mt-3 mb-8">
+              Mevcut antrenman durumunuzu, hedefinizi ve takviminizi konuşalım. Size en uygun yol haritasını birlikte çıkaralım.
+            </p>
+          </div>
+
+          <form id="consultationForm" class="space-y-4" onsubmit="event.preventDefault();">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="fullName" class="block text-xs font-medium text-slate-300 mb-1.5">Adınız Soyadınız *</label>
+                <input type="text" id="fullName" required placeholder="Örn: Burak Kaya" class="w-full px-4 py-3 rounded-xl bg-[#080b0f] border border-brand-cardBorder text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-lime transition-colors">
+              </div>
+
+              <div>
+                <label for="phone" class="block text-xs font-medium text-slate-300 mb-1.5">WhatsApp / Telefon Numaranız *</label>
+                <input type="tel" id="phone" required placeholder="Örn: 0532 000 00 00" class="w-full px-4 py-3 rounded-xl bg-[#080b0f] border border-brand-cardBorder text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-lime transition-colors">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="goal" class="block text-xs font-medium text-slate-300 mb-1.5">Öncelikli Hedefiniz *</label>
+                <select id="goal" class="w-full px-4 py-3 rounded-xl bg-[#080b0f] border border-brand-cardBorder text-white text-sm focus:outline-none focus:border-brand-lime transition-colors">
+                  <option value="fat-loss">Yağ Yakımı & Kilo Verme</option>
+                  <option value="muscle">Kas Kütlesi Kazanımı (Hipertrofi)</option>
+                  <option value="recomp">Vücut Rekompozisyonu (Sıkılaşma)</option>
+                  <option value="strength">Kuvvet & Kondisyon Artışı</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="experience" class="block text-xs font-medium text-slate-300 mb-1.5">Antrenman Geçmişiniz</label>
+                <select id="experience" class="w-full px-4 py-3 rounded-xl bg-[#080b0f] border border-brand-cardBorder text-white text-sm focus:outline-none focus:border-brand-lime transition-colors">
+                  <option value="beginner">Başlangıç (0-6 Ay)</option>
+                  <option value="intermediate">Orta Düzey (6 Ay - 2 Yıl)</option>
+                  <option value="advanced">İleri Düzey (2+ Yıl)</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="notes" class="block text-xs font-medium text-slate-300 mb-1.5">Kısaca Durumunuz & Beklentiniz (İsteğe Bağlı)</label>
+              <textarea id="notes" rows="3" placeholder="Sakatlık geçmişiniz veya sormak istediğiniz özel bir konu var mı?" class="w-full px-4 py-3 rounded-xl bg-[#080b0f] border border-brand-cardBorder text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-lime transition-colors"></textarea>
+            </div>
+
+            <div class="pt-2">
+              <button type="submit" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-lime text-black font-extrabold text-sm sm:text-base hover:bg-brand-limeHover transition-all shadow-lg shadow-brand-lime/25 flex items-center justify-center gap-2">
+                <span>Ücretsiz Ön Görüşme Talebi Gönder</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              </button>
+              <p class="text-xs text-brand-muted mt-3">
+                Gizliliğiniz esastır. Bilgileriniz 3. şahıslarla paylaşılmaz; 24 saat içinde WhatsApp üzerinden dönüş sağlanır.
+              </p>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-[#070a0e] border-t border-brand-cardBorder py-12 text-slate-400 text-sm">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-brand-cardBorder/60">
+        
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-lg bg-brand-lime flex items-center justify-center text-black font-extrabold text-sm">
+            KD
+          </div>
+          <span class="text-white font-bold tracking-tight">Kaan Demirtaş Koçluk</span>
+        </div>
+
+        <div class="flex items-center gap-6 text-xs text-slate-400">
+          <a href="#metot" class="hover:text-white transition-colors">Metot</a>
+          <a href="#donusumler" class="hover:text-white transition-colors">Dönüşümler</a>
+          <a href="#paketler" class="hover:text-white transition-colors">Paketler</a>
+          <a href="#gorusme" class="hover:text-white transition-colors">İletişim</a>
+        </div>
+
+        <div class="text-xs text-slate-400">
+          İstanbul, Türkiye &middot; Online Koçluk Hizmeti
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        <p>&copy; 2025 Kaan Demirtaş. Tüm hakları saklıdır.</p>
+        <p class="text-center sm:text-right text-slate-400">
+          Bu sitedeki bilgiler genel fitness bilgilendirmesi amaçlıdır. Herhangi bir egzersiz programına başlamadan önce hekiminize danışınız.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT ================= -->
+  <script>
+    // Mobile navigation toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // FAQ Accordion
+    const faqButtons = document.querySelectorAll('.faq-btn');
+
+    faqButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('.faq-icon');
+        const isExpanded = !content.classList.contains('hidden');
+
+        // Close all items
+        document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180'));
+
+        // Toggle current item
+        if (!isExpanded) {
+          content.classList.remove('hidden');
+          icon.classList.add('rotate-180');
+        }
+      });
+    });
+
+    // Form presentational handling (no faux server success screen)
+    const consultationForm = document.getElementById('consultationForm');
+    if (consultationForm) {
+      consultationForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const submitBtn = consultationForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Talebiniz Alındı &check;</span>';
+        submitBtn.classList.remove('bg-brand-lime');
+        submitBtn.classList.add('bg-emerald-400', 'text-black');
+        
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalText;
+          submitBtn.classList.add('bg-brand-lime');
+          submitBtn.classList.remove('bg-emerald-400');
+          consultationForm.reset();
+        }, 4000);
+      });
+    }
+  </script>
+</body>
+</html>

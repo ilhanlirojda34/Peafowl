@@ -1,0 +1,1058 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CHRONO GLYPH: Relics of the Sunken Spire — Indie Pixel-Art Puzzle Adventure</title>
+  <meta name="description" content="Rewind time, rotate ancient machinery, and illuminate long-lost star charts in Chrono Glyph. Coming to Steam and Nintendo Switch.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            pixel: ['"Silkscreen"', 'monospace'],
+            sans: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            void: '#07090e',
+            dungeon: '#0f131c',
+            slatecard: '#161c28',
+            ambercore: '#f59e0b',
+            amberneon: '#fbbf24',
+            cyanglyph: '#06b6d4',
+            cyanneon: '#22d3ee',
+            moss: '#10b981',
+          },
+          boxShadow: {
+            'pixel': '4px 4px 0px 0px rgba(0,0,0,0.85)',
+            'pixel-amber': '4px 4px 0px 0px #b45309',
+            'pixel-cyan': '4px 4px 0px 0px #0e7490',
+            'glow-amber': '0 0 25px rgba(245, 158, 11, 0.25)',
+            'glow-cyan': '0 0 25px rgba(6, 182, 212, 0.25)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Scanline overlay for retro monitors */
+    .scanlines {
+      background: linear-gradient(
+        to bottom,
+        rgba(255,255,255,0),
+        rgba(255,255,255,0) 50%,
+        rgba(0, 0, 0, 0.35) 50%,
+        rgba(0, 0, 0, 0.35)
+      );
+      background-size: 100% 4px;
+    }
+    
+    /* CRT vignette effect */
+    .crt-screen {
+      box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.8), 0 0 20px rgba(6, 182, 212, 0.15);
+    }
+
+    /* Subtle grid pattern for backdrop */
+    .bg-grid-pattern {
+      background-image: 
+        radial-gradient(circle at 1px 1px, rgba(38, 48, 70, 0.35) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+
+    /* Pixelated image rendering for crisp SVGs */
+    .pixelated {
+      image-rendering: pixelated;
+    }
+
+    /* Custom focus state */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid #22d3ee;
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .animate-pulse, .animate-bounce {
+        animation: none !important;
+      }
+      .scroll-smooth {
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-void text-slate-200 font-sans antialiased selection:bg-amberneon selection:text-void min-h-screen bg-grid-pattern flex flex-col">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <aside aria-label="Announcement" class="border-b border-cyan-950/80 bg-dungeon/90 backdrop-blur px-4 py-2 text-center text-xs text-cyanneon font-pixel tracking-wide flex items-center justify-center gap-2">
+    <span class="inline-block w-2 h-2 bg-moss animate-pulse"></span>
+    DEMO AVAILABLE IN STEAM NEXT FEST &bull; TARGET RELEASE: Q3 2025
+  </aside>
+
+  <!-- NAVIGATION -->
+  <header class="sticky top-0 z-50 bg-void/90 backdrop-blur border-b border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-18 py-3 flex items-center justify-between">
+      
+      <!-- LOGO -->
+      <a href="#" class="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-amberneon">
+        <div class="w-10 h-10 bg-slatecard border-2 border-ambercore shadow-pixel flex items-center justify-center p-1.5 transition-transform group-hover:scale-105">
+          <!-- Pixel glyph icon -->
+          <svg viewBox="0 0 16 16" class="w-full h-full fill-amberneon pixelated" aria-hidden="true">
+            <rect x="2" y="2" width="4" height="4" />
+            <rect x="10" y="2" width="4" height="4" />
+            <rect x="6" y="6" width="4" height="4" />
+            <rect x="2" y="10" width="4" height="4" />
+            <rect x="10" y="10" width="4" height="4" />
+            <rect x="6" y="2" width="4" height="2" opacity="0.6"/>
+            <rect x="6" y="12" width="4" height="2" opacity="0.6"/>
+          </svg>
+        </div>
+        <div>
+          <span class="font-pixel text-base sm:text-lg text-amberneon tracking-wider block">CHRONO GLYPH</span>
+          <span class="text-[10px] tracking-widest text-slate-400 uppercase font-mono -mt-1 block">Sunken Spire</span>
+        </div>
+      </a>
+
+      <!-- DESKTOP NAV -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium" aria-label="Main Navigation">
+        <a href="#trailer" class="text-slate-300 hover:text-amberneon transition-colors py-1">Trailer</a>
+        <a href="#mechanics" class="text-slate-300 hover:text-amberneon transition-colors py-1">Mechanics</a>
+        <a href="#chambers" class="text-slate-300 hover:text-amberneon transition-colors py-1">World</a>
+        <a href="#soundtrack" class="text-slate-300 hover:text-amberneon transition-colors py-1">OST</a>
+        <a href="#faq" class="text-slate-300 hover:text-amberneon transition-colors py-1">Specs</a>
+      </nav>
+
+      <!-- WISHLIST BUTTON (HEADER) -->
+      <div class="flex items-center gap-3">
+        <a href="#wishlist" class="hidden sm:inline-flex items-center gap-2 bg-ambercore hover:bg-amberneon text-void font-bold text-xs uppercase tracking-wider px-4 py-2.5 border-2 border-amberneon shadow-pixel-amber transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-0 active:translate-y-0">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2a10 10 0 0 0-10 10c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 14.42 22 12A10 10 0 0 0 12 2z"/>
+          </svg>
+          Wishlist on Steam
+        </a>
+
+        <!-- Mobile menu toggle button -->
+        <button id="mobileMenuBtn" type="button" class="md:hidden p-2 text-slate-300 hover:text-white border border-slate-700 bg-slatecard" aria-label="Toggle Navigation Menu" aria-expanded="false">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" id="menuBars"></path>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="hidden md:hidden border-b border-slate-800 bg-dungeon px-6 py-4 space-y-3 font-medium">
+      <a href="#trailer" class="block text-slate-300 hover:text-amberneon py-1">Trailer</a>
+      <a href="#mechanics" class="block text-slate-300 hover:text-amberneon py-1">Mechanics</a>
+      <a href="#chambers" class="block text-slate-300 hover:text-amberneon py-1">World</a>
+      <a href="#soundtrack" class="block text-slate-300 hover:text-amberneon py-1">Soundtrack</a>
+      <a href="#faq" class="block text-slate-300 hover:text-amberneon py-1">Hardware Specs</a>
+      <div class="pt-3 border-t border-slate-800">
+        <a href="#wishlist" class="w-full text-center inline-flex justify-center items-center gap-2 bg-ambercore text-void font-bold text-xs uppercase px-4 py-3 border-2 border-amberneon shadow-pixel-amber">
+          Wishlist on Steam
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+      <!-- Glow orbs in background -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[350px] bg-ambercore/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+      <div class="absolute top-2/3 right-10 w-[300px] h-[300px] bg-cyanglyph/10 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Hero Copy -->
+          <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+            
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-slatecard border border-ambercore/40 text-amberneon text-xs font-mono rounded-none">
+              <span class="w-1.5 h-1.5 bg-ambercore inline-block"></span>
+              TACTILE GRID PUZZLER &bull; HAND-PIXELED 16-BIT
+            </div>
+
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-pixel leading-tight text-white tracking-tight">
+              REWIND TIME.<br>
+              <span class="text-amberneon">SHIFT THE GLYPHS.</span><br>
+              DRAIN THE ABYSS.
+            </h1>
+
+            <p class="text-slate-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
+              You awake as an ancient automaton in a submerged monolithic clock tower. Manipulate light prisms, bend chronological springs, and unlock 130+ chambers designed to challenge spatial intuition without punishing trial-and-error.
+            </p>
+
+            <!-- Hero Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+              <a href="#wishlist" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-ambercore hover:bg-amberneon text-void font-bold text-sm tracking-wider uppercase px-6 py-4 border-2 border-amberneon shadow-pixel-amber transition-transform hover:-translate-y-0.5 active:translate-y-0">
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2a10 10 0 0 0-10 10c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 14.42 22 12A10 10 0 0 0 12 2z"/>
+                </svg>
+                Wishlist on Steam
+              </a>
+              
+              <a href="#trailer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slatecard hover:bg-slate-800 text-cyanneon font-semibold text-sm px-6 py-4 border border-cyan-800 shadow-pixel-cyan transition-colors">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+                Watch Reveal Trailer (1:42)
+              </a>
+            </div>
+
+            <!-- Platform & Feature badges -->
+            <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-mono text-slate-400">
+              <span class="flex items-center gap-1.5 border border-slate-800 bg-slatecard/60 px-2.5 py-1">
+                <span class="w-2 h-2 rounded-full bg-moss"></span> Steam Deck Ready
+              </span>
+              <span class="flex items-center gap-1.5 border border-slate-800 bg-slatecard/60 px-2.5 py-1">
+                <span class="w-2 h-2 rounded-full bg-cyanglyph"></span> Full Gamepad & Keyboard
+              </span>
+              <span class="flex items-center gap-1.5 border border-slate-800 bg-slatecard/60 px-2.5 py-1">
+                <span class="w-2 h-2 rounded-full bg-ambercore"></span> No Timers / Zen Play
+              </span>
+            </div>
+
+          </div>
+
+          <!-- Hero Pixel Art Visual Mockup -->
+          <div class="lg:col-span-5 flex justify-center">
+            <div class="relative w-full max-w-md bg-slatecard border-4 border-slate-700 p-3 shadow-pixel bg-gradient-to-b from-slate-900 to-void">
+              <!-- Pixel header bar -->
+              <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800 text-[11px] font-pixel text-slate-400">
+                <span class="text-amberneon">LEVEL 038 // SECTOR PRISM</span>
+                <span class="font-mono text-moss">TICKS: 14</span>
+              </div>
+
+              <!-- Pixel Canvas Display (SVG Built Artwork) -->
+              <div class="relative aspect-square w-full bg-dungeon border-2 border-slate-800 overflow-hidden crt-screen flex items-center justify-center" aria-label="Pixel art representation of the puzzle chamber with glowing glyphs and light beams">
+                <div class="absolute inset-0 scanlines pointer-events-none z-20"></div>
+
+                <svg viewBox="0 0 160 160" class="w-full h-full pixelated select-none" aria-hidden="true">
+                  <!-- Dungeon Grid Background -->
+                  <defs>
+                    <pattern id="dungeonGrid" width="16" height="16" patternUnits="userSpaceOnUse">
+                      <rect width="16" height="16" fill="#0d1117" />
+                      <rect x="0" y="0" width="16" height="1" fill="#161c28" />
+                      <rect x="0" y="0" width="1" height="16" fill="#161c28" />
+                      <rect x="7" y="7" width="2" height="2" fill="#1c2434" />
+                    </pattern>
+                  </defs>
+                  <rect width="160" height="160" fill="url(#dungeonGrid)" />
+
+                  <!-- Border Chamber Walls -->
+                  <rect x="8" y="8" width="144" height="6" fill="#2d3748" />
+                  <rect x="8" y="146" width="144" height="6" fill="#2d3748" />
+                  <rect x="8" y="8" width="6" height="144" fill="#2d3748" />
+                  <rect x="146" y="8" width="6" height="144" fill="#2d3748" />
+
+                  <!-- Sunken Water Trench in Center -->
+                  <rect x="32" y="32" width="96" height="96" fill="#06202a" stroke="#0e3a4b" stroke-width="2"/>
+                  <!-- Stepping stone platforms -->
+                  <rect x="40" y="40" width="24" height="24" fill="#243144" stroke="#475569" stroke-width="1"/>
+                  <rect x="96" y="40" width="24" height="24" fill="#243144" stroke="#475569" stroke-width="1"/>
+                  <rect x="40" y="96" width="24" height="24" fill="#243144" stroke="#475569" stroke-width="1"/>
+                  <rect x="96" y="96" width="24" height="24" fill="#243144" stroke="#475569" stroke-width="1"/>
+                  <rect x="68" y="68" width="24" height="24" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+
+                  <!-- Central Chrono Core / Relic -->
+                  <rect x="74" y="74" width="12" height="12" fill="#fbbf24" />
+                  <rect x="76" y="76" width="8" height="8" fill="#fff" />
+                  <!-- Rotating glow aura -->
+                  <rect x="72" y="72" width="16" height="2" fill="#f59e0b" opacity="0.7"/>
+                  <rect x="72" y="86" width="16" height="2" fill="#f59e0b" opacity="0.7"/>
+                  <rect x="72" y="72" width="2" height="16" fill="#f59e0b" opacity="0.7"/>
+                  <rect x="86" y="72" width="2" height="16" fill="#f59e0b" opacity="0.7"/>
+
+                  <!-- Beam of Refracted Cyan Light -->
+                  <line x1="20" y1="52" x2="52" y2="52" stroke="#22d3ee" stroke-width="3" stroke-dasharray="2,1" />
+                  <line x1="52" y1="52" x2="52" y2="108" stroke="#22d3ee" stroke-width="3" />
+                  <line x1="52" y1="108" x2="108" y2="108" stroke="#22d3ee" stroke-width="3" stroke-dasharray="3,1" />
+                  <line x1="108" y1="108" x2="108" y2="80" stroke="#f59e0b" stroke-width="2" />
+
+                  <!-- Prism Mirrors -->
+                  <polygon points="50,48 56,52 50,56" fill="#38bdf8" stroke="#0284c7" stroke-width="1"/>
+                  <polygon points="50,104 56,108 50,112" fill="#38bdf8" stroke="#0284c7" stroke-width="1"/>
+
+                  <!-- Player Automaton Sprite (Chrono Golem) -->
+                  <g transform="translate(100, 44)">
+                    <!-- Body -->
+                    <rect x="4" y="2" width="8" height="6" fill="#e2e8f0" />
+                    <!-- Eyes visor -->
+                    <rect x="5" y="4" width="6" height="2" fill="#06b6d4" />
+                    <!-- Torso -->
+                    <rect x="3" y="8" width="10" height="7" fill="#64748b" />
+                    <rect x="6" y="10" width="4" height="3" fill="#f59e0b" />
+                    <!-- Legs -->
+                    <rect x="4" y="15" width="3" height="3" fill="#334155" />
+                    <rect x="9" y="15" width="3" height="3" fill="#334155" />
+                  </g>
+
+                  <!-- Sparkles / Dust Motes -->
+                  <rect x="30" y="70" width="2" height="2" fill="#fde68a" />
+                  <rect x="130" y="40" width="2" height="2" fill="#67e8f9" />
+                  <rect x="120" y="120" width="2" height="2" fill="#fde68a" />
+                  <rect x="80" y="24" width="1" height="1" fill="#fff" />
+                </svg>
+
+                <!-- Floating Interactive Hint Badge -->
+                <div class="absolute bottom-3 right-3 z-30 bg-void/85 border border-ambercore/70 px-2 py-1 text-[10px] font-pixel text-amberneon flex items-center gap-1.5 shadow">
+                  <span class="w-1.5 h-1.5 bg-amberneon inline-block"></span>
+                  STEP RECORDED
+                </div>
+              </div>
+
+              <!-- Retro Status Footer -->
+              <div class="mt-2 flex items-center justify-between text-xs font-mono text-slate-400 px-1">
+                <span class="flex items-center gap-1">
+                  <span class="text-cyanneon font-bold">[Z]</span> UNDO
+                </span>
+                <span class="flex items-center gap-1">
+                  <span class="text-amberneon font-bold">[R]</span> REWIND CLOCK
+                </span>
+                <span class="flex items-center gap-1">
+                  <span class="text-slate-300 font-bold">[SPACE]</span> SHIFT
+                </span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TRAILER SECTION -->
+    <section id="trailer" class="py-16 md:py-24 bg-dungeon border-y border-slate-800 relative">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center max-w-2xl mx-auto mb-10 space-y-3">
+          <p class="font-pixel text-xs text-cyanneon tracking-widest uppercase">AUDIOVISUAL ARCHIVE</p>
+          <h2 class="text-2xl sm:text-3xl font-pixel text-white">OFFICIAL GAMEPLAY TRAILER</h2>
+          <p class="text-slate-400 text-sm">
+            Watch the clockwork mechanics in motion: from early temporal rewinds to complex multi-beam reflection puzzles.
+          </p>
+        </div>
+
+        <!-- Styled Video / Monitor Housing -->
+        <div class="relative bg-slatecard border-4 border-slate-700 p-2 sm:p-4 shadow-pixel max-w-4xl mx-auto">
+          
+          <!-- CRT Screen Frame -->
+          <div class="relative aspect-video w-full bg-void rounded-sm overflow-hidden border-2 border-slate-800 crt-screen flex items-center justify-center group" id="trailerPlayerContainer">
+            <div class="absolute inset-0 scanlines pointer-events-none z-10"></div>
+            
+            <!-- Trailer Visual Fallback & Simulated Player -->
+            <div id="trailerPlaceholder" class="relative w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-tr from-void via-slate-950 to-slate-900">
+              
+              <!-- Ambient pixel chamber background art -->
+              <div class="absolute inset-0 opacity-25 flex items-center justify-center pointer-events-none">
+                <svg viewBox="0 0 200 120" class="w-full h-full pixelated">
+                  <path d="M0,60 L200,60" stroke="#0e7490" stroke-width="1" stroke-dasharray="4 4"/>
+                  <circle cx="100" cy="60" r="40" fill="none" stroke="#f59e0b" stroke-width="1"/>
+                  <rect x="70" y="30" width="60" height="60" fill="none" stroke="#334155" stroke-width="1"/>
+                  <polygon points="100,20 140,60 100,100 60,60" fill="none" stroke="#22d3ee" stroke-width="1"/>
+                </svg>
+              </div>
+
+              <!-- Big Retro Play Button -->
+              <button id="playTrailerBtn" type="button" class="relative z-20 w-16 h-16 sm:w-20 sm:h-20 bg-ambercore/90 hover:bg-amberneon text-void border-2 border-amberneon shadow-pixel-amber flex items-center justify-center transition-all hover:scale-105 group-hover:shadow-glow-amber cursor-pointer" aria-label="Play Game Trailer Video">
+                <svg class="w-8 h-8 fill-current translate-x-0.5" viewBox="0 0 24 24">
+                  <polygon points="6,4 20,12 6,20" />
+                </svg>
+              </button>
+
+              <div class="relative z-20 mt-6 space-y-1">
+                <p class="font-pixel text-white text-sm sm:text-base tracking-wide">CLICK TO INITIALIZE FEED</p>
+                <p class="text-xs font-mono text-slate-400">LENGTH: 01:42 &bull; 1080P 60FPS CHIPTUNE MASTER</p>
+              </div>
+
+              <!-- Live simulated demo state banner -->
+              <div id="trailerStatusMsg" class="hidden absolute top-4 left-4 z-20 bg-void/90 border border-moss px-3 py-1 font-mono text-xs text-moss flex items-center gap-2">
+                <span class="w-2 h-2 bg-moss animate-pulse rounded-full"></span> TRANSMISSION STREAMING
+              </div>
+            </div>
+
+            <!-- Simulated playable reel container that reveals when played -->
+            <div id="simulatedReel" class="hidden absolute inset-0 z-15 bg-slate-950 flex flex-col justify-between p-4">
+              <div class="flex justify-between items-center text-xs font-mono text-cyanneon border-b border-slate-800 pb-2">
+                <span>REC &bull; 00:34 / 01:42</span>
+                <span class="text-ambercore">CHAMBER 082: SYNAPSE GEARS</span>
+              </div>
+              <div class="flex-grow flex items-center justify-center text-center">
+                <div class="space-y-3">
+                  <div class="inline-block p-4 border border-dashed border-ambercore/50 bg-dungeon/80">
+                    <p class="font-pixel text-amberneon text-sm sm:text-lg animate-pulse">[ CHRONOLOGICAL SHIFT IN MOTION ]</p>
+                    <p class="text-xs text-slate-400 font-mono mt-2">Full audio-visual capture stream active. Pre-rendered trailer playable via Steam store demo.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-between items-center text-xs font-mono text-slate-400 border-t border-slate-800 pt-2">
+                <button id="pauseTrailerBtn" class="text-amberneon hover:underline">[ PAUSE FEED ]</button>
+                <span>CHRONO AUDIO: STEREO 48kHz</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Video control tray / trailer chapters -->
+          <div class="mt-3 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-slate-400">
+            <div class="flex items-center gap-2">
+              <span class="inline-block w-2.5 h-2.5 bg-ambercore"></span>
+              <span class="text-slate-300 font-semibold">TRAILER CHAPTERS:</span>
+            </div>
+            <div class="flex flex-wrap gap-2 text-[11px]">
+              <span class="px-2 py-1 bg-void border border-slate-800 text-slate-300">00:00 Awakening</span>
+              <span class="px-2 py-1 bg-void border border-slate-800 text-slate-300">00:25 Time Reversal</span>
+              <span class="px-2 py-1 bg-void border border-slate-800 text-slate-300">00:54 Prism Refraction</span>
+              <span class="px-2 py-1 bg-void border border-slate-800 text-slate-300">01:20 Spire Depths</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CORE FEATURES SECTION -->
+    <section id="mechanics" class="py-16 md:py-24">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        
+        <div class="max-w-2xl mx-auto text-center space-y-3 mb-16">
+          <p class="font-pixel text-xs text-amberneon tracking-widest uppercase">FORGED MECHANICS</p>
+          <h2 class="text-2xl sm:text-4xl font-pixel text-white">TACTILE. DELIBERATE. ELEGANT.</h2>
+          <p class="text-slate-400 text-base">
+            No reflex tests, no countdown timers. Just you, intricate ancient clockwork, and the pure satisfaction of the "Eureka!" moment.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Feature 1 -->
+          <div class="bg-slatecard border-2 border-slate-800 p-6 flex flex-col justify-between hover:border-ambercore transition-colors shadow-pixel group">
+            <div class="space-y-4">
+              <div class="w-12 h-12 bg-dungeon border border-ambercore/40 flex items-center justify-center text-amberneon group-hover:scale-105 transition-transform">
+                <svg viewBox="0 0 16 16" class="w-7 h-7 fill-current pixelated">
+                  <!-- Pixel hourglass / clock gear -->
+                  <rect x="2" y="2" width="12" height="2" />
+                  <rect x="2" y="12" width="12" height="2" />
+                  <rect x="4" y="4" width="8" height="2" />
+                  <rect x="6" y="6" width="4" height="2" />
+                  <rect x="4" y="10" width="8" height="2" />
+                  <rect x="6" y="8" width="4" height="2" fill="#fff" />
+                </svg>
+              </div>
+              <h3 class="font-pixel text-base text-white group-hover:text-amberneon transition-colors">NON-LINEAR TEMPORAL REWIND</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Step backwards tick-by-tick or rewind an individual mechanism while remaining frozen in place. Unmake mistakes cleanly without ever restarting the room.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 font-mono text-xs text-ambercore flex items-center justify-between">
+              <span>UNLIMITED UNDO</span>
+              <span>&bull; ZERO PENALTY</span>
+            </div>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="bg-slatecard border-2 border-slate-800 p-6 flex flex-col justify-between hover:border-cyanglyph transition-colors shadow-pixel group">
+            <div class="space-y-4">
+              <div class="w-12 h-12 bg-dungeon border border-cyanglyph/40 flex items-center justify-center text-cyanneon group-hover:scale-105 transition-transform">
+                <svg viewBox="0 0 16 16" class="w-7 h-7 fill-current pixelated">
+                  <!-- Pixel prism / light split -->
+                  <polygon points="8,2 14,13 2,13" fill="none" stroke="#22d3ee" stroke-width="1"/>
+                  <rect x="7" y="5" width="2" height="6" fill="#22d3ee" />
+                  <rect x="4" y="10" width="2" height="2" fill="#fbbf24" />
+                  <rect x="10" y="10" width="2" height="2" fill="#10b981" />
+                </svg>
+              </div>
+              <h3 class="font-pixel text-base text-white group-hover:text-cyanneon transition-colors">PHOTONIC REFRACTION</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Direct solar beams into bismuth mirrors and chromatic splitters. Combine colored light vectors to trigger photosensitive pressure plates and unlock gates.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 font-mono text-xs text-cyanneon flex items-center justify-between">
+              <span>4 WAVELENGTHS</span>
+              <span>&bull; REAL-TIME OPTICS</span>
+            </div>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="bg-slatecard border-2 border-slate-800 p-6 flex flex-col justify-between hover:border-ambercore transition-colors shadow-pixel group">
+            <div class="space-y-4">
+              <div class="w-12 h-12 bg-dungeon border border-ambercore/40 flex items-center justify-center text-amberneon group-hover:scale-105 transition-transform">
+                <svg viewBox="0 0 16 16" class="w-7 h-7 fill-current pixelated">
+                  <!-- Pixel labyrinth / map grid -->
+                  <rect x="2" y="2" width="12" height="12" fill="none" stroke="#f59e0b" stroke-width="1"/>
+                  <rect x="5" y="5" width="6" height="2" fill="#f59e0b" />
+                  <rect x="5" y="9" width="6" height="2" fill="#f59e0b" />
+                  <rect x="9" y="7" width="2" height="2" fill="#f59e0b" />
+                </svg>
+              </div>
+              <h3 class="font-pixel text-base text-white group-hover:text-amberneon transition-colors">130+ CRAFTED CHAMBERS</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Zero procedural fluff. Every room is an intentional piece of puzzle architecture with organic difficulty curves and optional "Master Chronometer" challenges.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 font-mono text-xs text-ambercore flex items-center justify-between">
+              <span>HAND-CRAFTED</span>
+              <span>&bull; 5 DISTINCT BIOMES</span>
+            </div>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="bg-slatecard border-2 border-slate-800 p-6 flex flex-col justify-between hover:border-cyanglyph transition-colors shadow-pixel group">
+            <div class="space-y-4">
+              <div class="w-12 h-12 bg-dungeon border border-cyanglyph/40 flex items-center justify-center text-cyanneon group-hover:scale-105 transition-transform">
+                <svg viewBox="0 0 16 16" class="w-7 h-7 fill-current pixelated">
+                  <!-- Pixel music note / sound wave -->
+                  <rect x="4" y="8" width="3" height="4" />
+                  <rect x="9" y="5" width="3" height="4" />
+                  <rect x="6" y="3" width="6" height="2" />
+                  <rect x="6" y="5" width="1" height="5" />
+                  <rect x="11" y="4" width="1" height="3" />
+                </svg>
+              </div>
+              <h3 class="font-pixel text-base text-white group-hover:text-cyanneon transition-colors">REACTIVE CHIPTUNE SCORE</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Composed on authentic FM-synthesis soundchips. Harmonic layers build dynamically as you align gears and close circuits throughout each floor.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 font-mono text-xs text-cyanneon flex items-center justify-between">
+              <span>YM2612 SYNTHESIS</span>
+              <span>&bull; 24 TRACK OST</span>
+            </div>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="bg-slatecard border-2 border-slate-800 p-6 flex flex-col justify-between hover:border-ambercore transition-colors shadow-pixel group">
+            <div class="space-y-4">
+              <div class="w-12 h-12 bg-dungeon border border-ambercore/40 flex items-center justify-center text-amberneon group-hover:scale-105 transition-transform">
+                <svg viewBox="0 0 16 16" class="w-7 h-7 fill-current pixelated">
+                  <!-- Pixel gamepad / accessibility heart -->
+                  <rect x="2" y="5" width="12" height="7" fill="none" stroke="#f59e0b" stroke-width="1"/>
+                  <rect x="4" y="8" width="3" height="1" fill="#f59e0b" />
+                  <rect x="5" y="7" width="1" height="3" fill="#f59e0b" />
+                  <rect x="10" y="8" width="1" height="1" fill="#fff" />
+                  <rect x="12" y="7" width="1" height="1" fill="#fff" />
+                </svg>
+              </div>
+              <h3 class="font-pixel text-base text-white group-hover:text-amberneon transition-colors">DEEP ACCESSIBILITY</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Colorblind glyph modes, customizable grid contrast, high-visibility silhouettes, full remapping for keyboard and controller, and optional hints.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 font-mono text-xs text-ambercore flex items-center justify-between">
+              <span>FULL REMAPPING</span>
+              <span>&bull; COLOR BLIND TESTED</span>
+            </div>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="bg-slatecard border-2 border-slate-800 p-6 flex flex-col justify-between hover:border-cyanglyph transition-colors shadow-pixel group">
+            <div class="space-y-4">
+              <div class="w-12 h-12 bg-dungeon border border-cyanglyph/40 flex items-center justify-center text-cyanneon group-hover:scale-105 transition-transform">
+                <svg viewBox="0 0 16 16" class="w-7 h-7 fill-current pixelated">
+                  <!-- Pixel scroll / lore tablet -->
+                  <rect x="3" y="2" width="10" height="12" fill="none" stroke="#22d3ee" stroke-width="1"/>
+                  <rect x="5" y="5" width="6" height="1" fill="#22d3ee" />
+                  <rect x="5" y="7" width="6" height="1" fill="#22d3ee" />
+                  <rect x="5" y="9" width="4" height="1" fill="#22d3ee" />
+                </svg>
+              </div>
+              <h3 class="font-pixel text-base text-white group-hover:text-cyanneon transition-colors">CRYPTIC MONOLITH LORE</h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Piece together why the clockmakers flooded the tower through environmental storytelling, hidden astrological stone tablets, and forgotten diaries.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800/80 font-mono text-xs text-cyanneon flex items-center justify-between">
+              <span>SECRET ENDING</span>
+              <span>&bull; OPTIONAL CIPHERS</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WORLD / BIOME SHOWCASE -->
+    <section id="chambers" class="py-16 md:py-24 bg-dungeon border-t border-slate-800">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <p class="font-pixel text-xs text-cyanneon tracking-widest uppercase">THE SUNKEN SECTORS</p>
+            <h2 class="text-2xl sm:text-3xl font-pixel text-white mt-2">EXPLORE THE ARCHITECTURE</h2>
+          </div>
+          <p class="text-slate-400 text-sm max-w-md">
+            Each zone introduces a signature physical property that overturns how you reason about the grid.
+          </p>
+        </div>
+
+        <!-- Biomes Tabs / Preview Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          
+          <!-- Zone 1 -->
+          <div class="bg-slatecard border border-slate-800 overflow-hidden shadow-pixel">
+            <div class="h-44 bg-gradient-to-b from-slate-900 to-slate-950 p-4 border-b border-slate-800 relative crt-screen flex items-center justify-center">
+              <div class="absolute inset-0 scanlines pointer-events-none"></div>
+              <!-- Pixel Scene Biome 1 (Drowned Clockworks) -->
+              <svg viewBox="0 0 120 70" class="w-full h-full pixelated" aria-label="Pixel art representation of the drowned clockworks sector">
+                <rect width="120" height="70" fill="#09131a" />
+                <!-- Water level -->
+                <rect x="0" y="45" width="120" height="25" fill="#0c2a38" opacity="0.8"/>
+                <line x1="0" y1="45" x2="120" y2="45" stroke="#22d3ee" stroke-width="1" stroke-dasharray="4 2"/>
+                <!-- Huge Gear Silhouette submerged -->
+                <circle cx="60" cy="50" r="26" fill="none" stroke="#1f4459" stroke-width="4"/>
+                <rect x="58" y="22" width="4" height="56" fill="#1f4459" />
+                <rect x="32" y="48" width="56" height="4" fill="#1f4459" />
+                <!-- Pillar columns -->
+                <rect x="14" y="10" width="8" height="50" fill="#1e293b" />
+                <rect x="98" y="10" width="8" height="50" fill="#1e293b" />
+                <rect x="58" y="48" width="4" height="4" fill="#fbbf24" />
+              </svg>
+              <div class="absolute top-3 left-3 bg-void/80 border border-slate-700 px-2 py-0.5 font-mono text-[10px] text-amberneon">
+                SECTOR I
+              </div>
+            </div>
+            <div class="p-5 space-y-2">
+              <h3 class="font-pixel text-sm text-white">THE DROWNED CLOCKWORKS</h3>
+              <p class="text-xs text-slate-400 leading-relaxed font-sans">
+                Water buoyancy alters tile friction. Submerge gears to link distant hydraulic platforms, or siphon basins to alter step counts.
+              </p>
+              <span class="inline-block text-[11px] font-mono text-cyanneon pt-2">Mechanic: Hydro-Rotational Momentum</span>
+            </div>
+          </div>
+
+          <!-- Zone 2 -->
+          <div class="bg-slatecard border border-slate-800 overflow-hidden shadow-pixel">
+            <div class="h-44 bg-gradient-to-b from-slate-900 to-slate-950 p-4 border-b border-slate-800 relative crt-screen flex items-center justify-center">
+              <div class="absolute inset-0 scanlines pointer-events-none"></div>
+              <!-- Pixel Scene Biome 2 (Observatory of Starlight) -->
+              <svg viewBox="0 0 120 70" class="w-full h-full pixelated" aria-label="Pixel art representation of the brass orrery and observatory">
+                <rect width="120" height="70" fill="#110d19" />
+                <!-- Star dust dots -->
+                <rect x="15" y="12" width="1" height="1" fill="#fbbf24" />
+                <rect x="45" y="22" width="1" height="1" fill="#fde68a" />
+                <rect x="80" y="15" width="2" height="2" fill="#fff" />
+                <rect x="105" y="28" width="1" height="1" fill="#67e8f9" />
+                <!-- Brass Orrery Rings -->
+                <ellipse cx="60" cy="38" rx="40" ry="18" fill="none" stroke="#d97706" stroke-width="1.5" stroke-dasharray="3 3"/>
+                <ellipse cx="60" cy="38" rx="22" ry="10" fill="none" stroke="#f59e0b" stroke-width="1"/>
+                <circle cx="60" cy="38" r="5" fill="#fef08a" />
+                <!-- Orbiting lens stone -->
+                <circle cx="85" cy="32" r="3" fill="#38bdf8" />
+              </svg>
+              <div class="absolute top-3 left-3 bg-void/80 border border-slate-700 px-2 py-0.5 font-mono text-[10px] text-amberneon">
+                SECTOR II
+              </div>
+            </div>
+            <div class="p-5 space-y-2">
+              <h3 class="font-pixel text-sm text-white">THE CELESTIAL ORRERY</h3>
+              <p class="text-xs text-slate-400 leading-relaxed font-sans">
+                Align astrolabe rings to focus overhead moonlight through stained calcite domes, activating hidden floor sigils simultaneously.
+              </p>
+              <span class="inline-block text-[11px] font-mono text-cyanneon pt-2">Mechanic: Concentric Ring Alignment</span>
+            </div>
+          </div>
+
+          <!-- Zone 3 -->
+          <div class="bg-slatecard border border-slate-800 overflow-hidden shadow-pixel">
+            <div class="h-44 bg-gradient-to-b from-slate-900 to-slate-950 p-4 border-b border-slate-800 relative crt-screen flex items-center justify-center">
+              <div class="absolute inset-0 scanlines pointer-events-none"></div>
+              <!-- Pixel Scene Biome 3 (The Null Core) -->
+              <svg viewBox="0 0 120 70" class="w-full h-full pixelated" aria-label="Pixel art representation of the temporal null core">
+                <rect width="120" height="70" fill="#080b12" />
+                <!-- Monolith split -->
+                <rect x="42" y="10" width="14" height="48" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+                <rect x="64" y="10" width="14" height="48" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+                <!-- Void Rift energy -->
+                <path d="M56,8 Q59,35 56,62" stroke="#ec4899" stroke-width="2" fill="none"/>
+                <path d="M64,8 Q61,35 64,62" stroke="#8b5cf6" stroke-width="2" fill="none"/>
+                <!-- Particles -->
+                <rect x="58" y="20" width="2" height="2" fill="#f472b6" />
+                <rect x="61" y="40" width="2" height="2" fill="#c084fc" />
+                <rect x="57" y="52" width="2" height="2" fill="#fff" />
+              </svg>
+              <div class="absolute top-3 left-3 bg-void/80 border border-slate-700 px-2 py-0.5 font-mono text-[10px] text-amberneon">
+                SECTOR III
+              </div>
+            </div>
+            <div class="p-5 space-y-2">
+              <h3 class="font-pixel text-sm text-white">THE PARADOX VAULT</h3>
+              <p class="text-xs text-slate-400 leading-relaxed font-sans">
+                Record your past shadow echoes to stand on pressure switches in previous turns, solving puzzles cooperatively with yourself across time.
+              </p>
+              <span class="inline-block text-[11px] font-mono text-cyanneon pt-2">Mechanic: Shadow Clone Echoes</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SOUNDTRACK TEASER / AUDIO EXPERIENCE -->
+    <section id="soundtrack" class="py-16 md:py-20 border-t border-slate-800">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="bg-slatecard border-2 border-slate-800 p-6 sm:p-8 relative shadow-pixel flex flex-col md:flex-row items-center justify-between gap-8">
+          
+          <div class="space-y-4 max-w-xl text-center md:text-left">
+            <span class="inline-block font-pixel text-xs text-amberneon tracking-wider bg-void px-2.5 py-1 border border-ambercore/30">
+              ORIGINAL SOUNDTRACK PREVIEW
+            </span>
+            <h3 class="text-xl sm:text-2xl font-pixel text-white">
+              ANALOG TAPE MEETS 16-BIT FM SYNTH
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Composed by sound artist <em>VektorNull</em>. Every track was programmed directly within retro Yamaha soundchip limits, then mastered to reel-to-reel tape for warmth and grit.
+            </p>
+            <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs font-mono text-slate-400 pt-2">
+              <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-moss"></span> 24 Original Compositions</span>
+              <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-cyanneon"></span> FLAC & MP3 Included With Deluxe</span>
+            </div>
+          </div>
+
+          <!-- Interactive Track Sample Player (Client simulated) -->
+          <div class="w-full md:w-80 bg-dungeon border border-slate-700 p-4 shrink-0 font-mono text-xs space-y-3">
+            <div class="flex items-center justify-between text-slate-400 pb-2 border-b border-slate-800">
+              <span class="font-pixel text-[10px] text-cyanneon">FM TAPE DECK</span>
+              <span class="text-moss flex items-center gap-1">
+                <span class="w-1.5 h-1.5 bg-moss rounded-full animate-ping"></span> READY
+              </span>
+            </div>
+
+            <!-- Track listing buttons -->
+            <div class="space-y-2" id="trackList">
+              <button type="button" class="audio-track w-full p-2 bg-slatecard hover:bg-slate-800 border border-slate-700 text-left flex items-center justify-between transition-colors text-slate-200" data-track="01 &bull; Sunken Cogitator (Theme)">
+                <span class="truncate">01. Sunken Cogitator</span>
+                <span class="text-amberneon font-mono">03:14</span>
+              </button>
+              <button type="button" class="audio-track w-full p-2 bg-slatecard hover:bg-slate-800 border border-slate-700 text-left flex items-center justify-between transition-colors text-slate-400" data-track="02 &bull; Prismatic Reverie">
+                <span class="truncate">02. Prismatic Reverie</span>
+                <span class="text-slate-500 font-mono">02:48</span>
+              </button>
+              <button type="button" class="audio-track w-full p-2 bg-slatecard hover:bg-slate-800 border border-slate-700 text-left flex items-center justify-between transition-colors text-slate-400" data-track="03 &bull; Starlight Astrolabe">
+                <span class="truncate">03. Starlight Astrolabe</span>
+                <span class="text-slate-500 font-mono">04:02</span>
+              </button>
+            </div>
+
+            <!-- Audio waveform simulation -->
+            <div class="pt-2">
+              <div class="h-6 flex items-end gap-1 px-1 bg-void border border-slate-800 overflow-hidden" id="waveformBars">
+                <span class="w-1 bg-cyanneon h-2 transition-all duration-300"></span>
+                <span class="w-1 bg-cyanneon h-4 transition-all duration-300"></span>
+                <span class="w-1 bg-ambercore h-5 transition-all duration-300"></span>
+                <span class="w-1 bg-ambercore h-3 transition-all duration-300"></span>
+                <span class="w-1 bg-cyanneon h-1 transition-all duration-300"></span>
+                <span class="w-1 bg-cyanneon h-5 transition-all duration-300"></span>
+                <span class="w-1 bg-ambercore h-4 transition-all duration-300"></span>
+                <span class="w-1 bg-cyanneon h-2 transition-all duration-300"></span>
+                <span class="w-1 bg-moss h-3 transition-all duration-300"></span>
+                <span class="w-1 bg-moss h-4 transition-all duration-300"></span>
+                <span class="w-1 bg-cyanneon h-2 transition-all duration-300"></span>
+              </div>
+              <p class="text-[10px] text-slate-400 mt-2 text-center" id="nowPlayingText">Select track to preview audio snippet</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SYSTEM SPECS & FAQ SECTION -->
+    <section id="faq" class="py-16 bg-dungeon border-t border-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        
+        <div class="text-center mb-12 space-y-2">
+          <p class="font-pixel text-xs text-amberneon tracking-widest uppercase">TECHNICAL MANIFEST</p>
+          <h2 class="text-2xl font-pixel text-white">SPECS & COMPATIBILITY</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- System Specs Card -->
+          <div class="bg-slatecard border border-slate-800 p-5 space-y-3 font-mono text-xs">
+            <h3 class="font-pixel text-xs text-cyanneon tracking-wide border-b border-slate-800 pb-2">SYSTEM REQUIREMENTS (PC/MAC/LINUX)</h3>
+            <div class="space-y-1.5 text-slate-300">
+              <p><strong class="text-slate-400">OS:</strong> Windows 10/11, Ubuntu 22.04+, macOS 12+</p>
+              <p><strong class="text-slate-400">Processor:</strong> 1.8 GHz Dual Core or better</p>
+              <p><strong class="text-slate-400">Memory:</strong> 2 GB RAM</p>
+              <p><strong class="text-slate-400">Graphics:</strong> OpenGL 3.0 / Vulkan compatible</p>
+              <p><strong class="text-slate-400">Storage:</strong> 450 MB available space</p>
+              <p><strong class="text-slate-400">Controller:</strong> Full Xbox, DualShock/Sense, Switch Pro support</p>
+            </div>
+          </div>
+
+          <!-- FAQ Accordion -->
+          <div class="space-y-3">
+            
+            <details class="bg-slatecard border border-slate-800 p-4 group cursor-pointer" open>
+              <summary class="font-pixel text-xs text-white list-none flex justify-between items-center group-hover:text-amberneon">
+                <span>WILL THERE BE A SPEEDRUN MODE?</span>
+                <span class="text-ambercore font-mono font-bold group-open:rotate-180 transition-transform">&darr;</span>
+              </summary>
+              <p class="mt-3 text-xs text-slate-300 leading-relaxed font-sans border-t border-slate-800 pt-2">
+                Yes! Built-in IGT (In-Game Timer), step-count counters, and an optional toggleable skip-dialogue configuration are included on release day.
+              </p>
+            </details>
+
+            <details class="bg-slatecard border border-slate-800 p-4 group cursor-pointer">
+              <summary class="font-pixel text-xs text-white list-none flex justify-between items-center group-hover:text-amberneon">
+                <span>IS THERE TOUCH OR MOUSE ONLY CONTROL?</span>
+                <span class="text-ambercore font-mono font-bold group-open:rotate-180 transition-transform">&darr;</span>
+              </summary>
+              <p class="mt-3 text-xs text-slate-300 leading-relaxed font-sans border-t border-slate-800 pt-2">
+                Yes. Chrono Glyph can be completed 100% using single-button cursor controls, making it very comfortable on Steam Deck touch screens and trackpads.
+              </p>
+            </details>
+
+            <details class="bg-slatecard border border-slate-800 p-4 group cursor-pointer">
+              <summary class="font-pixel text-xs text-white list-none flex justify-between items-center group-hover:text-amberneon">
+                <span>WHEN DOES THE PUBLIC DEMO LAUNCH?</span>
+                <span class="text-ambercore font-mono font-bold group-open:rotate-180 transition-transform">&darr;</span>
+              </summary>
+              <p class="mt-3 text-xs text-slate-300 leading-relaxed font-sans border-t border-slate-800 pt-2">
+                The prologue containing the first 25 chambers will be available during the upcoming Steam Next Fest, with progress carrying over to the full version.
+              </p>
+            </details>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WISHLIST CALL TO ACTION SECTION -->
+    <section id="wishlist" class="py-20 md:py-28 relative overflow-hidden bg-void border-t border-slate-800">
+      
+      <!-- Backlit Glow Effect -->
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div class="w-[600px] h-[350px] bg-gradient-to-r from-ambercore/15 to-cyanglyph/15 blur-3xl rounded-full"></div>
+      </div>
+
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 relative text-center">
+        
+        <div class="bg-slatecard border-4 border-ambercore p-8 sm:p-12 shadow-glow-amber relative">
+          
+          <!-- Pixel corner brackets -->
+          <div class="absolute top-2 left-2 w-3 h-3 border-t-2 border-l-2 border-amberneon" aria-hidden="true"></div>
+          <div class="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-amberneon" aria-hidden="true"></div>
+          <div class="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-amberneon" aria-hidden="true"></div>
+          <div class="absolute bottom-2 right-2 w-3 h-3 border-b-2 border-r-2 border-amberneon" aria-hidden="true"></div>
+
+          <div class="space-y-6 max-w-2xl mx-auto">
+            
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-void border border-ambercore text-amberneon text-xs font-pixel">
+              <span class="w-2 h-2 bg-ambercore inline-block"></span>
+              YOUR WISHLIST SAVES INDIE GAMES
+            </div>
+
+            <h2 class="text-2xl sm:text-4xl font-pixel text-white leading-tight tracking-tight">
+              AWAKEN THE SPIRE.<br>
+              <span class="text-amberneon">ADD TO YOUR STEAM WISHLIST.</span>
+            </h2>
+
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Steam wishlists are the single most effective way to help our tiny 2-person development team gain visibility on launch day. Get notified the exact moment the demo and full release drop!
+            </p>
+
+            <!-- Main Wishlist Conversion Button -->
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <button id="wishlistActionBtn" type="button" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-ambercore hover:bg-amberneon text-void font-bold text-sm tracking-widest uppercase px-8 py-5 border-2 border-amberneon shadow-pixel-amber transition-all hover:scale-105 active:scale-100 cursor-pointer">
+                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2a10 10 0 0 0-10 10c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 14.42 22 12A10 10 0 0 0 12 2z"/>
+                </svg>
+                <span id="wishlistBtnText">WISHLIST NOW ON STEAM</span>
+              </button>
+
+              <a href="#newsletter" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-void hover:bg-slate-900 text-slate-300 font-semibold text-xs tracking-wider uppercase px-6 py-5 border border-slate-700 shadow-pixel transition-colors">
+                Join Beta Tester Guild
+              </a>
+            </div>
+
+            <!-- Instant simulated feedback toast -->
+            <div id="wishlistToast" class="hidden font-mono text-xs text-moss bg-void/95 border border-moss py-2 px-4 inline-block mt-3">
+              &check; STEAM REDIRECT INITIATED // THANK YOU FOR SUPPORTING INDIE PUZZLES!
+            </div>
+
+            <p class="text-xs font-mono text-slate-400 pt-2">
+              Planned platforms: PC (Steam / itch.io) &bull; Nintendo Switch (eShop) &bull; macOS &bull; Linux
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- NEWSLETTER / DISCORD SIGNUP -->
+    <section id="newsletter" class="py-14 bg-dungeon border-t border-slate-800">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          
+          <div class="space-y-2">
+            <h3 class="font-pixel text-sm sm:text-base text-white">RECEIVE DISPATCHES FROM THE ABYSS</h3>
+            <p class="text-xs text-slate-400 font-sans">
+              Sign up for our low-frequency development log. We only send major updates: public demo builds, release date announcements, and closed beta keys.
+            </p>
+          </div>
+
+          <!-- Presentational form -->
+          <form class="flex flex-col sm:flex-row gap-2" onsubmit="event.preventDefault(); document.getElementById('newsStatus').classList.remove('hidden');">
+            <label for="emailInput" class="sr-only">Email address</label>
+            <input 
+              id="emailInput" 
+              type="email" 
+              placeholder="automaton@clockwork.net" 
+              required
+              class="w-full bg-void border border-slate-700 text-slate-200 text-xs px-3.5 py-3 focus:outline-none focus:border-cyanneon font-mono"
+            >
+            <button type="submit" class="shrink-0 bg-cyanglyph hover:bg-cyanneon text-void font-pixel text-xs px-5 py-3 border border-cyanneon transition-colors">
+              SUBSCRIBE
+            </button>
+          </form>
+
+        </div>
+        
+        <p id="newsStatus" class="hidden text-xs font-mono text-cyanneon mt-3 text-right">
+          &bull; Dispatch subscriber recorded. (Demo form state)
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-void border-t border-slate-800 py-12 text-slate-400 text-xs font-mono">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-6 h-6 bg-slatecard border border-ambercore/60 flex items-center justify-center p-1">
+          <svg viewBox="0 0 16 16" class="w-full h-full fill-amberneon pixelated">
+            <rect x="2" y="2" width="4" height="4" />
+            <rect x="10" y="2" width="4" height="4" />
+            <rect x="6" y="6" width="4" height="4" />
+            <rect x="2" y="10" width="4" height="4" />
+            <rect x="10" y="10" width="4" height="4" />
+          </svg>
+        </div>
+        <div>
+          <span class="font-pixel text-slate-200 text-xs tracking-wider">CHRONO GLYPH</span>
+          <p class="text-[11px] text-slate-400">Crafted with care by Studio Polydrop &copy; 2025</p>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <nav class="flex flex-wrap items-center justify-center gap-6 text-slate-400" aria-label="Footer Links">
+        <a href="#trailer" class="hover:text-amberneon transition-colors">Gameplay Trailer</a>
+        <a href="#" class="hover:text-amberneon transition-colors">Press Kit (.zip)</a>
+        <a href="#" class="hover:text-amberneon transition-colors">Steam Community Hub</a>
+        <a href="#" class="hover:text-amberneon transition-colors">Developer Mastodon</a>
+      </nav>
+
+      <div class="text-[11px] text-slate-400 text-center md:text-right">
+        Pixel Art: 16-Bit Hand Crafted &bull; Built for Enthusiasts
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // 1. Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+      mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking internal anchors
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // 2. Simulated Gameplay Trailer Player
+    const playTrailerBtn = document.getElementById('playTrailerBtn');
+    const pauseTrailerBtn = document.getElementById('pauseTrailerBtn');
+    const trailerPlaceholder = document.getElementById('trailerPlaceholder');
+    const simulatedReel = document.getElementById('simulatedReel');
+    const trailerStatusMsg = document.getElementById('trailerStatusMsg');
+
+    playTrailerBtn.addEventListener('click', () => {
+      trailerPlaceholder.classList.add('hidden');
+      simulatedReel.classList.remove('hidden');
+      trailerStatusMsg.classList.remove('hidden');
+    });
+
+    pauseTrailerBtn.addEventListener('click', () => {
+      simulatedReel.classList.add('hidden');
+      trailerPlaceholder.classList.remove('hidden');
+      trailerStatusMsg.classList.add('hidden');
+    });
+
+    // 3. Audio Track Preview Simulator
+    const trackButtons = document.querySelectorAll('.audio-track');
+    const nowPlayingText = document.getElementById('nowPlayingText');
+    const waveformBars = document.getElementById('waveformBars').children;
+
+    trackButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        trackButtons.forEach(b => {
+          b.classList.remove('border-amberneon', 'text-amberneon', 'bg-slate-850');
+          b.classList.add('text-slate-400');
+        });
+        btn.classList.remove('text-slate-400');
+        btn.classList.add('border-amberneon', 'text-amberneon');
+
+        const trackName = btn.getAttribute('data-track');
+        nowPlayingText.innerHTML = `<span class="text-moss">Playing:</span> ${trackName}`;
+
+        // Animate pseudo waveform heights
+        Array.from(waveformBars).forEach(bar => {
+          const randomH = Math.floor(Math.random() * 20) + 4;
+          bar.style.height = `${randomH}px`;
+        });
+      });
+    });
+
+    // 4. Wishlist Button Interactive Feedback
+    const wishlistActionBtn = document.getElementById('wishlistActionBtn');
+    const wishlistBtnText = document.getElementById('wishlistBtnText');
+    const wishlistToast = document.getElementById('wishlistToast');
+
+    wishlistActionBtn.addEventListener('click', () => {
+      wishlistBtnText.textContent = "ADDED TO WISHLIST!";
+      wishlistActionBtn.classList.remove('bg-ambercore', 'border-amberneon');
+      wishlistActionBtn.classList.add('bg-moss', 'border-emerald-400', 'text-white');
+      wishlistToast.classList.remove('hidden');
+
+      setTimeout(() => {
+        wishlistBtnText.textContent = "WISHLIST NOW ON STEAM";
+        wishlistActionBtn.classList.add('bg-ambercore', 'border-amberneon');
+        wishlistActionBtn.classList.remove('bg-moss', 'border-emerald-400', 'text-white');
+      }, 5000);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,1070 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stillness &amp; Sprout Yoga Studio | Your Neighborhood Sanctuary</title>
+  <meta name="description" content="A warm, grounded neighborhood yoga sanctuary in Maplewood. Mindful movement, restorative breathwork, and a welcoming mat for every body. Your first class is on us.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            clay: {
+              50: '#FBF8F5',
+              100: '#F4ECE4',
+              200: '#E7D8CA',
+              300: '#D5BEAA',
+              500: '#B48265',
+              600: '#9E6B4F',
+              700: '#7F523A',
+            },
+            moss: {
+              50: '#F4F6F4',
+              100: '#E4EAE4',
+              600: '#4D6151',
+              700: '#3D4F41',
+              800: '#2F3C32',
+            },
+            bark: '#2C2723',
+            linen: '#F8F6F0',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* Subtle organic texture pattern & custom focus styles */
+    :focus-visible {
+      outline: 2px solid #4D6151;
+      outline-offset: 3px;
+    }
+    .hero-gradient {
+      background: radial-gradient(circle at 85% 15%, #F0E6DC 0%, #FAF7F2 60%);
+    }
+    .sunbeam {
+      background: radial-gradient(ellipse at top left, rgba(231, 216, 202, 0.45) 0%, rgba(250, 247, 242, 0) 70%);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-[#FAF7F2] text-bark font-sans antialiased selection:bg-clay-200 selection:text-bark">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-moss-700 text-stone-100 text-xs sm:text-sm py-2 px-4 text-center font-medium tracking-wide">
+    <span>Welcome to Maplewood's quiet corner &bull; </span>
+    <a href="#first-class-free" class="underline underline-offset-4 hover:text-clay-200 transition-colors">
+      Join us for your first class complimentary with code <span class="font-semibold tracking-wider">OPENMAT</span>
+    </a>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="sticky top-0 z-40 bg-[#FAF7F2]/90 backdrop-blur-md border-b border-clay-200/60 transition-all">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo / Studio Name -->
+      <a href="#" class="group flex items-center gap-3" aria-label="Stillness and Sprout Home">
+        <span class="w-9 h-9 rounded-full bg-moss-600/10 border border-moss-600/30 flex items-center justify-center text-moss-700 group-hover:bg-moss-600 group-hover:text-white transition-colors duration-300">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22V12" />
+            <path d="M12 12C12 7 7 4 2 6C2 11 7 14 12 12Z" />
+            <path d="M12 12C12 7 17 4 22 6C22 11 17 14 12 12Z" />
+          </svg>
+        </span>
+        <div class="flex flex-col">
+          <span class="font-serif text-2xl font-semibold tracking-tight text-bark leading-none">Stillness &amp; Sprout</span>
+          <span class="text-[11px] uppercase tracking-widest text-moss-700 font-medium mt-0.5">Yoga &amp; Breath Sanctuary</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-bark/80" aria-label="Main Navigation">
+        <a href="#about" class="hover:text-moss-700 transition-colors">The Studio</a>
+        <a href="#schedule" class="hover:text-moss-700 transition-colors">Weekly Schedule</a>
+        <a href="#practices" class="hover:text-moss-700 transition-colors">Practices</a>
+        <a href="#pricing" class="hover:text-moss-700 transition-colors">Memberships</a>
+        <a href="#faq" class="hover:text-moss-700 transition-colors">New to Yoga?</a>
+      </nav>
+
+      <!-- Primary Action CTA -->
+      <div class="hidden md:flex items-center gap-4">
+        <a href="#first-class-free" class="inline-flex items-center justify-center px-4 py-2.5 rounded-full text-sm font-medium bg-moss-700 text-white hover:bg-moss-800 transition-all shadow-sm shadow-moss-900/10 active:scale-[0.98]">
+          First Class Free
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-toggle" type="button" class="md:hidden p-2 rounded-lg text-bark/80 hover:text-bark hover:bg-clay-100 transition-colors" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle navigation menu">
+        <svg id="hamburger-icon" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-clay-200 bg-[#FAF7F2] px-6 pt-3 pb-6 transition-all">
+      <nav class="flex flex-col space-y-4 text-base font-medium text-bark/85">
+        <a href="#about" class="py-1 mobile-link hover:text-moss-700">The Studio</a>
+        <a href="#schedule" class="py-1 mobile-link hover:text-moss-700">Weekly Schedule</a>
+        <a href="#practices" class="py-1 mobile-link hover:text-moss-700">Practices</a>
+        <a href="#pricing" class="py-1 mobile-link hover:text-moss-700">Memberships</a>
+        <a href="#faq" class="py-1 mobile-link hover:text-moss-700">New to Yoga?</a>
+        <div class="pt-2">
+          <a href="#first-class-free" class="mobile-link inline-flex w-full items-center justify-center px-5 py-3 rounded-xl text-sm font-medium bg-moss-700 text-white shadow-sm">
+            Claim Your Free First Class
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative hero-gradient pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden border-b border-clay-200/70">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <!-- Hero Text -->
+          <div class="lg:col-span-7 space-y-6 text-left">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-clay-100 border border-clay-200 text-moss-700 text-xs tracking-wider uppercase font-medium">
+              <span class="w-2 h-2 rounded-full bg-moss-600 animate-pulse"></span>
+              Maplewood Avenue &bull; Heated &amp; Unheated Practices
+            </div>
+
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-bark font-medium leading-[1.12] tracking-tight">
+              A gentle exhale in the middle of <span class="italic text-clay-600 font-normal">everyday life</span>.
+            </h1>
+
+            <p class="text-base sm:text-lg text-bark/75 max-w-xl font-normal leading-relaxed">
+              Step off the concrete sidewalk into sunlit timber floors, soft herbal tea, and steady pacing. Whether this is your first down dog or your tenth year practicing, there is room on the floor for you.
+            </p>
+
+            <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <a href="#first-class-free" class="inline-flex items-center justify-center px-7 py-3.5 rounded-full text-base font-medium bg-clay-600 text-white hover:bg-clay-700 transition-colors shadow-md shadow-clay-700/20 active:translate-y-px">
+                Book Your First Class Free
+              </a>
+              <a href="#schedule" class="inline-flex items-center justify-center px-7 py-3.5 rounded-full text-base font-medium bg-transparent text-bark hover:bg-clay-100 border border-bark/20 transition-colors">
+                View Weekly Schedule
+              </a>
+            </div>
+
+            <!-- Neighborhood trust points -->
+            <div class="pt-6 border-t border-clay-200/80 flex flex-wrap items-center gap-y-3 gap-x-8 text-xs text-bark/70 font-medium">
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-moss-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                Natural cork mats &amp; organic props provided free
+              </div>
+              <div class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-moss-600" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                Max 16 practitioners per class
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Visual Composition (Stylized Geometric/Botanical Canvas Placeholder) -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative w-full aspect-[4/5] max-w-md mx-auto rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 bg-[#E8DDD0]">
+              
+              <!-- Subtle decorative SVG art expressing calm movement & light -->
+              <svg class="w-full h-full object-cover" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Abstract illustration of sunlight, organic leaves, and calming earth tones representing studio space">
+                <!-- Warm atmosphere background -->
+                <rect width="400" height="500" fill="#EAE0D3"/>
+                <!-- Sun arch -->
+                <circle cx="200" cy="190" r="130" fill="#F4E9DC" />
+                <circle cx="200" cy="190" r="85" fill="#E8D5C1" />
+                
+                <!-- Zen arch curves -->
+                <path d="M70 420C70 280 130 200 200 200C270 200 330 280 330 420" stroke="#FAF7F2" stroke-width="18" stroke-linecap="round" fill="none"/>
+                
+                <!-- Gentle botanical sprout -->
+                <path d="M200 480V270" stroke="#4D6151" stroke-width="4" stroke-linecap="round"/>
+                <path d="M200 340C200 300 150 285 140 310C130 335 170 355 200 340Z" fill="#4D6151"/>
+                <path d="M200 305C200 270 245 255 255 280C265 305 225 320 200 305Z" fill="#758B79"/>
+                <path d="M200 250C200 220 170 210 160 230C150 248 180 260 200 250Z" fill="#9E6B4F"/>
+                
+                <!-- Calming wave floor -->
+                <path d="M0 450C90 440 130 465 220 455C310 445 350 460 400 450V500H0V450Z" fill="#DAC7B5"/>
+                <path d="M0 475C80 465 140 480 240 470C320 460 360 475 400 470V500H0V475Z" fill="#CBB6A1"/>
+              </svg>
+
+              <!-- Floating quiet badge -->
+              <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm p-4 rounded-2xl border border-clay-200/80 shadow-lg">
+                <div class="flex items-center gap-3.5">
+                  <div class="w-10 h-10 rounded-full bg-clay-100 flex items-center justify-center text-clay-700 shrink-0">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="text-xs font-semibold text-bark uppercase tracking-wider">Next Upcoming Session</p>
+                    <p class="text-sm font-medium text-bark/90">Quiet Twilight Yin &bull; 6:30 PM Tonight</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Studio Essence / Principles -->
+    <section id="about" class="py-20 bg-[#FAF7F2]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+          <p class="text-xs uppercase tracking-widest text-moss-700 font-semibold">How We Practice</p>
+          <h2 class="font-serif text-3xl sm:text-4xl text-bark font-medium">Simple hospitality on and off the mat</h2>
+          <p class="text-base text-bark/70">We intentionally keep our studio small so teachers can learn your name, your modifications, and what brings you through the door.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div class="bg-white/80 rounded-2xl p-8 border border-clay-200/80 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-moss-50 border border-moss-100 flex items-center justify-center text-moss-700 mb-6">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h3 class="font-serif text-2xl font-medium text-bark mb-2.5">No Performance</h3>
+            <p class="text-bark/75 text-sm leading-relaxed">
+              No mirrors on our practice walls. We encourage moving by internal sensation rather than aesthetic appearance or competition.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="bg-white/80 rounded-2xl p-8 border border-clay-200/80 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-clay-50 border border-clay-100 flex items-center justify-center text-clay-600 mb-6">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+              </svg>
+            </div>
+            <h3 class="font-serif text-2xl font-medium text-bark mb-2.5">All Props Ready</h3>
+            <p class="text-bark/75 text-sm leading-relaxed">
+              Clean Manduka cork mats, organic buckwheat bolsters, handcrafted Mexican wool blankets, and wooden blocks are set up for you.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="bg-white/80 rounded-2xl p-8 border border-clay-200/80 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-12 h-12 rounded-xl bg-moss-50 border border-moss-100 flex items-center justify-center text-moss-700 mb-6">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+            </div>
+            <h3 class="font-serif text-2xl font-medium text-bark mb-2.5">Herbal Tea Table</h3>
+            <p class="text-bark/75 text-sm leading-relaxed">
+              Arrive 15 minutes before practice to pour a warm mug of local chamomile or roasted barley tea in our shoe-free entryway lounge.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Weekly Schedule Section (Filterable Tab Schedule) -->
+    <section id="schedule" class="py-20 bg-[#F4EFE9] border-t border-b border-clay-200/80">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+          <div>
+            <p class="text-xs uppercase tracking-widest text-moss-700 font-semibold">Weekly Rhythm</p>
+            <h2 class="font-serif text-3xl sm:text-4xl text-bark font-medium mt-1">Class Schedule</h2>
+            <p class="text-bark/75 text-sm mt-2 max-w-xl">
+              Classes start promptly. Doors open 20 minutes prior and lock at the commencement of each practice to protect the calm.
+            </p>
+          </div>
+          
+          <!-- Filter indicator pill -->
+          <div class="text-xs text-bark/60 flex items-center gap-2">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-clay-500"></span>
+            <span>All levels welcome unless noted</span>
+          </div>
+        </div>
+
+        <!-- Day Tabs Filter -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-6 no-scrollbar border-b border-clay-200" role="tablist" aria-label="Schedule Day Selector">
+          <button type="button" class="schedule-tab active px-5 py-2 rounded-full text-sm font-medium transition-all bg-moss-700 text-white shadow-sm" data-day="monday" role="tab" aria-selected="true">
+            Monday
+          </button>
+          <button type="button" class="schedule-tab px-5 py-2 rounded-full text-sm font-medium transition-all bg-white/70 text-bark/80 hover:bg-white" data-day="tuesday" role="tab" aria-selected="false">
+            Tuesday
+          </button>
+          <button type="button" class="schedule-tab px-5 py-2 rounded-full text-sm font-medium transition-all bg-white/70 text-bark/80 hover:bg-white" data-day="wednesday" role="tab" aria-selected="false">
+            Wednesday
+          </button>
+          <button type="button" class="schedule-tab px-5 py-2 rounded-full text-sm font-medium transition-all bg-white/70 text-bark/80 hover:bg-white" data-day="thursday" role="tab" aria-selected="false">
+            Thursday
+          </button>
+          <button type="button" class="schedule-tab px-5 py-2 rounded-full text-sm font-medium transition-all bg-white/70 text-bark/80 hover:bg-white" data-day="friday" role="tab" aria-selected="false">
+            Friday
+          </button>
+          <button type="button" class="schedule-tab px-5 py-2 rounded-full text-sm font-medium transition-all bg-white/70 text-bark/80 hover:bg-white" data-day="weekend" role="tab" aria-selected="false">
+            Saturday &amp; Sunday
+          </button>
+        </div>
+
+        <!-- Schedule Container -->
+        <div id="schedule-content" class="space-y-3.5">
+
+          <!-- MONDAY -->
+          <div class="day-group space-y-3.5" data-day="monday">
+            <article class="bg-white rounded-xl p-5 border border-clay-200/90 flex flex-col md:flex-row md:items-center justify-between gap-4 transition hover:border-moss-600/40">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                <div class="w-32">
+                  <span class="text-base font-semibold text-bark block">7:00 &ndash; 8:00 AM</span>
+                  <span class="text-xs text-moss-700 font-medium">Morning Grounding</span>
+                </div>
+                <div>
+                  <h4 class="font-serif text-xl font-medium text-bark">Gentle Morning Hatha</h4>
+                  <p class="text-xs text-bark/70 mt-0.5">Teacher: Maya Lin &bull; Warm room (75&deg;F) &bull; Mindful joint mobility</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 justify-between md:justify-end">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-moss-50 text-moss-700">Gentle Intensity</span>
+                <a href="#first-class-free" class="px-4 py-2 rounded-lg text-xs font-semibold bg-moss-700 text-white hover:bg-moss-800 transition-colors">Book with Free Pass</a>
+              </div>
+            </article>
+
+            <article class="bg-white rounded-xl p-5 border border-clay-200/90 flex flex-col md:flex-row md:items-center justify-between gap-4 transition hover:border-moss-600/40">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                <div class="w-32">
+                  <span class="text-base font-semibold text-bark block">12:15 &ndash; 1:00 PM</span>
+                  <span class="text-xs text-moss-700 font-medium">Midday Reset</span>
+                </div>
+                <div>
+                  <h4 class="font-serif text-xl font-medium text-bark">Desk Worker Breath &amp; Alignment</h4>
+                  <p class="text-xs text-bark/70 mt-0.5">Teacher: Julian Alvarez &bull; Unheated &bull; Shoulder, neck &amp; spinal decompression</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 justify-between md:justify-end">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-moss-50 text-moss-700">Restorative</span>
+                <a href="#first-class-free" class="px-4 py-2 rounded-lg text-xs font-semibold bg-moss-700 text-white hover:bg-moss-800 transition-colors">Book with Free Pass</a>
+              </div>
+            </article>
+
+            <article class="bg-white rounded-xl p-5 border border-clay-200/90 flex flex-col md:flex-row md:items-center justify-between gap-4 transition hover:border-moss-600/40">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                <div class="w-32">
+                  <span class="text-base font-semibold text-bark block">6:00 &ndash; 7:15 PM</span>
+                  <span class="text-xs text-moss-700 font-medium">Evening Unwind</span>
+                </div>
+                <div>
+                  <h4 class="font-serif text-xl font-medium text-bark">Slow Flow Vinyasa</h4>
+                  <p class="text-xs text-bark/70 mt-0.5">Teacher: Rachel Stern &bull; Warm room (78&deg;F) &bull; Fluid rhythmic breath</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 justify-between md:justify-end">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-clay-100 text-clay-700">Moderate Flow</span>
+                <a href="#first-class-free" class="px-4 py-2 rounded-lg text-xs font-semibold bg-moss-700 text-white hover:bg-moss-800 transition-colors">Book with Free Pass</a>
+              </div>
+            </article>
+          </div>
+
+          <!-- TUESDAY -->
+          <div class="day-group space-y-3.5 hidden" data-day="tuesday">
+            <article class="bg-white rounded-xl p-5 border border-clay-200/90 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                <div class="w-32">
+                  <span class="text-base font-semibold text-bark block">7:30 &ndash; 8:30 AM</span>
+                  <span class="text-xs text-moss-700 font-medium">Awakening</span>
+                </div>
+                <div>
+                  <h4 class="font-serif text-xl font-medium text-bark">Morning Prana Vinyasa</h4>
+                  <p class="text-xs text-bark/70 mt-0.5">Teacher: Rachel Stern &bull; Unheated &bull; Sun salutations and grounding balances</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 justify-between md:justify-end">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-clay-100 text-clay-700">Moderate Flow</span>
+                <a href="#first-class-free" class="px-4 py-2 rounded-lg text-xs font-semibold bg-moss-700 text-white hover:bg-moss-800 transition-colors">Book with Free Pass</a>
+              </div>
+            </article>
+
+            <article class="bg-white rounded-xl p-5 border border-clay-200/90 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                <div class="w-32">
+                  <span class="text-base font-semibold text-bark block">6:30 &ndash; 7:45 PM</span>
+                  <span class="text-xs text-moss-700 font-medium">Deep Release</span>
+                </div>
+                <div>
+                  <h4 class="font-serif text-xl font-medium text-bark">Candlelight Yin &amp; Singing Bowls</h4>
+                  <p class="text-xs text-bark/70 mt-0.5">Teacher: Maya Lin &bull; Unheated &bull; Long supported holds on bolsters</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 justify-between md:justify-end">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-moss-50 text-moss-700">Deep Relaxation</span>
+                <a href="#first-class-free" class="px-4 py-2 rounded-lg text-xs font-semibold bg-moss-700 text-white hover:bg-moss-800 transition-colors">Book with Free Pass</a>
+              </div>
+            </article>
+          </div>
+
+          <!-- WEDNESDAY -->
+          <div class="day-group space-y-3.5 hidden" data-day="wednesday">
+            <article class="bg-white rounded-xl p-5 border border-clay-200/90 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                <div class="w-32">
+                  <span class="text-base font-semibold text-bark block">9:00 &ndash; 10:15 AM</span>
+                  <span class="text-xs text-moss-700 font-medium">Foundation</span>
+                </div>
+                <div>
+                  <h4 class="font-serif text-xl font-medium text-bark">Yoga for Healthy Backs</h4>
+                  <p class="text-xs text-bark/70 mt-0.5">Teacher: Julian Alvarez &bull; Warm room &bull; Therapeutic spinal awareness</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 justify-between md:justify-end">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-moss-50 text-moss-700">Gentle Intensity</span>
+                <a href="#first-class-free" class="px-4 py-2 rounded-lg text-xs font-semibold bg-moss-700 text-white hover:bg-moss-800 transition-colors">Book with Free Pass</a>
+              </div>
+            </article>
+
+            <article class="bg-white rounded-xl p-5 border border-clay-200/90 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                <div class="w-32">
+                  <span class="text-base font-semibold text-bark block">5:45 &ndash; 7:00 PM</span>
+                  <span class="text-xs text-moss-700 font-medium">Midweek Harmony</span>
+                </div>
+                <div>
+                  <h4 class="font-serif text-xl font-medium text-bark">Restorative Flow &amp; Yoga Nidra</h4>
+                  <p class="text-xs text-bark/70 mt-0.5">Teacher: Sarah Bennett &bull; Warm room &bull; 40 min movement + 30 min guided sleep meditation</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 justify-between md:justify-end">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-moss-50 text-moss-700">Restorative</span>
+                <a href="#first-class-free" class="px-4 py-2 rounded-lg text-xs font-semibold bg-moss-700 text-white hover:bg-moss-800 transition-colors">Book with Free Pass</a>
+              </div>
+            </article>
+          </div>
+
+          <!-- THURSDAY -->
+          <div class="day-group space-y-3.5 hidden" data-day="thursday">
+            <article class="bg-white rounded-xl p-5 border border-clay-200/90 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                <div class="w-32">
+                  <span class="text-base font-semibold text-bark block">7:00 &ndash; 8:00 AM</span>
+                  <span class="text-xs text-moss-700 font-medium">Morning Focus</span>
+                </div>
+                <div>
+                  <h4 class="font-serif text-xl font-medium text-bark">Slow Morning Flow</h4>
+                  <p class="text-xs text-bark/70 mt-0.5">Teacher: Rachel Stern &bull; Warm room (75&deg;F) &bull; Steady rhythmic breath</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 justify-between md:justify-end">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-clay-100 text-clay-700">Moderate Flow</span>
+                <a href="#first-class-free" class="px-4 py-2 rounded-lg text-xs font-semibold bg-moss-700 text-white hover:bg-moss-800 transition-colors">Book with Free Pass</a>
+              </div>
+            </article>
+
+            <article class="bg-white rounded-xl p-5 border border-clay-200/90 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                <div class="w-32">
+                  <span class="text-base font-semibold text-bark block">6:30 &ndash; 7:45 PM</span>
+                  <span class="text-xs text-moss-700 font-medium">Deep Calm</span>
+                </div>
+                <div>
+                  <h4 class="font-serif text-xl font-medium text-bark">Deep Hip Opening &amp; Yin</h4>
+                  <p class="text-xs text-bark/70 mt-0.5">Teacher: Maya Lin &bull; Unheated &bull; Long passive posture release</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 justify-between md:justify-end">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-moss-50 text-moss-700">Gentle &amp; Deep</span>
+                <a href="#first-class-free" class="px-4 py-2 rounded-lg text-xs font-semibold bg-moss-700 text-white hover:bg-moss-800 transition-colors">Book with Free Pass</a>
+              </div>
+            </article>
+          </div>
+
+          <!-- FRIDAY -->
+          <div class="day-group space-y-3.5 hidden" data-day="friday">
+            <article class="bg-white rounded-xl p-5 border border-clay-200/90 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                <div class="w-32">
+                  <span class="text-base font-semibold text-bark block">9:30 &ndash; 10:45 AM</span>
+                  <span class="text-xs text-moss-700 font-medium">Gentle Start</span>
+                </div>
+                <div>
+                  <h4 class="font-serif text-xl font-medium text-bark">Community Hatha &amp; Tea</h4>
+                  <p class="text-xs text-bark/70 mt-0.5">Teacher: Sarah Bennett &bull; Unheated &bull; Includes 15-min communal tea afterward</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 justify-between md:justify-end">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-moss-50 text-moss-700">All Levels</span>
+                <a href="#first-class-free" class="px-4 py-2 rounded-lg text-xs font-semibold bg-moss-700 text-white hover:bg-moss-800 transition-colors">Book with Free Pass</a>
+              </div>
+            </article>
+
+            <article class="bg-white rounded-xl p-5 border border-clay-200/90 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                <div class="w-32">
+                  <span class="text-base font-semibold text-bark block">5:30 &ndash; 6:45 PM</span>
+                  <span class="text-xs text-moss-700 font-medium">Weekend Transition</span>
+                </div>
+                <div>
+                  <h4 class="font-serif text-xl font-medium text-bark">Sound Bath &amp; Soft Restorative</h4>
+                  <p class="text-xs text-bark/70 mt-0.5">Teacher: Maya Lin &bull; Ambient acoustic instruments &bull; Total stillness</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 justify-between md:justify-end">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-moss-50 text-moss-700">Restorative</span>
+                <a href="#first-class-free" class="px-4 py-2 rounded-lg text-xs font-semibold bg-moss-700 text-white hover:bg-moss-800 transition-colors">Book with Free Pass</a>
+              </div>
+            </article>
+          </div>
+
+          <!-- WEEKEND -->
+          <div class="day-group space-y-3.5 hidden" data-day="weekend">
+            <article class="bg-white rounded-xl p-5 border border-clay-200/90 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                <div class="w-32">
+                  <span class="text-base font-semibold text-bark block">Sat 9:00 &ndash; 10:15 AM</span>
+                  <span class="text-xs text-moss-700 font-medium">Weekend Flow</span>
+                </div>
+                <div>
+                  <h4 class="font-serif text-xl font-medium text-bark">Weekend Awakening Vinyasa</h4>
+                  <p class="text-xs text-bark/70 mt-0.5">Teacher: Julian Alvarez &bull; Warm room (76&deg;F) &bull; Joyful, expansive movement</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 justify-between md:justify-end">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-clay-100 text-clay-700">Moderate Flow</span>
+                <a href="#first-class-free" class="px-4 py-2 rounded-lg text-xs font-semibold bg-moss-700 text-white hover:bg-moss-800 transition-colors">Book with Free Pass</a>
+              </div>
+            </article>
+
+            <article class="bg-white rounded-xl p-5 border border-clay-200/90 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                <div class="w-32">
+                  <span class="text-base font-semibold text-bark block">Sun 10:30 &ndash; 11:45 AM</span>
+                  <span class="text-xs text-moss-700 font-medium">Gentle Sunday</span>
+                </div>
+                <div>
+                  <h4 class="font-serif text-xl font-medium text-bark">Sunday Slowdown &amp; Pranayama</h4>
+                  <p class="text-xs text-bark/70 mt-0.5">Teacher: Sarah Bennett &bull; Unheated &bull; Guided deep belly breathing</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 justify-between md:justify-end">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-moss-50 text-moss-700">Gentle</span>
+                <a href="#first-class-free" class="px-4 py-2 rounded-lg text-xs font-semibold bg-moss-700 text-white hover:bg-moss-800 transition-colors">Book with Free Pass</a>
+              </div>
+            </article>
+
+            <article class="bg-white rounded-xl p-5 border border-clay-200/90 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div class="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+                <div class="w-32">
+                  <span class="text-base font-semibold text-bark block">Sun 5:00 &ndash; 6:15 PM</span>
+                  <span class="text-xs text-moss-700 font-medium">Week Ahead</span>
+                </div>
+                <div>
+                  <h4 class="font-serif text-xl font-medium text-bark">Yin by Candlelight</h4>
+                  <p class="text-xs text-bark/70 mt-0.5">Teacher: Maya Lin &bull; Unheated &bull; Gentle grounding for the work week</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 justify-between md:justify-end">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium bg-moss-50 text-moss-700">Restorative</span>
+                <a href="#first-class-free" class="px-4 py-2 rounded-lg text-xs font-semibold bg-moss-700 text-white hover:bg-moss-800 transition-colors">Book with Free Pass</a>
+              </div>
+            </article>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Practices / Style Guide -->
+    <section id="practices" class="py-20 bg-[#FAF7F2]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-xl mx-auto mb-14">
+          <p class="text-xs uppercase tracking-widest text-moss-700 font-semibold">Our Offerings</p>
+          <h2 class="font-serif text-3xl sm:text-4xl text-bark font-medium mt-1">Four paths to presence</h2>
+          <p class="text-bark/70 text-sm mt-2">Choose whatever your nervous system is asking for today.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="p-6 rounded-2xl bg-white border border-clay-200 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-semibold text-moss-700 tracking-wider uppercase">01 &bull; Alignment</span>
+              <h3 class="font-serif text-xl text-bark font-medium mt-2 mb-2">Gentle Hatha</h3>
+              <p class="text-xs text-bark/75 leading-relaxed">
+                Slow, deliberate postures held for several breaths. Excellent for beginners, recovering bodies, or anyone seeking structural balance.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-clay-100 text-[11px] text-bark/60">
+              Pacing: Unhurried &bull; Room: 72&deg;F
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-clay-200 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-semibold text-clay-600 tracking-wider uppercase">02 &bull; Flow</span>
+              <h3 class="font-serif text-xl text-bark font-medium mt-2 mb-2">Slow Flow Vinyasa</h3>
+              <p class="text-xs text-bark/75 leading-relaxed">
+                Breath synchronized with movement. Transitions are steady and unhurried with clear modifications offered throughout.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-clay-100 text-[11px] text-bark/60">
+              Pacing: Moderate &bull; Room: 76&ndash;78&deg;F
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-clay-200 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-semibold text-moss-700 tracking-wider uppercase">03 &bull; Stillness</span>
+              <h3 class="font-serif text-xl text-bark font-medium mt-2 mb-2">Yin Yoga</h3>
+              <p class="text-xs text-bark/75 leading-relaxed">
+                Floor-based passive stretches held for 3 to 5 minutes to gently hydrate connective tissue and calm the parasympathetic nervous system.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-clay-100 text-[11px] text-bark/60">
+              Pacing: Still &bull; Room: 73&deg;F
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white border border-clay-200 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-semibold text-clay-600 tracking-wider uppercase">04 &bull; Reset</span>
+              <h3 class="font-serif text-xl text-bark font-medium mt-2 mb-2">Sound &amp; Restorative</h3>
+              <p class="text-xs text-bark/75 leading-relaxed">
+                Completely supported in bolsters and blankets without muscular effort. Accompanied by Tibetan singing bowls and chimes.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-clay-100 text-[11px] text-bark/60">
+              Pacing: Passive &bull; Room: 74&deg;F
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- First Class Free Conversion Section -->
+    <section id="first-class-free" class="py-20 bg-moss-800 text-stone-100 relative overflow-hidden">
+      <!-- Background subtle radial graphic -->
+      <div class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-moss-700/50 blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <div class="lg:col-span-6 space-y-4">
+            <span class="inline-block px-3 py-1 rounded-full bg-moss-700 text-clay-200 text-xs uppercase tracking-wider font-semibold">
+              Neighborhood Welcome Gift
+            </span>
+            <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium leading-tight text-white">
+              Your first mat space is always completely on us.
+            </h2>
+            <p class="text-stone-300 text-base leading-relaxed">
+              We know walking into a new studio can feel intimidating. Take a class, meet our instructors, drink a cup of warm tea, and see if our pace fits your life. No commitment or payment information required.
+            </p>
+            
+            <ul class="space-y-2.5 pt-2 text-sm text-stone-300">
+              <li class="flex items-center gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-moss-700 text-clay-200 flex items-center justify-center text-xs">&check;</span>
+                Valid for any weekly class on our schedule
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-moss-700 text-clay-200 flex items-center justify-center text-xs">&check;</span>
+                Complimentary mat and prop use included
+              </li>
+              <li class="flex items-center gap-2.5">
+                <span class="w-5 h-5 rounded-full bg-moss-700 text-clay-200 flex items-center justify-center text-xs">&check;</span>
+                Pass never expires until redeemed
+              </li>
+            </ul>
+          </div>
+
+          <!-- Presentational Claim Form -->
+          <div class="lg:col-span-6">
+            <div class="bg-[#FAF7F2] text-bark p-6 sm:p-8 rounded-3xl shadow-2xl border border-clay-200">
+              <h3 class="font-serif text-2xl font-semibold text-bark mb-1">Claim Your Free Class Pass</h3>
+              <p class="text-xs text-bark/70 mb-6">We will email your confirmation pass along with studio directions and parking details.</p>
+
+              <form id="free-pass-form" class="space-y-4" onsubmit="event.preventDefault();">
+                <div>
+                  <label for="full-name" class="block text-xs font-semibold uppercase tracking-wider text-bark/80 mb-1.5">Full Name</label>
+                  <input type="text" id="full-name" name="name" placeholder="Elena Rostova" required class="w-full px-4 py-2.5 rounded-xl border border-clay-300 bg-white text-bark text-sm focus:border-moss-700 focus:ring-1 focus:ring-moss-700 transition">
+                </div>
+
+                <div>
+                  <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-bark/80 mb-1.5">Email Address</label>
+                  <input type="email" id="email" name="email" placeholder="elena@example.com" required class="w-full px-4 py-2.5 rounded-xl border border-clay-300 bg-white text-bark text-sm focus:border-moss-700 focus:ring-1 focus:ring-moss-700 transition">
+                </div>
+
+                <div>
+                  <label for="experience" class="block text-xs font-semibold uppercase tracking-wider text-bark/80 mb-1.5">Yoga Experience</label>
+                  <select id="experience" name="experience" class="w-full px-4 py-2.5 rounded-xl border border-clay-300 bg-white text-bark text-sm focus:border-moss-700 focus:ring-1 focus:ring-moss-700 transition">
+                    <option value="brand-new">Complete beginner (never stepped on a mat)</option>
+                    <option value="some">Practiced a few times</option>
+                    <option value="regular">Regular practitioner looking for a home studio</option>
+                  </select>
+                </div>
+
+                <div class="pt-2">
+                  <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-moss-700 hover:bg-moss-800 text-white font-medium text-sm transition-colors shadow-sm">
+                    Generate My Free Pass (Code: OPENMAT)
+                  </button>
+                </div>
+
+                <p class="text-[11px] text-center text-bark/60">
+                  By submitting, you agree to receive studio notifications. We never share your email with third parties.
+                </p>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing / Simple Memberships -->
+    <section id="pricing" class="py-20 bg-[#FAF7F2]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-xl mx-auto mb-14">
+          <p class="text-xs uppercase tracking-widest text-moss-700 font-semibold">After Your First Class</p>
+          <h2 class="font-serif text-3xl sm:text-4xl text-bark font-medium mt-1">Simple, honest memberships</h2>
+          <p class="text-bark/70 text-sm mt-2">No sign-up fees, cancellation penalties, or fine-print traps.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+          
+          <!-- Drop In -->
+          <div class="bg-white rounded-2xl p-7 border border-clay-200 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-2xl font-medium text-bark">Single Class</h3>
+              <p class="text-xs text-bark/60 mt-1 mb-6">Drop in whenever your schedule allows.</p>
+              <div class="flex items-baseline gap-1 mb-6">
+                <span class="text-3xl font-bold font-serif text-bark">$22</span>
+                <span class="text-xs text-bark/60">/ class</span>
+              </div>
+              <ul class="text-xs text-bark/75 space-y-3">
+                <li class="flex items-center gap-2">&bull; Mat &amp; props included</li>
+                <li class="flex items-center gap-2">&bull; Herbal tea lounge access</li>
+                <li class="flex items-center gap-2">&bull; 12-hour cancellation grace period</li>
+              </ul>
+            </div>
+            <div class="mt-8">
+              <a href="#schedule" class="block w-full py-2.5 text-center text-xs font-semibold rounded-lg border border-bark/30 text-bark hover:bg-clay-100 transition">
+                Purchase Single Visit
+              </a>
+            </div>
+          </div>
+
+          <!-- 10 Class Pass (Featured) -->
+          <div class="bg-[#F4ECE4] rounded-2xl p-7 border-2 border-clay-500 relative flex flex-col justify-between shadow-sm">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-clay-600 text-white text-[11px] font-semibold tracking-wider uppercase rounded-full">
+              Most Popular
+            </span>
+            <div>
+              <h3 class="font-serif text-2xl font-medium text-bark">10-Class Pack</h3>
+              <p class="text-xs text-bark/60 mt-1 mb-6">For practicing 1&ndash;2 times weekly.</p>
+              <div class="flex items-baseline gap-1 mb-6">
+                <span class="text-3xl font-bold font-serif text-bark">$180</span>
+                <span class="text-xs text-bark/60">($18 per class)</span>
+              </div>
+              <ul class="text-xs text-bark/80 space-y-3">
+                <li class="flex items-center gap-2">&bull; Valid for 6 months from purchase</li>
+                <li class="flex items-center gap-2">&bull; Can be shared with a partner/friend</li>
+                <li class="flex items-center gap-2">&bull; Priority booking window (14 days)</li>
+                <li class="flex items-center gap-2">&bull; Mat &amp; props ready in room</li>
+              </ul>
+            </div>
+            <div class="mt-8">
+              <a href="#first-class-free" class="block w-full py-2.5 text-center text-xs font-semibold rounded-lg bg-clay-600 text-white hover:bg-clay-700 transition">
+                Select 10-Class Pack
+              </a>
+            </div>
+          </div>
+
+          <!-- Monthly Unlimited -->
+          <div class="bg-white rounded-2xl p-7 border border-clay-200 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-2xl font-medium text-bark">Sustaining Member</h3>
+              <p class="text-xs text-bark/60 mt-1 mb-6">Unlimited practice for routine calm.</p>
+              <div class="flex items-baseline gap-1 mb-6">
+                <span class="text-3xl font-bold font-serif text-bark">$135</span>
+                <span class="text-xs text-bark/60">/ month</span>
+              </div>
+              <ul class="text-xs text-bark/75 space-y-3">
+                <li class="flex items-center gap-2">&bull; Unlimited access to all regular classes</li>
+                <li class="flex items-center gap-2">&bull; 1 free guest pass per month</li>
+                <li class="flex items-center gap-2">&bull; 15% discount on weekend workshops</li>
+                <li class="flex items-center gap-2">&bull; Pause membership any time for travel</li>
+              </ul>
+            </div>
+            <div class="mt-8">
+              <a href="#first-class-free" class="block w-full py-2.5 text-center text-xs font-semibold rounded-lg border border-bark/30 text-bark hover:bg-clay-100 transition">
+                Join Monthly
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-[#F7F3EC] border-t border-clay-200/80">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center mb-12">
+          <p class="text-xs uppercase tracking-widest text-moss-700 font-semibold">Common Inquiries</p>
+          <h2 class="font-serif text-3xl sm:text-4xl text-bark font-medium mt-1">Frequently asked questions</h2>
+        </div>
+
+        <div class="space-y-4" id="faq-accordion">
+          
+          <!-- Q1 -->
+          <div class="bg-white rounded-xl border border-clay-200 overflow-hidden">
+            <button type="button" class="faq-btn w-full px-6 py-5 text-left flex items-center justify-between text-bark font-medium text-base hover:text-moss-700 transition" aria-expanded="false">
+              <span>I have never done yoga before. Will I feel out of place?</span>
+              <svg class="w-5 h-5 transition-transform duration-200 shrink-0 text-bark/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-5 text-sm text-bark/75 leading-relaxed">
+              Not at all. More than a third of our practitioners began yoga in our studio. We suggest starting with Gentle Hatha or our Desk Worker Reset classes. Our instructors provide gentle options for every posture and emphasize that resting in child's pose is always an honored practice.
+            </div>
+          </div>
+
+          <!-- Q2 -->
+          <div class="bg-white rounded-xl border border-clay-200 overflow-hidden">
+            <button type="button" class="faq-btn w-full px-6 py-5 text-left flex items-center justify-between text-bark font-medium text-base hover:text-moss-700 transition" aria-expanded="false">
+              <span>Do I need to bring my own mat and equipment?</span>
+              <svg class="w-5 h-5 transition-transform duration-200 shrink-0 text-bark/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-5 text-sm text-bark/75 leading-relaxed">
+              You are welcome to bring your favorite mat, but you don't need to. We supply premium non-toxic cork mats, organic cotton straps, bolsters, and cedar-cleaned blankets free of charge for every class.
+            </div>
+          </div>
+
+          <!-- Q3 -->
+          <div class="bg-white rounded-xl border border-clay-200 overflow-hidden">
+            <button type="button" class="faq-btn w-full px-6 py-5 text-left flex items-center justify-between text-bark font-medium text-base hover:text-moss-700 transition" aria-expanded="false">
+              <span>How does the First Class Free offer work?</span>
+              <svg class="w-5 h-5 transition-transform duration-200 shrink-0 text-bark/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-5 text-sm text-bark/75 leading-relaxed">
+              Simply submit your name and email in the section above or use promo code OPENMAT when selecting any class from our schedule. You will not be asked for credit card details, and there is zero obligation to sign up for anything afterward.
+            </div>
+          </div>
+
+          <!-- Q4 -->
+          <div class="bg-white rounded-xl border border-clay-200 overflow-hidden">
+            <button type="button" class="faq-btn w-full px-6 py-5 text-left flex items-center justify-between text-bark font-medium text-base hover:text-moss-700 transition" aria-expanded="false">
+              <span>What should I wear, and when should I arrive?</span>
+              <svg class="w-5 h-5 transition-transform duration-200 shrink-0 text-bark/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="faq-answer hidden px-6 pb-5 text-sm text-bark/75 leading-relaxed">
+              Wear anything comfortable that allows you to stretch and breathe freely—sweatpants and an old t-shirt are just as welcome as athletic wear. Please arrive 10 to 15 minutes prior to class to settle in, take off your shoes, and enjoy tea before we begin.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Studio Atmosphere & Location Details -->
+    <section class="py-16 bg-[#FAF7F2]">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl p-8 sm:p-12 border border-clay-200 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          
+          <div class="space-y-4">
+            <span class="text-xs uppercase tracking-widest text-moss-700 font-semibold">Location &amp; Practicalities</span>
+            <h3 class="font-serif text-3xl font-medium text-bark">A quiet pocket on Maplewood Avenue</h3>
+            <p class="text-bark/75 text-sm leading-relaxed">
+              Tucked behind the small garden square at 418 Maplewood Avenue, Suite 2B. We share parking with the neighborhood library and have bicycle racks immediately adjacent to our entrance.
+            </p>
+            <div class="space-y-2 text-xs text-bark/80 pt-2">
+              <p><strong>Studio Address:</strong> 418 Maplewood Ave, Suite 2B, Maplewood, OR 97219</p>
+              <p><strong>Front Desk Phone:</strong> (503) 555-0194</p>
+              <p><strong>Hours:</strong> Open daily 30 minutes before first class until 30 minutes after evening practice</p>
+            </div>
+          </div>
+
+          <!-- Stylized map/space card placeholder -->
+          <div class="rounded-2xl bg-clay-100 p-6 border border-clay-200 flex flex-col items-center text-center justify-center space-y-3 aspect-[4/3]">
+            <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center text-moss-700">
+              <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <div>
+              <p class="font-serif text-xl font-medium text-bark">Maplewood Village Sanctuary</p>
+              <p class="text-xs text-bark/70 max-w-xs mt-1">Ground level access &bull; ADA accessible &bull; Free street parking on 4th &amp; Elm</p>
+            </div>
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-moss-700 underline underline-offset-4 hover:text-moss-800">
+              Open in Google Maps &rarr;
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-bark text-stone-300 py-12 border-t border-bark/80">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-stone-800">
+        
+        <div class="md:col-span-2 space-y-3">
+          <span class="font-serif text-2xl font-medium text-stone-100 block">Stillness &amp; Sprout</span>
+          <p class="text-xs text-stone-400 max-w-sm leading-relaxed">
+            A non-competitive neighborhood yoga and somatic movement space created to cultivate stillness, breath, and community connection.
+          </p>
+          <p class="text-[11px] text-stone-500">
+            Maplewood, Oregon &bull; Est. 2021
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-200 mb-3">Explore</h4>
+          <ul class="text-xs space-y-2 text-stone-400">
+            <li><a href="#about" class="hover:text-stone-100 transition">About the Space</a></li>
+            <li><a href="#schedule" class="hover:text-stone-100 transition">Weekly Schedule</a></li>
+            <li><a href="#practices" class="hover:text-stone-100 transition">Class Formats</a></li>
+            <li><a href="#first-class-free" class="hover:text-stone-100 transition">First Class Free</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-semibold uppercase tracking-wider text-stone-200 mb-3">Community Care</h4>
+          <ul class="text-xs space-y-2 text-stone-400">
+            <li><a href="#faq" class="hover:text-stone-100 transition">Beginner's Etiquette</a></li>
+            <li><a href="#pricing" class="hover:text-stone-100 transition">Tiered Pricing &amp; Passes</a></li>
+            <li><a href="#" class="hover:text-stone-100 transition">Sliding Scale Requests</a></li>
+            <li><span class="text-stone-500">hello@stillnessandsprout.com</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-stone-500 gap-4">
+        <p>&copy; Stillness &amp; Sprout Yoga Studio. All rights reserved.</p>
+        <p class="text-stone-500">May all beings move with ease and breathe with quiet peace.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vanilla Interactions Script -->
+  <script>
+    // 1. Mobile Menu Drawer Toggle
+    const mobileToggleBtn = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    mobileToggleBtn.addEventListener('click', () => {
+      const isExpanded = mobileToggleBtn.getAttribute('aria-expanded') === 'true';
+      mobileToggleBtn.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('hidden');
+      hamburgerIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileToggleBtn.setAttribute('aria-expanded', 'false');
+        hamburgerIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      });
+    });
+
+    // 2. Schedule Day Tabs Interaction
+    const tabs = document.querySelectorAll('.schedule-tab');
+    const dayGroups = document.querySelectorAll('.day-group');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetDay = tab.getAttribute('data-day');
+
+        // Update Tab styles
+        tabs.forEach(t => {
+          t.classList.remove('bg-moss-700', 'text-white', 'shadow-sm');
+          t.classList.add('bg-white/70', 'text-bark/80');
+          t.setAttribute('aria-selected', 'false');
+        });
+        tab.classList.add('bg-moss-700', 'text-white', 'shadow-sm');
+        tab.classList.remove('bg-white/70', 'text-bark/80');
+        tab.setAttribute('aria-selected', 'true');
+
+        // Update schedule cards
+        dayGroups.forEach(group => {
+          if (group.getAttribute('data-day') === targetDay) {
+            group.classList.remove('hidden');
+          } else {
+            group.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // 3. FAQ Accordion Toggle
+    const faqButtons = document.querySelectorAll('.faq-btn');
+
+    faqButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+        const answer = button.nextElementSibling;
+        const icon = button.querySelector('svg');
+
+        // Close others for clean single-view accordion
+        faqButtons.forEach(otherBtn => {
+          if (otherBtn !== button) {
+            otherBtn.setAttribute('aria-expanded', 'false');
+            otherBtn.nextElementSibling.classList.add('hidden');
+            const otherIcon = otherBtn.querySelector('svg');
+            if (otherIcon) otherIcon.classList.remove('rotate-180');
+          }
+        });
+
+        if (isExpanded) {
+          button.setAttribute('aria-expanded', 'false');
+          answer.classList.add('hidden');
+          icon.classList.remove('rotate-180');
+        } else {
+          button.setAttribute('aria-expanded', 'true');
+          answer.classList.remove('hidden');
+          icon.classList.add('rotate-180');
+        }
+      });
+    });
+  </script>
+</body>
+</html>

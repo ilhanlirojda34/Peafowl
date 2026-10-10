@@ -1,0 +1,954 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>STUDIO KERN — Architecture &amp; Spatial Research</title>
+  
+  <!-- Google Fonts: Syne (Display) & Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            stone: {
+              50: '#F9F9F8',
+              100: '#F2F2EF',
+              200: '#E6E5E0',
+              300: '#D5D3CB',
+              400: '#A4A299',
+              600: '#64625A',
+              800: '#2C2B27',
+              900: '#151513',
+              950: '#0C0C0B',
+            },
+            accent: '#B8532F', // Terracotta / oxidized red
+          },
+          letterSpacing: {
+            tighter: '-0.04em',
+            tight: '-0.02em',
+            wide: '0.04em',
+            widest: '0.12em',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Architectural grid alignment rules */
+    ::selection {
+      background-color: #151513;
+      color: #F9F9F8;
+    }
+
+    .blueprint-grid {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(20, 20, 19, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(20, 20, 19, 0.04) 1px, transparent 1px);
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 0.15;
+    }
+    
+    .project-card:hover .project-arrow {
+      transform: translate(4px, -4px);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .project-card:hover .project-arrow {
+        transform: none;
+      }
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-stone-50 text-stone-900 font-sans antialiased selection:bg-stone-900 selection:text-stone-50">
+
+  <!-- TOP RUNNING META / STATUS BAR -->
+  <aside aria-label="Studio status" class="border-b border-stone-200 text-[11px] tracking-widest uppercase font-mono py-2 px-6 sm:px-12 flex justify-between items-center text-stone-600 bg-stone-100/70">
+    <div class="flex items-center space-x-3">
+      <span class="inline-block w-1.5 h-1.5 rounded-full bg-stone-900"></span>
+      <span>Basel &mdash; Berlin</span>
+    </div>
+    <div class="hidden sm:flex items-center space-x-8">
+      <span>Index: Vol. IV / 2025</span>
+      <span>47°33'34&quot; N &nbsp; 7°35'26&quot; E</span>
+    </div>
+    <div>
+      <span class="text-stone-900 font-medium">Accepting Selected Commissions</span>
+    </div>
+  </aside>
+
+  <!-- NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-stone-50/95 backdrop-blur-md border-b border-stone-200">
+    <div class="max-w-[1520px] mx-auto px-6 sm:px-12 h-20 sm:h-24 flex items-center justify-between">
+      <a href="#" class="group flex items-baseline space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-900 p-1 -m-1">
+        <span class="font-display font-extrabold text-2xl sm:text-3xl tracking-tight uppercase text-stone-950">STUDIO KERN</span>
+        <span class="text-[10px] font-mono text-stone-400 uppercase tracking-widest align-super">Arch.</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center space-x-10 text-xs tracking-widest font-mono uppercase text-stone-600" aria-label="Main Navigation">
+        <a href="#work" class="hover:text-stone-950 transition-colors py-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-stone-900">
+          <span class="text-stone-400 mr-1.5">01</span>Projects
+        </a>
+        <a href="#philosophy" class="hover:text-stone-950 transition-colors py-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-stone-900">
+          <span class="text-stone-400 mr-1.5">02</span>Philosophy
+        </a>
+        <a href="#practice" class="hover:text-stone-950 transition-colors py-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-stone-900">
+          <span class="text-stone-400 mr-1.5">03</span>Practice
+        </a>
+        <a href="#contact" class="hover:text-stone-950 transition-colors py-2 focus:outline-none focus-visible:ring-1 focus-visible:ring-stone-900">
+          <span class="text-stone-400 mr-1.5">04</span>Inquire
+        </a>
+      </nav>
+
+      <div class="hidden md:block">
+        <a href="#contact" class="inline-flex items-center justify-center text-xs uppercase tracking-widest font-mono border border-stone-900 px-5 py-2.5 text-stone-900 hover:bg-stone-900 hover:text-stone-50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-900">
+          Start Project
+        </a>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button 
+        type="button" 
+        id="mobile-menu-btn"
+        aria-expanded="false" 
+        aria-controls="mobile-nav"
+        class="md:hidden p-2 text-stone-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-900" 
+        aria-label="Toggle navigation menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="burger-icon" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M4 7h16M4 17h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-nav" class="hidden md:hidden border-b border-stone-200 bg-stone-100 px-6 py-8 space-y-6">
+      <nav class="flex flex-col space-y-4 text-sm font-mono uppercase tracking-widest">
+        <a href="#work" class="mobile-link text-stone-900 hover:text-stone-600">01. Selected Works</a>
+        <a href="#philosophy" class="mobile-link text-stone-900 hover:text-stone-600">02. Philosophy</a>
+        <a href="#practice" class="mobile-link text-stone-900 hover:text-stone-600">03. Practice</a>
+        <a href="#contact" class="mobile-link text-stone-900 hover:text-stone-600">04. Contact &amp; Commissions</a>
+      </nav>
+      <div class="pt-4 border-t border-stone-200 text-xs font-mono text-stone-500">
+        Basel / Berlin &bull; contact@studiokern.ch
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="relative border-b border-stone-200 blueprint-grid pt-16 pb-20 sm:pt-28 sm:pb-32 overflow-hidden">
+      <div class="max-w-[1520px] mx-auto px-6 sm:px-12">
+        <div class="max-w-6xl">
+          <p class="font-mono text-xs uppercase tracking-widest text-stone-500 mb-6 flex items-center gap-3">
+            <span class="w-8 h-[1px] bg-stone-400"></span>
+            Monolithic form, calibrated daylight, permanent craft
+          </p>
+          
+          <h1 class="font-display text-4xl sm:text-7xl lg:text-[5.75rem] font-medium leading-[0.98] tracking-tighter text-stone-950 uppercase mb-10 sm:mb-14">
+            Architecture grounded in silence, structural mass, and material longevity.
+          </h1>
+
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end pt-6 border-t border-stone-300">
+            <div class="md:col-span-7">
+              <p class="text-base sm:text-lg text-stone-600 font-light leading-relaxed max-w-2xl">
+                Founded by Julian Kern and Elena Voss, Studio Kern designs private dwellings, cultural pavilions, and purposeful renovations across Switzerland and Central Europe. We construct calm, quiet envelopes that endure weather, seasonal light, and generational transition.
+              </p>
+            </div>
+            <div class="md:col-span-5 flex flex-col sm:flex-row md:justify-end items-start sm:items-center gap-4">
+              <a href="#work" class="w-full sm:w-auto text-center font-mono text-xs uppercase tracking-widest px-8 py-4 bg-stone-900 text-stone-50 hover:bg-stone-800 transition-colors">
+                Explore Projects (2020&ndash;2025)
+              </a>
+              <a href="#contact" class="w-full sm:w-auto text-center font-mono text-xs uppercase tracking-widest px-6 py-4 border border-stone-300 text-stone-800 hover:border-stone-900 transition-colors">
+                Studio Briefing
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Architectural Blueprint Schematic Hero Graphic -->
+        <div class="mt-16 sm:mt-24 border border-stone-300 bg-stone-100 p-4 sm:p-8">
+          <div class="flex flex-col sm:flex-row justify-between text-[11px] font-mono text-stone-500 mb-4 pb-2 border-b border-stone-200">
+            <span>FIGURE 0.0 &mdash; CROSS SECTION THROUGH ATELIER SCHERF</span>
+            <span>SYSTEM: BOARD-FORMED POURED CONCRETE / LOCAL QUARRY SILT</span>
+          </div>
+          <div class="w-full h-44 sm:h-72 overflow-hidden flex items-center justify-center bg-stone-50 border border-stone-200 relative">
+            <svg class="w-full h-full text-stone-800" viewBox="0 0 1000 300" fill="none" preserveAspectRatio="xMidYMid meet" aria-label="Technical architectural elevation drawing showing clean rectilinear concrete volumes">
+              <!-- Grid background lines inside SVG -->
+              <defs>
+                <pattern id="cad-grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#E6E5E0" stroke-width="0.75" />
+                </pattern>
+              </defs>
+              <rect width="1000" height="300" fill="url(#cad-grid)" />
+
+              <!-- Ground Datum Line -->
+              <line x1="40" y1="240" x2="960" y2="240" stroke="#151513" stroke-width="1.5" />
+              <line x1="40" y1="244" x2="960" y2="244" stroke="#A4A299" stroke-dasharray="4 4" stroke-width="1" />
+              
+              <!-- Structure Mass 01 -->
+              <rect x="120" y="70" width="340" height="170" stroke="#151513" stroke-width="1.75" fill="#F2F2EF" />
+              <!-- Cutaway clerestory -->
+              <rect x="140" y="90" width="220" height="35" stroke="#151513" stroke-width="1.25" fill="#FFFFFF" />
+              <line x1="140" y1="90" x2="360" y2="125" stroke="#D5D3CB" stroke-width="0.75" />
+              
+              <!-- Structural Columns -->
+              <line x1="200" y1="125" x2="200" y2="240" stroke="#151513" stroke-width="2" />
+              <line x1="320" y1="125" x2="320" y2="240" stroke="#151513" stroke-width="2" />
+
+              <!-- Mass 02 (Interlocking Pavilion) -->
+              <rect x="420" y="110" width="440" height="130" stroke="#151513" stroke-width="1.75" fill="#F9F9F8" />
+              <!-- Recessed entrance patio -->
+              <rect x="460" y="170" width="90" height="70" stroke="#151513" stroke-width="1.25" fill="#FFFFFF" />
+              <!-- Cantilever Roof line -->
+              <line x1="390" y1="110" x2="890" y2="110" stroke="#151513" stroke-width="2.5" />
+
+              <!-- Dimension guides -->
+              <line x1="120" y1="45" x2="460" y2="45" stroke="#64625A" stroke-width="1" />
+              <line x1="120" y1="40" x2="120" y2="50" stroke="#64625A" stroke-width="1" />
+              <line x1="460" y1="40" x2="460" y2="50" stroke="#64625A" stroke-width="1" />
+              <text x="270" y="38" font-family="monospace" font-size="10" fill="#64625A" text-anchor="middle">14.80 m</text>
+
+              <line x1="420" y1="85" x2="860" y2="85" stroke="#64625A" stroke-width="1" />
+              <line x1="420" y1="80" x2="420" y2="90" stroke="#64625A" stroke-width="1" />
+              <line x1="860" y1="80" x2="860" y2="90" stroke="#64625A" stroke-width="1" />
+              <text x="640" y="78" font-family="monospace" font-size="10" fill="#64625A" text-anchor="middle">18.40 m</text>
+
+              <!-- Level callouts -->
+              <text x="910" y="114" font-family="monospace" font-size="9" fill="#151513">▲ +5.20</text>
+              <text x="910" y="238" font-family="monospace" font-size="9" fill="#151513">▼ ±0.00</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELECTED PROJECTS SECTION -->
+    <section id="work" class="py-20 sm:py-32 border-b border-stone-200">
+      <div class="max-w-[1520px] mx-auto px-6 sm:px-12">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-stone-300">
+          <div>
+            <span class="font-mono text-xs uppercase tracking-widest text-stone-400 block mb-3">01 / Portfolio</span>
+            <h2 class="font-display text-4xl sm:text-6xl uppercase tracking-tight text-stone-950">Selected Works</h2>
+          </div>
+          <div class="mt-4 md:mt-0 max-w-sm">
+            <p class="font-mono text-xs text-stone-500 uppercase tracking-widest">
+              Four realizations spanning residential monolithic volumes, alpine shelters, and institutional timber conversions.
+            </p>
+          </div>
+        </div>
+
+        <!-- Project Grid -->
+        <div class="space-y-24 sm:space-y-36">
+
+          <!-- PROJECT 01 -->
+          <article class="project-card group grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
+            <div class="lg:col-span-7 order-2 lg:order-1">
+              <!-- Visual Mockup Container (Procedural Architectural Illustration) -->
+              <div class="relative aspect-[16/10] bg-stone-200 border border-stone-300 overflow-hidden shadow-sm">
+                <!-- Architectural Graphic Representation -->
+                <div class="absolute inset-0 bg-gradient-to-tr from-stone-300 via-stone-200 to-stone-100 flex items-center justify-center p-8">
+                  <svg class="w-full h-full text-stone-800" viewBox="0 0 600 375" fill="none" aria-label="Axonometric perspective of Haus am Schafberg">
+                    <!-- Perspective concrete box with deep recessed courtyards -->
+                    <polygon points="120,270 340,310 510,230 280,190" fill="#E6E5E0" stroke="#151513" stroke-width="1.5" />
+                    <polygon points="120,270 280,190 280,70 120,130" fill="#D5D3CB" stroke="#151513" stroke-width="1.5" />
+                    <polygon points="280,190 510,230 510,110 280,70" fill="#F2F2EF" stroke="#151513" stroke-width="1.5" />
+                    
+                    <!-- Inner lightwell cutout -->
+                    <polygon points="320,175 440,195 440,140 320,120" fill="#151513" />
+                    <line x1="320" y1="120" x2="320" y2="175" stroke="#FFFFFF" stroke-width="1" />
+
+                    <!-- Cantilever eaves & solar fins -->
+                    <line x1="100" y1="130" x2="280" y2="60" stroke="#151513" stroke-width="2" />
+                    <line x1="280" y1="60" x2="530" y2="105" stroke="#151513" stroke-width="2" />
+                    <line x1="160" y1="180" x2="160" y2="255" stroke="#151513" stroke-dasharray="3 3" />
+                    <line x1="420" y1="210" x2="420" y2="270" stroke="#151513" stroke-dasharray="3 3" />
+                  </svg>
+                </div>
+                <div class="project-overlay absolute inset-0 bg-stone-900 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+                <div class="absolute bottom-4 left-4 bg-stone-900/90 text-stone-50 font-mono text-[11px] tracking-wider uppercase px-3 py-1">
+                  Completed &bull; 2024
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 order-1 lg:order-2 flex flex-col justify-between h-full space-y-6">
+              <div>
+                <div class="flex items-center justify-between border-b border-stone-200 pb-3 mb-4">
+                  <span class="font-mono text-xs uppercase tracking-widest text-stone-500">01 / DWELLING</span>
+                  <span class="font-mono text-xs uppercase tracking-widest text-stone-400">Appenzell, CH</span>
+                </div>
+                <h3 class="font-display text-3xl sm:text-5xl font-semibold uppercase tracking-tight text-stone-950 leading-tight mb-4 group-hover:text-stone-700 transition-colors">
+                  Haus am Schafberg
+                </h3>
+                <p class="text-stone-600 font-light leading-relaxed mb-6">
+                  Set on a steep pre-alpine slope, this private house is conceived as a singular, double-curved mass of rough bush-hammered concrete. An unglazed central patio captures southern snow glare while shielding living spaces from cold Föhn winds.
+                </p>
+                
+                <dl class="grid grid-cols-2 gap-y-4 gap-x-6 py-5 border-y border-stone-200 font-mono text-xs text-stone-700">
+                  <div>
+                    <dt class="text-stone-400 uppercase text-[10px] tracking-widest">Gross Floor Area</dt>
+                    <dd class="mt-1 font-medium">340 m²</dd>
+                  </div>
+                  <div>
+                    <dt class="text-stone-400 uppercase text-[10px] tracking-widest">Materiality</dt>
+                    <dd class="mt-1 font-medium">Site-Poured Concrete, Larch</dd>
+                  </div>
+                  <div>
+                    <dt class="text-stone-400 uppercase text-[10px] tracking-widest">Structural Engineer</dt>
+                    <dd class="mt-1 font-medium">Weber &amp; Partner, St. Gallen</dd>
+                  </div>
+                  <div>
+                    <dt class="text-stone-400 uppercase text-[10px] tracking-widest">Energy Standard</dt>
+                    <dd class="mt-1 font-medium">SIA 380/1 Passive Envelope</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div>
+                <a href="#contact" class="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-stone-950 font-semibold group/link">
+                  <span>Request Full Monograph</span>
+                  <svg class="w-4 h-4 project-arrow transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="square" stroke-width="2" d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 02 -->
+          <article class="project-card group grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
+            <div class="lg:col-span-7 order-2 lg:order-1">
+              <div class="relative aspect-[16/10] bg-stone-200 border border-stone-300 overflow-hidden shadow-sm">
+                <div class="absolute inset-0 bg-gradient-to-br from-stone-200 via-stone-100 to-stone-300 flex items-center justify-center p-8">
+                  <svg class="w-full h-full text-stone-800" viewBox="0 0 600 375" fill="none" aria-label="Floor plan and elevation overlay for Markgräfler Atelier">
+                    <!-- Layered floor plan and cross cut lines -->
+                    <rect x="80" y="80" width="440" height="210" stroke="#151513" stroke-width="1.5" fill="#FBFBFA" />
+                    <!-- Rhythm of structural bays -->
+                    <line x1="168" y1="80" x2="168" y2="290" stroke="#151513" stroke-width="1" stroke-dasharray="2 2" />
+                    <line x1="256" y1="80" x2="256" y2="290" stroke="#151513" stroke-width="1" stroke-dasharray="2 2" />
+                    <line x1="344" y1="80" x2="344" y2="290" stroke="#151513" stroke-width="1" stroke-dasharray="2 2" />
+                    <line x1="432" y1="80" x2="432" y2="290" stroke="#151513" stroke-width="1" stroke-dasharray="2 2" />
+
+                    <!-- Heavy spine core -->
+                    <rect x="220" y="140" width="160" height="90" fill="#2C2B27" />
+                    
+                    <!-- Outdoor gravel court -->
+                    <circle cx="120" cy="185" r="28" stroke="#A4A299" stroke-width="1" stroke-dasharray="4 2" />
+                    <text x="120" y="188" font-family="monospace" font-size="8" fill="#64625A" text-anchor="middle">ATRIUM</text>
+                    <text x="300" y="188" font-family="monospace" font-size="9" fill="#FFFFFF" text-anchor="middle">SCULPTURE CORE</text>
+                  </svg>
+                </div>
+                <div class="project-overlay absolute inset-0 bg-stone-900 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+                <div class="absolute bottom-4 left-4 bg-stone-900/90 text-stone-50 font-mono text-[11px] tracking-wider uppercase px-3 py-1">
+                  Completed &bull; 2023
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 order-1 lg:order-2 flex flex-col justify-between h-full space-y-6">
+              <div>
+                <div class="flex items-center justify-between border-b border-stone-200 pb-3 mb-4">
+                  <span class="font-mono text-xs uppercase tracking-widest text-stone-500">02 / CULTURAL</span>
+                  <span class="font-mono text-xs uppercase tracking-widest text-stone-400">Lörrach, DE</span>
+                </div>
+                <h3 class="font-display text-3xl sm:text-5xl font-semibold uppercase tracking-tight text-stone-950 leading-tight mb-4 group-hover:text-stone-700 transition-colors">
+                  Atelier &amp; Archiv Scherf
+                </h3>
+                <p class="text-stone-600 font-light leading-relaxed mb-6">
+                  Workspace and climate-neutral archive for a printmaker and sculptor. Constructed using unfired earth masonry and local Jurassic limestone aggregate. The building regulates internal humidity entirely without mechanical HVAC systems.
+                </p>
+                
+                <dl class="grid grid-cols-2 gap-y-4 gap-x-6 py-5 border-y border-stone-200 font-mono text-xs text-stone-700">
+                  <div>
+                    <dt class="text-stone-400 uppercase text-[10px] tracking-widest">Gross Floor Area</dt>
+                    <dd class="mt-1 font-medium">520 m²</dd>
+                  </div>
+                  <div>
+                    <dt class="text-stone-400 uppercase text-[10px] tracking-widest">Envelope</dt>
+                    <dd class="mt-1 font-medium">Compressed Earth &amp; Lime Plaster</dd>
+                  </div>
+                  <div>
+                    <dt class="text-stone-400 uppercase text-[10px] tracking-widest">Natural Light</dt>
+                    <dd class="mt-1 font-medium">Shed Roof Northern Clerestory</dd>
+                  </div>
+                  <div>
+                    <dt class="text-stone-400 uppercase text-[10px] tracking-widest">Recognition</dt>
+                    <dd class="mt-1 font-medium">Regional Architecture Shortlist 24</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div>
+                <a href="#contact" class="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-stone-950 font-semibold group/link">
+                  <span>Request Full Monograph</span>
+                  <svg class="w-4 h-4 project-arrow transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="square" stroke-width="2" d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 03 -->
+          <article class="project-card group grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
+            <div class="lg:col-span-7 order-2 lg:order-1">
+              <div class="relative aspect-[16/10] bg-stone-200 border border-stone-300 overflow-hidden shadow-sm">
+                <div class="absolute inset-0 bg-stone-100 flex items-center justify-center p-8">
+                  <svg class="w-full h-full text-stone-800" viewBox="0 0 600 375" fill="none" aria-label="Structural elevation of Tegel Boathouse Pavilion">
+                    <!-- Lakeside pavilion with floating structural grid -->
+                    <line x1="50" y1="280" x2="550" y2="280" stroke="#151513" stroke-width="2" />
+                    <!-- Water ripple indication -->
+                    <path d="M50 300 Q 150 295, 250 300 T 450 300 T 550 300" stroke="#A4A299" stroke-width="1" />
+                    <path d="M70 315 Q 170 310, 270 315 T 470 315 T 570 315" stroke="#D5D3CB" stroke-width="1" />
+
+                    <!-- Timber columns -->
+                    <rect x="120" y="110" width="10" height="170" fill="#151513" />
+                    <rect x="210" y="110" width="10" height="170" fill="#151513" />
+                    <rect x="300" y="110" width="10" height="170" fill="#151513" />
+                    <rect x="390" y="110" width="10" height="170" fill="#151513" />
+                    <rect x="480" y="110" width="10" height="170" fill="#151513" />
+
+                    <!-- Cantilevered Glulam Roof -->
+                    <polygon points="90,110 510,110 490,85 110,85" fill="#2C2B27" stroke="#151513" stroke-width="1.5" />
+                    
+                    <!-- Glass membrane skin -->
+                    <rect x="130" y="130" width="340" height="150" stroke="#A4A299" stroke-dasharray="4 4" fill="#FFFFFF" fill-opacity="0.6" />
+                  </svg>
+                </div>
+                <div class="project-overlay absolute inset-0 bg-stone-900 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+                <div class="absolute bottom-4 left-4 bg-stone-900/90 text-stone-50 font-mono text-[11px] tracking-wider uppercase px-3 py-1">
+                  Completed &bull; 2022
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 order-1 lg:order-2 flex flex-col justify-between h-full space-y-6">
+              <div>
+                <div class="flex items-center justify-between border-b border-stone-200 pb-3 mb-4">
+                  <span class="font-mono text-xs uppercase tracking-widest text-stone-500">03 / PAVILION</span>
+                  <span class="font-mono text-xs uppercase tracking-widest text-stone-400">Berlin-Tegel, DE</span>
+                </div>
+                <h3 class="font-display text-3xl sm:text-5xl font-semibold uppercase tracking-tight text-stone-950 leading-tight mb-4 group-hover:text-stone-700 transition-colors">
+                  Tegel Lake Pavilion
+                </h3>
+                <p class="text-stone-600 font-light leading-relaxed mb-6">
+                  A demountable water sports pavilion and observation platform assembled on driven oak piles. Constructed with charred black pine, copper flashing that patinates with humidity, and triple-laminated frameless glazing facing the reed bank.
+                </p>
+                
+                <dl class="grid grid-cols-2 gap-y-4 gap-x-6 py-5 border-y border-stone-200 font-mono text-xs text-stone-700">
+                  <div>
+                    <dt class="text-stone-400 uppercase text-[10px] tracking-widest">Footprint</dt>
+                    <dd class="mt-1 font-medium">195 m²</dd>
+                  </div>
+                  <div>
+                    <dt class="text-stone-400 uppercase text-[10px] tracking-widest">Timber Frame</dt>
+                    <dd class="mt-1 font-medium">Charred Pine (Shou Sugi Ban)</dd>
+                  </div>
+                  <div>
+                    <dt class="text-stone-400 uppercase text-[10px] tracking-widest">Foundation</dt>
+                    <dd class="mt-1 font-medium">Driven Oak Piles into Lakebed</dd>
+                  </div>
+                  <div>
+                    <dt class="text-stone-400 uppercase text-[10px] tracking-widest">Status</dt>
+                    <dd class="mt-1 font-medium">In Public Use</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div>
+                <a href="#contact" class="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-stone-950 font-semibold group/link">
+                  <span>Request Full Monograph</span>
+                  <svg class="w-4 h-4 project-arrow transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="square" stroke-width="2" d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 04 -->
+          <article class="project-card group grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 items-start">
+            <div class="lg:col-span-7 order-2 lg:order-1">
+              <div class="relative aspect-[16/10] bg-stone-200 border border-stone-300 overflow-hidden shadow-sm">
+                <div class="absolute inset-0 bg-stone-300 flex items-center justify-center p-8">
+                  <svg class="w-full h-full text-stone-900" viewBox="0 0 600 375" fill="none" aria-label="Section drawing showing steel insert inside 19th-century masonry carriage house">
+                    <!-- Heritage Brick Shell -->
+                    <rect x="70" y="70" width="460" height="230" stroke="#151513" stroke-width="3" fill="#E6E5E0" />
+                    <!-- Pitched roof gable profile -->
+                    <polygon points="70,70 300,15 530,70" stroke="#151513" stroke-width="2.5" fill="#D5D3CB" />
+
+                    <!-- Inserted Contemporary Steel Box -->
+                    <rect x="180" y="120" width="240" height="180" stroke="#B8532F" stroke-width="2" fill="#F9F9F8" />
+                    
+                    <!-- Internal Steel Stair Bridge -->
+                    <line x1="180" y1="210" x2="300" y2="150" stroke="#B8532F" stroke-width="2.5" />
+                    <line x1="300" y1="150" x2="420" y2="150" stroke="#B8532F" stroke-width="2.5" />
+
+                    <text x="300" y="138" font-family="monospace" font-size="9" fill="#B8532F" text-anchor="middle">SUSPENDED STEEL MEZZANINE</text>
+                    <text x="300" y="270" font-family="monospace" font-size="9" fill="#64625A" text-anchor="middle">RESTORED KLINKER MASSRY</text>
+                  </svg>
+                </div>
+                <div class="project-overlay absolute inset-0 bg-stone-900 opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+                <div class="absolute bottom-4 left-4 bg-stone-900/90 text-stone-50 font-mono text-[11px] tracking-wider uppercase px-3 py-1">
+                  Completed &bull; 2021
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 order-1 lg:order-2 flex flex-col justify-between h-full space-y-6">
+              <div>
+                <div class="flex items-center justify-between border-b border-stone-200 pb-3 mb-4">
+                  <span class="font-mono text-xs uppercase tracking-widest text-stone-500">04 / ADAPTIVE REUSE</span>
+                  <span class="font-mono text-xs uppercase tracking-widest text-stone-400">Potsdam, DE</span>
+                </div>
+                <h3 class="font-display text-3xl sm:text-5xl font-semibold uppercase tracking-tight text-stone-950 leading-tight mb-4 group-hover:text-stone-700 transition-colors">
+                  Remise Alexandrowka
+                </h3>
+                <p class="text-stone-600 font-light leading-relaxed mb-6">
+                  Conversion of a listed 1890s brick carriage shed into a domestic studio. The historical envelope was retained untouched as a cold weathering shell, inside which an autonomous, thermally broken steel-and-timber volume was inserted on pinpoint pin foundations.
+                </p>
+                
+                <dl class="grid grid-cols-2 gap-y-4 gap-x-6 py-5 border-y border-stone-200 font-mono text-xs text-stone-700">
+                  <div>
+                    <dt class="text-stone-400 uppercase text-[10px] tracking-widest">Gross Floor Area</dt>
+                    <dd class="mt-1 font-medium">210 m²</dd>
+                  </div>
+                  <div>
+                    <dt class="text-stone-400 uppercase text-[10px] tracking-widest">Heritage Status</dt>
+                    <dd class="mt-1 font-medium">Denkmalschutz Ensemble II</dd>
+                  </div>
+                  <div>
+                    <dt class="text-stone-400 uppercase text-[10px] tracking-widest">Primary Intervention</dt>
+                    <dd class="mt-1 font-medium">Internal Self-Supporting Steel Box</dd>
+                  </div>
+                  <div>
+                    <dt class="text-stone-400 uppercase text-[10px] tracking-widest">HVAC</dt>
+                    <dd class="mt-1 font-medium">Geothermal Deep Well Boreholes</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div>
+                <a href="#contact" class="inline-flex items-center gap-3 font-mono text-xs uppercase tracking-widest text-stone-950 font-semibold group/link">
+                  <span>Request Full Monograph</span>
+                  <svg class="w-4 h-4 project-arrow transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="square" stroke-width="2" d="M7 17L17 7M17 7H7M17 7V17"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILOSOPHY / AXIOMS SECTION -->
+    <section id="philosophy" class="py-24 sm:py-36 bg-stone-950 text-stone-100 border-b border-stone-800">
+      <div class="max-w-[1520px] mx-auto px-6 sm:px-12">
+        
+        <div class="max-w-4xl mb-20 sm:mb-28">
+          <span class="font-mono text-xs uppercase tracking-widest text-stone-400 block mb-4">02 / Studio Philosophy</span>
+          <h2 class="font-display text-3xl sm:text-6xl font-medium tracking-tight uppercase text-stone-50 leading-[1.05]">
+            We build with materials that do not decay into garbage, but weather into dignity.
+          </h2>
+        </div>
+
+        <!-- Three Axioms Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 pt-12 border-t border-stone-800">
+          
+          <div class="space-y-6">
+            <div class="font-mono text-sm text-stone-400 pb-3 border-b border-stone-800 flex justify-between">
+              <span>AXIOM I</span>
+              <span>[MASS]</span>
+            </div>
+            <h3 class="font-display text-2xl uppercase tracking-tight text-stone-100">
+              Thermal Inertia Over Complex Machines
+            </h3>
+            <p class="text-stone-400 text-sm leading-relaxed font-light">
+              We design thick mineral envelopes with genuine structural weight. Buildings with high thermal storage density handle summer peaks and winter cold snaps naturally, cutting reliance on short-lived mechanical sensors, filters, and digital building management systems.
+            </p>
+          </div>
+
+          <div class="space-y-6">
+            <div class="font-mono text-sm text-stone-400 pb-3 border-b border-stone-800 flex justify-between">
+              <span>AXIOM II</span>
+              <span>[LIGHT]</span>
+            </div>
+            <h3 class="font-display text-2xl uppercase tracking-tight text-stone-100">
+              Calibrated Daylight As Geometry
+            </h3>
+            <p class="text-stone-400 text-sm leading-relaxed font-light">
+              Windows are not arbitrary glass holes; they are optical lenses tuned to geographical solar declination. We design deep window jambs, light scoops, and courtyard shafts so rooms transform throughout the day without blinding glare or heat entrapment.
+            </p>
+          </div>
+
+          <div class="space-y-6">
+            <div class="font-mono text-sm text-stone-400 pb-3 border-b border-stone-800 flex justify-between">
+              <span>AXIOM III</span>
+              <span>[RESTRAINT]</span>
+            </div>
+            <h3 class="font-display text-2xl uppercase tracking-tight text-stone-100">
+              Reduction To The Structural Minimum
+            </h3>
+            <p class="text-stone-400 text-sm leading-relaxed font-light">
+              When a wall carries a load, we refuse to cover it with drywall and vinyl paint. Every element must perform at least two functions: structural support and primary finish. What cannot be defended structurally is omitted from the plan.
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Pull Quote / Statement -->
+        <div class="mt-24 sm:mt-32 p-8 sm:p-14 bg-stone-900 border border-stone-800 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-8">
+            <blockquote class="text-xl sm:text-2xl font-light text-stone-200 leading-snug">
+              &ldquo;A good house does not seek to shout over the topography. It accepts rain, snow, and sunlight as collaborators, settling into the earth until it feels inevitable.&rdquo;
+            </blockquote>
+          </div>
+          <div class="lg:col-span-4 lg:text-right font-mono text-xs uppercase tracking-widest text-stone-400">
+            &mdash; Julian Kern &amp; Elena Voss<br>
+            <span class="text-stone-400 mt-1 inline-block">Monograph Note, Basel 2024</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PRACTICE / TEAM & METHOD SECTION -->
+    <section id="practice" class="py-20 sm:py-32 border-b border-stone-200">
+      <div class="max-w-[1520px] mx-auto px-6 sm:px-12">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16">
+          <div class="lg:col-span-5">
+            <span class="font-mono text-xs uppercase tracking-widest text-stone-400 block mb-3">03 / The Practice</span>
+            <h2 class="font-display text-4xl sm:text-5xl uppercase tracking-tight text-stone-950 mb-8">
+              Small team, complete immersion.
+            </h2>
+            <p class="text-stone-600 leading-relaxed mb-6 font-light">
+              Studio Kern operates deliberately as a compact collective of eight architects, model-makers, and site directors. We limit active construction commissions to four simultaneous sites, ensuring principal involvement from site excavation to the final joinery oiling.
+            </p>
+            <p class="text-stone-600 leading-relaxed mb-8 font-light">
+              Our workshop maintains an in-house casting laboratory where 1:1 material mockups of aggregate mixes, mortar joints, and charred timber treatments are tested before tender drawings are released.
+            </p>
+
+            <div class="border-t border-stone-200 pt-8 mt-8 space-y-4 font-mono text-xs">
+              <div class="flex justify-between py-2 border-b border-stone-100">
+                <span class="text-stone-500 uppercase">Swiss Chamber of Architects (SIA)</span>
+                <span class="text-stone-900">Member #18492</span>
+              </div>
+              <div class="flex justify-between py-2 border-b border-stone-100">
+                <span class="text-stone-500 uppercase">Bund Deutscher Architektinnen (BDA)</span>
+                <span class="text-stone-900">Berlin Chapter</span>
+              </div>
+              <div class="flex justify-between py-2 border-b border-stone-100">
+                <span class="text-stone-500 uppercase">Physical Archive &amp; Studio</span>
+                <span class="text-stone-900">St. Alban-Vorstadt, Basel</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Studio Methodology Cards -->
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+            
+            <div class="p-8 bg-stone-100 border border-stone-200 flex flex-col justify-between">
+              <div>
+                <span class="font-mono text-xs text-stone-400 block mb-3">01 / DISCOVERY</span>
+                <h3 class="font-display text-xl uppercase font-semibold text-stone-950 mb-3">Geological &amp; Solar Survey</h3>
+                <p class="text-sm text-stone-600 leading-relaxed font-light">
+                  Direct borehole sampling, local bedrock topography analysis, and micro-climatic wind direction logging before initial massing drafts.
+                </p>
+              </div>
+              <div class="mt-8 font-mono text-[10px] text-stone-500 uppercase tracking-widest">
+                Phase 1 &bull; 4&ndash;6 Weeks
+              </div>
+            </div>
+
+            <div class="p-8 bg-stone-100 border border-stone-200 flex flex-col justify-between">
+              <div>
+                <span class="font-mono text-xs text-stone-400 block mb-3">02 / PHYSICAL STUDY</span>
+                <h3 class="font-display text-xl uppercase font-semibold text-stone-950 mb-3">1:20 Timber &amp; Plaster Models</h3>
+                <p class="text-sm text-stone-600 leading-relaxed font-light">
+                  We verify spatial proportions using large-scale physical models under natural daylight instead of misleading rendered lens distortions.
+                </p>
+              </div>
+              <div class="mt-8 font-mono text-[10px] text-stone-500 uppercase tracking-widest">
+                Phase 2 &bull; 8 Weeks
+              </div>
+            </div>
+
+            <div class="p-8 bg-stone-100 border border-stone-200 flex flex-col justify-between">
+              <div>
+                <span class="font-mono text-xs text-stone-400 block mb-3">03 / PROCUREMENT</span>
+                <h3 class="font-display text-xl uppercase font-semibold text-stone-950 mb-3">Hyper-Local Sourcing</h3>
+                <p class="text-sm text-stone-600 leading-relaxed font-light">
+                  Direct agreements with regional quarries, sawmills, and family-operated metal foundries within 250 kilometers of the build perimeter.
+                </p>
+              </div>
+              <div class="mt-8 font-mono text-[10px] text-stone-500 uppercase tracking-widest">
+                Phase 3 &bull; Parallel Tender
+              </div>
+            </div>
+
+            <div class="p-8 bg-stone-100 border border-stone-200 flex flex-col justify-between">
+              <div>
+                <span class="font-mono text-xs text-stone-400 block mb-3">04 / EXECUTION</span>
+                <h3 class="font-display text-xl uppercase font-semibold text-stone-950 mb-3">Architect-Led Site Direction</h3>
+                <p class="text-sm text-stone-600 leading-relaxed font-light">
+                  Weekly site superintendence carried out by founding partners, supervising concrete pours, joint tolerances, and raw finishes directly.
+                </p>
+              </div>
+              <div class="mt-8 font-mono text-[10px] text-stone-500 uppercase tracking-widest">
+                Phase 4 &bull; Full Delivery
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- INQUIRY & CONTACT SECTION -->
+    <section id="contact" class="py-20 sm:py-32">
+      <div class="max-w-[1520px] mx-auto px-6 sm:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+          
+          <!-- Contact Info Left Column -->
+          <div class="lg:col-span-5 space-y-12">
+            <div>
+              <span class="font-mono text-xs uppercase tracking-widest text-stone-400 block mb-3">04 / Initiation</span>
+              <h2 class="font-display text-4xl sm:text-6xl uppercase tracking-tight text-stone-950 mb-6">
+                Commission a Building
+              </h2>
+              <p class="text-stone-600 text-base leading-relaxed font-light">
+                We accept commissions for private houses, additions, small-scale institutional spaces, and landscape pavilions. Please share the site coordinates, program intent, and expected schedule.
+              </p>
+            </div>
+
+            <div class="space-y-8 font-mono text-xs">
+              <div>
+                <span class="text-stone-400 uppercase tracking-widest block mb-2">Basel Office</span>
+                <p class="text-stone-900 leading-relaxed text-sm">
+                  St. Alban-Vorstadt 42<br>
+                  CH-4052 Basel, Switzerland<br>
+                  <a href="tel:+41612803100" class="hover:underline text-stone-600 mt-1 inline-block">+41 61 280 31 00</a>
+                </p>
+              </div>
+
+              <div>
+                <span class="text-stone-400 uppercase tracking-widest block mb-2">Berlin Workshop</span>
+                <p class="text-stone-900 leading-relaxed text-sm">
+                  Köpenicker Straße 148, Aufgang C<br>
+                  D-10997 Berlin-Kreuzberg<br>
+                  <a href="tel:+493081902400" class="hover:underline text-stone-600 mt-1 inline-block">+49 30 819 024 00</a>
+                </p>
+              </div>
+
+              <div>
+                <span class="text-stone-400 uppercase tracking-widest block mb-2">Direct Correspondence</span>
+                <p class="text-stone-900 text-sm">
+                  <a href="mailto:dialog@studiokern.ch" class="underline hover:text-stone-600">dialog@studiokern.ch</a> &bull; General Inquiries<br>
+                  <a href="mailto:press@studiokern.ch" class="underline hover:text-stone-600 mt-1 inline-block">press@studiokern.ch</a> &bull; Publications &amp; Drawings
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Briefing Form (Presentational) -->
+          <div class="lg:col-span-7 bg-stone-100 p-8 sm:p-12 border border-stone-200">
+            <h3 class="font-display text-2xl uppercase tracking-tight text-stone-950 mb-2">Project Brief Intake</h3>
+            <p class="font-mono text-xs text-stone-500 uppercase tracking-widest mb-8">All fields review directly with partner team</p>
+
+            <form class="space-y-6" onsubmit="event.preventDefault();" aria-label="Project Brief Inquiry">
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label for="client-name" class="block font-mono text-xs uppercase tracking-wider text-stone-700 mb-2">
+                    Name / Organisation *
+                  </label>
+                  <input 
+                    type="text" 
+                    id="client-name" 
+                    name="name" 
+                    required 
+                    placeholder="e.g. Katharina von Berg" 
+                    class="w-full bg-stone-50 border border-stone-300 px-4 py-3 text-stone-900 text-sm placeholder:text-stone-400 focus:outline-none focus:border-stone-900 focus:ring-1 focus:ring-stone-900">
+                </div>
+
+                <div>
+                  <label for="client-email" class="block font-mono text-xs uppercase tracking-wider text-stone-700 mb-2">
+                    Direct Email *
+                  </label>
+                  <input 
+                    type="email" 
+                    id="client-email" 
+                    name="email" 
+                    required 
+                    placeholder="k.vonberg@example.ch" 
+                    class="w-full bg-stone-50 border border-stone-300 px-4 py-3 text-stone-900 text-sm placeholder:text-stone-400 focus:outline-none focus:border-stone-900 focus:ring-1 focus:ring-stone-900">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label for="project-type" class="block font-mono text-xs uppercase tracking-wider text-stone-700 mb-2">
+                    Typology
+                  </label>
+                  <select 
+                    id="project-type" 
+                    name="typology" 
+                    class="w-full bg-stone-50 border border-stone-300 px-4 py-3 text-stone-900 text-sm focus:outline-none focus:border-stone-900 focus:ring-1 focus:ring-stone-900">
+                    <option value="private-residential">New Private Residence</option>
+                    <option value="heritage-renovation">Adaptive Reuse / Listed Building</option>
+                    <option value="cultural-gallery">Cultural / Artist Atelier / Gallery</option>
+                    <option value="landscape-pavilion">Landscape Pavilion / Small Infrastructure</option>
+                    <option value="masterplanning">Site Assessment &amp; Feasibility</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="project-location" class="block font-mono text-xs uppercase tracking-wider text-stone-700 mb-2">
+                    Site Location / Canton / Land
+                  </label>
+                  <input 
+                    type="text" 
+                    id="project-location" 
+                    name="location" 
+                    placeholder="e.g. Graubünden, CH or Brandenburg, DE" 
+                    class="w-full bg-stone-50 border border-stone-300 px-4 py-3 text-stone-900 text-sm placeholder:text-stone-400 focus:outline-none focus:border-stone-900 focus:ring-1 focus:ring-stone-900">
+                </div>
+              </div>
+
+              <div>
+                <label for="project-summary" class="block font-mono text-xs uppercase tracking-wider text-stone-700 mb-2">
+                  Project Intent &amp; Site Conditions
+                </label>
+                <textarea 
+                  id="project-summary" 
+                  name="summary" 
+                  rows="4" 
+                  placeholder="Outline the planned spatial program, site plot characteristics, zoning status if known, and desired start year..." 
+                  class="w-full bg-stone-50 border border-stone-300 p-4 text-stone-900 text-sm placeholder:text-stone-400 focus:outline-none focus:border-stone-900 focus:ring-1 focus:ring-stone-900"></textarea>
+              </div>
+
+              <div class="pt-2">
+                <button 
+                  type="submit" 
+                  class="w-full sm:w-auto font-mono text-xs uppercase tracking-widest px-10 py-4 bg-stone-950 text-stone-50 hover:bg-stone-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-stone-900">
+                  Transmit Project Brief &rarr;
+                </button>
+                <span class="block sm:inline sm:ml-4 mt-3 sm:mt-0 font-mono text-[11px] text-stone-500">
+                  Direct reply from a partner within 3 business days.
+                </span>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-stone-950 text-stone-400 border-t border-stone-800 text-xs font-mono py-16">
+    <div class="max-w-[1520px] mx-auto px-6 sm:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-stone-800">
+        
+        <div class="md:col-span-5 space-y-3">
+          <span class="font-display font-bold text-xl uppercase tracking-tight text-stone-100 block">STUDIO KERN ARCHITEKTEN</span>
+          <p class="text-stone-400 text-xs font-light max-w-sm leading-relaxed">
+            Practice for contemporary architecture, solid mineral construction, and spatial research. Basel &bull; Berlin.
+          </p>
+        </div>
+
+        <div class="md:col-span-3 space-y-2">
+          <span class="text-stone-200 uppercase tracking-widest block mb-1">Index &amp; Navigation</span>
+          <ul class="space-y-1.5 text-stone-400">
+            <li><a href="#work" class="hover:text-stone-100 transition-colors">Selected Projects</a></li>
+            <li><a href="#philosophy" class="hover:text-stone-100 transition-colors">Design Axioms</a></li>
+            <li><a href="#practice" class="hover:text-stone-100 transition-colors">Practice &amp; Method</a></li>
+            <li><a href="#contact" class="hover:text-stone-100 transition-colors">Inquire Commission</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-4 space-y-2">
+          <span class="text-stone-200 uppercase tracking-widest block mb-1">Colophon</span>
+          <p class="text-stone-400 leading-relaxed font-light">
+            Set in Syne and Inter. All drawing materials copyrighted &copy; Studio Kern SIA/BDA. Unsolicited supplier catalogs are recycled.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-stone-400 gap-4">
+        <div>
+          &copy; 2025 Studio Kern Architekten AG / GmbH. All rights reserved.
+        </div>
+        <div class="flex space-x-6 uppercase tracking-wider">
+          <a href="#" class="hover:text-stone-200">Legal Notice</a>
+          <a href="#" class="hover:text-stone-200">Privacy Data</a>
+          <a href="#" class="hover:text-stone-200">Top &uarr;</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MINIMAL JAVASCRIPT: Mobile Menu Toggle & Smooth Scroll Link Behavior -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const mobileNav = document.getElementById('mobile-nav');
+      const mobileLinks = document.querySelectorAll('.mobile-link');
+      const burgerIcon = document.getElementById('burger-icon');
+
+      if (menuBtn && mobileNav) {
+        menuBtn.addEventListener('click', () => {
+          const isOpen = !mobileNav.classList.contains('hidden');
+          if (isOpen) {
+            mobileNav.classList.add('hidden');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            burgerIcon.setAttribute('d', 'M4 7h16M4 17h16');
+          } else {
+            mobileNav.classList.remove('hidden');
+            menuBtn.setAttribute('aria-expanded', 'true');
+            burgerIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+          }
+        });
+
+        // Close mobile drawer on item tap
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileNav.classList.add('hidden');
+            menuBtn.setAttribute('aria-expanded', 'false');
+            burgerIcon.setAttribute('d', 'M4 7h16M4 17h16');
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>

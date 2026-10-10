@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mizan Coffee Roastery | Moda, Kadıköy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Fraunces', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            roast: {
+              950: '#19130E',
+              900: '#261C14',
+              800: '#3D2D21',
+              700: '#543E2E',
+              600: '#7B5940',
+              500: '#A37754',
+              400: '#C29B77',
+              200: '#E6D7C8',
+              100: '#F4ECE4',
+              50: '#FAF6F0',
+            },
+            terracotta: '#A85232',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::selection {
+      background-color: #C29B77;
+      color: #19130E;
+    }
+    .grain-overlay {
+      background-image: radial-gradient(rgba(38, 28, 20, 0.05) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+  </style>
+</head>
+<body class="bg-[#FAF6F0] text-roast-900 font-sans antialiased selection:bg-roast-200 selection:text-roast-950">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-[#FAF6F0]/90 backdrop-blur-md border-b border-roast-200/70 transition-all duration-200">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-roast-600 rounded-lg p-1">
+        <span class="w-10 h-10 rounded-full bg-roast-900 text-roast-50 flex items-center justify-center font-serif text-xl font-bold group-hover:bg-roast-700 transition">M</span>
+        <div class="flex flex-col">
+          <span class="font-serif text-xl tracking-tight font-bold text-roast-950 leading-none">Mizan</span>
+          <span class="text-[10px] tracking-widest uppercase text-roast-600 font-semibold mt-0.5">Kahve Kavurucuları · Moda</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-roast-800">
+        <a href="#hikaye" class="hover:text-roast-600 transition">Hakkımızda</a>
+        <a href="#menu" class="hover:text-roast-600 transition">Kahve & Menü</a>
+        <a href="#cekirdekler" class="hover:text-roast-600 transition">Mikrolot Çekirdekler</a>
+        <a href="#mekan" class="hover:text-roast-600 transition">Mekân & Ziyaret</a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-4">
+        <span class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-roast-100 text-roast-800 border border-roast-200">
+          <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+          Açık: 08:30 – 21:00
+        </span>
+        <a href="#mekan" class="text-xs uppercase tracking-wider font-semibold bg-roast-900 text-roast-50 px-4 py-2.5 rounded-full hover:bg-roast-700 transition focus:outline-none focus:ring-2 focus:ring-roast-900 focus:ring-offset-2">
+          Yol Tarifi
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" type="button" aria-expanded="false" aria-label="Menüyü aç/kapat" class="md:hidden p-2 text-roast-900 focus:outline-none focus:ring-2 focus:ring-roast-600 rounded-lg">
+        <svg id="menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="menu-close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-roast-200 bg-[#FAF6F0] px-6 py-6 space-y-4">
+      <nav class="flex flex-col space-y-3 text-base font-medium text-roast-800">
+        <a href="#hikaye" class="mobile-link py-1 hover:text-roast-600">Hakkımızda</a>
+        <a href="#menu" class="mobile-link py-1 hover:text-roast-600">Kahve & Menü</a>
+        <a href="#cekirdekler" class="mobile-link py-1 hover:text-roast-600">Mikrolot Çekirdekler</a>
+        <a href="#mekan" class="mobile-link py-1 hover:text-roast-600">Mekân & Ziyaret</a>
+      </nav>
+      <div class="pt-4 border-t border-roast-200/80 flex flex-col gap-3">
+        <span class="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-roast-100 text-roast-800 w-fit">
+          <span class="w-2 h-2 rounded-full bg-emerald-600"></span> Bugün Açık: 08:30 – 21:00
+        </span>
+        <a href="#mekan" class="text-center text-sm font-semibold bg-roast-900 text-roast-50 py-3 rounded-full hover:bg-roast-700 transition">
+          Moda Dükkanına Gel
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-32 grain-overlay">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-roast-100 text-roast-800 text-xs font-semibold border border-roast-200">
+              <span class="text-terracotta">◆</span> Caferağa, Moda · Kadıköy
+            </div>
+            
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-roast-950 font-bold tracking-tight leading-[1.15]">
+              Moda sokaklarında sakin bir fincan nitelikli kahve.
+            </h1>
+            
+            <p class="text-base sm:text-lg text-roast-700 max-w-xl font-normal leading-relaxed">
+              Mizan, doğrudan üreticisinden temin edilen hasatları haftalık olarak kendi atölyesinde kavuran bağımsız bir mahalle kahvecisidir. Çekirdeğin asıl hikâyesine ve doğru ekstraksiyona inanıyoruz.
+            </p>
+
+            <div class="pt-2 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+              <a href="#menu" class="text-center px-7 py-3.5 rounded-full bg-roast-900 hover:bg-roast-800 text-roast-50 text-sm font-semibold transition shadow-sm focus:outline-none focus:ring-2 focus:ring-roast-900 focus:ring-offset-2">
+                Menüyü Görüntüle
+              </a>
+              <a href="#cekirdekler" class="text-center px-7 py-3.5 rounded-full border border-roast-700/30 hover:border-roast-900 text-roast-900 text-sm font-semibold transition hover:bg-roast-100/50">
+                Taze Kavrum Çekirdekler
+              </a>
+            </div>
+
+            <!-- Highlights mini-row -->
+            <div class="pt-6 grid grid-cols-3 gap-4 border-t border-roast-200 max-w-lg text-left">
+              <div>
+                <p class="font-serif text-xl sm:text-2xl font-bold text-roast-900">86+</p>
+                <p class="text-xs text-roast-600 mt-0.5">SCA Tadım Puanı</p>
+              </div>
+              <div>
+                <p class="font-serif text-xl sm:text-2xl font-bold text-roast-900">Haftalık</p>
+                <p class="text-xs text-roast-600 mt-0.5">Taze Kavrum</p>
+              </div>
+              <div>
+                <p class="font-serif text-xl sm:text-2xl font-bold text-roast-900">Moda</p>
+                <p class="text-xs text-roast-600 mt-0.5">Rıhtıma 5 dk</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Graphic Composition -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative mx-auto max-w-md lg:max-w-none">
+              <!-- Decorative Backing Card -->
+              <div class="rounded-3xl bg-gradient-to-br from-roast-900 via-roast-800 to-roast-950 p-8 text-roast-50 shadow-2xl relative overflow-hidden">
+                <div class="absolute -right-16 -top-16 w-56 h-56 bg-roast-600/20 rounded-full blur-2xl"></div>
+                <div class="absolute -left-10 -bottom-10 w-44 h-44 bg-terracotta/20 rounded-full blur-xl"></div>
+                
+                <div class="flex items-center justify-between pb-8 border-b border-roast-700/60">
+                  <div class="flex items-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-terracotta"></span>
+                    <span class="text-xs tracking-wider uppercase text-roast-200 font-semibold">Günün Demlemesi</span>
+                  </div>
+                  <span class="text-xs px-2.5 py-1 rounded bg-roast-800 text-roast-200 font-mono">V60 Manuel</span>
+                </div>
+
+                <!-- Abstract Artisan Illustration -->
+                <div class="py-8 flex flex-col items-center justify-center text-center">
+                  <div class="w-28 h-28 rounded-2xl bg-gradient-to-tr from-roast-700/60 to-roast-600/30 flex items-center justify-center mb-6 ring-1 ring-white/10 shadow-inner">
+                    <svg class="w-14 h-14 text-roast-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h14.5M3.75 6.75a3 3 0 00-3 3v2.25a3 3 0 003 3h1.5v3.75a3 3 0 003 3h5a3 3 0 003-3v-3.75h1.5a3 3 0 003-3v-2.25a3 3 0 00-3-3M3.75 6.75h14.5m0 0a3.75 3.75 0 013.75 3.75v0a3.75 3.75 0 01-3.75 3.75h-1.5" />
+                      <path stroke-linecap="round" d="M8 3v1.5M12 2.5V4M16 3v1.5" />
+                    </svg>
+                  </div>
+                  
+                  <span class="text-xs font-mono tracking-widest text-roast-400 uppercase">Etiyopya · Yirgacheffe</span>
+                  <h3 class="font-serif text-2xl font-medium mt-1 mb-2 text-white">Chelchele Yıkanmış</h3>
+                  <p class="text-xs text-roast-200/90 max-w-xs leading-relaxed font-sans">
+                    Yasemin çiçeği, şeftali, bergamot ve narenciye asiditesi. Temiz ve parlak bitiş.
+                  </p>
+                </div>
+
+                <!-- Roast Metrics Box -->
+                <div class="bg-roast-950/70 backdrop-blur rounded-2xl p-4 grid grid-cols-3 gap-2 text-center text-xs border border-white/5">
+                  <div>
+                    <span class="block text-roast-400 text-[10px] uppercase">Rakım</span>
+                    <span class="font-mono text-roast-100 font-semibold">1.950m</span>
+                  </div>
+                  <div class="border-x border-roast-800">
+                    <span class="block text-roast-400 text-[10px] uppercase">İşlem</span>
+                    <span class="text-roast-100 font-semibold">Yıkanmış</span>
+                  </div>
+                  <div>
+                    <span class="block text-roast-400 text-[10px] uppercase">Kavrum</span>
+                    <span class="text-roast-100 font-semibold">Açık-Orta</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating badge -->
+              <div class="absolute -bottom-5 -left-5 bg-white text-roast-900 rounded-2xl p-4 shadow-xl border border-roast-200 hidden sm:flex items-center gap-3.5">
+                <div class="w-10 h-10 rounded-full bg-roast-100 text-terracotta flex items-center justify-center font-serif text-lg font-bold">
+                  ☕
+                </div>
+                <div>
+                  <p class="text-xs font-bold leading-tight">Giesler W6 ile Moda'da Kavruldu</p>
+                  <p class="text-[11px] text-roast-600">Her Salı & Cuma parti kavrumu</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Philosophy / Narrative Section -->
+    <section id="hikaye" class="py-20 bg-[#F4ECE4] border-y border-roast-200/80">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        <div class="max-w-2xl mb-14">
+          <span class="text-xs tracking-widest uppercase font-semibold text-terracotta">Felsefemiz</span>
+          <h2 class="font-serif text-3xl sm:text-4xl text-roast-950 font-bold mt-2">
+            İyi bir fincan kahve tesadüf değildir.
+          </h2>
+          <p class="text-roast-700 mt-4 leading-relaxed">
+            Kadıköy'ün aceleci adımlarından birkaç sokak içeriye sapanlar için dingin bir sığınak kurduk. Mizan adını, ekstraksiyondaki denge ve adaletten alıyor: suyun sıcaklığı, öğütümün mikro hassasiyeti ve çekirdeğin emeği birbirini tamamlamalıdır.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <div class="bg-[#FAF6F0] rounded-2xl p-8 border border-roast-200 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-roast-200/60 text-roast-800 flex items-center justify-center font-serif font-bold text-lg mb-6">
+                01
+              </div>
+              <h3 class="font-serif text-xl font-bold text-roast-900 mb-3">Şeffaf Tedarik</h3>
+              <p class="text-sm text-roast-700 leading-relaxed">
+                Kooperatifler ve küçük çiftçilerle çalışan ithalatçılar aracılığıyla yalnızca yeni mahsul, izlenebilir ve hasat yılı belli yeşil çekirdekleri temin ediyoruz.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-roast-200/60 text-xs font-semibold text-roast-600">
+              Doğrudan Çiftçi İletişimi
+            </div>
+          </div>
+
+          <div class="bg-[#FAF6F0] rounded-2xl p-8 border border-roast-200 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-roast-200/60 text-roast-800 flex items-center justify-center font-serif font-bold text-lg mb-6">
+                02
+              </div>
+              <h3 class="font-serif text-xl font-bold text-roast-900 mb-3">Özenli Kavurma</h3>
+              <p class="text-sm text-roast-700 leading-relaxed">
+                Her partiyi kömürleştirmeden; çekirdeğin yetiştiği toprak, yükseklik ve işleme yönteminin özgün tat karakterini açığa çıkaracak profillerle kavuruyoruz.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-roast-200/60 text-xs font-semibold text-roast-600">
+              Küçük Parti (Small Batch)
+            </div>
+          </div>
+
+          <div class="bg-[#FAF6F0] rounded-2xl p-8 border border-roast-200 flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-roast-200/60 text-roast-800 flex items-center justify-center font-serif font-bold text-lg mb-6">
+                03
+              </div>
+              <h3 class="font-serif text-xl font-bold text-roast-900 mb-3">Mizan ve Ekstraksiyon</h3>
+              <p class="text-sm text-roast-700 leading-relaxed">
+                Ters osmoz su arıtma sistemimizle mineral dengesini ideal TDS aralığında tutuyor; V60, Kalita ve espresso reçetelerimizi her sabah yeniden kalibre ediyoruz.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-roast-200/60 text-xs font-semibold text-roast-600">
+              Laboratuvar Hassasiyeti
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu Section with Interactive Tabs -->
+    <section id="menu" class="py-20 max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs tracking-widest uppercase font-semibold text-terracotta">Bar & Mutfak</span>
+        <h2 class="font-serif text-3xl sm:text-4xl text-roast-950 font-bold mt-2">Dükkanda Neler Var?</h2>
+        <p class="text-roast-700 text-sm mt-3">
+          Tüm espresso içeceklerimiz çift shot olarak hazırlanır. İsteğe göre yerel yulaf sütü alternatifi mevcuttur.
+        </p>
+
+        <!-- Category Tabs -->
+        <div class="mt-8 flex flex-wrap justify-center gap-2 p-1.5 bg-roast-100 rounded-full border border-roast-200 max-w-lg mx-auto">
+          <button type="button" class="tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition bg-roast-900 text-roast-50 shadow-sm" data-category="espresso">
+            Espresso Bar
+          </button>
+          <button type="button" class="tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition text-roast-800 hover:text-roast-950" data-category="filtre">
+            Manuel Demleme
+          </button>
+          <button type="button" class="tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition text-roast-800 hover:text-roast-950" data-category="imza">
+            İmza & Soğuk
+          </button>
+          <button type="button" class="tab-btn px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition text-roast-800 hover:text-roast-950" data-category="firin">
+            Fırından & Atıştırmalık
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab Content Area -->
+      <div class="max-w-4xl mx-auto bg-white rounded-3xl p-6 sm:p-10 border border-roast-200 shadow-sm">
+        
+        <!-- Espresso Items -->
+        <div id="category-espresso" class="menu-pane grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+          <div class="flex items-start justify-between border-b border-roast-100 pb-4">
+            <div>
+              <h4 class="font-serif text-lg font-semibold text-roast-950">Double Espresso</h4>
+              <p class="text-xs text-roast-600 mt-1">Günün seçkisi single-origin çekirdekle 18g/38g reçete</p>
+            </div>
+            <span class="font-serif font-bold text-roast-900 ml-4">110 ₺</span>
+          </div>
+
+          <div class="flex items-start justify-between border-b border-roast-100 pb-4">
+            <div>
+              <h4 class="font-serif text-lg font-semibold text-roast-950">Cortado</h4>
+              <p class="text-xs text-roast-600 mt-1">Eşit oranda espresso ve ipeksi mikro köpüklü süt (1:1)</p>
+            </div>
+            <span class="font-serif font-bold text-roast-900 ml-4">125 ₺</span>
+          </div>
+
+          <div class="flex items-start justify-between border-b border-roast-100 pb-4">
+            <div>
+              <h4 class="font-serif text-lg font-semibold text-roast-950">Flat White</h4>
+              <p class="text-xs text-roast-600 mt-1">İnce mikro köpük, yoğun kahve lezzeti (160ml)</p>
+            </div>
+            <span class="font-serif font-bold text-roast-900 ml-4">135 ₺</span>
+          </div>
+
+          <div class="flex items-start justify-between border-b border-roast-100 pb-4">
+            <div>
+              <h4 class="font-serif text-lg font-semibold text-roast-950">Caffè Latte</h4>
+              <p class="text-xs text-roast-600 mt-1">Dengeli süt tatlılığı ve yumuşak gövde (240ml)</p>
+            </div>
+            <span class="font-serif font-bold text-roast-900 ml-4">140 ₺</span>
+          </div>
+
+          <div class="flex items-start justify-between border-b border-roast-100 pb-4">
+            <div>
+              <h4 class="font-serif text-lg font-semibold text-roast-950">Americano / Long Black</h4>
+              <p class="text-xs text-roast-600 mt-1">Sıcak veya buz üzerinde taze double espresso</p>
+            </div>
+            <span class="font-serif font-bold text-roast-900 ml-4">120 ₺</span>
+          </div>
+
+          <div class="flex items-start justify-between border-b border-roast-100 pb-4">
+            <div>
+              <h4 class="font-serif text-lg font-semibold text-roast-950">Cappuccino</h4>
+              <p class="text-xs text-roast-600 mt-1">Klasik kalın süt kreması ve kadifemsi dokunuş</p>
+            </div>
+            <span class="font-serif font-bold text-roast-900 ml-4">135 ₺</span>
+          </div>
+        </div>
+
+        <!-- Filter Items -->
+        <div id="category-filtre" class="menu-pane hidden grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+          <div class="flex items-start justify-between border-b border-roast-100 pb-4">
+            <div>
+              <h4 class="font-serif text-lg font-semibold text-roast-950">V60 Dökme Demleme</h4>
+              <p class="text-xs text-roast-600 mt-1">Hario V60 ile berrak, katmanlı tat profilleri</p>
+            </div>
+            <span class="font-serif font-bold text-roast-900 ml-4">150 ₺</span>
+          </div>
+
+          <div class="flex items-start justify-between border-b border-roast-100 pb-4">
+            <div>
+              <h4 class="font-serif text-lg font-semibold text-roast-950">Aeropress</h4>
+              <p class="text-xs text-roast-600 mt-1">Hafif basınçla dolgun gövde ve yoğun aromatikler</p>
+            </div>
+            <span class="font-serif font-bold text-roast-900 ml-4">150 ₺</span>
+          </div>
+
+          <div class="flex items-start justify-between border-b border-roast-100 pb-4">
+            <div>
+              <h4 class="font-serif text-lg font-semibold text-roast-950">Günün Toplu Filtre Kahvesi</h4>
+              <p class="text-xs text-roast-600 mt-1">Moccamaster ile demlenmiş dengeli günlük hasat</p>
+            </div>
+            <span class="font-serif font-bold text-roast-900 ml-4">110 ₺</span>
+          </div>
+
+          <div class="flex items-start justify-between border-b border-roast-100 pb-4">
+            <div>
+              <h4 class="font-serif text-lg font-semibold text-roast-950">Geleneksel Kumda Cezve</h4>
+              <p class="text-xs text-roast-600 mt-1">Özel mikro kavrum çekirdekten taze çekilmiş Türk kahvesi</p>
+            </div>
+            <span class="font-serif font-bold text-roast-900 ml-4">100 ₺</span>
+          </div>
+        </div>
+
+        <!-- Signature Items -->
+        <div id="category-imza" class="menu-pane hidden grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+          <div class="flex items-start justify-between border-b border-roast-100 pb-4">
+            <div>
+              <h4 class="font-serif text-lg font-semibold text-roast-950">Mizan Cold Brew (16 Saat)</h4>
+              <p class="text-xs text-roast-600 mt-1">Buzlu damıtma, kakao ve kuru erik notaları</p>
+            </div>
+            <span class="font-serif font-bold text-roast-900 ml-4">140 ₺</span>
+          </div>
+
+          <div class="flex items-start justify-between border-b border-roast-100 pb-4">
+            <div>
+              <h4 class="font-serif text-lg font-semibold text-roast-950">Moda Tonic</h4>
+              <p class="text-xs text-roast-600 mt-1">Espresso, doğal tonik suyu, kurutulmuş portakal & biberiye</p>
+            </div>
+            <span class="font-serif font-bold text-roast-900 ml-4">165 ₺</span>
+          </div>
+
+          <div class="flex items-start justify-between border-b border-roast-100 pb-4">
+            <div>
+              <h4 class="font-serif text-lg font-semibold text-roast-950">Kardamom Kremalı Buzlu Latte</h4>
+              <p class="text-xs text-roast-600 mt-1">Kakule infüzyonlu soğuk krema katmanı ile</p>
+            </div>
+            <span class="font-serif font-bold text-roast-900 ml-4">160 ₺</span>
+          </div>
+
+          <div class="flex items-start justify-between border-b border-roast-100 pb-4">
+            <div>
+              <h4 class="font-serif text-lg font-semibold text-roast-950">Yaban Mersini & Adaçayı Demleme</h4>
+              <p class="text-xs text-roast-600 mt-1">Kafeinsiz soğuk bitki infüzyonu, yerel hasat adaçayı</p>
+            </div>
+            <span class="font-serif font-bold text-roast-900 ml-4">130 ₺</span>
+          </div>
+        </div>
+
+        <!-- Bakery Items -->
+        <div id="category-firin" class="menu-pane hidden grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+          <div class="flex items-start justify-between border-b border-roast-100 pb-4">
+            <div>
+              <h4 class="font-serif text-lg font-semibold text-roast-950">Ekşi Mayalı Kakuleli Çörek</h4>
+              <p class="text-xs text-roast-600 mt-1">İsveç stili kardemummabulle, her sabah taze</p>
+            </div>
+            <span class="font-serif font-bold text-roast-900 ml-4">110 ₺</span>
+          </div>
+
+          <div class="flex items-start justify-between border-b border-roast-100 pb-4">
+            <div>
+              <h4 class="font-serif text-lg font-semibold text-roast-950">Tuzlu Karamel & Fındıklı Kurabiye</h4>
+              <p class="text-xs text-roast-600 mt-1">Giresun fındığı, Maldon deniz tuzu, %70 bitter çikolata</p>
+            </div>
+            <span class="font-serif font-bold text-roast-900 ml-4">95 ₺</span>
+          </div>
+
+          <div class="flex items-start justify-between border-b border-roast-100 pb-4">
+            <div>
+              <h4 class="font-serif text-lg font-semibold text-roast-950">Limon & Haşhaşlı Zeytinyağlı Kek</h4>
+              <p class="text-xs text-roast-600 mt-1">Ayvalık erken hasat zeytinyağı ile hafif doku</p>
+            </div>
+            <span class="font-serif font-bold text-roast-900 ml-4">120 ₺</span>
+          </div>
+
+          <div class="flex items-start justify-between border-b border-roast-100 pb-4">
+            <div>
+              <h4 class="font-serif text-lg font-semibold text-roast-950">Kruvasan & Ezine Peynirli Tost</h4>
+              <p class="text-xs text-roast-600 mt-1">Kurutulmuş domates ezmesi ve taze fesleğen ile</p>
+            </div>
+            <span class="font-serif font-bold text-roast-900 ml-4">155 ₺</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Retail / Beans Section -->
+    <section id="cekirdekler" class="py-20 bg-roast-950 text-roast-50">
+      <div class="max-w-6xl mx-auto px-5 sm:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+          <div>
+            <span class="text-xs tracking-widest uppercase font-semibold text-roast-400">Paketli Çekirdekler</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold mt-2 text-white">
+              Kavurmahaneden Evinize
+            </h2>
+          </div>
+          <p class="text-roast-300 text-sm max-w-md">
+            Moda'daki atölyemizde haftalık kavrulan çekirdekleri 250g kilitli ve valfli paketlerde ister çekirdek ister demleme yönteminize göre öğütülmüş olarak edinebilirsiniz.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <!-- Coffee Card 1 -->
+          <div class="bg-roast-900 rounded-2xl p-6 border border-roast-800 flex flex-col justify-between group hover:border-roast-600 transition">
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono text-roast-400 mb-4">
+                <span>AFRİKA · ETİYOPYA</span>
+                <span class="text-terracotta font-semibold">Yıkanmış</span>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-white mb-2">Chelchele G1</h3>
+              <p class="text-xs text-roast-400 mb-4">Yirgacheffe / 1.950 - 2.100m</p>
+              
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="text-[11px] px-2.5 py-1 rounded bg-roast-800/80 text-roast-200">Yasemin</span>
+                <span class="text-[11px] px-2.5 py-1 rounded bg-roast-800/80 text-roast-200">Şeftali</span>
+                <span class="text-[11px] px-2.5 py-1 rounded bg-roast-800/80 text-roast-200">Bergamot</span>
+              </div>
+            </div>
+
+            <div class="pt-5 border-t border-roast-800/80 flex items-center justify-between">
+              <div>
+                <span class="text-xs text-roast-400 block">250g Paket</span>
+                <span class="font-serif font-bold text-lg text-white">420 ₺</span>
+              </div>
+              <span class="text-xs px-3 py-1.5 rounded-full bg-roast-800 text-roast-300">Filtre İçin İdeal</span>
+            </div>
+          </div>
+
+          <!-- Coffee Card 2 -->
+          <div class="bg-roast-900 rounded-2xl p-6 border border-roast-800 flex flex-col justify-between group hover:border-roast-600 transition">
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono text-roast-400 mb-4">
+                <span>GÜNEY AMERİKA · KOLOMBİYA</span>
+                <span class="text-amber-400 font-semibold">Naturel Anaerobik</span>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-white mb-2">El Paraiso Huila</h3>
+              <p class="text-xs text-roast-400 mb-4">Castillo / 1.750m</p>
+              
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="text-[11px] px-2.5 py-1 rounded bg-roast-800/80 text-roast-200">Kırmızı Meyveler</span>
+                <span class="text-[11px] px-2.5 py-1 rounded bg-roast-800/80 text-roast-200">Sütlü Çikolata</span>
+                <span class="text-[11px] px-2.5 py-1 rounded bg-roast-800/80 text-roast-200">Karamel</span>
+              </div>
+            </div>
+
+            <div class="pt-5 border-t border-roast-800/80 flex items-center justify-between">
+              <div>
+                <span class="text-xs text-roast-400 block">250g Paket</span>
+                <span class="font-serif font-bold text-lg text-white">460 ₺</span>
+              </div>
+              <span class="text-xs px-3 py-1.5 rounded-full bg-roast-800 text-roast-300">Omni Kavrum</span>
+            </div>
+          </div>
+
+          <!-- Coffee Card 3 -->
+          <div class="bg-roast-900 rounded-2xl p-6 border border-roast-800 flex flex-col justify-between group hover:border-roast-600 transition">
+            <div>
+              <div class="flex items-center justify-between text-xs font-mono text-roast-400 mb-4">
+                <span>ORTA AMERİKA · GUATEMALA</span>
+                <span class="text-terracotta font-semibold">Yıkanmış</span>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-white mb-2">Huehuetenango</h3>
+              <p class="text-xs text-roast-400 mb-4">Bourbon & Caturra / 1.600m</p>
+              
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                <span class="text-[11px] px-2.5 py-1 rounded bg-roast-800/80 text-roast-200">Ceviz</span>
+                <span class="text-[11px] px-2.5 py-1 rounded bg-roast-800/80 text-roast-200">Akçaağaç</span>
+                <span class="text-[11px] px-2.5 py-1 rounded bg-roast-800/80 text-roast-200">Elma Asiditesi</span>
+              </div>
+            </div>
+
+            <div class="pt-5 border-t border-roast-800/80 flex items-center justify-between">
+              <div>
+                <span class="text-xs text-roast-400 block">250g Paket</span>
+                <span class="font-serif font-bold text-lg text-white">390 ₺</span>
+              </div>
+              <span class="text-xs px-3 py-1.5 rounded-full bg-roast-800 text-roast-300">Espresso & Sütlü</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="mt-10 p-6 rounded-2xl bg-roast-900/60 border border-roast-800 text-center flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p class="text-sm text-roast-300 text-left">
+            <strong class="text-white">Demleme reçetesi mi lazım?</strong> Baristalarımız paketinizi alırken su sıcaklığı ve öğütüm derecesi tavsiyelerini sizin ekipmanınıza göre memnuniyetle ayarlar.
+          </p>
+          <a href="#mekan" class="shrink-0 text-xs uppercase tracking-wider font-semibold px-5 py-2.5 bg-roast-100 text-roast-950 rounded-full hover:bg-white transition">
+            Dükkandan Satın Al
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Space & Location Section -->
+    <section id="mekan" class="py-20 max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs tracking-widest uppercase font-semibold text-terracotta">Mahallenin Kahvecisi</span>
+          <h2 class="font-serif text-3xl sm:text-4xl text-roast-950 font-bold">
+            Moda Caddesi'nin Sakin Köşesi
+          </h2>
+          <p class="text-roast-700 leading-relaxed text-sm sm:text-base">
+            Geniş ahşap masalarımız, sessiz arka bahçemiz ve sokağı izleyen cam önü sedirlerimizle ister kitap okumak, ister kısa bir mola vermek için tasarlandı.
+          </p>
+
+          <!-- Atmosphere Badges -->
+          <div class="grid grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-xl bg-roast-100/60 border border-roast-200">
+              <div class="flex items-center gap-2 mb-1">
+                <svg class="w-4 h-4 text-roast-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+                <h4 class="text-xs font-bold text-roast-900">Arka Bahçe</h4>
+              </div>
+              <p class="text-[11px] text-roast-600">Sarmaşıklar altında sigarasız ve sakin alan.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-roast-100/60 border border-roast-200">
+              <div class="flex items-center gap-2 mb-1">
+                <svg class="w-4 h-4 text-roast-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+                <h4 class="text-xs font-bold text-roast-900">Pati Dostu</h4>
+              </div>
+              <p class="text-[11px] text-roast-600">Dört ayaklı dostlarınız dükkanda her zaman baş tacı.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-roast-100/60 border border-roast-200">
+              <div class="flex items-center gap-2 mb-1">
+                <svg class="w-4 h-4 text-roast-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <h4 class="text-xs font-bold text-roast-900">Çalışma Alanı</h4>
+              </div>
+              <p class="text-[11px] text-roast-600">Hafta içi 08:30 - 15:00 arası prizli masalarda laptop dostu.</p>
+            </div>
+
+            <div class="p-4 rounded-xl bg-roast-100/60 border border-roast-200">
+              <div class="flex items-center gap-2 mb-1">
+                <svg class="w-4 h-4 text-roast-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h4 class="text-xs font-bold text-roast-900">Haftanın 7 Günü</h4>
+              </div>
+              <p class="text-[11px] text-roast-600">Pazartesi dahil sabah 08:30’dan akşam 21:00’e dek.</p>
+            </div>
+          </div>
+
+          <!-- Working Hours & Details -->
+          <div class="space-y-3 pt-2 text-sm text-roast-800">
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-terracotta shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+              <div>
+                <p class="font-semibold text-roast-950">Caferağa Mahallesi, Şair Nef'i Sokak No: 18/A</p>
+                <p class="text-xs text-roast-600">Moda İlkokulu çaprazı, Kadıköy / İstanbul</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-terracotta shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <div>
+                <p class="font-semibold text-roast-950">merhaba@mizancoffee.com</p>
+                <p class="text-xs text-roast-600">Atölye ve toptan kavrum talepleri için</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stylized Map & Arrival Card -->
+        <div class="lg:col-span-6 bg-[#F4ECE4] rounded-3xl p-6 sm:p-8 border border-roast-200">
+          <div class="flex items-center justify-between pb-6 border-b border-roast-200">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-roast-950">Ulaşım Rehberi</h3>
+              <p class="text-xs text-roast-600">Kadıköy İskelesi & Tramvay hattına yürüme mesafesinde</p>
+            </div>
+            <span class="text-xs font-mono px-3 py-1 bg-roast-200 rounded-full text-roast-800">Moda Tramvayı</span>
+          </div>
+
+          <!-- Stylized Map Graphic (CSS + SVG) -->
+          <div class="my-6 rounded-2xl bg-white p-6 border border-roast-200/80 shadow-inner relative overflow-hidden" aria-label="Kroki harita: Moda İskelesi, Tramvay Durağı ve Mizan Kahve">
+            <div class="text-[11px] font-mono uppercase text-roast-400 tracking-wider mb-2">Kadıköy Sahil Hattı</div>
+            
+            <div class="space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="w-6 h-6 rounded-full bg-roast-200 text-roast-800 flex items-center justify-center text-xs font-bold">1</div>
+                <div class="text-xs">
+                  <span class="font-semibold text-roast-900 block">Kadıköy Vapur İskelesi'nden:</span>
+                  <span class="text-roast-600">Bahariye Caddesi yönüne 10 dakika tatlı yokuş veya T3 nostaljik tramvay.</span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div class="w-6 h-6 rounded-full bg-roast-200 text-roast-800 flex items-center justify-center text-xs font-bold">2</div>
+                <div class="text-xs">
+                  <span class="font-semibold text-roast-900 block">T3 Tramvay Durağı:</span>
+                  <span class="text-roast-600">Moda İlkokulu durağında inin, Şair Nef'i Sokak'a 80 metre mesafede.</span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3">
+                <div class="w-6 h-6 rounded-full bg-roast-900 text-roast-50 flex items-center justify-center text-xs font-bold">📍</div>
+                <div class="text-xs">
+                  <span class="font-semibold text-roast-950 block">Mizan Coffee Roastery</span>
+                  <span class="text-roast-700 font-medium">Büyük karaağaç gölgesinde, tuğla kemerli giriş.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stylized schematic line -->
+            <div class="mt-6 pt-4 border-t border-dashed border-roast-200 flex items-center justify-between text-[11px] text-roast-600">
+              <span>⚓ Kadıköy Rıhtım</span>
+              <span>⟶ Tramvay (5 dk)</span>
+              <span class="font-semibold text-roast-950">📍 Mizan</span>
+              <span>⟶ Moda Sahil Parkı (4 dk)</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-3 px-5 rounded-full bg-roast-900 text-roast-50 text-xs uppercase tracking-wider font-semibold hover:bg-roast-800 transition shadow-sm">
+              Google Haritalar'da Aç
+            </a>
+            <a href="https://maps.apple.com" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-3 px-5 rounded-full border border-roast-300 text-roast-900 text-xs uppercase tracking-wider font-semibold hover:bg-white transition">
+              Apple Harita
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Simple Newsletter / Cupping Club (No fake claims) -->
+    <section class="py-16 bg-[#FAF6F0] border-t border-roast-200/80">
+      <div class="max-w-4xl mx-auto px-5 sm:px-8 text-center">
+        <span class="text-xs uppercase tracking-widest text-terracotta font-semibold">Haftalık Tadım Günleri</span>
+        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-roast-950 mt-2 mb-3">
+          Yeni Mahsulleri İlk Siz Deneyin
+        </h3>
+        <p class="text-roast-700 text-sm max-w-lg mx-auto mb-6">
+          Her ay düzenlediğimiz açık cupping (kahve tadımı) seansları ve yeni kavrulan mikrolot duyuruları için e-posta bültenimize kaydolabilirsiniz.
+        </p>
+
+        <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-2" onsubmit="event.preventDefault();">
+          <input 
+            type="email" 
+            placeholder="E-posta adresiniz" 
+            aria-label="E-posta adresiniz"
+            required
+            class="flex-1 px-4 py-3 rounded-full bg-white border border-roast-300 text-sm text-roast-900 placeholder:text-roast-400 focus:outline-none focus:ring-2 focus:ring-roast-800 focus:border-transparent"
+          >
+          <button type="submit" class="px-6 py-3 rounded-full bg-roast-900 text-roast-50 text-xs font-semibold uppercase tracking-wider hover:bg-roast-800 transition">
+            Kaydol
+          </button>
+        </form>
+        <p class="text-[11px] text-roast-500 mt-2.5">Spam göndermiyoruz, ayda en fazla iki bilgilendirme mesajı.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-roast-950 text-roast-300 border-t border-roast-900 pt-16 pb-12">
+    <div class="max-w-6xl mx-auto px-5 sm:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-roast-900">
+        
+        <div class="md:col-span-1 space-y-3">
+          <span class="font-serif text-2xl tracking-tight font-bold text-white block">Mizan</span>
+          <p class="text-xs text-roast-400 leading-relaxed">
+            Moda'da yerleşik bağımsız nitelikli kahve kavurucusu. Denge, şeffaflık ve taze hasat.
+          </p>
+          <p class="text-[11px] text-roast-400 font-mono">İstanbul · Kadıköy</p>
+        </div>
+
+        <div>
+          <h5 class="text-xs uppercase font-semibold text-roast-200 tracking-wider mb-4">Çalışma Saatleri</h5>
+          <ul class="text-xs space-y-2 text-roast-400">
+            <li class="flex justify-between">
+              <span>Hafta İçi:</span>
+              <span class="text-white font-mono">08:30 – 21:00</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Cumartesi:</span>
+              <span class="text-white font-mono">09:00 – 21:30</span>
+            </li>
+            <li class="flex justify-between">
+              <span>Pazar:</span>
+              <span class="text-white font-mono">09:00 – 21:00</span>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-xs uppercase font-semibold text-roast-200 tracking-wider mb-4">Hızlı Bağlantılar</h5>
+          <ul class="text-xs space-y-2">
+            <li><a href="#hikaye" class="hover:text-white transition">Hakkımızda & Kavurma</a></li>
+            <li><a href="#menu" class="hover:text-white transition">İçecek ve Tatlı Menüsü</a></li>
+            <li><a href="#cekirdekler" class="hover:text-white transition">250g Paket Çekirdekler</a></li>
+            <li><a href="#mekan" class="hover:text-white transition">Mekân ve Yol Tarifi</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h5 class="text-xs uppercase font-semibold text-roast-200 tracking-wider mb-4">İletişim & Sosyal</h5>
+          <p class="text-xs text-roast-400 mb-3">
+            Caferağa Mah., Şair Nef'i Sok. No:18/A Kadıköy
+          </p>
+          <a href="#" class="inline-flex items-center gap-2 text-xs text-roast-200 hover:text-white transition py-1">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+            <span>@mizancoffee.moda</span>
+          </a>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-roast-500">
+        <p>© 2025 Mizan Coffee Roasters. Tüm hakları saklıdır.</p>
+        <p>Kadıköy / İstanbul'da taze demlenmiştir.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vanilla Interactions Script -->
+  <script>
+    // Mobile Drawer Toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const openIcon = document.getElementById('menu-open-icon');
+    const closeIcon = document.getElementById('menu-close-icon');
+
+    menuBtn.addEventListener('click', () => {
+      const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('hidden');
+      openIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Menu Category Tabs
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const menuPanes = document.querySelectorAll('.menu-pane');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+
+        // Reset all tab styles
+        tabButtons.forEach(btn => {
+          btn.classList.remove('bg-roast-900', 'text-roast-50', 'shadow-sm');
+          btn.classList.add('text-roast-800');
+        });
+
+        // Set active tab styles
+        button.classList.add('bg-roast-900', 'text-roast-50', 'shadow-sm');
+        button.classList.remove('text-roast-800');
+
+        // Toggle category content
+        menuPanes.forEach(pane => {
+          if (pane.id === `category-${category}`) {
+            pane.classList.remove('hidden');
+          } else {
+            pane.classList.add('hidden');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
