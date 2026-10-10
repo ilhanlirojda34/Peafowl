@@ -2,14 +2,14 @@ import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 import { ConfigError, loadConfig } from './config.ts';
 
-/** Placeholder value for tests. Never put a real key in test code. */
-const FAKE_API_KEY = 'fake-google-api-key';
+/** Any non-empty value; these tests only check how the key is read, not whether it works. */
+const TEST_API_KEY = 'test-api-key';
 
 describe('loadConfig', () => {
   it('applies defaults when only the API key is set', () => {
-    const config = loadConfig({ GOOGLE_GENERATIVE_AI_API_KEY: FAKE_API_KEY });
+    const config = loadConfig({ GOOGLE_GENERATIVE_AI_API_KEY: TEST_API_KEY });
 
-    assert.equal(config.googleApiKey, FAKE_API_KEY);
+    assert.equal(config.googleApiKey, TEST_API_KEY);
     assert.equal(config.model, 'gemini-3.8-flash');
     assert.equal(config.llmTimeoutMs, 300_000);
     assert.equal(config.llmIdleTimeoutMs, 60_000);
@@ -20,7 +20,7 @@ describe('loadConfig', () => {
 
   it('coerces numeric variables from strings', () => {
     const config = loadConfig({
-      GOOGLE_GENERATIVE_AI_API_KEY: FAKE_API_KEY,
+      GOOGLE_GENERATIVE_AI_API_KEY: TEST_API_KEY,
       LLM_TIMEOUT_MS: '5000',
       EVAL_CONCURRENCY: '4',
     });
@@ -43,7 +43,7 @@ describe('loadConfig', () => {
     assert.throws(
       () =>
         loadConfig({
-          GOOGLE_GENERATIVE_AI_API_KEY: FAKE_API_KEY,
+          GOOGLE_GENERATIVE_AI_API_KEY: TEST_API_KEY,
           LLM_TIMEOUT_MS: secretLookingValue,
         }),
       (error: unknown) =>
