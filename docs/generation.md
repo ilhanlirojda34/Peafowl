@@ -32,16 +32,19 @@ const siteSpecSchema = z.object({
   schemaVersion: z.literal(1),
   language: z.enum(['tr', 'en']),
   business: z.object({
-    name: z.string().min(1),                  // kritik
-    type: z.string().min(1),                  // kritik: "kahve kavurucusu", "diş kliniği"
+    name: z.string().min(1), // kritik
+    type: z.string().min(1), // kritik: "kahve kavurucusu", "diş kliniği"
     city: z.string().nullable(),
-    summary: z.string().nullable(),           // kullanıcının kendi anlatımı
+    summary: z.string().nullable(), // kullanıcının kendi anlatımı
   }),
-  offerings: z.array(z.object({               // ürün/hizmet, kullanıcının verdiği kadar
-    name: z.string().min(1),
-    description: z.string().nullable(),
-    price: z.string().nullable(),
-  })),
+  offerings: z.array(
+    z.object({
+      // ürün/hizmet, kullanıcının verdiği kadar
+      name: z.string().min(1),
+      description: z.string().nullable(),
+      price: z.string().nullable(),
+    }),
+  ),
   contact: z.object({
     phone: z.string().nullable(),
     email: z.string().nullable(),
@@ -69,17 +72,17 @@ Kurallar:
 
 ## Generation kaydı
 
-| Alan | Neden |
-|---|---|
-| `id`, `projectId` (→ `ownerId`) | Sahiplik ve yetki kontrolü ([D8](decisions.md#d8-sahiplik-ilk-şemadan-itibaren-var)) |
-| `status` | `queued` → `analyzing` → `awaiting_input` → `generating` → `validating` → `completed` / `failed` |
-| `brief` | Kullanıcının orijinal girdisi |
-| `spec` (jsonb) | Üretimin kaynağı, yeniden üretilebilirlik |
-| `missingFields` | `awaiting_input` durumunda sorulacak alanlar |
-| `html` | Çıktı ([D9](decisions.md#d9-faz-1de-üretilen-html-postgresqlde-saklanır)) |
-| `model`, `promptVersion` | Kalite takibi |
-| `inputTokens`, `outputTokens` | Kota ve maliyet |
-| `errorCode`, zaman damgaları | Hata takibi |
+| Alan                            | Neden                                                                                            |
+| ------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `id`, `projectId` (→ `ownerId`) | Sahiplik ve yetki kontrolü ([D8](decisions.md#d8-sahiplik-ilk-şemadan-itibaren-var))             |
+| `status`                        | `queued` → `analyzing` → `awaiting_input` → `generating` → `validating` → `completed` / `failed` |
+| `brief`                         | Kullanıcının orijinal girdisi                                                                    |
+| `spec` (jsonb)                  | Üretimin kaynağı, yeniden üretilebilirlik                                                        |
+| `missingFields`                 | `awaiting_input` durumunda sorulacak alanlar                                                     |
+| `html`                          | Çıktı ([D9](decisions.md#d9-faz-1de-üretilen-html-postgresqlde-saklanır))                        |
+| `model`, `promptVersion`        | Kalite takibi                                                                                    |
+| `inputTokens`, `outputTokens`   | Kota ve maliyet                                                                                  |
+| `errorCode`, zaman damgaları    | Hata takibi                                                                                      |
 
 ## İleride (Faz 1'de yok)
 
