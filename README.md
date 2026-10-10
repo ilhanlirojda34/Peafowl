@@ -19,6 +19,11 @@ cp .env.example .env   # then set GOOGLE_GENERATIVE_AI_API_KEY
 | `npm run eval`                            | Run all cases in `evals/prompts.json`, write a report to `out/evals/` |
 | `npm test` / `typecheck` / `lint`         | Quality gates                                                         |
 
+## Docs
+
+- [`docs/decisions.md`](docs/decisions.md) – architecture and technology decisions, with reasons and when to revisit them
+- [`docs/generation.md`](docs/generation.md) – SiteSpec data model and the generation flow
+
 ## Layout
 
 - `prompts/site-generator.md` – system prompt (edit this most; eval results are tagged with its hash)
