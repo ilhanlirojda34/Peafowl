@@ -1,5 +1,11 @@
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
-import { APICallError, generateText } from 'ai';
+import {
+  APICallError,
+  streamText,
+  type FinishReason,
+  type LanguageModel,
+  type LanguageModelUsage,
+} from 'ai';
 import type { Config } from './config.ts';
 import type { Logger } from './logger.ts';
 import type { SystemPrompt } from './prompt.ts';
@@ -25,70 +31,158 @@ export class SiteGenerationError extends Error {
 
 export type GenerateSite = (brief: string, abortSignal?: AbortSignal) => Promise<GeneratedSite>;
 
+type GeneratorConfig = Pick<
+  Config,
+  'model' | 'llmTimeoutMs' | 'llmIdleTimeoutMs' | 'llmMaxRetries'
+>;
+
 interface SiteGeneratorDependencies {
-  readonly config: Config;
+  readonly model: LanguageModel;
+  readonly config: GeneratorConfig;
   readonly logger: Logger;
   readonly prompt: SystemPrompt;
 }
 
+export function createGeminiModel(config: Pick<Config, 'googleApiKey' | 'model'>): LanguageModel {
+  return createGoogleGenerativeAI({ apiKey: config.googleApiKey })(config.model);
+}
+
 /**
- * The only place that talks to the LLM. Translates provider errors and unusable output into
- * SiteGenerationError and logs each failure once. The brief itself is never logged.
+ * The only place that talks to the LLM. The response is streamed so that a stalled model is cut
+ * off by the idle timeout while a slow but progressing one is allowed to finish. Failures are
+ * translated into SiteGenerationError and logged once. The brief itself is never logged.
  */
 export function createSiteGenerator({
+  model,
   config,
   logger,
   prompt,
 }: SiteGeneratorDependencies): GenerateSite {
-  const model = createGoogleGenerativeAI({ apiKey: config.googleApiKey })(config.model);
   const log = logger.child({ model: config.model, promptVersion: prompt.version });
 
   return async (brief, abortSignal) => {
     const startedAt = performance.now();
 
-    let result;
-    try {
-      result = await generateText({
-        model,
-        system: prompt.text,
-        prompt: brief,
-        timeout: config.llmTimeoutMs,
-        maxRetries: config.llmMaxRetries,
-        abortSignal,
-      });
-    } catch (error) {
-      const failure = describeProviderError(error);
-      log.error(
-        { ...failure, briefLength: brief.length, durationMs: elapsedSince(startedAt) },
-        'Model request failed',
-      );
+    const result = streamText({
+      model,
+      system: prompt.text,
+      prompt: brief,
+      maxRetries: config.llmMaxRetries,
+      abortSignal,
+      timeout: {
+        totalMs: config.llmTimeoutMs,
+        firstChunkMs: config.llmIdleTimeoutMs,
+        chunkMs: config.llmIdleTimeoutMs,
+      },
+      // Thinking is streamed so the idle timeout does not fire while the model is reasoning.
+      providerOptions: { google: { thinkingConfig: { includeThoughts: true } } },
+      // Errors are read from the stream below; this only stops the SDK's default console output.
+      onError: () => {},
+    });
+
+    const outcome = await consumeStream(result.stream, startedAt, (firstOutputMs) =>
+      log.info({ firstOutputMs }, 'Model started responding'),
+    );
+    const progress = {
+      durationMs: elapsedSince(startedAt),
+      firstOutputMs: outcome.firstOutputMs,
+      textChars: outcome.text.length,
+      reasoningChars: outcome.reasoningChars,
+    };
+
+    if (outcome.error !== undefined) {
+      const failure = describeProviderError(outcome.error);
+      log.error({ ...failure, ...progress, briefLength: brief.length }, 'Model request failed');
       const status = failure.statusCode === undefined ? '' : ` (HTTP ${failure.statusCode})`;
-      throw new SiteGenerationError('request-failed', `The model request failed${status}`, {
-        cause: error,
-      });
+      throw new SiteGenerationError(
+        'request-failed',
+        `The model request failed${status}: ${failure.errorMessage}`,
+        { cause: outcome.error },
+      );
     }
 
-    const durationMs = elapsedSince(startedAt);
-    const { inputTokens, outputTokens } = result.usage;
+    const inputTokens = outcome.usage?.inputTokens;
+    const outputTokens = outcome.usage?.outputTokens;
 
     let html: string;
     try {
-      html = extractHtmlDocument(result.text);
+      html = extractHtmlDocument(outcome.text);
     } catch (error) {
       if (!(error instanceof InvalidHtmlError)) throw error;
       log.warn(
-        { reason: error.reason, finishReason: result.finishReason, outputTokens, durationMs },
+        { reason: error.reason, finishReason: outcome.finishReason, outputTokens, ...progress },
         'Model returned an unusable document',
       );
       throw new SiteGenerationError('invalid-output', error.message, { cause: error });
     }
 
     log.info(
-      { durationMs, inputTokens, outputTokens, finishReason: result.finishReason },
+      { ...progress, inputTokens, outputTokens, finishReason: outcome.finishReason },
       'Site generated',
     );
-    return { html, durationMs, inputTokens, outputTokens };
+    return { html, durationMs: progress.durationMs, inputTokens, outputTokens };
   };
+}
+
+interface StreamOutcome {
+  readonly text: string;
+  readonly reasoningChars: number;
+  readonly firstOutputMs: number | undefined;
+  readonly finishReason: FinishReason | undefined;
+  readonly usage: LanguageModelUsage | undefined;
+  /** Set when the stream ended in an error, abort or timeout. */
+  readonly error: unknown;
+}
+
+type StreamPart =
+  ReturnType<typeof streamText>['stream'] extends AsyncIterable<infer P> ? P : never;
+
+async function consumeStream(
+  stream: AsyncIterable<StreamPart>,
+  startedAt: number,
+  onFirstOutput: (firstOutputMs: number) => void,
+): Promise<StreamOutcome> {
+  let text = '';
+  let reasoningChars = 0;
+  let firstOutputMs: number | undefined;
+  let finishReason: FinishReason | undefined;
+  let usage: LanguageModelUsage | undefined;
+  let error: unknown;
+
+  const markOutput = (): void => {
+    if (firstOutputMs !== undefined) return;
+    firstOutputMs = elapsedSince(startedAt);
+    onFirstOutput(firstOutputMs);
+  };
+
+  try {
+    for await (const part of stream) {
+      switch (part.type) {
+        case 'text-delta':
+          markOutput();
+          text += part.text;
+          break;
+        case 'reasoning-delta':
+          markOutput();
+          reasoningChars += part.text.length;
+          break;
+        case 'finish':
+          finishReason = part.finishReason;
+          usage = part.totalUsage;
+          break;
+        case 'error':
+          error = part.error;
+          break;
+        case 'abort':
+          error = new Error(`Generation aborted${part.reason ? `: ${part.reason}` : ''}`);
+          break;
+      }
+    }
+  } catch (streamError) {
+    error = streamError;
+  }
+
+  return { text, reasoningChars, firstOutputMs, finishReason, usage, error };
 }
 
 /**

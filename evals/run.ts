@@ -2,7 +2,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { z } from 'zod';
 import { loadConfig } from '../src/config.ts';
-import { createSiteGenerator, SiteGenerationError } from '../src/generate.ts';
+import { createGeminiModel, createSiteGenerator, SiteGenerationError } from '../src/generate.ts';
 import { createLogger } from '../src/logger.ts';
 import { loadSystemPrompt } from '../src/prompt.ts';
 import { runHtmlChecks, type CheckResult } from './checks.ts';
@@ -28,7 +28,12 @@ const EVAL_CASES_PATH = join(import.meta.dirname, 'prompts.json');
 async function main(): Promise<void> {
   const config = loadConfig();
   const prompt = await loadSystemPrompt();
-  const generateSite = createSiteGenerator({ config, logger: createLogger(config), prompt });
+  const generateSite = createSiteGenerator({
+    model: createGeminiModel(config),
+    config,
+    logger: createLogger(config),
+    prompt,
+  });
   const cases = z.array(evalCaseSchema).parse(JSON.parse(await readFile(EVAL_CASES_PATH, 'utf8')));
 
   const runId = new Date().toISOString().replace(/[:.]/g, '-');

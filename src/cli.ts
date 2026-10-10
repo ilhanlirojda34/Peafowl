@@ -2,7 +2,7 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { parseArgs } from 'node:util';
 import { ConfigError, loadConfig } from './config.ts';
-import { createSiteGenerator, SiteGenerationError } from './generate.ts';
+import { createGeminiModel, createSiteGenerator, SiteGenerationError } from './generate.ts';
 import { createLogger } from './logger.ts';
 import { loadSystemPrompt } from './prompt.ts';
 
@@ -23,6 +23,7 @@ async function main(): Promise<void> {
 
   const config = loadConfig();
   const generateSite = createSiteGenerator({
+    model: createGeminiModel(config),
     config,
     logger: createLogger(config),
     prompt: await loadSystemPrompt(),
