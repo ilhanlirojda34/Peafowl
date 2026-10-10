@@ -1,5 +1,5 @@
 import { createGoogleGenerativeAI } from '@ai-sdk/google';
-import { generateText } from 'ai';
+import { APICallError, generateText } from 'ai';
 import type { Config } from './config.ts';
 import type { Logger } from './logger.ts';
 import type { SystemPrompt } from './prompt.ts';
@@ -57,11 +57,13 @@ export function createSiteGenerator({
         abortSignal,
       });
     } catch (error) {
+      const failure = describeProviderError(error);
       log.error(
-        { err: error, briefLength: brief.length, durationMs: elapsedSince(startedAt) },
+        { ...failure, briefLength: brief.length, durationMs: elapsedSince(startedAt) },
         'Model request failed',
       );
-      throw new SiteGenerationError('request-failed', 'The model request failed', {
+      const status = failure.statusCode === undefined ? '' : ` (HTTP ${failure.statusCode})`;
+      throw new SiteGenerationError('request-failed', `The model request failed${status}`, {
         cause: error,
       });
     }
@@ -86,6 +88,29 @@ export function createSiteGenerator({
       'Site generated',
     );
     return { html, durationMs, inputTokens, outputTokens };
+  };
+}
+
+/**
+ * Keeps only diagnostic fields. The raw provider error also carries the request body
+ * (system prompt and the user's brief), which must not end up in logs.
+ */
+export function describeProviderError(error: unknown): {
+  errorMessage: string;
+  statusCode: number | undefined;
+  retryable: boolean | undefined;
+} {
+  if (APICallError.isInstance(error)) {
+    return {
+      errorMessage: error.message,
+      statusCode: error.statusCode,
+      retryable: error.isRetryable,
+    };
+  }
+  return {
+    errorMessage: error instanceof Error ? error.message : String(error),
+    statusCode: undefined,
+    retryable: undefined,
   };
 }
 
