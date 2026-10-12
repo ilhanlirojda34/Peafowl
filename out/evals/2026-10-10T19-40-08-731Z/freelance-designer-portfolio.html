@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inês Carmo — Brand Designer &amp; Creative Director, Lisbon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sand: {
+              50: '#FAF8F5',
+              100: '#F4EFEB',
+              200: '#E8DFD7',
+              300: '#D6C7B8',
+              800: '#2A2622',
+              900: '#191614',
+            },
+            terracotta: {
+              DEFAULT: '#C35336',
+              dark: '#A64126',
+              light: '#E57B60'
+            },
+            olive: '#4D5343'
+          },
+          fontFamily: {
+            display: ['Syne', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::selection {
+      background-color: #C35336;
+      color: #FAF8F5;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+    .grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(42, 38, 34, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(42, 38, 34, 0.04) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="bg-sand-50 text-sand-900 font-sans antialiased selection:bg-terracotta selection:text-white">
+
+  <!-- Header -->
+  <header class="fixed top-0 inset-x-0 z-40 bg-sand-50/90 backdrop-blur-md border-b border-sand-200/80 transition-all">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 h-20 flex items-center justify-between">
+      <a href="#top" class="group flex items-baseline space-x-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta rounded">
+        <span class="font-display font-bold text-xl tracking-tight text-sand-900 group-hover:text-terracotta transition-colors">Inês Carmo</span>
+        <span class="text-xs tracking-widest uppercase text-sand-800/60 font-semibold hidden sm:inline-block">/ Studio Lisbon</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center space-x-9 text-sm font-medium text-sand-800">
+        <a href="#approach" class="hover:text-terracotta transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta rounded">Practice</a>
+        <a href="#work" class="hover:text-terracotta transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta rounded">Selected Case Studies</a>
+        <a href="#services" class="hover:text-terracotta transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta rounded">Capabilities</a>
+        <a href="#contact" class="inline-flex items-center gap-2 bg-sand-900 text-sand-50 px-5 py-2.5 rounded-full hover:bg-terracotta transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-terracotta">
+          <span>Start a Project</span>
+          <svg class="w-3.5 h-3.5" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M1 13L13 1M13 1H4M13 1V10"/>
+          </svg>
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-toggle" type="button" class="md:hidden p-2 rounded-lg text-sand-900 hover:bg-sand-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-terracotta" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="menu-icon-bars" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Nav Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-sand-200 bg-sand-50 px-6 py-6 transition-all">
+      <nav class="flex flex-col space-y-4 text-base font-medium">
+        <a href="#approach" class="text-sand-800 hover:text-terracotta py-1">Practice</a>
+        <a href="#work" class="text-sand-800 hover:text-terracotta py-1">Selected Case Studies</a>
+        <a href="#services" class="text-sand-800 hover:text-terracotta py-1">Capabilities</a>
+        <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-sand-900 text-sand-50 px-5 py-3 rounded-full hover:bg-terracotta text-sm">
+          <span>Start a Project</span>
+          <svg class="w-3.5 h-3.5" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M1 13L13 1M13 1H4M13 1V10"/>
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="pt-20">
+
+    <!-- Hero Section -->
+    <section class="relative min-h-[88vh] flex items-center border-b border-sand-200/80 overflow-hidden grid-pattern">
+      <div class="max-w-7xl mx-auto px-6 sm:px-8 py-20 lg:py-28 w-full relative z-10">
+        
+        <div class="max-w-4xl">
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-sand-300 bg-white/70 backdrop-blur-sm text-xs font-semibold uppercase tracking-wider text-sand-800 mb-8">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Independent Brand Designer &bull; Lisbon, Portugal (WET/UTC+0)</span>
+          </div>
+
+          <h1 class="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight text-sand-900 leading-[1.08] mb-8">
+            Distinctive brand identities forged with quiet rigor and Mediterranean warmth.
+          </h1>
+
+          <p class="text-lg sm:text-xl text-sand-800/80 max-w-2xl font-normal leading-relaxed mb-10">
+            I partner with founders, cultural institutions, and conscious makers across Europe to design visual identities, typographic systems, and digital flagships built to endure.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <a href="#work" class="inline-flex items-center justify-center gap-3 px-8 py-4 bg-terracotta text-white rounded-full font-medium hover:bg-terracotta-dark transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-terracotta shadow-sm">
+              <span>Explore Selected Work</span>
+              <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M8 3v10M3 8l5 5 5-5"/>
+              </svg>
+            </a>
+            <a href="#contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white border border-sand-300 text-sand-900 rounded-full font-medium hover:border-sand-900 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-sand-800">
+              <span>Book Q3 / Q4 Intake</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick studio indicators -->
+        <div class="mt-20 pt-8 border-t border-sand-300/80 grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+          <div>
+            <div class="text-sand-800/60 text-xs font-semibold uppercase tracking-wider mb-1">Focus</div>
+            <div class="font-medium text-sand-900">Brand Systems &amp; Art Direction</div>
+          </div>
+          <div>
+            <div class="text-sand-800/60 text-xs font-semibold uppercase tracking-wider mb-1">Studio Desk</div>
+            <div class="font-medium text-sand-900">Santos Design District, Lisboa</div>
+          </div>
+          <div>
+            <div class="text-sand-800/60 text-xs font-semibold uppercase tracking-wider mb-1">Cadence</div>
+            <div class="font-medium text-sand-900">Only 2 concurrent commissions</div>
+          </div>
+          <div>
+            <div class="text-sand-800/60 text-xs font-semibold uppercase tracking-wider mb-1">Languages</div>
+            <div class="font-medium text-sand-900">Portuguese, English, French</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Approach / Philosophy Brief -->
+    <section id="approach" class="py-20 lg:py-28 max-w-7xl mx-auto px-6 sm:px-8 border-b border-sand-200/80">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div class="lg:col-span-4">
+          <span class="text-xs font-bold uppercase tracking-widest text-terracotta">Studio Ethos</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-sand-900 mt-3 leading-snug">
+            Clarity before decoration. Permanence over trend chasing.
+          </h2>
+        </div>
+        <div class="lg:col-span-8 space-y-6 text-base sm:text-lg text-sand-800/85 leading-relaxed font-normal">
+          <p>
+            Working independently allows me to stay completely immersed in your project from primary positioning to the final print proof. I avoid bloated account teams and boilerplate moodboards, favoring deep craft, historical reference, and custom typographic character.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+            <div class="p-6 rounded-2xl bg-sand-100/70 border border-sand-200">
+              <span class="font-display text-2xl font-bold text-sand-900 block mb-2">01</span>
+              <h3 class="font-bold text-sand-900 text-base mb-1">Narrative Discovery</h3>
+              <p class="text-sm text-sand-800/75">Unearthing the single essential truth your brand stands upon through guided strategic inquiry.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-sand-100/70 border border-sand-200">
+              <span class="font-display text-2xl font-bold text-sand-900 block mb-2">02</span>
+              <h3 class="font-bold text-sand-900 text-base mb-1">Typographic Rigor</h3>
+              <p class="text-sm text-sand-800/75">Customized wordmarks, calibrated hierarchies, and material choices that tell a cohesive story.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-sand-100/70 border border-sand-200">
+              <span class="font-display text-2xl font-bold text-sand-900 block mb-2">03</span>
+              <h3 class="font-bold text-sand-900 text-base mb-1">Unified Execution</h3>
+              <p class="text-sm text-sand-800/75">Production-ready guidelines spanning packaging, spatial signage, and web-ready component libraries.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Studies Section (3 Detailed Projects) -->
+    <section id="work" class="py-20 lg:py-32 max-w-7xl mx-auto px-6 sm:px-8 border-b border-sand-200/80">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-terracotta">Selected Case Studies</span>
+          <h2 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight text-sand-900 mt-2">
+            Work in the wild.
+          </h2>
+        </div>
+        <p class="text-sm text-sand-800/70 max-w-xs">
+          Each project represents an end-to-end partnership from strategic positioning through final production.
+        </p>
+      </div>
+
+      <div class="space-y-28 lg:space-y-36">
+
+        <!-- Case Study 01: Olaria do Bairro -->
+        <article class="group">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Visual Canvas -->
+            <div class="lg:col-span-7 order-1">
+              <div class="relative w-full aspect-[4/3] sm:aspect-[16/10] rounded-3xl overflow-hidden shadow-lg border border-sand-300 bg-gradient-to-br from-[#E6D7C8] via-[#D5BEA8] to-[#996547] flex flex-col justify-between p-8 sm:p-12 text-sand-900" role="img" aria-label="Visual identity design for Olaria do Bairro showing ceramic stamps, tactile packaging and warm terracotta palette">
+                <!-- Decorative Graphic Elements -->
+                <div class="flex justify-between items-start">
+                  <div class="bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-sand-900 border border-sand-300/60 shadow-sm">
+                    Ceramics &bull; Lisbon
+                  </div>
+                  <div class="w-12 h-12 rounded-full border border-sand-900/30 flex items-center justify-center font-display text-lg font-bold">
+                    OB
+                  </div>
+                </div>
+
+                <div class="my-auto py-8">
+                  <div class="max-w-md bg-sand-50/95 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-sand-200/80 shadow-md">
+                    <div class="text-[10px] uppercase font-bold tracking-widest text-terracotta mb-1">Typographic Wordmark</div>
+                    <div class="font-display text-2xl sm:text-3xl font-extrabold tracking-tight text-sand-900 mb-3">
+                      Olaria do Bairro
+                    </div>
+                    <p class="text-xs sm:text-sm text-sand-800/80 leading-relaxed font-sans">
+                      Drawn from hand-carved Portuguese ceramic punches and 1920s Alfama storefront enamel plaques.
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-sand-200 flex gap-2">
+                      <span class="w-5 h-5 rounded-full bg-[#996547] border border-white/50" title="Bisque Terracotta"></span>
+                      <span class="w-5 h-5 rounded-full bg-[#E6D7C8] border border-white/50" title="Glazed Raw Stone"></span>
+                      <span class="w-5 h-5 rounded-full bg-[#2B3830] border border-white/50" title="Graça Deep Pine"></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex justify-between items-end text-xs text-sand-900 font-medium">
+                  <span>Physical &bull; Packaging &bull; Environmental</span>
+                  <span>Graça, Lisbon</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Case Study Content -->
+            <div class="lg:col-span-5 order-2">
+              <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-terracotta mb-2">
+                <span>01</span>
+                <span>&bull;</span>
+                <span>Craft &amp; Hospitality</span>
+              </div>
+              <h3 class="font-display text-2xl sm:text-4xl font-bold tracking-tight text-sand-900 mb-4">
+                Olaria do Bairro
+              </h3>
+              <p class="text-sand-800/85 leading-relaxed mb-6 text-base">
+                An artisan stoneware studio and espresso counter situated on the hills of Graça. The founders needed an identity that honored century-old Portuguese clay traditions while maintaining a contemporary, international gallery presence.
+              </p>
+
+              <div class="space-y-4 mb-8">
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-sand-900">The Challenge</h4>
+                  <p class="text-sm text-sand-800/75 mt-1">Replacing an improvised cafe look with a unified design system fit for wholesale exports across Europe.</p>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-sand-900">The Solution</h4>
+                  <p class="text-sm text-sand-800/75 mt-1">Custom wordmark, debossed potter's touchmarks, biodegradable tissue wraps, bilingual exhibition catalogues, and brass facade signage.</p>
+                </div>
+              </div>
+
+              <!-- Metadata pills -->
+              <div class="flex flex-wrap gap-2 pt-2 border-t border-sand-200">
+                <span class="px-3 py-1 bg-sand-100 text-xs font-medium rounded-full text-sand-800">Brand Strategy</span>
+                <span class="px-3 py-1 bg-sand-100 text-xs font-medium rounded-full text-sand-800">Custom Logotype</span>
+                <span class="px-3 py-1 bg-sand-100 text-xs font-medium rounded-full text-sand-800">Sustainable Packaging</span>
+                <span class="px-3 py-1 bg-sand-100 text-xs font-medium rounded-full text-sand-800">Signage System</span>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+
+        <!-- Case Study 02: Vanguard Maritime -->
+        <article class="group">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Content first on desktop for rhythm -->
+            <div class="lg:col-span-5 order-2 lg:order-1">
+              <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-terracotta mb-2">
+                <span>02</span>
+                <span>&bull;</span>
+                <span>Clean Mobility &amp; Ocean Tech</span>
+              </div>
+              <h3 class="font-display text-2xl sm:text-4xl font-bold tracking-tight text-sand-900 mb-4">
+                Vanguard Maritime
+              </h3>
+              <p class="text-sand-800/85 leading-relaxed mb-6 text-base">
+                A Cascais and Azores-based zero-emission sea transit startup deploying electric hydrofoil passenger vessels across Atlantic archipelagos. Built for institutional credibility and nautical authority.
+              </p>
+
+              <div class="space-y-4 mb-8">
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-sand-900">The Challenge</h4>
+                  <p class="text-sm text-sand-800/75 mt-1">Conveying aerospace-grade battery engineering and marine safety without slipping into generic green tech clichés.</p>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-sand-900">The Solution</h4>
+                  <p class="text-sm text-sand-800/75 mt-1">Constructed a modular geometric beacon symbol, a strict high-contrast editorial system, fleet vessel liveries, and pilot instrumentation UI guidelines.</p>
+                </div>
+              </div>
+
+              <!-- Metadata pills -->
+              <div class="flex flex-wrap gap-2 pt-2 border-t border-sand-200">
+                <span class="px-3 py-1 bg-sand-100 text-xs font-medium rounded-full text-sand-800">Visual Identity</span>
+                <span class="px-3 py-1 bg-sand-100 text-xs font-medium rounded-full text-sand-800">Design System</span>
+                <span class="px-3 py-1 bg-sand-100 text-xs font-medium rounded-full text-sand-800">Vessel Livery</span>
+                <span class="px-3 py-1 bg-sand-100 text-xs font-medium rounded-full text-sand-800">UI Direction</span>
+              </div>
+            </div>
+
+            <!-- Visual Canvas -->
+            <div class="lg:col-span-7 order-1 lg:order-2">
+              <div class="relative w-full aspect-[4/3] sm:aspect-[16/10] rounded-3xl overflow-hidden shadow-lg border border-sand-300 bg-gradient-to-br from-[#12222E] via-[#1B3A4B] to-[#0A1620] flex flex-col justify-between p-8 sm:p-12 text-sand-50" role="img" aria-label="Brand design showcase for Vanguard Maritime with nautical charts, deep oceanic blues and crisp sans-serif geometry">
+                <!-- Graphic UI Showcase -->
+                <div class="flex justify-between items-start">
+                  <div class="bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase border border-white/20 text-white">
+                    Azores &amp; Cascais
+                  </div>
+                  <div class="font-mono text-xs tracking-widest text-cyan-300">
+                    38°41'N &bull; 09°25'W
+                  </div>
+                </div>
+
+                <div class="my-auto py-6">
+                  <div class="border border-white/20 rounded-2xl p-6 sm:p-8 bg-black/30 backdrop-blur-sm max-w-lg">
+                    <div class="flex items-center space-x-3 mb-4">
+                      <!-- Geometric Compass / Foil Icon -->
+                      <svg class="w-8 h-8 text-cyan-400" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="16" cy="16" r="14" stroke-opacity="0.4"/>
+                        <path d="M16 4V28M4 16H28"/>
+                        <polygon points="16,8 24,16 16,24 8,16" fill="rgba(34,211,238,0.2)"/>
+                      </svg>
+                      <div>
+                        <div class="font-display font-bold text-xl tracking-wide uppercase text-white">Vanguard</div>
+                        <div class="text-[10px] tracking-widest uppercase text-cyan-300 font-mono">Maritime Autonomous Systems</div>
+                      </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 pt-4 border-t border-white/15 text-center text-xs">
+                      <div class="bg-white/5 p-2 rounded">
+                        <span class="text-[10px] text-white/60 block">Emissions</span>
+                        <span class="font-bold text-cyan-300">0.0 g/km</span>
+                      </div>
+                      <div class="bg-white/5 p-2 rounded">
+                        <span class="text-[10px] text-white/60 block">Range</span>
+                        <span class="font-bold text-white">140 nm</span>
+                      </div>
+                      <div class="bg-white/5 p-2 rounded">
+                        <span class="text-[10px] text-white/60 block">Hull Code</span>
+                        <span class="font-bold text-white">VM-04 Hydro</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex justify-between items-end text-xs text-white/70 font-mono">
+                  <span>SYSTEM SPEC &bull; REV 2.4</span>
+                  <span>ATLANTIC PASSAGE CORP</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+
+        <!-- Case Study 03: Mesa & Vinhedo -->
+        <article class="group">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Visual Canvas -->
+            <div class="lg:col-span-7 order-1">
+              <div class="relative w-full aspect-[4/3] sm:aspect-[16/10] rounded-3xl overflow-hidden shadow-lg border border-sand-300 bg-gradient-to-br from-[#2D2A26] via-[#3E3832] to-[#1F1D1A] flex flex-col justify-between p-8 sm:p-12 text-sand-100" role="img" aria-label="Wine label and editorial brand identity for Mesa e Vinhedo natural wine estate">
+                
+                <div class="flex justify-between items-start">
+                  <div class="bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase border border-white/10 text-sand-200">
+                    Biodynamic Estate &bull; Dão Valley
+                  </div>
+                  <span class="text-xs font-display tracking-widest uppercase text-sand-300">Safra 2023</span>
+                </div>
+
+                <!-- Simulated Tactile Wine Label -->
+                <div class="my-auto py-6 flex justify-center">
+                  <div class="w-full max-w-xs bg-[#FBF9F5] text-sand-900 p-6 rounded shadow-2xl border border-sand-300/40 transform rotate-1 transition-transform group-hover:rotate-0 duration-500">
+                    <div class="text-center border-b border-sand-200 pb-4 mb-4">
+                      <p class="text-[10px] uppercase tracking-widest text-sand-800/60 font-semibold">Vinho Natural de Altitude</p>
+                      <h4 class="font-display font-extrabold text-2xl tracking-tight text-sand-900 mt-1">MESA &amp; VINHEDO</h4>
+                      <p class="text-xs text-terracotta italic mt-0.5">Encruzado &bull; Vinhas Velhas</p>
+                    </div>
+                    <div class="text-[11px] text-sand-800/80 leading-tight space-y-1 text-center font-serif">
+                      <p>Colheita manual em solos graníticos a 620 metros de altitude.</p>
+                      <p class="text-[10px] text-sand-800/60 pt-2">Fermentação espontânea com leveduras selvagens. Sem sulfito adicionado.</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-sand-200 flex justify-between items-center text-[10px] font-mono uppercase text-sand-800/70">
+                      <span>750ml</span>
+                      <span>12.5% Vol</span>
+                      <span>Garrafa 1.420</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex justify-between items-end text-xs text-sand-300/80">
+                  <span>Cotton Paper 160g &bull; Blind Emboss</span>
+                  <span>Penalva do Castelo</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="lg:col-span-5 order-2">
+              <div class="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-terracotta mb-2">
+                <span>03</span>
+                <span>&bull;</span>
+                <span>Viticulture &amp; Terroir</span>
+              </div>
+              <h3 class="font-display text-2xl sm:text-4xl font-bold tracking-tight text-sand-900 mb-4">
+                Mesa &amp; Vinhedo
+              </h3>
+              <p class="text-sand-800/85 leading-relaxed mb-6 text-base">
+                An organic low-intervention vineyard recovering ancient granite terrace plots in the Dão DOC. Created an understated label architecture and direct-to-consumer print catalog for small allocations across Parisian, Nordic, and Tokyo wine bars.
+              </p>
+
+              <div class="space-y-4 mb-8">
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-sand-900">The Challenge</h4>
+                  <p class="text-sm text-sand-800/75 mt-1">Standing out in high-end natural wine cellars while retaining the honest austerity of granite-grown Portuguese grapes.</p>
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold uppercase tracking-wider text-sand-900">The Solution</h4>
+                  <p class="text-sm text-sand-800/75 mt-1">A tactile label system using raw cotton stock, blind debossed soil elevations, wax capsule seals, and numbered botanical archive sheets.</p>
+                </div>
+              </div>
+
+              <!-- Metadata pills -->
+              <div class="flex flex-wrap gap-2 pt-2 border-t border-sand-200">
+                <span class="px-3 py-1 bg-sand-100 text-xs font-medium rounded-full text-sand-800">Label Architecture</span>
+                <span class="px-3 py-1 bg-sand-100 text-xs font-medium rounded-full text-sand-800">Print Production</span>
+                <span class="px-3 py-1 bg-sand-100 text-xs font-medium rounded-full text-sand-800">Art Direction</span>
+                <span class="px-3 py-1 bg-sand-100 text-xs font-medium rounded-full text-sand-800">Editorial Design</span>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Services / Capabilities Accordion & Summary -->
+    <section id="services" class="py-20 lg:py-28 max-w-7xl mx-auto px-6 sm:px-8 border-b border-sand-200/80">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        
+        <div class="lg:col-span-4">
+          <span class="text-xs font-bold uppercase tracking-widest text-terracotta">Capabilities</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight text-sand-900 mt-2 mb-4">
+            How we can work together.
+          </h2>
+          <p class="text-sand-800/80 text-sm leading-relaxed mb-6">
+            Engagements are structured either as comprehensive turnkey launches (6–10 weeks) or targeted design intensives for teams needing senior creative firepower.
+          </p>
+          <div class="p-5 rounded-2xl bg-sand-100 border border-sand-200">
+            <div class="text-xs font-bold uppercase tracking-wider text-sand-900 mb-1">Standard Scope</div>
+            <p class="text-xs text-sand-800/75 leading-relaxed">
+              Every identity package includes vector masters, web font licensing advisory, color calibration recipes (Pantone, CMYK, RGB), and an interactive digital style guide.
+            </p>
+          </div>
+        </div>
+
+        <!-- Capability Blocks -->
+        <div class="lg:col-span-8 space-y-4">
+
+          <div class="border border-sand-300/80 rounded-2xl bg-white p-6 sm:p-8">
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-terracotta">Tier 01</span>
+                <h3 class="font-display text-xl font-bold text-sand-900 mt-1">Foundational Brand Identity</h3>
+              </div>
+              <span class="text-xs font-semibold bg-sand-100 text-sand-800 px-3 py-1 rounded-full">From €4,800</span>
+            </div>
+            <p class="text-sm text-sand-800/80 mt-3 mb-4 leading-relaxed">
+              Ideal for new ventures or deliberate rebrands requiring a fresh, defensible position in crowded markets.
+            </p>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-sand-800/85">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-terracotta flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Core positioning &amp; voice principles
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-terracotta flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Logotype &amp; secondary mark suites
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-terracotta flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Custom color theory &amp; typography pairings
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-terracotta flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Complete brand guide &amp; asset repository
+              </li>
+            </ul>
+          </div>
+
+          <div class="border border-sand-300/80 rounded-2xl bg-white p-6 sm:p-8">
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-terracotta">Tier 02</span>
+                <h3 class="font-display text-xl font-bold text-sand-900 mt-1">Full-System Launch (Identity + Web + Print)</h3>
+              </div>
+              <span class="text-xs font-semibold bg-sand-100 text-sand-800 px-3 py-1 rounded-full">From €8,500</span>
+            </div>
+            <p class="text-sm text-sand-800/80 mt-3 mb-4 leading-relaxed">
+              Complete end-to-end realization for consumer brands, hospitality spaces, and design-led digital products.
+            </p>
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-sand-800/85">
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-terracotta flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Everything in Foundational Identity
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-terracotta flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Editorial print / packaging print oversight
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-terracotta flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Digital flagship design (Figma UI tokens)
+              </li>
+              <li class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-terracotta flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                Signage specs or physical collateral
+              </li>
+            </ul>
+          </div>
+
+          <div class="border border-sand-300/80 rounded-2xl bg-white p-6 sm:p-8">
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-terracotta">Tier 03</span>
+                <h3 class="font-display text-xl font-bold text-sand-900 mt-1">Quarterly Advisory &amp; Design Direction</h3>
+              </div>
+              <span class="text-xs font-semibold bg-sand-100 text-sand-800 px-3 py-1 rounded-full">Monthly Retainer</span>
+            </div>
+            <p class="text-sm text-sand-800/80 mt-3 text-xs leading-relaxed">
+              Ongoing fractional design direction for established ventures rolling out seasonal collections, packaging updates, and digital campaigns.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 lg:py-32 max-w-7xl mx-auto px-6 sm:px-8">
+      <div class="bg-sand-900 text-sand-50 rounded-3xl p-8 sm:p-14 lg:p-16 relative overflow-hidden">
+        
+        <!-- Subtle background accent -->
+        <div class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-terracotta/20 blur-3xl pointer-events-none"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+          
+          <!-- Column 1: Info & Context -->
+          <div class="lg:col-span-5 flex flex-col justify-between">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-terracotta">Inquiry Desk</span>
+              <h2 class="font-display text-3xl sm:text-5xl font-extrabold tracking-tight mt-2 mb-6 text-sand-50">
+                Let's shape your next chapter.
+              </h2>
+              <p class="text-sand-300 text-base leading-relaxed mb-8">
+                Currently booking projects starting in September &amp; October 2025. Whether you are launching an ambitious new enterprise or refining an established legacy, write a brief note below.
+              </p>
+            </div>
+
+            <div class="space-y-4 pt-6 border-t border-sand-800 text-sm">
+              <div class="flex items-center gap-3">
+                <span class="text-sand-400 w-24">Direct email:</span>
+                <a href="mailto:studio@inescarmo.design" class="text-sand-100 hover:text-terracotta transition-colors underline underline-offset-4 font-mono text-xs sm:text-sm">
+                  studio@inescarmo.design
+                </a>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-sand-400 w-24">Location:</span>
+                <span class="text-sand-200">Rua da Esperança 42, Santos, Lisboa</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="text-sand-400 w-24">Response:</span>
+                <span class="text-sand-200">Within 2 working business days</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Inquiry Form -->
+          <div class="lg:col-span-7 bg-sand-800/60 p-6 sm:p-10 rounded-2xl border border-sand-700/60">
+            <form id="inquiry-form" class="space-y-6" onsubmit="event.preventDefault();">
+              
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label for="name" class="block text-xs font-bold uppercase tracking-wider text-sand-300 mb-2">Your Name</label>
+                  <input type="text" id="name" name="name" required placeholder="Sofia Ribeiro" 
+                    class="w-full bg-sand-900/90 border border-sand-700 rounded-xl px-4 py-3 text-sand-50 placeholder-sand-600 focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta text-sm">
+                </div>
+                <div>
+                  <label for="email" class="block text-xs font-bold uppercase tracking-wider text-sand-300 mb-2">Work Email</label>
+                  <input type="email" id="email" name="email" required placeholder="sofia@estate.pt" 
+                    class="w-full bg-sand-900/90 border border-sand-700 rounded-xl px-4 py-3 text-sand-50 placeholder-sand-600 focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta text-sm">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label for="scope" class="block text-xs font-bold uppercase tracking-wider text-sand-300 mb-2">Project Scope</label>
+                  <select id="scope" name="scope" class="w-full bg-sand-900/90 border border-sand-700 rounded-xl px-4 py-3 text-sand-50 focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta text-sm">
+                    <option value="identity">Comprehensive Brand Identity</option>
+                    <option value="packaging">Packaging &amp; Label System</option>
+                    <option value="rebrand">Strategic Rebrand &amp; Digital UI</option>
+                    <option value="advisory">Creative Direction / Retainer</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="budget" class="block text-xs font-bold uppercase tracking-wider text-sand-300 mb-2">Estimated Budget Range</label>
+                  <select id="budget" name="budget" class="w-full bg-sand-900/90 border border-sand-700 rounded-xl px-4 py-3 text-sand-50 focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta text-sm">
+                    <option value="tier1">€4,000 – €7,000</option>
+                    <option value="tier2">€7,000 – €12,000</option>
+                    <option value="tier3">€12,000+</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label for="message" class="block text-xs font-bold uppercase tracking-wider text-sand-300 mb-2">Project Summary &amp; Timeline</label>
+                <textarea id="message" name="message" rows="4" required placeholder="Tell me about what you are building, your audience, and your target launch date..." 
+                  class="w-full bg-sand-900/90 border border-sand-700 rounded-xl px-4 py-3 text-sand-50 placeholder-sand-600 focus:outline-none focus:border-terracotta focus:ring-1 focus:ring-terracotta text-sm"></textarea>
+              </div>
+
+              <div class="flex items-center justify-between pt-2">
+                <span class="text-xs text-sand-400">All inquiries kept under standard NDA.</span>
+                <button type="submit" class="inline-flex items-center gap-2 bg-terracotta text-white font-medium px-7 py-3.5 rounded-full hover:bg-terracotta-dark transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-terracotta text-sm">
+                  <span>Send Inquiry</span>
+                  <svg class="w-4 h-4" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 8h12M10 4l4 4-4 4"/>
+                  </svg>
+                </button>
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-sand-200 bg-sand-50 py-12">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-sand-800/70">
+      <div class="flex items-center space-x-3">
+        <span class="font-display font-bold text-sm text-sand-900">Inês Carmo</span>
+        <span>&bull;</span>
+        <span>Independent Brand Designer &bull; Lisbon</span>
+      </div>
+
+      <div class="flex items-center space-x-6">
+        <a href="#top" class="hover:text-terracotta transition-colors">Back to top &uarr;</a>
+        <a href="#work" class="hover:text-terracotta transition-colors">Case Studies</a>
+        <a href="#contact" class="hover:text-terracotta transition-colors">Contact</a>
+      </div>
+
+      <div class="text-sand-800/50">
+        &copy; 2025 Inês Carmo. All visual assets and identities registered.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive Scripts -->
+  <script>
+    // Mobile navigation toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          menuToggle.setAttribute('aria-expanded', 'true');
+        } else {
+          mobileMenu.classList.add('hidden');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Close mobile menu when link is clicked
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // Smooth scroll offset handle
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

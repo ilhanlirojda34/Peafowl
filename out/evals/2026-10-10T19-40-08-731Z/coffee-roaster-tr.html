@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="tr" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mühürdar Roastery | Kadıköy Nitelikli Kahve Kavurma Atölyesi</title>
+  <meta name="description" content="Kadıköy Mühürdar'da küçük partilerle kavrulan nitelikli üçüncü nesil çekirdek kahveler ve kapınıza taze gelen kahve aboneliği.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            roast: {
+              50: '#FAF6F0',
+              100: '#F4ECE1',
+              200: '#E7D8C4',
+              300: '#D5BEA1',
+              600: '#8A5836',
+              700: '#6E4327',
+              800: '#432818',
+              900: '#27170E',
+              950: '#170E08',
+            },
+            terracotta: {
+              500: '#C85A32',
+              600: '#B04B26',
+            },
+            parchment: '#FBF8F3',
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Grain texture overlay */
+    .bg-grain {
+      background-image: radial-gradient(rgba(39, 23, 14, 0.08) 1px, transparent 0);
+      background-size: 24px 24px;
+    }
+    /* Smooth focus rings */
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+      outline: 2px solid #C85A32;
+      outline-offset: 2px;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-parchment text-roast-900 font-sans antialiased selection:bg-roast-200 selection:text-roast-900">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50 bg-[#FBF8F3]/90 backdrop-blur-md border-b border-roast-200/70 transition duration-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#" class="group flex items-center gap-3">
+        <span class="w-10 h-10 rounded-full bg-roast-900 text-roast-50 flex items-center justify-center font-serif font-bold text-xl group-hover:bg-terracotta-500 transition">
+          M
+        </span>
+        <div class="leading-tight">
+          <span class="block font-serif font-semibold text-lg sm:text-xl tracking-tight text-roast-950">Mühürdar Roastery</span>
+          <span class="block text-xs uppercase tracking-widest text-roast-600 font-medium">Kadıköy • İstanbul</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-roast-800" aria-label="Ana Gezinti">
+        <a href="#kavurma" class="hover:text-terracotta-500 transition">Felsefemiz</a>
+        <a href="#cekirdekler" class="hover:text-terracotta-500 transition">Çekirdek Çeşitleri</a>
+        <a href="#abonelik" class="hover:text-terracotta-500 transition">Abonelik</a>
+        <a href="#dukkan" class="hover:text-terracotta-500 transition">Atölye & Ziyaret</a>
+      </nav>
+
+      <!-- CTA Button & Mobile Trigger -->
+      <div class="flex items-center gap-3">
+        <a href="#abonelik" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-parchment bg-roast-900 rounded-full hover:bg-terracotta-500 transition shadow-sm">
+          Abonelik Başlat
+        </a>
+        <button id="mobile-menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden p-2 rounded-lg text-roast-900 hover:bg-roast-100" aria-label="Menüyü aç">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-roast-200 bg-parchment px-4 pt-2 pb-6 space-y-3">
+      <a href="#kavurma" class="mobile-nav-link block px-3 py-2 text-base font-medium rounded-md hover:bg-roast-100 text-roast-900">Felsefemiz</a>
+      <a href="#cekirdekler" class="mobile-nav-link block px-3 py-2 text-base font-medium rounded-md hover:bg-roast-100 text-roast-900">Çekirdek Çeşitleri</a>
+      <a href="#abonelik" class="mobile-nav-link block px-3 py-2 text-base font-medium rounded-md hover:bg-roast-100 text-roast-900">Kahve Aboneliği</a>
+      <a href="#dukkan" class="mobile-nav-link block px-3 py-2 text-base font-medium rounded-md hover:bg-roast-100 text-roast-900">Kadıköy Dükkân</a>
+      <a href="#abonelik" class="mobile-nav-link block text-center mt-3 px-4 py-2.5 text-sm font-semibold text-parchment bg-roast-900 rounded-full">Hemen Abone Ol</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden bg-grain">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-roast-100 border border-roast-200 text-xs font-semibold uppercase tracking-wider text-roast-700">
+              <span class="w-2 h-2 rounded-full bg-terracotta-500 animate-pulse"></span>
+              Kadıköy Mühürdar Caddesi'nde Taze Kavrum
+            </div>
+            
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-roast-950 font-bold tracking-tight leading-[1.12]">
+              Kahvenin aslı, Kadıköy’ün ritmiyle buluştu.
+            </h1>
+            
+            <p class="text-lg sm:text-xl text-roast-700 max-w-xl leading-relaxed">
+              Tek kökenli (Single Origin), izlenebilir çiftliklerden gelen yeşil çekirdekleri haftalık 5 kilogramlık partiler halinde tamburlu fırınımızda profillendiriyoruz. Gösterişsiz, berrak ve dürüst fincanlar.
+            </p>
+
+            <div class="pt-2 flex flex-col sm:flex-row gap-4">
+              <a href="#cekirdekler" class="inline-flex items-center justify-center px-7 py-3.5 rounded-full bg-roast-900 text-white font-medium hover:bg-terracotta-500 transition shadow-sm">
+                Çekirdekleri Keşfet
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+              <a href="#abonelik" class="inline-flex items-center justify-center px-7 py-3.5 rounded-full border border-roast-300 text-roast-900 font-medium hover:bg-roast-100 transition">
+                Abonelik Seçenekleri
+              </a>
+            </div>
+
+            <!-- Micro Metrics -->
+            <div class="pt-8 border-t border-roast-200/80 grid grid-cols-3 gap-4 text-left">
+              <div>
+                <span class="block font-serif text-2xl font-bold text-roast-950">86+</span>
+                <span class="text-xs text-roast-600">Minimum SCA Puanı</span>
+              </div>
+              <div>
+                <span class="block font-serif text-2xl font-bold text-roast-950">5 kg</span>
+                <span class="text-xs text-roast-600">Mikro Parti Hacmi</span>
+              </div>
+              <div>
+                <span class="block font-serif text-2xl font-bold text-roast-950">7 Gün</span>
+                <span class="text-xs text-roast-600">İdeal Dinlenme Süresi</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Craft Illustration / Graphic Placeholder -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative mx-auto max-w-md aspect-square rounded-3xl bg-gradient-to-tr from-roast-900 via-roast-800 to-roast-700 p-8 shadow-2xl flex flex-col justify-between text-parchment overflow-hidden border border-roast-600/30">
+              
+              <!-- Subtle Background Vector Waves -->
+              <svg class="absolute inset-0 w-full h-full opacity-10 pointer-events-none" viewBox="0 0 400 400" fill="none">
+                <circle cx="200" cy="200" r="160" stroke="#FFFFFF" stroke-width="2" stroke-dasharray="8 8"/>
+                <circle cx="200" cy="200" r="110" stroke="#FFFFFF" stroke-width="1.5"/>
+                <circle cx="200" cy="200" r="60" stroke="#FFFFFF" stroke-width="1"/>
+              </svg>
+
+              <div class="flex justify-between items-start z-10">
+                <span class="text-xs tracking-widest uppercase font-mono bg-roast-950/60 backdrop-blur px-3 py-1 rounded-full border border-roast-700/50">
+                  Parti No: #24-118
+                </span>
+                <span class="text-xs font-serif italic text-roast-200">Kavrum: Dün Sabah</span>
+              </div>
+
+              <!-- Graphic Center -->
+              <div class="my-auto text-center z-10 py-6">
+                <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-b from-terracotta-500 to-roast-700 flex items-center justify-center shadow-inner mb-4">
+                  <!-- Roasting Bean Icon -->
+                  <svg class="w-10 h-10 text-roast-50" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79.09.28.2.56.32.84 1.13 2.65 3.51 4.54 6.35 4.86.04 1.34.08 2.69.12 4.02zm4.79-3.41c-1.39-2.39-3.89-4.04-6.79-4.46V4.07c3.95.49 7 3.85 7 7.93 0 1.63-.52 3.14-1.42 4.39l1.21.13z"/>
+                  </svg>
+                </div>
+                <h2 class="font-serif text-2xl font-semibold">Giesent 5kg Döküm Tambur</h2>
+                <p class="text-xs text-roast-300 mt-1">Hassas ısı kontrolü & açık-orta kavrum profili</p>
+              </div>
+
+              <!-- Card Bottom Note -->
+              <div class="z-10 bg-roast-950/50 backdrop-blur rounded-xl p-3 border border-roast-700/40 text-xs flex items-center justify-between">
+                <div>
+                  <p class="text-roast-200">Haftalık Menü: <strong class="text-white">4 Farklı Köken</strong></p>
+                  <p class="text-[11px] text-roast-400">Yıkanmış & Doğal fermantasyon</p>
+                </div>
+                <span class="px-2.5 py-1 bg-terracotta-500/20 text-terracotta-500 border border-terracotta-500/30 rounded font-mono text-[11px]">Taze</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: OUR CRAFT / PHILOSOPHY -->
+    <section id="kavurma" class="py-20 bg-white border-y border-roast-200/60">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mx-auto text-center mb-16">
+          <h2 class="text-xs uppercase tracking-widest font-bold text-terracotta-500 mb-2">Nasıl Çalışıyoruz?</h2>
+          <h3 class="font-serif text-3xl sm:text-4xl font-bold text-roast-950">Çiftlikten Fincana: Nitelik ve Şeffaflık</h3>
+          <p class="text-roast-700 mt-4 leading-relaxed">
+            Kahve bizim için sabah içilen bir uyarıcıdan fazlası. Coğrafyanın, iklimin ve üreticinin emeğinin bardaktaki açık ifadesi.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Step 1 -->
+          <div class="p-8 rounded-2xl bg-parchment border border-roast-200/70 hover:border-roast-300 transition flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-roast-100 text-roast-800 flex items-center justify-center font-serif font-bold text-lg mb-6">
+                01
+              </div>
+              <h4 class="font-serif text-xl font-bold text-roast-950 mb-3">İzlenebilir Yeşil Çekirdek</h4>
+              <p class="text-sm text-roast-700 leading-relaxed">
+                Yalnızca üreticisi, rakımı ve işleme yöntemi belgelenmiş doğrudan ticaret (direct trade) veya saygın ithalatçılar üzerinden gelen mikro lotları seçiyoruz.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-roast-200/50 text-xs font-semibold text-roast-600">
+              Yüksek rakım (1700m - 2200m)
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="p-8 rounded-2xl bg-parchment border border-roast-200/70 hover:border-roast-300 transition flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-roast-100 text-roast-800 flex items-center justify-center font-serif font-bold text-lg mb-6">
+                02
+              </div>
+              <h4 class="font-serif text-xl font-bold text-roast-950 mb-3">Parti Başına Profilleme</h4>
+              <p class="text-sm text-roast-700 leading-relaxed">
+                Her hasadın yoğunluğu ve nem oranı farklıdır. Numune kavurmalar ile çekirdeğin doğal asidite ve tatlılığını maskelemeden en berrak halini buluyoruz.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-roast-200/50 text-xs font-semibold text-roast-600">
+              Açık / Orta-Açık Omni Kavrum
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="p-8 rounded-2xl bg-parchment border border-roast-200/70 hover:border-roast-300 transition flex flex-col justify-between">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-roast-100 text-roast-800 flex items-center justify-center font-serif font-bold text-lg mb-6">
+                03
+              </div>
+              <h4 class="font-serif text-xl font-bold text-roast-950 mb-3">Tazelik ve Gaz Salımı</h4>
+              <p class="text-sm text-roast-700 leading-relaxed">
+                Kavurmadan hemen sonra değil, doğru dinlenme (degassing) penceresini gözeterek paketliyoruz. Her paketin üzerinde gerçek kavurma tarihi damgalanır.
+              </p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-roast-200/50 text-xs font-semibold text-roast-600">
+              Tek yönlü valfli koruyucu paketler
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: COFFEE BEANS SHOWCASE -->
+    <section id="cekirdekler" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div>
+          <h2 class="text-xs uppercase tracking-widest font-bold text-terracotta-500 mb-2">Güncel Kavrum Menüsü</h2>
+          <h3 class="font-serif text-3xl sm:text-4xl font-bold text-roast-950">Tek Kökenli Çekirdeklerimiz</h3>
+          <p class="text-roast-700 mt-2">Bu hafta raflarımızda ve tezgâhımızda yer alan seçkiler.</p>
+        </div>
+
+        <!-- Filter Buttons (Functional Tabs) -->
+        <div class="inline-flex p-1 bg-roast-100 rounded-xl text-xs font-semibold" role="tablist" aria-label="Kahve Filtresi">
+          <button type="button" class="bean-filter-btn px-4 py-2 rounded-lg bg-white shadow-sm text-roast-950 transition" data-filter="all">Tümü</button>
+          <button type="button" class="bean-filter-btn px-4 py-2 rounded-lg text-roast-700 hover:text-roast-950 transition" data-filter="filtre">Filtre İçin</button>
+          <button type="button" class="bean-filter-btn px-4 py-2 rounded-lg text-roast-700 hover:text-roast-950 transition" data-filter="espresso">Espresso İçin</button>
+        </div>
+      </div>
+
+      <!-- Coffee Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="beans-grid">
+        
+        <!-- Bean 1: Ethiopia -->
+        <article class="bean-card group bg-white rounded-2xl border border-roast-200 overflow-hidden flex flex-col justify-between hover:shadow-lg transition duration-300" data-type="filtre">
+          <div class="p-6">
+            <!-- Header tag -->
+            <div class="flex items-center justify-between text-xs mb-4">
+              <span class="px-2.5 py-1 rounded bg-amber-50 text-amber-800 font-semibold border border-amber-200">Etiyopya • Yirgacheffe</span>
+              <span class="text-roast-600 font-mono font-medium">SCA: 87.5</span>
+            </div>
+
+            <h4 class="font-serif text-2xl font-bold text-roast-950 group-hover:text-terracotta-500 transition">Idido G1</h4>
+            <p class="text-xs text-roast-600 mt-1 mb-4">Yıkanmış (Washed) • Rakım: 2.100 m</p>
+
+            <!-- Tasting Notes -->
+            <div class="space-y-3 mb-6">
+              <div class="text-xs font-medium text-roast-500 uppercase tracking-wider">Tadım Notaları</div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-md bg-roast-50 text-roast-800 text-xs font-medium border border-roast-200/60">Bergamot</span>
+                <span class="px-2.5 py-1 rounded-md bg-roast-50 text-roast-800 text-xs font-medium border border-roast-200/60">Yasemin</span>
+                <span class="px-2.5 py-1 rounded-md bg-roast-50 text-roast-800 text-xs font-medium border border-roast-200/60">Beyaz Şeftali</span>
+              </div>
+            </div>
+
+            <p class="text-sm text-roast-700 leading-relaxed">
+              Zarif çiçeksi aromalar, canlı narenciye asiditesi ve çay benzeri hafif, berrak bir gövde. V60 ve Aeropress demlemeleri için mükemmel.
+            </p>
+          </div>
+
+          <div class="p-6 bg-roast-50/70 border-t border-roast-100 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-roast-500 block">250g Paket</span>
+              <span class="font-serif font-bold text-xl text-roast-950">340 ₺</span>
+            </div>
+            <a href="#abonelik" class="text-xs font-semibold uppercase tracking-wider text-terracotta-500 hover:text-terracotta-600 inline-flex items-center">
+              Aboneliğe Ekle
+              <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Bean 2: Colombia -->
+        <article class="bean-card group bg-white rounded-2xl border border-roast-200 overflow-hidden flex flex-col justify-between hover:shadow-lg transition duration-300" data-type="all">
+          <div class="p-6">
+            <div class="flex items-center justify-between text-xs mb-4">
+              <span class="px-2.5 py-1 rounded bg-rose-50 text-rose-800 font-semibold border border-rose-200">Kolombiya • Huila</span>
+              <span class="text-roast-600 font-mono font-medium">SCA: 86.75</span>
+            </div>
+
+            <h4 class="font-serif text-2xl font-bold text-roast-950 group-hover:text-terracotta-500 transition">Finca El Paraiso</h4>
+            <p class="text-xs text-roast-600 mt-1 mb-4">Pink Bourbon • Çift Fermantasyon • Rakım: 1.850 m</p>
+
+            <div class="space-y-3 mb-6">
+              <div class="text-xs font-medium text-roast-500 uppercase tracking-wider">Tadım Notaları</div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-md bg-roast-50 text-roast-800 text-xs font-medium border border-roast-200/60">Kırmızı Meyveler</span>
+                <span class="px-2.5 py-1 rounded-md bg-roast-50 text-roast-800 text-xs font-medium border border-roast-200/60">Karamel</span>
+                <span class="px-2.5 py-1 rounded-md bg-roast-50 text-roast-800 text-xs font-medium border border-roast-200/60">Sütlü Çikolata</span>
+              </div>
+            </div>
+
+            <p class="text-sm text-roast-700 leading-relaxed">
+              Dengeli, tatlılığı yüksek ve ipeksi bitiş. Hem aromatik filtre demlemelerinde hem de modern espresso profillerinde parlar.
+            </p>
+          </div>
+
+          <div class="p-6 bg-roast-50/70 border-t border-roast-100 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-roast-500 block">250g Paket</span>
+              <span class="font-serif font-bold text-xl text-roast-950">360 ₺</span>
+            </div>
+            <a href="#abonelik" class="text-xs font-semibold uppercase tracking-wider text-terracotta-500 hover:text-terracotta-600 inline-flex items-center">
+              Aboneliğe Ekle
+              <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Bean 3: Guatemala -->
+        <article class="bean-card group bg-white rounded-2xl border border-roast-200 overflow-hidden flex flex-col justify-between hover:shadow-lg transition duration-300" data-type="espresso">
+          <div class="p-6">
+            <div class="flex items-center justify-between text-xs mb-4">
+              <span class="px-2.5 py-1 rounded bg-amber-50 text-amber-900 font-semibold border border-amber-300">Guatemala • Huehuetenango</span>
+              <span class="text-roast-600 font-mono font-medium">SCA: 85.5</span>
+            </div>
+
+            <h4 class="font-serif text-2xl font-bold text-roast-950 group-hover:text-terracotta-500 transition">La Providencia</h4>
+            <p class="text-xs text-roast-600 mt-1 mb-4">Yıkanmış • Caturra & Bourbon • Rakım: 1.650 m</p>
+
+            <div class="space-y-3 mb-6">
+              <div class="text-xs font-medium text-roast-500 uppercase tracking-wider">Tadım Notaları</div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-md bg-roast-50 text-roast-800 text-xs font-medium border border-roast-200/60">Bitter Çikolata</span>
+                <span class="px-2.5 py-1 rounded-md bg-roast-50 text-roast-800 text-xs font-medium border border-roast-200/60">Kavrulmuş Fındık</span>
+                <span class="px-2.5 py-1 rounded-md bg-roast-50 text-roast-800 text-xs font-medium border border-roast-200/60">Esmer Şeker</span>
+              </div>
+            </div>
+
+            <p class="text-sm text-roast-700 leading-relaxed">
+              Yoğun gövdeli, düşük asiditeli ve fındıksı çikolata tatlılığı. Sütlü kahveler, moka pot ve klasik espresso sevenler için biçilmiş kaftan.
+            </p>
+          </div>
+
+          <div class="p-6 bg-roast-50/70 border-t border-roast-100 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-roast-500 block">250g Paket</span>
+              <span class="font-serif font-bold text-xl text-roast-950">320 ₺</span>
+            </div>
+            <a href="#abonelik" class="text-xs font-semibold uppercase tracking-wider text-terracotta-500 hover:text-terracotta-600 inline-flex items-center">
+              Aboneliğe Ekle
+              <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Bean 4: Rwanda -->
+        <article class="bean-card group bg-white rounded-2xl border border-roast-200 overflow-hidden flex flex-col justify-between hover:shadow-lg transition duration-300" data-type="filtre">
+          <div class="p-6">
+            <div class="flex items-center justify-between text-xs mb-4">
+              <span class="px-2.5 py-1 rounded bg-emerald-50 text-emerald-900 font-semibold border border-emerald-200">Ruanda • Nyamasheke</span>
+              <span class="text-roast-600 font-mono font-medium">SCA: 87.0</span>
+            </div>
+
+            <h4 class="font-serif text-2xl font-bold text-roast-950 group-hover:text-terracotta-500 transition">Kigeyo Station</h4>
+            <p class="text-xs text-roast-600 mt-1 mb-4">Doğal (Natural) • Red Bourbon • Rakım: 1.900 m</p>
+
+            <div class="space-y-3 mb-6">
+              <div class="text-xs font-medium text-roast-500 uppercase tracking-wider">Tadım Notaları</div>
+              <div class="flex flex-wrap gap-1.5">
+                <span class="px-2.5 py-1 rounded-md bg-roast-50 text-roast-800 text-xs font-medium border border-roast-200/60">Yaban Mersini</span>
+                <span class="px-2.5 py-1 rounded-md bg-roast-50 text-roast-800 text-xs font-medium border border-roast-200/60">Limon Otu</span>
+                <span class="px-2.5 py-1 rounded-md bg-roast-50 text-roast-800 text-xs font-medium border border-roast-200/60">Bal</span>
+              </div>
+            </div>
+
+            <p class="text-sm text-roast-700 leading-relaxed">
+              Katmanlı meyvemsilik, canlı parlak asidite ve damakta uzun süren tatlı petek balı hissi. Soğuk demleme ve filtre için eşsiz.
+            </p>
+          </div>
+
+          <div class="p-6 bg-roast-50/70 border-t border-roast-100 flex items-center justify-between">
+            <div>
+              <span class="text-xs text-roast-500 block">250g Paket</span>
+              <span class="font-serif font-bold text-xl text-roast-950">350 ₺</span>
+            </div>
+            <a href="#abonelik" class="text-xs font-semibold uppercase tracking-wider text-terracotta-500 hover:text-terracotta-600 inline-flex items-center">
+              Aboneliğe Ekle
+              <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECTION: SUBSCRIPTION (ABONELİK) -->
+    <section id="abonelik" class="py-20 bg-roast-950 text-parchment relative overflow-hidden">
+      <!-- Background Decorative Circles -->
+      <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-roast-800/40 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-terracotta-500/10 blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <span class="text-xs uppercase tracking-widest font-bold text-terracotta-500 mb-2 block">Sürekli Taze Kahve</span>
+          <h2 class="font-serif text-3xl sm:text-5xl font-bold tracking-tight text-white">
+            Kadıköy’den Kapınıza Düzenli Sevkiyat
+          </h2>
+          <p class="text-roast-300 mt-4 text-base sm:text-lg">
+            Kahveniz bitmeden, kavurma günümüzden 48 saat sonra kapınızda. Taahhüt yok, istediğiniz an durdurun veya iptal edin.
+          </p>
+        </div>
+
+        <!-- Subscription Interactive Builder -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+          
+          <!-- Plan 1 -->
+          <div class="rounded-3xl bg-roast-900 border border-roast-800 p-8 flex flex-col justify-between hover:border-roast-600 transition">
+            <div>
+              <div class="flex justify-between items-baseline mb-4">
+                <h3 class="font-serif text-2xl font-bold text-white">Keşifçi Paketi</h3>
+                <span class="text-xs uppercase tracking-wider text-roast-400 font-mono">1-2 Kişilik</span>
+              </div>
+              <p class="text-sm text-roast-300 mb-6">Her ay iki farklı kökenden seçilen taze çekirdeklerle yeni tatlar denemek isteyenler için.</p>
+              
+              <div class="mb-6 pb-6 border-b border-roast-800">
+                <span class="font-serif text-4xl font-bold text-white">620 ₺</span>
+                <span class="text-sm text-roast-400">/ ay</span>
+                <p class="text-xs text-roast-400 mt-1">2 x 250g (Toplam 500g kahve)</p>
+              </div>
+
+              <ul class="space-y-3 text-sm text-roast-200 mb-8">
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-terracotta-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  2 farklı çiftlik / köken
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-terracotta-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Ücretsiz kargo (Türkiye geneli)
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-terracotta-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Demleme ve reçete kartı dahil
+                </li>
+              </ul>
+            </div>
+
+            <button type="button" class="select-plan-btn w-full py-3.5 px-4 rounded-xl border border-roast-700 font-semibold text-white hover:bg-white hover:text-roast-950 transition">
+              Bu Paketi Seç
+            </button>
+          </div>
+
+          <!-- Plan 2 (Highlighted) -->
+          <div class="rounded-3xl bg-gradient-to-b from-roast-900 to-roast-950 border-2 border-terracotta-500 p-8 flex flex-col justify-between relative shadow-xl">
+            <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-terracotta-500 text-white text-xs uppercase font-bold tracking-widest px-4 py-1 rounded-full shadow-sm">
+              En Sevilen Tercih
+            </div>
+
+            <div>
+              <div class="flex justify-between items-baseline mb-4">
+                <h3 class="font-serif text-2xl font-bold text-white">Müdavim Paketi</h3>
+                <span class="text-xs uppercase tracking-wider text-terracotta-500 font-mono">Günlük Tüketici</span>
+              </div>
+              <p class="text-sm text-roast-300 mb-6">Güne nitelikli kahveyle başlayıp gün boyu demlemeye devam eden Kadıköy ruhlu evler için.</p>
+              
+              <div class="mb-6 pb-6 border-b border-roast-800">
+                <span class="font-serif text-4xl font-bold text-white">890 ₺</span>
+                <span class="text-sm text-roast-400">/ ay</span>
+                <p class="text-xs text-roast-400 mt-1">3 x 250g (Toplam 750g kahve)</p>
+              </div>
+
+              <ul class="space-y-3 text-sm text-roast-200 mb-8">
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-terracotta-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  3 farklı köken (1 mikro parti özel lot dahil)
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-terracotta-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Ücretsiz kargo
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-terracotta-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Kadıköy atölyede her ay 1 ücretsiz fincan ikramı
+                </li>
+              </ul>
+            </div>
+
+            <button type="button" class="select-plan-btn w-full py-3.5 px-4 rounded-xl bg-terracotta-500 font-semibold text-white hover:bg-terracotta-600 transition shadow-lg">
+              Müdavim Aboneliği Başlat
+            </button>
+          </div>
+
+          <!-- Plan 3 -->
+          <div class="rounded-3xl bg-roast-900 border border-roast-800 p-8 flex flex-col justify-between hover:border-roast-600 transition">
+            <div>
+              <div class="flex justify-between items-baseline mb-4">
+                <h3 class="font-serif text-2xl font-bold text-white">Atölye Hacim</h3>
+                <span class="text-xs uppercase tracking-wider text-roast-400 font-mono">Ofis / Kalabalık Ev</span>
+              </div>
+              <p class="text-sm text-roast-300 mb-6">Ofisler, küçük ekipler veya günde birden çok pot filtre kahve demleyen tiryakiler için.</p>
+              
+              <div class="mb-6 pb-6 border-b border-roast-800">
+                <span class="font-serif text-4xl font-bold text-white">1.150 ₺</span>
+                <span class="text-sm text-roast-400">/ ay</span>
+                <p class="text-xs text-roast-400 mt-1">4 x 250g veya 1 x 1kg paket</p>
+              </div>
+
+              <ul class="space-y-3 text-sm text-roast-200 mb-8">
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-terracotta-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Seçtiğiniz kavrum profili (Filtre / Espresso)
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-terracotta-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  2 haftada bir çift gönderim opsiyonu
+                </li>
+                <li class="flex items-center gap-2">
+                  <svg class="w-4 h-4 text-terracotta-500 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                  Öğütüm tipi seçimi
+                </li>
+              </ul>
+            </div>
+
+            <button type="button" class="select-plan-btn w-full py-3.5 px-4 rounded-xl border border-roast-700 font-semibold text-white hover:bg-white hover:text-roast-950 transition">
+              Bu Paketi Seç
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Interactive Grind Selection Modal or Drawer Notice -->
+        <div class="mt-12 p-6 rounded-2xl bg-roast-900/60 border border-roast-800 text-xs sm:text-sm text-roast-300 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <span class="p-2 bg-roast-800 rounded-lg text-terracotta-500">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </span>
+            <span>Abonelikte öğütüm tipi: <strong>Çekirdek</strong>, <strong>V60 / Filtre</strong>, <strong>Espresso</strong> veya <strong>French Press</strong> olarak sipariş esnasında belirlenir.</span>
+          </div>
+          <span class="text-roast-400 font-mono">Dilediğiniz an tek tıkla ara verin.</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: THE ROASTERY & KADIKÖY SHOP -->
+    <section id="dukkan" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 space-y-6">
+          <span class="text-xs uppercase tracking-widest font-bold text-terracotta-500">Moda & Mühürdar Arasında</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-roast-950">
+            Kavurma sesleri, taze kahve kokusu ve bir tabure.
+          </h2>
+          <p class="text-roast-700 leading-relaxed">
+            Dükkânımız klasik bir kafe değil; bir kavurma atölyesi. Salı ve Cuma günleri tamburumuz dönerken içeri girip kavrumu izleyebilir, tezgâhtaki baristamızla o günün partisi üzerine sohbet edebilirsiniz.
+          </p>
+
+          <!-- Store Details List -->
+          <div class="space-y-4 pt-2">
+            <div class="flex items-start gap-3">
+              <span class="mt-1 text-terracotta-500">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </span>
+              <div>
+                <strong class="block text-roast-950 font-semibold">Adresimiz</strong>
+                <span class="text-roast-700 text-sm">Caferağa Mah. Mühürdar Cad. No: 42/B, Kadıköy / İstanbul</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="mt-1 text-terracotta-500">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </span>
+              <div>
+                <strong class="block text-roast-950 font-semibold">Çalışma Saatleri</strong>
+                <span class="text-roast-700 text-sm">Salı – Pazar: 09:30 – 19:30 (Pazartesi kavrum hazırlığı nedeniyle kapalıyız)</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <span class="mt-1 text-terracotta-500">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+              </span>
+              <div>
+                <strong class="block text-roast-950 font-semibold">Haftalık Cupping (Tadım) Seansları</strong>
+                <span class="text-roast-700 text-sm">Her Cumartesi 11:00'de sınırlı 6 kişilik masa etrafında masaya açılan yeni hasatları tadıyoruz.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stylized Map & Visual Block -->
+        <div class="lg:col-span-6">
+          <div class="rounded-3xl bg-roast-100 border border-roast-200 p-8 shadow-sm relative overflow-hidden flex flex-col justify-between min-h-[380px]">
+            <!-- Graphic Kadıköy Grid Pattern -->
+            <div class="space-y-4">
+              <div class="inline-flex items-center gap-2 px-3 py-1 bg-white rounded-full text-xs font-semibold text-roast-800 shadow-sm border border-roast-200">
+                <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+                Bugün Açık • Filtre Barı Aktif
+              </div>
+
+              <div class="mt-4">
+                <p class="font-serif text-2xl font-bold text-roast-950">Moda Tramvayından 3 Dakika</p>
+                <p class="text-sm text-roast-600 mt-1">Kilise sokağını geçip sağa döndüğünüzde kavurma kokusunu takip edin.</p>
+              </div>
+            </div>
+
+            <!-- Visual representation of Cupping card -->
+            <div class="my-6 p-4 rounded-xl bg-white border border-roast-200 text-xs space-y-2">
+              <div class="flex justify-between font-medium text-roast-800 border-b border-roast-100 pb-1.5">
+                <span>Günün Bar İkramı:</span>
+                <span class="font-mono text-terracotta-500">Batch Brew Etiyopya</span>
+              </div>
+              <p class="text-roast-600">Kendi termosunu getiren mahalle sakinlerine çekirdek alımlarında %10 indirim uyguluyoruz.</p>
+            </div>
+
+            <div class="pt-4 border-t border-roast-200 flex items-center justify-between">
+              <span class="text-xs text-roast-600 font-mono">Kadıköy Vapur İskelesi: 700m</span>
+              <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-roast-950 hover:text-terracotta-500">
+                Haritada Gör
+                <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION: NEWSLETTER / CLOSING CALL -->
+    <section class="py-16 bg-roast-100/70 border-t border-roast-200/80">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-6">
+        <h2 class="font-serif text-3xl font-bold text-roast-950">Yeni Lotlardan İlk Sizin Haberiniz Olsun</h2>
+        <p class="text-roast-700 text-sm sm:text-base max-w-xl mx-auto">
+          Ayda en fazla 2 kez bülten gönderiyoruz: yeni gelen mikro hasatlar, cupping tarihleri ve Kadıköy kavurma takvimi.
+        </p>
+
+        <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-2" onsubmit="event.preventDefault();">
+          <label for="email-subscribe" class="sr-only">E-posta adresiniz</label>
+          <input 
+            type="email" 
+            id="email-subscribe" 
+            placeholder="E-posta adresiniz" 
+            required 
+            class="flex-1 px-4 py-3 rounded-xl border border-roast-300 bg-white text-sm text-roast-900 focus:outline-none focus:ring-2 focus:ring-terracotta-500"
+          >
+          <button type="submit" class="px-6 py-3 rounded-xl bg-roast-900 text-white font-semibold text-sm hover:bg-terracotta-500 transition shadow-sm">
+            Kayıt Ol
+          </button>
+        </form>
+        <p class="text-[11px] text-roast-500">Spam göndermiyoruz. İstediğiniz an bültenden ayrılabilirsiniz.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-roast-950 text-roast-300 py-12 border-t border-roast-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        
+        <!-- Brand Col -->
+        <div class="md:col-span-2 space-y-3">
+          <div class="flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-terracotta-500 text-white flex items-center justify-center font-serif font-bold text-base">
+              M
+            </span>
+            <span class="font-serif font-bold text-lg text-white">Mühürdar Roastery</span>
+          </div>
+          <p class="text-xs text-roast-400 max-w-sm leading-relaxed">
+            Kadıköy merkezli bağımsız kahve kavurma atölyesi. Nitelikli yeşil çekirdek, şeffaf tedarik ve taze parti üretimi.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="text-xs space-y-2">
+          <div class="text-white font-semibold uppercase tracking-wider mb-3">Keşif</div>
+          <div><a href="#cekirdekler" class="hover:text-white transition">Tek Kökenli Çekirdekler</a></div>
+          <div><a href="#abonelik" class="hover:text-white transition">Kahve Aboneliği</a></div>
+          <div><a href="#kavurma" class="hover:text-white transition">Kavurma Yaklaşımımız</a></div>
+          <div><a href="#dukkan" class="hover:text-white transition">Kadıköy Atölye Bilgileri</a></div>
+        </div>
+
+        <!-- Contact info -->
+        <div class="text-xs space-y-2">
+          <div class="text-white font-semibold uppercase tracking-wider mb-3">İletişim & Konum</div>
+          <p class="text-roast-400">Caferağa Mah. Mühürdar Cad. No: 42/B, Kadıköy</p>
+          <p class="text-roast-400">merhaba@muhurdarroastery.com</p>
+          <div class="pt-2 text-roast-400 flex gap-3">
+            <span class="hover:text-white cursor-pointer transition">Instagram: @muhurdar.roasters</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="pt-8 border-t border-roast-900 flex flex-col sm:flex-row justify-between items-center text-xs text-roast-500 gap-4">
+        <div>
+          &copy; 2025 Mühürdar Roastery Kadıköy. Tüm hakları saklıdır.
+        </div>
+        <div class="flex gap-4">
+          <a href="#" class="hover:underline">Gizlilik Bildirimi</a>
+          <a href="#" class="hover:underline">Mesafeli Satış Koşulları</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT FOR INTERACTIONS -->
+  <script>
+    // 1. Mobile Menu Toggle
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    menuBtn.addEventListener('click', () => {
+      const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', !isExpanded);
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // 2. Coffee Filter Tabs
+    const filterBtns = document.querySelectorAll('.bean-filter-btn');
+    const beanCards = document.querySelectorAll('.bean-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Toggle Active tab button style
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-white', 'shadow-sm', 'text-roast-950');
+          b.classList.add('text-roast-700');
+        });
+        btn.classList.add('bg-white', 'shadow-sm', 'text-roast-950');
+        btn.classList.remove('text-roast-700');
+
+        const filter = btn.getAttribute('data-filter');
+
+        beanCards.forEach(card => {
+          const type = card.getAttribute('data-type');
+          if (filter === 'all' || type === filter || type === 'all') {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // 3. Subscription plan smooth selection feedback
+    const planButtons = document.querySelectorAll('.select-plan-btn');
+    planButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const originalText = button.textContent;
+        button.textContent = 'Seçildi ✓';
+        setTimeout(() => {
+          button.textContent = originalText;
+        }, 1800);
+      });
+    });
+  </script>
+</body>
+</html>

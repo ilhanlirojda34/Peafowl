@@ -1,0 +1,14 @@
+{
+  "name": "@peafowl/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@peafowl/db": "*",
+    "@peafowl/generator": "*",
+    "@peafowl/jobs": "*",
+    "@peafowl/shared": "*",
+    "drizzle-orm": "^0.45.4",
+    "zod": "^4.6.5"
+  }
+}

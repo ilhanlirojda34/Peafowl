@@ -7,18 +7,17 @@
     "node": ">=22"
   },
   "scripts": {
-    "generate": "tsx --env-file-if-exists=.env src/cli.ts",
-    "eval": "tsx --env-file-if-exists=.env evals/run.ts",
+    "dev:api": "tsx watch --env-file-if-exists=.env apps/api/src/main.ts",
+    "dev:worker": "tsx watch --env-file-if-exists=.env apps/worker/src/main.ts",
+    "generate": "tsx --env-file-if-exists=.env packages/generator/src/cli.ts",
+    "eval": "tsx --env-file-if-exists=.env packages/generator/evals/run.ts",
+    "db:generate": "npm run db:generate -w @peafowl/db --",
+    "db:migrate": "tsx --env-file-if-exists=.env packages/db/src/migrate.ts",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "test": "tsx --test \"src/**/*.test.ts\" \"evals/**/*.test.ts\""
-  },
-  "dependencies": {
-    "@ai-sdk/google": "^4.0.93",
-    "ai": "^7.0.136",
-    "pino": "^10.4.0",
-    "zod": "^4.6.5"
+    "test": "tsx --test \"packages/*/src/**/*.test.ts\" \"packages/*/evals/**/*.test.ts\" \"apps/*/src/**/*.test.ts\"",
+    "test:integration": "tsx --env-file-if-exists=.env --test --test-concurrency=1 \"packages/*/test/**/*.test.ts\" \"apps/*/test/**/*.test.ts\""
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -29,5 +28,9 @@
     "tsx": "^4.23.15",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.71.1"
-  }
+  },
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
 }
